@@ -1,0 +1,16 @@
+# 环境与密钥
+.env
+__pycache__/
+*.pyc
+*.pyo
+
+# 缓存 / 临时
+raw/
+*.log
+
+# 个人工作记忆（不随作品公开）
+memory/
+
+# 操作系统 / 编辑器
+.DS_Store
+Thumbs.db

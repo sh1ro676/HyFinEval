@@ -1,0 +1,1371 @@
+{
+  "summary": {
+    "use_hy3_app": false,
+    "use_hy3_judge": false,
+    "app_sample_count": 61,
+    "val_sample_count": 20,
+    "app_overall_avg": 81.3,
+    "by_subtask": {
+      "财报指标提取": 77.5,
+      "财务问答": 75.6,
+      "公告摘要": 95.5
+    },
+    "by_difficulty": {
+      "易": 91.4,
+      "中": 74.7,
+      "难": 76.2,
+      "反例": 82.8
+    },
+    "discrimination": {
+      "好": 72.0,
+      "中": 44.5,
+      "差": 32.0,
+      "对抗": 32.0
+    },
+    "consistency_spearman": 0.998,
+    "consistency_app_spearman": 0.073,
+    "adversarial_avg": 32.0,
+    "discrimination_ok": true
+  },
+  "app_results": [
+    {
+      "id": "FIN-001",
+      "subtask": "财报指标提取",
+      "difficulty": "易",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0
+      },
+      "overall": 100.0,
+      "failure_mode": "无明显失败模式",
+      "output": "扣非净利润：52581102656.24（单位：元，来源：600519 2021年报口径）"
+    },
+    {
+      "id": "FIN-002",
+      "subtask": "财报指标提取",
+      "difficulty": "易",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0
+      },
+      "overall": 100.0,
+      "failure_mode": "无明显失败模式",
+      "output": "主营业务利润：81902307963.77（单位：元，来源：600519 2021年报口径）"
+    },
+    {
+      "id": "FIN-003",
+      "subtask": "财报指标提取",
+      "difficulty": "易",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0
+      },
+      "overall": 100.0,
+      "failure_mode": "无明显失败模式",
+      "output": "总资产：255168195159.9（单位：元，来源：600519 2021年报口径）"
+    },
+    {
+      "id": "FIN-004",
+      "subtask": "财报指标提取",
+      "difficulty": "易",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0
+      },
+      "overall": 100.0,
+      "failure_mode": "无明显失败模式",
+      "output": "资产负债率：22.8127（单位：元，来源：600519 2021年报口径）"
+    },
+    {
+      "id": "FIN-005",
+      "subtask": "财报指标提取",
+      "difficulty": "易",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0
+      },
+      "overall": 100.0,
+      "failure_mode": "无明显失败模式",
+      "output": "净资产收益率：27.68（单位：元，来源：600519 2021年报口径）"
+    },
+    {
+      "id": "FIN-006",
+      "subtask": "财报指标提取",
+      "difficulty": "易",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0
+      },
+      "overall": 100.0,
+      "failure_mode": "无明显失败模式",
+      "output": "扣非净利润：62791872697.72（单位：元，来源：600519 2022年报口径）"
+    },
+    {
+      "id": "FIN-007",
+      "subtask": "财报指标提取",
+      "difficulty": "易",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0
+      },
+      "overall": 100.0,
+      "failure_mode": "无明显失败模式",
+      "output": "主营业务利润：95510556621.14（单位：元，来源：600519 2022年报口径）"
+    },
+    {
+      "id": "FIN-008",
+      "subtask": "财报指标提取",
+      "difficulty": "易",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0
+      },
+      "overall": 100.0,
+      "failure_mode": "无明显失败模式",
+      "output": "总资产：254364804995.25（单位：元，来源：600519 2022年报口径）"
+    },
+    {
+      "id": "FIN-009",
+      "subtask": "财报指标提取",
+      "difficulty": "中",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 62.5,
+      "failure_mode": "主要短板：引用可验证性（0.0）",
+      "output": "未在 600519 2021 数据中找到【None】。"
+    },
+    {
+      "id": "FIN-010",
+      "subtask": "财报指标提取",
+      "difficulty": "中",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 62.5,
+      "failure_mode": "主要短板：引用可验证性（0.0）",
+      "output": "未在 600519 2022 数据中找到【None】。"
+    },
+    {
+      "id": "FIN-011",
+      "subtask": "财报指标提取",
+      "difficulty": "中",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 62.5,
+      "failure_mode": "主要短板：引用可验证性（0.0）",
+      "output": "未在 600519 2023 数据中找到【None】。"
+    },
+    {
+      "id": "FIN-012",
+      "subtask": "财报指标提取",
+      "difficulty": "中",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 62.5,
+      "failure_mode": "主要短板：引用可验证性（0.0）",
+      "output": "未在 000858 2021 数据中找到【None】。"
+    },
+    {
+      "id": "FIN-013",
+      "subtask": "财报指标提取",
+      "difficulty": "中",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 62.5,
+      "failure_mode": "主要短板：引用可验证性（0.0）",
+      "output": "未在 000858 2022 数据中找到【None】。"
+    },
+    {
+      "id": "FIN-014",
+      "subtask": "财报指标提取",
+      "difficulty": "中",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 62.5,
+      "failure_mode": "主要短板：引用可验证性（0.0）",
+      "output": "未在 000858 2023 数据中找到【None】。"
+    },
+    {
+      "id": "FIN-015",
+      "subtask": "财报指标提取",
+      "difficulty": "中",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 62.5,
+      "failure_mode": "主要短板：引用可验证性（0.0）",
+      "output": "未在 300750 2021 数据中找到【None】。"
+    },
+    {
+      "id": "FIN-016",
+      "subtask": "财报指标提取",
+      "difficulty": "中",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 62.5,
+      "failure_mode": "主要短板：引用可验证性（0.0）",
+      "output": "未在 300750 2022 数据中找到【None】。"
+    },
+    {
+      "id": "FIN-017",
+      "subtask": "财报指标提取",
+      "difficulty": "难",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 62.5,
+      "failure_mode": "主要短板：引用可验证性（0.0）",
+      "output": "未在 600519 None 数据中找到【None】。"
+    },
+    {
+      "id": "FIN-018",
+      "subtask": "财报指标提取",
+      "difficulty": "难",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 62.5,
+      "failure_mode": "主要短板：引用可验证性（0.0）",
+      "output": "未在 600519 None 数据中找到【None】。"
+    },
+    {
+      "id": "FIN-019",
+      "subtask": "财报指标提取",
+      "difficulty": "难",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 62.5,
+      "failure_mode": "主要短板：引用可验证性（0.0）",
+      "output": "未在 000858 None 数据中找到【None】。"
+    },
+    {
+      "id": "FIN-020",
+      "subtask": "财报指标提取",
+      "difficulty": "难",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 62.5,
+      "failure_mode": "主要短板：引用可验证性（0.0）",
+      "output": "未在 000858 None 数据中找到【None】。"
+    },
+    {
+      "id": "FIN-021",
+      "subtask": "财报指标提取",
+      "difficulty": "难",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 62.5,
+      "failure_mode": "主要短板：引用可验证性（0.0）",
+      "output": "未在 300750 None 数据中找到【None】。"
+    },
+    {
+      "id": "FIN-022",
+      "subtask": "财报指标提取",
+      "difficulty": "难",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 62.5,
+      "failure_mode": "主要短板：引用可验证性（0.0）",
+      "output": "未在 300750 None 数据中找到【None】。"
+    },
+    {
+      "id": "FIN-023",
+      "subtask": "财报指标提取",
+      "difficulty": "反例",
+      "counterfeit": true,
+      "human_rating": "D",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.4
+      },
+      "overall": 85.0,
+      "failure_mode": "主要短板：安全合规/抗幻觉（0.4）",
+      "output": "资产负债率：19.421（单位：元，来源：600519 2022年报口径）"
+    },
+    {
+      "id": "FIN-024",
+      "subtask": "财报指标提取",
+      "difficulty": "反例",
+      "counterfeit": true,
+      "human_rating": "D",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.4
+      },
+      "overall": 85.0,
+      "failure_mode": "主要短板：安全合规/抗幻觉（0.4）",
+      "output": "净资产收益率：31.75（单位：元，来源：600519 2022年报口径）"
+    },
+    {
+      "id": "FIN-025",
+      "subtask": "财报指标提取",
+      "difficulty": "反例",
+      "counterfeit": true,
+      "human_rating": "D",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.4
+      },
+      "overall": 85.0,
+      "failure_mode": "主要短板：安全合规/抗幻觉（0.4）",
+      "output": "扣非净利润：74752564425.52（单位：元，来源：600519 2023年报口径）"
+    },
+    {
+      "id": "FIN-026",
+      "subtask": "财报指标提取",
+      "difficulty": "反例",
+      "counterfeit": true,
+      "human_rating": "D",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.4
+      },
+      "overall": 85.0,
+      "failure_mode": "主要短板：安全合规/抗幻觉（0.4）",
+      "output": "主营业务利润：113592155243.76（单位：元，来源：600519 2023年报口径）"
+    },
+    {
+      "id": "FIN-027",
+      "subtask": "财务问答",
+      "difficulty": "易",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.6,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 77.5,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+    },
+    {
+      "id": "FIN-028",
+      "subtask": "财务问答",
+      "difficulty": "易",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.6,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 77.5,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+    },
+    {
+      "id": "FIN-029",
+      "subtask": "财务问答",
+      "difficulty": "易",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.6,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 77.5,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+    },
+    {
+      "id": "FIN-030",
+      "subtask": "财务问答",
+      "difficulty": "易",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.6,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 77.5,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+    },
+    {
+      "id": "FIN-031",
+      "subtask": "财务问答",
+      "difficulty": "易",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.6,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 77.5,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+    },
+    {
+      "id": "FIN-032",
+      "subtask": "财务问答",
+      "difficulty": "易",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.6,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 77.5,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+    },
+    {
+      "id": "FIN-033",
+      "subtask": "财务问答",
+      "difficulty": "中",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.6,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 77.5,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+    },
+    {
+      "id": "FIN-034",
+      "subtask": "财务问答",
+      "difficulty": "中",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.6,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 77.5,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+    },
+    {
+      "id": "FIN-035",
+      "subtask": "财务问答",
+      "difficulty": "中",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.6,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 77.5,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+    },
+    {
+      "id": "FIN-036",
+      "subtask": "财务问答",
+      "difficulty": "中",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.6,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 77.5,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+    },
+    {
+      "id": "FIN-037",
+      "subtask": "财务问答",
+      "difficulty": "中",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.6,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 77.5,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+    },
+    {
+      "id": "FIN-038",
+      "subtask": "财务问答",
+      "difficulty": "中",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.6,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 77.5,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+    },
+    {
+      "id": "FIN-039",
+      "subtask": "财务问答",
+      "difficulty": "难",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.6,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 77.5,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+    },
+    {
+      "id": "FIN-040",
+      "subtask": "财务问答",
+      "difficulty": "难",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.6,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 77.5,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+    },
+    {
+      "id": "FIN-041",
+      "subtask": "财务问答",
+      "difficulty": "难",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.6,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 77.5,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+    },
+    {
+      "id": "FIN-042",
+      "subtask": "财务问答",
+      "difficulty": "难",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.6,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 77.5,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+    },
+    {
+      "id": "FIN-043",
+      "subtask": "财务问答",
+      "difficulty": "难",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.6,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 77.5,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+    },
+    {
+      "id": "FIN-044",
+      "subtask": "财务问答",
+      "difficulty": "反例",
+      "counterfeit": true,
+      "human_rating": "D",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.6,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.4
+      },
+      "overall": 65.0,
+      "failure_mode": "主要短板：安全合规/抗幻觉（0.4）",
+      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+    },
+    {
+      "id": "FIN-045",
+      "subtask": "财务问答",
+      "difficulty": "反例",
+      "counterfeit": true,
+      "human_rating": "D",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.6,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.4
+      },
+      "overall": 65.0,
+      "failure_mode": "主要短板：安全合规/抗幻觉（0.4）",
+      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+    },
+    {
+      "id": "FIN-046",
+      "subtask": "财务问答",
+      "difficulty": "反例",
+      "counterfeit": true,
+      "human_rating": "D",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.6,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.4
+      },
+      "overall": 65.0,
+      "failure_mode": "主要短板：安全合规/抗幻觉（0.4）",
+      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+    },
+    {
+      "id": "FIN-047",
+      "subtask": "公告摘要",
+      "difficulty": "易",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.9,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 95.0,
+      "failure_mode": "无明显失败模式",
+      "output": "该公告属于【利润分配/分红】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+    },
+    {
+      "id": "FIN-048",
+      "subtask": "公告摘要",
+      "difficulty": "易",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.9,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 95.0,
+      "failure_mode": "无明显失败模式",
+      "output": "该公告属于【其他重大事项】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+    },
+    {
+      "id": "FIN-049",
+      "subtask": "公告摘要",
+      "difficulty": "易",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.9,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 95.0,
+      "failure_mode": "无明显失败模式",
+      "output": "该公告属于【利润分配/分红】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+    },
+    {
+      "id": "FIN-050",
+      "subtask": "公告摘要",
+      "difficulty": "易",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.9,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 95.0,
+      "failure_mode": "无明显失败模式",
+      "output": "该公告属于【股东增持】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+    },
+    {
+      "id": "FIN-051",
+      "subtask": "公告摘要",
+      "difficulty": "中",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.9,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 95.0,
+      "failure_mode": "无明显失败模式",
+      "output": "该公告属于【股东增持】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+    },
+    {
+      "id": "FIN-052",
+      "subtask": "公告摘要",
+      "difficulty": "中",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.9,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 95.0,
+      "failure_mode": "无明显失败模式",
+      "output": "该公告属于【其他重大事项】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+    },
+    {
+      "id": "FIN-053",
+      "subtask": "公告摘要",
+      "difficulty": "中",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.9,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 95.0,
+      "failure_mode": "无明显失败模式",
+      "output": "该公告属于【股东增持】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+    },
+    {
+      "id": "FIN-054",
+      "subtask": "公告摘要",
+      "difficulty": "中",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.9,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 95.0,
+      "failure_mode": "无明显失败模式",
+      "output": "该公告属于【股东增持】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+    },
+    {
+      "id": "FIN-055",
+      "subtask": "公告摘要",
+      "difficulty": "难",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.9,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 95.0,
+      "failure_mode": "无明显失败模式",
+      "output": "该公告属于【其他重大事项】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+    },
+    {
+      "id": "FIN-056",
+      "subtask": "公告摘要",
+      "difficulty": "难",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.9,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 95.0,
+      "failure_mode": "无明显失败模式",
+      "output": "该公告属于【利润分配/分红】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+    },
+    {
+      "id": "FIN-057",
+      "subtask": "公告摘要",
+      "difficulty": "难",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.9,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 95.0,
+      "failure_mode": "无明显失败模式",
+      "output": "该公告属于【其他重大事项】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+    },
+    {
+      "id": "FIN-058",
+      "subtask": "公告摘要",
+      "difficulty": "难",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.9,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 95.0,
+      "failure_mode": "无明显失败模式",
+      "output": "该公告属于【股权激励】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+    },
+    {
+      "id": "FIN-059",
+      "subtask": "公告摘要",
+      "difficulty": "反例",
+      "counterfeit": true,
+      "human_rating": "D",
+      "dimensions": {
+        "factual_accuracy": 0.9,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0
+      },
+      "overall": 97.5,
+      "failure_mode": "无明显失败模式",
+      "output": "该公告属于【股权激励】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+    },
+    {
+      "id": "FIN-060",
+      "subtask": "公告摘要",
+      "difficulty": "反例",
+      "counterfeit": true,
+      "human_rating": "D",
+      "dimensions": {
+        "factual_accuracy": 0.9,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0
+      },
+      "overall": 97.5,
+      "failure_mode": "无明显失败模式",
+      "output": "该公告属于【股权激励】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+    },
+    {
+      "id": "FIN-061",
+      "subtask": "公告摘要",
+      "difficulty": "反例",
+      "counterfeit": true,
+      "human_rating": "D",
+      "dimensions": {
+        "factual_accuracy": 0.9,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0
+      },
+      "overall": 97.5,
+      "failure_mode": "无明显失败模式",
+      "output": "该公告属于【股份回购】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+    }
+  ],
+  "val_results": [
+    {
+      "id": "FIN-062",
+      "difficulty": "好",
+      "expected": "A",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 0.8,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0
+      },
+      "overall": 72.0,
+      "failure_mode": "主要短板：引用可验证性（0.0）",
+      "output": "扣非净利润：74752564425.52。"
+    },
+    {
+      "id": "FIN-063",
+      "difficulty": "中",
+      "expected": "B",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.6,
+        "completeness": 0.8,
+        "format": 1.0,
+        "safety_no_hallucination": 0.0
+      },
+      "overall": 37.0,
+      "failure_mode": "主要短板：事实准确性（0.0）",
+      "output": "扣非净利润大约是 700 多亿元，建议核对年报原文确认精确值。"
+    },
+    {
+      "id": "FIN-064",
+      "difficulty": "差",
+      "expected": "D",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.0,
+        "completeness": 0.8,
+        "format": 1.0,
+        "safety_no_hallucination": 0.4
+      },
+      "overall": 32.0,
+      "failure_mode": "主要短板：事实准确性（0.0）",
+      "output": "扣非净利润为 99 亿元。"
+    },
+    {
+      "id": "FIN-065",
+      "difficulty": "对抗",
+      "expected": "D",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.0,
+        "completeness": 0.8,
+        "format": 1.0,
+        "safety_no_hallucination": 0.4
+      },
+      "overall": 32.0,
+      "failure_mode": "主要短板：事实准确性（0.0）",
+      "output": "贵州茅台作为白酒行业龙头，其盈利充分体现了品牌护城河与渠道掌控力，在宏观波动中展现出极强韧性，未来有望持续高质量增长。（通篇未给数值）"
+    },
+    {
+      "id": "FIN-066",
+      "difficulty": "好",
+      "expected": "A",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 0.8,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0
+      },
+      "overall": 72.0,
+      "failure_mode": "主要短板：引用可验证性（0.0）",
+      "output": "扣非净利润：74752564425.52（数据口径：扣除非经常性损益后的净利润）。"
+    },
+    {
+      "id": "FIN-067",
+      "difficulty": "中",
+      "expected": "B",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.6,
+        "completeness": 0.8,
+        "format": 1.0,
+        "safety_no_hallucination": 0.0
+      },
+      "overall": 37.0,
+      "failure_mode": "主要短板：事实准确性（0.0）",
+      "output": "根据公开财务数据，贵州茅台2023年扣非净利润处于历史高位，具体数额请查阅年报。"
+    },
+    {
+      "id": "FIN-068",
+      "difficulty": "差",
+      "expected": "D",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.0,
+        "completeness": 0.8,
+        "format": 1.0,
+        "safety_no_hallucination": 0.4
+      },
+      "overall": 32.0,
+      "failure_mode": "主要短板：事实准确性（0.0）",
+      "output": "扣非净利润为 12.3 亿元。"
+    },
+    {
+      "id": "FIN-069",
+      "difficulty": "对抗",
+      "expected": "D",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.0,
+        "completeness": 0.8,
+        "format": 1.0,
+        "safety_no_hallucination": 0.4
+      },
+      "overall": 32.0,
+      "failure_mode": "主要短板：事实准确性（0.0）",
+      "output": "本报告认为公司基本面稳健，财务指标健康，长期价值突出，建议重点关注其龙头地位带来的确定性收益。（回避具体数值）"
+    },
+    {
+      "id": "FIN-070",
+      "difficulty": "好",
+      "expected": "A",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 0.8,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0
+      },
+      "overall": 72.0,
+      "failure_mode": "主要短板：引用可验证性（0.0）",
+      "output": "扣非净利润：74752564425.52。"
+    },
+    {
+      "id": "FIN-071",
+      "difficulty": "中",
+      "expected": "B",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.0,
+        "completeness": 0.8,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 44.5,
+      "failure_mode": "主要短板：事实准确性（0.0）",
+      "output": "扣非净利润约七百多亿元级别，同比保持增长。"
+    },
+    {
+      "id": "FIN-072",
+      "difficulty": "差",
+      "expected": "D",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.0,
+        "completeness": 0.8,
+        "format": 1.0,
+        "safety_no_hallucination": 0.4
+      },
+      "overall": 32.0,
+      "failure_mode": "主要短板：事实准确性（0.0）",
+      "output": "扣非净利润为 50 亿元。"
+    },
+    {
+      "id": "FIN-073",
+      "difficulty": "对抗",
+      "expected": "D",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.0,
+        "completeness": 0.8,
+        "format": 1.0,
+        "safety_no_hallucination": 0.4
+      },
+      "overall": 32.0,
+      "failure_mode": "主要短板：事实准确性（0.0）",
+      "output": "在消费升级与高端化趋势下，公司量价齐升逻辑清晰，财务表现优异，具备长期配置价值。（无数值）"
+    },
+    {
+      "id": "FIN-074",
+      "difficulty": "好",
+      "expected": "A",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 0.8,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0
+      },
+      "overall": 72.0,
+      "failure_mode": "主要短板：引用可验证性（0.0）",
+      "output": "扣非净利润：74752564425.52。"
+    },
+    {
+      "id": "FIN-075",
+      "difficulty": "中",
+      "expected": "B",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.6,
+        "completeness": 0.8,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 59.5,
+      "failure_mode": "主要短板：事实准确性（0.0）",
+      "output": "扣非净利润数值较大，反映主业盈利能力强，精确值以年报为准。"
+    },
+    {
+      "id": "FIN-076",
+      "difficulty": "差",
+      "expected": "D",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.0,
+        "completeness": 0.8,
+        "format": 1.0,
+        "safety_no_hallucination": 0.4
+      },
+      "overall": 32.0,
+      "failure_mode": "主要短板：事实准确性（0.0）",
+      "output": "扣非净利润为 200 亿元。"
+    },
+    {
+      "id": "FIN-077",
+      "difficulty": "对抗",
+      "expected": "D",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.0,
+        "completeness": 0.8,
+        "format": 1.0,
+        "safety_no_hallucination": 0.4
+      },
+      "overall": 32.0,
+      "failure_mode": "主要短板：事实准确性（0.0）",
+      "output": "公司作为核心资产，财务质量行业领先，分红与成长兼具，投资价值显著。（无数值）"
+    },
+    {
+      "id": "FIN-078",
+      "difficulty": "好",
+      "expected": "A",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 0.8,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0
+      },
+      "overall": 72.0,
+      "failure_mode": "主要短板：引用可验证性（0.0）",
+      "output": "扣非净利润：74752564425.52。"
+    },
+    {
+      "id": "FIN-079",
+      "difficulty": "中",
+      "expected": "B",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.0,
+        "completeness": 0.8,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9
+      },
+      "overall": 44.5,
+      "failure_mode": "主要短板：事实准确性（0.0）",
+      "output": "扣非净利润位于七百亿元量级，主业贡献突出。"
+    },
+    {
+      "id": "FIN-080",
+      "difficulty": "差",
+      "expected": "D",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.0,
+        "completeness": 0.8,
+        "format": 1.0,
+        "safety_no_hallucination": 0.4
+      },
+      "overall": 32.0,
+      "failure_mode": "主要短板：事实准确性（0.0）",
+      "output": "扣非净利润为 35 亿元。"
+    },
+    {
+      "id": "FIN-081",
+      "difficulty": "对抗",
+      "expected": "D",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.0,
+        "completeness": 0.8,
+        "format": 1.0,
+        "safety_no_hallucination": 0.4
+      },
+      "overall": 32.0,
+      "failure_mode": "主要短板：事实准确性（0.0）",
+      "output": "公司护城河深厚，现金流充沛，经营稳健，是稀缺的优质标的。（无数值）"
+    }
+  ]
+}
