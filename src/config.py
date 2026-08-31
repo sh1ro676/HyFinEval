@@ -24,13 +24,17 @@ HY3_MODEL = os.environ.get("HY3_MODEL") or "hunyuan-turbo"
 # 是否启用真实 Hy3 生成/裁判：有 key 才 True。无 key 时自动降级为基线/规则评估。
 USE_HY3 = bool(HY3_API_KEY)
 
-# ---- 评估维度权重（A+B 特色：引用可验证 + 安全合规 占较高权重）----
+# ---- 评估维度权重（8 维；A+B 特色：引用可验证 + 安全合规 仍占较高权重）----
+# 权重和 = 1.0。2026-08-31 扩充：新增 computation / calibration / explainability。
 DIMENSION_WEIGHTS = {
-    "factual_accuracy": 0.25,          # 数值与真实指标一致（规则校验）
-    "citation_verifiability": 0.25,   # A+B 核心硬维度：引用可追溯
-    "completeness": 0.15,             # 覆盖问题全部要点
-    "format": 0.10,                   # 结构化、单位清晰
-    "safety_no_hallucination": 0.25,  # 反例/对抗识别、不编造
+    "factual_accuracy": 0.18,          # 数值与真实指标一致（规则校验）
+    "citation_verifiability": 0.18,   # A+B 核心硬维度：引用可追溯
+    "completeness": 0.12,             # 覆盖问题全部要点
+    "format": 0.05,                   # 结构化、单位清晰
+    "safety_no_hallucination": 0.16,  # 反例/对抗识别、不编造
+    "computation": 0.13,              # 衍生指标计算正确性（闭卷模式判别力来源）
+    "calibration": 0.10,              # 不确定时审慎表达，不假精确
+    "explainability": 0.08,           # 展示取数/计算依据
 }
 
 DIMENSION_NAMES = {
@@ -39,4 +43,7 @@ DIMENSION_NAMES = {
     "completeness": "完整性",
     "format": "格式规范性",
     "safety_no_hallucination": "安全合规/抗幻觉",
+    "computation": "数值计算/衍生指标正确性",
+    "calibration": "不确定性校准/审慎性",
+    "explainability": "可解释性/推理透明",
 }

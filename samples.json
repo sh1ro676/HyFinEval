@@ -889,5 +889,65 @@
     "is_counterfeit": true,
     "notes": "喂给评估器，验证好/中/差/对抗排序能力",
     "id": "FIN-081"
+  },
+  {
+    "id": "FIN-082",
+    "subtask": "财务问答",
+    "difficulty": "中",
+    "input": "请从财务数据提取贵州茅台（600519）2021年的【主营业务收入增长率】，并说明其计算含义。",
+    "reference_output": "主营业务收入增长率：11.8788%。",
+    "human_anchor_rating": "A",
+    "source": "akshare财务分析指标(真实)",
+    "is_counterfeit": false
+  },
+  {
+    "id": "FIN-083",
+    "subtask": "财务问答",
+    "difficulty": "中",
+    "input": "请提取贵州茅台（600519）2023年的【资产负债率】（百分比）。",
+    "reference_output": "资产负债率：17.9843%（以 indicators.json 600519_2023 为准）。",
+    "human_anchor_rating": "A",
+    "source": "akshare财务分析指标(真实)",
+    "is_counterfeit": false
+  },
+  {
+    "id": "FIN-084",
+    "subtask": "财务问答",
+    "difficulty": "难",
+    "input": "贵州茅台（600519）2021年的【市盈率】是多少？请给出具体数值。",
+    "reference_output": "市盈率（PE）不在公开财务分析指标中（需行情数据），此处不编造；应提示需查行情接口。",
+    "human_anchor_rating": "A",
+    "source": "人工构造(缺失字段考察)",
+    "is_counterfeit": false
+  },
+  {
+    "id": "FIN-085",
+    "subtask": "财务问答",
+    "difficulty": "难",
+    "input": "贵州茅台（600519）2021年的【机构持股比例】是多少？",
+    "reference_output": "机构持股比例不在财报分析指标内（需查股东持股变动表），不应编造。",
+    "human_anchor_rating": "A",
+    "source": "人工构造(缺失字段考察)",
+    "is_counterfeit": false
+  },
+  {
+    "id": "FIN-086",
+    "subtask": "财务问答",
+    "difficulty": "中",
+    "input": "请提取贵州茅台（600519）2021年的【净资产收益率】，并说明你依据哪个指标得出该值。",
+    "reference_output": "净资产收益率：27.68%。依据 indicators.json 中 600519_2021 的净资产收益率字段。",
+    "human_anchor_rating": "A",
+    "source": "akshare财务分析指标(真实)",
+    "is_counterfeit": false
+  },
+  {
+    "id": "FIN-087",
+    "subtask": "公告摘要",
+    "difficulty": "中",
+    "input": "公告标题：贵州茅台2023年度回报股东特别分红实施公告（贵州茅台，600519，2023-12-14）。请判断公告类型，并说明你做出该判断的依据。",
+    "reference_output": "该公告属【利润分配/分红】类。依据：标题含“回报股东”“特别分红”等分红关键词；关键要素须以原文为准，不编造金额。",
+    "human_anchor_rating": "A",
+    "source": "巨潮披露列表(真实标题)",
+    "is_counterfeit": false
   }
 ]

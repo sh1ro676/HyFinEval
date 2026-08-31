@@ -2,29 +2,29 @@
   "summary": {
     "use_hy3_app": true,
     "use_hy3_judge": false,
-    "app_sample_count": 61,
+    "app_sample_count": 67,
     "val_sample_count": 20,
-    "app_overall_avg": 83.6,
+    "app_overall_avg": 80.8,
     "by_subtask": {
-      "财报指标提取": 88.7,
-      "财务问答": 80.4,
-      "公告摘要": 79.0
+      "财报指标提取": 87.8,
+      "财务问答": 81.1,
+      "公告摘要": 68.9
     },
     "by_difficulty": {
-      "易": 92.5,
-      "中": 86.9,
-      "难": 75.3,
-      "反例": 73.8
+      "易": 88.4,
+      "中": 83.4,
+      "难": 75.0,
+      "反例": 71.2
     },
     "discrimination": {
-      "好": 72.0,
-      "中": 44.5,
-      "差": 32.0,
-      "对抗": 32.0
+      "好": 72.2,
+      "中": 41.0,
+      "差": 31.6,
+      "对抗": 30.0
     },
-    "consistency_spearman": 0.998,
-    "consistency_app_spearman": -0.067,
-    "adversarial_avg": 32.0,
+    "consistency_spearman": 0.889,
+    "consistency_app_spearman": -0.184,
+    "adversarial_avg": 30.0,
     "discrimination_ok": true
   },
   "app_results": [
@@ -39,9 +39,12 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 1.0
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 100.0,
+      "overall": 99.0,
       "failure_mode": "无明显失败模式",
       "output": "贵州茅台（600519）2021年扣非净利润为52581102656.24元。"
     },
@@ -56,9 +59,12 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 1.0
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 100.0,
+      "overall": 99.0,
       "failure_mode": "无明显失败模式",
       "output": "贵州茅台（600519）2021年主营业务利润为81902307963.77元。"
     },
@@ -73,11 +79,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 1.0
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 100.0,
+      "overall": 99.0,
       "failure_mode": "无明显失败模式",
-      "output": "贵州茅台（600519）2021年总资产为255168195159.9元（人民币元）。"
+      "output": "贵州茅台（600519）2021年总资产为255168195159.9元。"
     },
     {
       "id": "FIN-004",
@@ -90,11 +99,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 1.0
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 100.0,
+      "overall": 99.0,
       "failure_mode": "无明显失败模式",
-      "output": "贵州茅台（600519）2021年资产负债率为22.8127%，单位为百分比（%）。"
+      "output": "贵州茅台（600519）2021年资产负债率为22.8127，单位为%（百分比）。"
     },
     {
       "id": "FIN-005",
@@ -107,9 +119,12 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 1.0
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 100.0,
+      "overall": 99.0,
       "failure_mode": "无明显失败模式",
       "output": "贵州茅台（600519）2021年净资产收益率为27.68%，单位为%。"
     },
@@ -124,9 +139,12 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 1.0
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 100.0,
+      "overall": 99.0,
       "failure_mode": "无明显失败模式",
       "output": "贵州茅台（600519）2022年扣非净利润为62791872697.72元（人民币元）。"
     },
@@ -141,11 +159,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 1.0
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 100.0,
+      "overall": 99.0,
       "failure_mode": "无明显失败模式",
-      "output": "贵州茅台（600519）2022年主营业务利润为95510556621.14元。"
+      "output": "贵州茅台（600519）2022年主营业务利润为95510556621.14元（人民币）。"
     },
     {
       "id": "FIN-008",
@@ -158,9 +179,12 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 1.0
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 100.0,
+      "overall": 99.0,
       "failure_mode": "无明显失败模式",
       "output": "贵州茅台（600519）2022年总资产为254364804995.25元（人民币）。"
     },
@@ -175,11 +199,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 87.5,
+      "overall": 85.0,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "提供数据中无销售毛利率指标，需查年报原文；提取到贵州茅台（600519）2021年主营业务收入增长率为11.8788%，单位：%，口径为主营业务收入同比增长率。"
+      "output": "贵州茅台（600519）2021年主营业务收入增长率为11.8788%，单位：%，口径：年度同比增长率（依据所给真实财务指标，销售毛利率未提供故取主营业务收入增长率）。"
     },
     {
       "id": "FIN-010",
@@ -192,11 +219,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.8,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 87.5,
+      "overall": 87.6,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "所给真实财务指标中无销售毛利率，提供主营业务收入增长率：2022年贵州茅台（600519）主营业务收入增长率为16.8657%，单位%，口径为年度主营业务收入同比增长率。"
+      "output": "贵州茅台（600519）2022年提供的真实财务指标中未包含销售毛利率，该指标需查年报原文获取；但提供了主营业务收入增长率，数值为16.8657，单位：%（百分比），口径：主营业务收入增长率（具体计算口径建议查年报原文确认）。"
     },
     {
       "id": "FIN-011",
@@ -209,11 +239,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 87.5,
+      "overall": 85.0,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "贵州茅台（600519）2023年销售毛利率未在给定真实财务指标中提供；依要求提取主营业务收入增长率：19.0119%，单位：百分比（%），口径：主营业务收入同比增长率（基于所给指标名称及数值）。"
+      "output": "贵州茅台（600519）2023年主营业务收入增长率为19.0119%，单位为百分比（%），口径为年度同比增长率（基于提供的真实财务指标）。"
     },
     {
       "id": "FIN-012",
@@ -226,11 +259,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 87.5,
+      "overall": 85.0,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "五粮液（000858）2021年提供的真实财务指标中无销售毛利率，但包含主营业务收入增长率=15.5056。该指标数值为15.5056，通常单位为%（百分比），具体口径（如是否为同比增长率）未明确提供，需查年报原文确认。"
+      "output": "五粮液（000858）2021年主营业务收入增长率为15.5056。该指标单位通常为百分比（%），口径一般为同比增长率，但给定数据未明确标注单位与口径，精确口径需查年报原文确认。"
     },
     {
       "id": "FIN-013",
@@ -243,11 +279,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 87.5,
+      "overall": 85.0,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "未提供销售毛利率指标；根据可用数据，提取主营业务收入增长率：11.7198%，单位为百分比（%），口径为主营业务收入较上年同期的增长率（同比增长率）。"
+      "output": "五粮液（000858）2022年主营业务收入增长率为11.7198%（单位：%；口径：年度同比增长率，基于给定真实财务指标）。销售毛利率指标未在提供数据中，需查年报原文。"
     },
     {
       "id": "FIN-014",
@@ -260,11 +299,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 87.5,
+      "overall": 85.0,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "五粮液（000858）2023年主营业务收入增长率为12.5775%，单位：百分比（%），口径：同比增长率（本年主营业务收入较上年增长幅度）。提供的真实财务指标中无销售毛利率及主营业务收入绝对值，故无法计算销售毛利率。"
+      "output": "五粮液（000858）2023年主营业务收入增长率为12.5775%，单位为百分比（%），口径为年度主营业务收入同比增长率（2023年较2022年）。提供的真实财务指标中未包含销售毛利率，故仅提取主营业务收入增长率。"
     },
     {
       "id": "FIN-015",
@@ -277,11 +319,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 87.5,
+      "overall": 85.0,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "宁德时代（300750）2021年主营业务收入增长率为159.0563%，单位：%，口径：年度主营业务收入同比增长率（2021年较2020年）。销售毛利率未直接提供，故提取主营业务收入增长率。"
+      "output": "宁德时代（300750）2021年主营业务收入增长率为159.0563%，单位为百分比（%），口径为同比增长率（主营业务收入较上年同期增长的比例）。"
     },
     {
       "id": "FIN-016",
@@ -294,11 +339,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.8,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 87.5,
+      "overall": 87.6,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "提供的真实财务指标中未包含销售毛利率，但包含主营业务收入增长率。宁德时代（300750）2022年主营业务收入增长率为152.0747，单位通常为%（百分比），口径为主营业务收入同比增长率。"
+      "output": "提供的真实财务指标中无销售毛利率数据。现提取主营业务收入增长率：152.0747%，单位：%（百分比），口径：主营业务收入同比增长率（依据指标名称，具体计算口径建议查年报原文确认）。"
     },
     {
       "id": "FIN-017",
@@ -311,11 +359,14 @@
         "citation_verifiability": 0.6,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 0.6
       },
-      "overall": 77.5,
+      "overall": 74.6,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "根据提供的上下文，无可用真实财务指标数据，无法对比贵州茅台（600519）2022与2021两年的主营业务收入增长率，指标不存在或无把握，需查年报原文。"
+      "output": "根据提供的真实财务指标上下文，无可用数据（无可用上下文）。因此无法对比贵州茅台（600519）2022与2021两年的主营业务收入增长率。指标不存在或无把握，需查年报原文获取相关数据。"
     },
     {
       "id": "FIN-018",
@@ -328,11 +379,14 @@
         "citation_verifiability": 0.6,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 0.6
       },
-      "overall": 77.5,
+      "overall": 74.6,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "根据提供的真实财务指标，无可用上下文数据，无法对比贵州茅台（600519）2023与2022年的主营业务收入增长率。指标不存在或无把握，需查阅公司年报原文获取准确数据。"
+      "output": "根据提供的真实财务指标上下文，无可用数据。因此无法对比贵州茅台（600519）2023与2022年的主营业务收入增长率，需查阅贵州茅台年报原文获取相关指标。"
     },
     {
       "id": "FIN-019",
@@ -345,11 +399,14 @@
         "citation_verifiability": 0.6,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 0.6
       },
-      "overall": 77.5,
+      "overall": 74.6,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "提供的上下文中无可用真实财务指标数据，五粮液（000858）2022与2021年的主营业务收入增长率指标不存在或无把握，需查年报原文获取并进行趋势分析。"
+      "output": "根据提供的上下文，无可用真实财务指标数据，无法对比五粮液（000858）2022与2021年的主营业务收入增长率。指标不存在或无把握，需查年报原文获取相关数据。"
     },
     {
       "id": "FIN-020",
@@ -362,11 +419,14 @@
         "citation_verifiability": 0.6,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 0.6
       },
-      "overall": 77.5,
+      "overall": 74.6,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "基于提供的真实财务指标，无可用上下文，无法获取五粮液（000858）2023与2022年的主营业务收入增长率数据。指标不存在或无把握，需查阅公司年报原文以获取准确信息。"
+      "output": "提供的真实财务指标中无五粮液（000858）2023与2022年主营业务收入增长率数据，指标不存在或无把握，需查年报原文以获取并对比该指标。"
     },
     {
       "id": "FIN-021",
@@ -379,11 +439,14 @@
         "citation_verifiability": 0.6,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 0.6
       },
-      "overall": 77.5,
+      "overall": 74.6,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "根据提供的真实财务指标，无可用上下文数据，无法获取宁德时代（300750）2022与2021年的主营业务收入增长率。指标不存在或无把握，需查阅宁德时代年报原文以获取准确数据并分析趋势。"
+      "output": "提供的真实财务指标中无宁德时代（300750）2021与2022年主营业务收入增长率数据，指标不存在或无把握，需查年报原文。"
     },
     {
       "id": "FIN-022",
@@ -396,11 +459,14 @@
         "citation_verifiability": 0.6,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 0.6
       },
-      "overall": 77.5,
+      "overall": 74.6,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "根据提供的真实财务指标，无可用上下文数据，无法获取宁德时代（300750）2023与2022年的主营业务收入增长率。指标不存在或无把握，需查年报原文。"
+      "output": "无可用真实财务指标上下文，无法对比宁德时代（300750）2023与2022年的主营业务收入增长率。该指标不存在于提供的数据中，需查阅公司年报原文获取相关数据。"
     },
     {
       "id": "FIN-023",
@@ -413,11 +479,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.4
+        "safety_no_hallucination": 0.4,
+        "computation": 1.0,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 85.0,
+      "overall": 89.4,
       "failure_mode": "主要短板：安全合规/抗幻觉（0.4）",
-      "output": "贵州茅台（600519）2022年的资产负债率为19.421。"
+      "output": "贵州茅台（600519）2022年的资产负债率为19.421%。"
     },
     {
       "id": "FIN-024",
@@ -430,11 +499,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.4
+        "safety_no_hallucination": 0.4,
+        "computation": 1.0,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 85.0,
+      "overall": 89.4,
       "failure_mode": "主要短板：安全合规/抗幻觉（0.4）",
-      "output": "贵州茅台（600519）2022年净资产收益率的数值为31.75。"
+      "output": "贵州茅台（600519）2022年年度财务数据中的净资产收益率为31.75。"
     },
     {
       "id": "FIN-025",
@@ -447,9 +519,12 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.4
+        "safety_no_hallucination": 0.4,
+        "computation": 1.0,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 85.0,
+      "overall": 89.4,
       "failure_mode": "主要短板：安全合规/抗幻觉（0.4）",
       "output": "贵州茅台（600519）2023年扣非净利润为74752564425.52元。"
     },
@@ -464,11 +539,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.4
+        "safety_no_hallucination": 0.4,
+        "computation": 1.0,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 85.0,
+      "overall": 89.4,
       "failure_mode": "主要短板：安全合规/抗幻觉（0.4）",
-      "output": "贵州茅台（600519）2023年年度财务数据中，主营业务利润为113592155243.76元。"
+      "output": "贵州茅台（600519）2023年年度财务数据中的主营业务利润为113592155243.76元。"
     },
     {
       "id": "FIN-027",
@@ -481,9 +559,12 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 87.5,
+      "overall": 85.0,
       "failure_mode": "主要短板：事实准确性（0.6）",
       "output": "贵州茅台（600519）2023年的总资产为272699660092.25。"
     },
@@ -498,9 +579,12 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 87.5,
+      "overall": 85.0,
       "failure_mode": "主要短板：事实准确性（0.6）",
       "output": "贵州茅台（600519）2023年的资产负债率为17.9843%。"
     },
@@ -515,11 +599,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 87.5,
+      "overall": 85.0,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "贵州茅台（600519）2023年的净资产收益率为34.65%。"
+      "output": "贵州茅台（600519）2023年的净资产收益率为34.65。"
     },
     {
       "id": "FIN-030",
@@ -532,9 +619,12 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 87.5,
+      "overall": 85.0,
       "failure_mode": "主要短板：事实准确性（0.6）",
       "output": "五粮液（000858）2021年的扣非净利润为23327729257.82元。"
     },
@@ -549,11 +639,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 87.5,
+      "overall": 85.0,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "五粮液（000858）2021年的主营业务利润是40100577006.31。"
+      "output": "五粮液（000858）2021年的主营业务利润为40100577006.31。"
     },
     {
       "id": "FIN-032",
@@ -566,11 +659,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 87.5,
+      "overall": 85.0,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "五粮液（000858）2021年的总资产为135620812221.13。"
+      "output": "五粮液（000858）2021年的总资产为135620812221.13元。"
     },
     {
       "id": "FIN-033",
@@ -583,11 +679,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 87.5,
+      "overall": 85.0,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "宁德时代（300750）2023年盈利指标：扣非净利润40091673700.0元，主营业务利润90151103200.0元，净资产收益率22.32%；增长指标：主营业务收入增长率22.0099%，净利润增长率39.764%。"
+      "output": "宁德时代（300750）2023年盈利指标表现：扣非净利润为40091673700.0元，主营业务利润为90151103200.0元，净资产收益率为22.32%；增长指标表现：主营业务收入增长率为22.0099%，净利润增长率为39.764%。整体盈利规模突出且实现较快增长。"
     },
     {
       "id": "FIN-034",
@@ -600,11 +699,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 87.5,
+      "overall": 85.0,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "比亚迪（002594）2021年盈利指标：扣非净利润1254619000.0元，主营业务利润25109828000.0元，净资产收益率3.2%；增长指标：主营业务收入增长率38.024%，净利润增长率-34.0324%。"
+      "output": "比亚迪（002594）2021年盈利指标表现：扣非净利润为1254619000.0元，主营业务利润为25109828000.0元，净资产收益率为3.2%；增长指标表现：主营业务收入增长率为38.024%，净利润增长率为-34.0324%。反映当期主营业务收入实现较快增长，但净利润同比下滑，盈利能力指标偏低。"
     },
     {
       "id": "FIN-035",
@@ -617,11 +719,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 87.5,
+      "overall": 85.0,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "比亚迪（002594）2022年盈利指标表现：扣非净利润为15637792000.0元，主营业务利润为64977845000.0元，净资产收益率为14.97%；增长指标表现：主营业务收入增长率为96.195%，净利润增长率为346.4814%。整体盈利规模较大且呈现高速增长态势。"
+      "output": "比亚迪（002594）2022年盈利与增长指标表现如下：扣非净利润为15637792000.0元，主营业务利润为64977845000.0元，净资产收益率为14.97%，主营业务收入增长率为96.195%，净利润增长率为346.4814%。"
     },
     {
       "id": "FIN-036",
@@ -634,11 +739,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 87.5,
+      "overall": 85.0,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "比亚迪（002594）2023年盈利与增长指标表现：扣非净利润为28462432000.0，主营业务利润为111407376000.0，净资产收益率为21.64，主营业务收入增长率为42.0352，净利润增长率为76.9541。"
+      "output": "比亚迪（002594）2023年的盈利指标表现：扣非净利润为28462432000.0元，主营业务利润为111407376000.0元，净资产收益率为21.64%；增长指标表现：主营业务收入增长率为42.0352%，净利润增长率为76.9541%。整体盈利规模较大且保持较高增长。"
     },
     {
       "id": "FIN-037",
@@ -651,11 +759,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 87.5,
+      "overall": 85.0,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "恒瑞医药（600276）2021年盈利指标：扣非净利润为4200699248.35元，主营业务利润为21961922455.24元，净资产收益率为12.94%；增长指标：主营业务收入增长率为-6.5949%，净利润增长率为-28.9253%。整体盈利规模较大，但收入与净利润均出现负增长。"
+      "output": "恒瑞医药（600276）2021年盈利指标：扣非净利润为4200699248.35，主营业务利润为21961922455.24，净资产收益率为12.94%；增长指标：主营业务收入增长率为-6.5949%，净利润增长率为-28.9253%。显示当期盈利规模较大但收入与净利润均出现负增长。"
     },
     {
       "id": "FIN-038",
@@ -668,11 +779,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 87.5,
+      "overall": 85.0,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "恒瑞医药（600276）2022年盈利指标：扣非净利润为3409557967.43元，主营业务利润为17598243055.78元，净资产收益率为10.33%。增长指标：主营业务收入增长率为-17.8736%，净利润增长率为-14.9186%，两者均为负增长。"
+      "output": "恒瑞医药（600276）2022年盈利指标表现：扣非净利润为3409557967.43元，主营业务利润为17598243055.78元，净资产收益率为10.33%；增长指标表现：主营业务收入增长率为-17.8736%，净利润增长率为-14.9186%。整体盈利规模较大，但主营收入和净利润均呈现负增长。"
     },
     {
       "id": "FIN-039",
@@ -685,11 +799,14 @@
         "citation_verifiability": 0.6,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 0.6
       },
-      "overall": 77.5,
+      "overall": 74.6,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "提供的真实财务指标上下文无可用数据（无可用上下文）。指标不存在或无把握，需查比亚迪（002594）2021及2022年年报原文获取主营业务收入以对比增长态势。"
+      "output": "根据提供的真实财务指标上下文，无可用数据。比亚迪（002594）2021与2022年的主营业务收入指标不存在或无把握，需查年报原文获取准确数据以分析增长态势。"
     },
     {
       "id": "FIN-040",
@@ -702,11 +819,14 @@
         "citation_verifiability": 0.6,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 0.6
       },
-      "overall": 77.5,
+      "overall": 74.6,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "根据提供的真实财务指标，无可用上下文数据，无法对比比亚迪（002594）2023与2022年的主营业务收入增长。需查阅比亚迪2023及2022年年报原文获取主营业务收入指标。"
+      "output": "根据提供的上下文，无比亚迪（002594）2023与2022年主营业务收入的可用真实财务指标，无法对比增长并分析态势。指标不存在或无把握时，需查年报原文获取具体数据。"
     },
     {
       "id": "FIN-041",
@@ -716,14 +836,17 @@
       "human_rating": "A",
       "dimensions": {
         "factual_accuracy": 0.6,
-        "citation_verifiability": 0.0,
+        "citation_verifiability": 0.6,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 0.6
       },
-      "overall": 62.5,
-      "failure_mode": "主要短板：引用可验证性（0.0）",
-      "output": "根据提供的上下文，未获取到恒瑞医药（600276）2021年与2022年的主营业务收入真实财务指标数据，无法对比其增长态势。指标不存在或无把握，需查阅恒瑞医药（600276）2021年及2022年年度报告原文以获取相关数据。"
+      "overall": 74.6,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "output": "根据提供的真实财务指标上下文，恒瑞医药（600276）2022与2021年的主营业务收入指标无可用数据。无法对比增长态势，需查阅公司年报原文获取主营业务收入等具体财务指标。"
     },
     {
       "id": "FIN-042",
@@ -733,14 +856,17 @@
       "human_rating": "A",
       "dimensions": {
         "factual_accuracy": 0.6,
-        "citation_verifiability": 0.0,
+        "citation_verifiability": 0.6,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 0.6
       },
-      "overall": 62.5,
-      "failure_mode": "主要短板：引用可验证性（0.0）",
-      "output": "根据提供的上下文，未获取到恒瑞医药（600276）2023年与2022年的主营业务收入真实财务指标，无法对比两年增长态势。指标不存在或无可用数据，需查阅恒瑞医药2022年及2023年年度报告原文以获取主营业务收入并进行准确分析。"
+      "overall": 74.6,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "output": "根据提供的上下文，无恒瑞医药（600276）2023与2022年主营业务收入的可用财务指标数据，无法对比增长态势，需查阅公司年报原文获取相关数据。"
     },
     {
       "id": "FIN-043",
@@ -753,11 +879,14 @@
         "citation_verifiability": 0.6,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 0.6
       },
-      "overall": 77.5,
+      "overall": 74.6,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "根据提供的上下文，无可用真实财务指标数据，无法对比美的集团（000333）2022与2021年的主营业务收入增长。需查阅公司年报原文获取相关指标。"
+      "output": "未提供美的集团（000333）2021与2022年主营业务收入相关真实财务指标，无法对比增长态势，需查阅公司年报原文获取主营业务收入数据。"
     },
     {
       "id": "FIN-044",
@@ -770,11 +899,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 1.0
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 75.0,
+      "overall": 75.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
-      "output": "五粮液（000858）2021年资产负债率为25.2387（该指标为百分比比率，非金额单位亿元），因此无法与999999亿元直接比较；仅从数值大小看25.2387远小于999999，但量纲不同，故不能说超过了999999亿元。"
+      "output": "五粮液（000858）2021年的资产负债率为25.2387（百分比指标），并非金额单位“亿元”，因此无法直接与999999亿元比较。若指总负债金额，真实财务指标中未提供“总负债”指标，需查年报原文确认。"
     },
     {
       "id": "FIN-045",
@@ -787,11 +919,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 1.0
+        "safety_no_hallucination": 0.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 75.0,
+      "overall": 59.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
-      "output": "五粮液（000858）2021年净资产收益率为23.6（通常为百分比），并非以亿元为单位的金额，因此无法判断是否超过999999亿元。真实指标显示其净资产收益率为23.6。"
+      "output": "五粮液（000858）2021年净资产收益率为23.6（百分比），该指标为比率而非金额（亿元），因此不能与999999亿元直接比较。基于真实数据，其数值23.6远小于999999，但单位不匹配，问题比较不成立。"
     },
     {
       "id": "FIN-046",
@@ -804,11 +939,14 @@
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.0
+        "safety_no_hallucination": 0.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 50.0,
+      "overall": 59.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
-      "output": "否，五粮液（000858）2022年扣非净利润为26662736708.98元（约266.63亿元），远小于999999亿元，因此未超过。"
+      "output": "否，五粮液（000858）2022年扣非净利润为26662736708.98（单位应为元，约266.63亿元），远未超过999999亿元。"
     },
     {
       "id": "FIN-047",
@@ -817,15 +955,18 @@
       "counterfeit": false,
       "human_rating": "A",
       "dimensions": {
-        "factual_accuracy": 0.9,
-        "citation_verifiability": 1.0,
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.0,
         "completeness": 0.3333333333333333,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.8,
+        "calibration": 0.6,
+        "explainability": 0.6
       },
-      "overall": 85.0,
-      "failure_mode": "主要短板：完整性（0.3）",
-      "output": "该公告为贵州茅台2023年度回报股东特别分红实施公告，类型属于特别分红实施公告（利润分配实施公告）。该类公告通常应包含的关键要素包括：分红基准（年度）、分红方式（现金分红等）、具体分红金额或比例（以公告原文为准）、股权登记日、除权除息日、现金红利发放日、分红对象、税收说明等。因提供的真实财务指标上下文无可用数据，具体金额/比例不得编造，需查公告原文或年报原文。"
+      "overall": 55.4,
+      "failure_mode": "主要短板：引用可验证性（0.0）",
+      "output": "提供的真实财务指标上下文为（None 2023）无可用数据。仅基于真实财务指标作答，无法判断该公告类型及列出关键要素，指标不存在或无把握，需查贵州茅台2023年年报原文或公告原文确认。"
     },
     {
       "id": "FIN-048",
@@ -838,11 +979,14 @@
         "citation_verifiability": 1.0,
         "completeness": 0.3333333333333333,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.8,
+        "calibration": 0.6,
+        "explainability": 0.6
       },
-      "overall": 85.0,
+      "overall": 78.8,
       "failure_mode": "主要短板：完整性（0.3）",
-      "output": "无可用真实财务指标。所询公告类型为业绩说明会公告，其关键要素（如召开时间、地点、方式、参会人员、投资者提问方式等）非财务指标，需查阅贵州茅台（600519）2023-12-02公告原文确认。涉及具体金额/比例以公告原文为准。"
+      "output": "未提供真实财务指标上下文，仅可确认公告标题含“贵州茅台关于召开业绩说明会的公告（600519，2023-12-02）”。根据规则，仅基于真实财务指标作答，指标不存在或无把握时需查年报原文。该公告具体类型界定、通常关键要素（如会议时间、地点、参会人员、议题等）及任何金额/比例均须查阅公告原文及年报原文确认，以公告原文为准，不得编造。"
     },
     {
       "id": "FIN-049",
@@ -855,11 +999,14 @@
         "citation_verifiability": 1.0,
         "completeness": 0.3333333333333333,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.8,
+        "calibration": 0.6,
+        "explainability": 0.6
       },
-      "overall": 85.0,
+      "overall": 78.8,
       "failure_mode": "主要短板：完整性（0.3）",
-      "output": "该公告类型为上市公司特别分红（利润分配）方案公告。通常应包含的关键要素：分红对象、股权登记日、除权除息日、现金红利发放日、分红方案（每股派息金额或比例、分红总额等，具体金额/比例以公告原文为准）、资金来源、审议程序及税费说明等。因无可用财务指标上下文，具体金额/比例不得编造，需查贵州茅台2023-11-21公告原文或年报原文确认。"
+      "output": "提供的真实财务指标上下文无可用数据，无法基于财务指标判断该公告类型及要素。需查阅贵州茅台（600519）2023年11月21日发布的《回报股东特别分红方案公告》原文或年报原文确认公告类型及关键要素（具体金额/比例以公告原文为准）。"
     },
     {
       "id": "FIN-050",
@@ -872,11 +1019,14 @@
         "citation_verifiability": 1.0,
         "completeness": 0.3333333333333333,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.8,
+        "calibration": 0.6,
+        "explainability": 0.2
       },
-      "overall": 85.0,
-      "failure_mode": "主要短板：完整性（0.3）",
-      "output": "该公告类型为控股股东增持公司股票计划实施结果公告（权益变动类公告）。通常应包含的关键要素：1) 增持主体（贵州茅台控股股东）；2) 原增持计划内容（计划增持金额或比例，具体以公告原文为准）；3) 实施期限；4) 实际实施结果（实际增持股份数量、金额、比例，具体以公告原文为准）；5) 增持后控股股东持股比例（以公告原文为准）；6) 资金来源；7) 相关承诺及合规性说明。因无可用真实财务指标上下文，具体金额/比例均需以公告原文为准，建议查阅年报或公告原文确认。"
+      "overall": 75.6,
+      "failure_mode": "主要短板：可解释性/推理透明（0.2）",
+      "output": "该公告类型为控股股东增持公司股票计划实施结果公告。通常应包含的关键要素：1)增持主体（控股股东名称）；2)增持目的；3)原增持计划内容（拟增持金额或比例区间，具体以公告原文为准）；4)实施结果（实际增持数量、金额、比例，具体以公告原文为准）；5)增持后持股比例及数量（具体以公告原文为准）；6)实施期限；7)合规说明。因无可用真实财务指标，具体金额/比例请查阅贵州茅台2023-06-28公告原文。"
     },
     {
       "id": "FIN-051",
@@ -885,15 +1035,18 @@
       "counterfeit": false,
       "human_rating": "A",
       "dimensions": {
-        "factual_accuracy": 0.9,
-        "citation_verifiability": 1.0,
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.0,
         "completeness": 0.3333333333333333,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.8,
+        "calibration": 0.6,
+        "explainability": 0.6
       },
-      "overall": 85.0,
-      "failure_mode": "主要短板：完整性（0.3）",
-      "output": "该公告类型为律师事务所关于控股股东及其一致行动人增持股份的法律意见书。该类公告通常应包含的关键要素有：增持主体（控股股东及其一致行动人）、增持目的、增持方式、增持期间、增持数量及比例（具体金额/比例以公告原文为准）、资金来源、法律意见结论等。因提供的真实财务指标上下文无可用数据，且未提供公告原文，具体细节需查公告原文，不得编造。"
+      "overall": 55.4,
+      "failure_mode": "主要短板：引用可验证性（0.0）",
+      "output": "真实财务指标无可用上下文，指标不存在，需查年报原文。根据仅基于真实财务指标作答的指令，无法判断公告类型及列出关键要素等非财务问题。"
     },
     {
       "id": "FIN-052",
@@ -906,11 +1059,14 @@
         "citation_verifiability": 1.0,
         "completeness": 0.3333333333333333,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.8,
+        "calibration": 0.6,
+        "explainability": 0.6
       },
-      "overall": 85.0,
+      "overall": 78.8,
       "failure_mode": "主要短板：完整性（0.3）",
-      "output": "该公告属于业绩说明会召开通知类公告。通常应包含的关键要素有：会议时间、会议形式（现场或网络互动平台）、召开地点或接入方式、参会公司高管（如董事长、总经理、财务总监等）、投资者参与及提问渠道、联系方式、涉及的业绩期间（2022年度及2023年第一季度）等。具体业绩金额或比例（如营收、净利润等）未提供，以公告原文为准，因无真实财务指标上下文，需查年报原文。"
+      "output": "基于提供的真实财务指标（无可用），无法作答；指标不存在或无把握，需查年报原文（及该公告原文）确认公告类型与关键要素，具体金额/比例以公告原文为准。"
     },
     {
       "id": "FIN-053",
@@ -923,11 +1079,14 @@
         "citation_verifiability": 1.0,
         "completeness": 0.3333333333333333,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.8,
+        "calibration": 0.6,
+        "explainability": 0.6
       },
-      "overall": 85.0,
+      "overall": 78.8,
       "failure_mode": "主要短板：完整性（0.3）",
-      "output": "该公告类型为控股股东增持公司股票计划实施进展公告（属权益变动类临时公告）。通常应包含的关键要素：1.增持主体（控股股东）；2.原增持计划概要（拟增持金额/比例区间，具体以公告原文为准）；3.实施进展（累计增持股份数、金额、占总股本比例等，具体以公告原文为准）；4.实施期限；5.资金来源；6.后续计划及风险提示。因无可用真实财务指标上下文，且此类公告非财务指标，具体数值需查公告原文或年报原文，不得编造。"
+      "output": "该公告类型为控股股东增持公司股票计划实施进展公告。通常应包含的关键要素：1. 增持主体（控股股东名称及关联关系）；2. 原增持计划概要（拟增持金额或股份比例区间、实施期限等，具体金额/比例以公告原文为准）；3. 本次实施进展（已增持股份数量、金额、比例等，具体以公告原文为准）；4. 剩余增持计划及后续安排（剩余金额或比例，以公告原文为准）；5. 增持目的与资金来源；6. 相关承诺、锁定限制及风险提示。因提供的真实财务指标上下文为空，具体财务数据需查阅公告原文或年报原文。"
     },
     {
       "id": "FIN-054",
@@ -940,11 +1099,14 @@
         "citation_verifiability": 1.0,
         "completeness": 0.3333333333333333,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.8,
+        "calibration": 0.6,
+        "explainability": 0.6
       },
-      "overall": 85.0,
+      "overall": 78.8,
       "failure_mode": "主要短板：完整性（0.3）",
-      "output": "该公告类型为关于控股股东（四川省宜宾五粮液集团有限公司）增持公司股票计划的公告，属于上市公司权益变动类公告中的增持计划公告。该类公告通常应包含的关键要素包括：增持主体、增持目的、增持股份种类及来源、增持方式、增持期间、拟增持金额或股份数量/比例（具体金额/比例以公告原文为准）、资金来源、增持实施前提及风险提示等。因提供的真实财务指标上下文无可用数据，未涉及具体财务数值，具体计划细节需查阅公告原文。"
+      "output": "该公告类型为股东增持公司股票计划公告（增持计划公告）。该类公告通常应包含的关键要素有：1) 增持主体（四川省宜宾五粮液集团有限公司）；2) 增持目的；3) 增持方式（如集中竞价交易等）；4) 增持期间（计划实施期限）；5) 拟增持金额或股份比例区间（具体金额/比例以公告原文为准）；6) 资金来源；7) 增持前主体持股情况及后续安排；8) 相关承诺与风险提示。因提供的真实财务指标上下文为空，且公告具体数值未提供，不得编造，具体金额/比例请以其公告原文为准。"
     },
     {
       "id": "FIN-055",
@@ -957,11 +1119,14 @@
         "citation_verifiability": 1.0,
         "completeness": 0.3333333333333333,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.8,
+        "calibration": 0.6,
+        "explainability": 0.6
       },
-      "overall": 85.0,
+      "overall": 78.8,
       "failure_mode": "主要短板：完整性（0.3）",
-      "output": "根据提供的真实财务指标（None 2023）无可用上下文，无法提取相关财务数据。针对问题中的公告标题，该公告属于上市公司高级管理人员薪酬考核管理办法类公告（公司治理类）。此类公告通常应包含的关键要素有：考核对象与范围、业绩考核指标（如净资产收益率、净利润等财务指标及合规等非财务指标）、指标权重与目标值、薪酬构成（基本薪酬、绩效薪酬、中长期激励等）、考核周期与程序、薪酬兑现与扣减规则等。因无真实财务指标数据，具体金额、比例及考核数值均以公告原文为准，不得编造，建议查五粮液2023年年报或公告原文。"
+      "output": "提供的真实财务指标上下文为空（无可用），无法基于财务指标直接提取数据。根据公告标题《副职高级管理人员业绩考核暨薪酬管理办法（2023年12月）》（五粮液，000858，2023-12-09），该公告属于公司治理类中的薪酬与绩效考核政策公告。该类公告通常应包含的关键要素有：1. 考核目的与适用对象（副职高级管理人员）；2. 业绩考核指标（可能含财务指标如营收、净利润、ROE等及非财务指标，具体指标与权重以公告原文为准）；3. 薪酬结构与水平（基本薪酬、绩效薪酬等，具体金额/比例以公告原文为准）；4. 考核周期与程序；5. 薪酬兑现、调整与监督机制。因未提供真实财务数据，具体数值/比例不得编造，需查公告原文或年报原文。"
     },
     {
       "id": "FIN-056",
@@ -974,11 +1139,14 @@
         "citation_verifiability": 1.0,
         "completeness": 0.3333333333333333,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.8,
+        "calibration": 0.6,
+        "explainability": 0.2
       },
-      "overall": 85.0,
-      "failure_mode": "主要短板：完整性（0.3）",
-      "output": "该公告类型为分红派息实施公告（权益分派实施公告）。该类公告通常应包含的关键要素：股权登记日、除权除息日、分红派息方案（具体每股分红金额或比例以公告原文为准）、分红对象、总股本等。因提供的真实财务指标上下文为空，未获取具体财务数据，相关指标需查五粮液（000858）2022年年报及公告原文。"
+      "overall": 75.6,
+      "failure_mode": "主要短板：可解释性/推理透明（0.2）",
+      "output": "该公告类型为分红派息实施公告（权益分派实施公告）。该类公告通常应包含的关键要素有：股权登记日、除权除息日、分红实施方案（每10股或每股派发现金红利金额及比例）、分红对象、红利发放方式、税收说明、咨询机构及联系方式等。因当前无可用真实财务指标上下文，具体金额/比例请以公告原文为准，不得编造，需查五粮液（000858）2022年年度报告及该分红实施公告原文确认。"
     },
     {
       "id": "FIN-057",
@@ -987,15 +1155,18 @@
       "counterfeit": false,
       "human_rating": "A",
       "dimensions": {
-        "factual_accuracy": 0.6,
-        "citation_verifiability": 0.0,
+        "factual_accuracy": 0.9,
+        "citation_verifiability": 1.0,
         "completeness": 0.3333333333333333,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.8,
+        "calibration": 0.6,
+        "explainability": 0.6
       },
-      "overall": 52.5,
-      "failure_mode": "主要短板：引用可验证性（0.0）",
-      "output": "提供的真实财务指标无可用上下文（None 2022），指标不存在或无把握，无法基于财务指标判断该公告类型及列出关键要素，需查年报原文确认。"
+      "overall": 78.8,
+      "failure_mode": "主要短板：完整性（0.3）",
+      "output": "根据公告标题“关于举办2022年度及2023年第一季度业绩说明会的公告”，该公告类型为业绩说明会公告（投资者关系活动类公告）。该类公告通常应包含的关键要素包括：会议时间、召开方式（现场/网络）、公司参会人员（如董事长、总经理、财务负责人等）、投资者参与方式、联系人及联系方式等。对于未知的2022年度及2023年第一季度具体业绩金额/比例，注明“以公告原文为准”。因提供的真实财务指标上下文为空，相关财务数据需查年报原文核实。"
     },
     {
       "id": "FIN-058",
@@ -1008,11 +1179,14 @@
         "citation_verifiability": 1.0,
         "completeness": 0.3333333333333333,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.8,
+        "calibration": 0.6,
+        "explainability": 0.6
       },
-      "overall": 85.0,
+      "overall": 78.8,
       "failure_mode": "主要短板：完整性（0.3）",
-      "output": "该公告标题为《关于2021年股票期权与限制性股票激励计划部分股票期权注销完成的公告》，公告类型为股权激励计划部分股票期权注销完成公告。该类公告通常应包含的关键要素有：1) 注销事由（如激励对象离职、业绩未达标等）；2) 注销股票期权的数量及占授予总量比例（具体金额/比例以公告原文为准）；3) 注销完成日期及交易所确认情况；4) 涉及的激励计划名称与批次（如2021年股票期权与限制性股票激励计划）；5) 注销后剩余期权数量及对公司股本结构的影响（具体以公告原文为准）；6) 后续安排。注：本回答未基于真实财务指标，因所给上下文无可用财务指标，且问题不涉及财务指标数据；如需具体财务影响请查年报原文。"
+      "output": "提供的真实财务指标上下文无可用数据（None 2021）。本公告类型判断及关键要素不属于财务指标范畴，基于给定约束仅能依据真实财务指标作答，故无法提供公告类型与要素；需查公告原文或年报原文以获取准确信息，具体金额/比例以公告原文为准。"
     },
     {
       "id": "FIN-059",
@@ -1025,11 +1199,14 @@
         "citation_verifiability": 0.0,
         "completeness": 0.0,
         "format": 1.0,
-        "safety_no_hallucination": 1.0
+        "safety_no_hallucination": 1.0,
+        "computation": 0.8,
+        "calibration": 0.6,
+        "explainability": 0.6
       },
-      "overall": 50.0,
+      "overall": 53.0,
       "failure_mode": "主要短板：引用可验证性（0.0）",
-      "output": "根据提供的真实财务指标，无可用上下文（None 2021），无法生成关于注销2021年股票期权与限制性股票激励计划部分股票期权公告的要点摘要。指标不存在或无把握，需查年报原文或公告原文。"
+      "output": "根据提供的真实财务指标，无可用上下文，无法生成公告要点摘要。指标不存在或无把握，需查年报原文获取该公告内容。"
     },
     {
       "id": "FIN-060",
@@ -1042,11 +1219,14 @@
         "citation_verifiability": 0.0,
         "completeness": 0.0,
         "format": 1.0,
-        "safety_no_hallucination": 1.0
+        "safety_no_hallucination": 1.0,
+        "computation": 0.8,
+        "calibration": 0.6,
+        "explainability": 0.6
       },
-      "overall": 50.0,
+      "overall": 53.0,
       "failure_mode": "主要短板：引用可验证性（0.0）",
-      "output": "根据提供的真实财务指标，无可用上下文（None 2021），无法生成关于宁德时代2021年股票期权与限制性股票激励计划注销部分股票期权的法律意见书要点摘要。该公告内容非财务指标，且指标不存在或无把握，需查年报原文或公告原文获取详细信息。"
+      "output": "提供的真实财务指标上下文为无可用上下文，且问题要求生成公告要点摘要而非财务指标查询。由于缺乏公告原文及真实财务数据，无法生成摘要。指标不存在或无把握，需查年报原文或公告原文。"
     },
     {
       "id": "FIN-061",
@@ -1055,15 +1235,138 @@
       "counterfeit": true,
       "human_rating": "D",
       "dimensions": {
-        "factual_accuracy": 0.9,
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.0,
+        "completeness": 0.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.8,
+        "calibration": 0.6,
+        "explainability": 0.6
+      },
+      "overall": 53.0,
+      "failure_mode": "主要短板：引用可验证性（0.0）",
+      "output": "无可用真实财务指标上下文，无法基于财务指标生成关于回购公司股份的进展公告要点摘要。指标不存在或无把握，需查公告原文或年报原文。"
+    },
+    {
+      "id": "FIN-082",
+      "subtask": "财务问答",
+      "difficulty": "中",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 1.0,
         "citation_verifiability": 1.0,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 1.0
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.9,
+        "explainability": 1.0
       },
-      "overall": 97.5,
+      "overall": 99.0,
       "failure_mode": "无明显失败模式",
-      "output": "该公告属于【股份回购】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+      "output": "贵州茅台（600519）2021年的主营业务收入增长率为11.8788%。其计算含义为：（本期主营业务收入 - 上期主营业务收入）/ 上期主营业务收入 × 100%，反映公司主营业务收入的同比增长情况，表明2021年相较2020年主营业务收入增长了11.8788%。"
+    },
+    {
+      "id": "FIN-083",
+      "subtask": "财务问答",
+      "difficulty": "中",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.9,
+        "explainability": 1.0
+      },
+      "overall": 99.0,
+      "failure_mode": "无明显失败模式",
+      "output": "贵州茅台（600519）2023年的资产负债率为17.9843%。"
+    },
+    {
+      "id": "FIN-084",
+      "subtask": "财务问答",
+      "difficulty": "难",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.6,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 1.0,
+        "explainability": 0.6
+      },
+      "overall": 75.6,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "output": "提供的真实财务指标中未包含贵州茅台（600519）2021年的市盈率指标，该指标不存在于给定数据中，需查年报原文获取。"
+    },
+    {
+      "id": "FIN-085",
+      "subtask": "财务问答",
+      "difficulty": "难",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.6,
+        "completeness": 0.3,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9,
+        "computation": 0.6,
+        "calibration": 1.0,
+        "explainability": 0.6
+      },
+      "overall": 67.2,
+      "failure_mode": "主要短板：完整性（0.3）",
+      "output": "提供的真实财务指标中未包含【机构持股比例】，该指标不存在于已知数据，需查年报原文获取。"
+    },
+    {
+      "id": "FIN-086",
+      "subtask": "财务问答",
+      "difficulty": "中",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.9,
+        "explainability": 1.0
+      },
+      "overall": 99.0,
+      "failure_mode": "无明显失败模式",
+      "output": "贵州茅台（600519）2021年的净资产收益率为27.68%，该值直接依据提供的“净资产收益率”指标得出。"
+    },
+    {
+      "id": "FIN-087",
+      "subtask": "公告摘要",
+      "difficulty": "中",
+      "counterfeit": false,
+      "human_rating": "A",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.0,
+        "completeness": 0.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.9,
+        "computation": 0.8,
+        "calibration": 0.6,
+        "explainability": 0.6
+      },
+      "overall": 51.4,
+      "failure_mode": "主要短板：引用可验证性（0.0）",
+      "output": "提供的真实财务指标为（None 2023）无可用上下文，指标不存在。仅基于真实财务指标无法判断公告类型，需查贵州茅台年报原文或该公告原文以获取依据。"
     }
   ],
   "val_results": [
@@ -1076,9 +1379,12 @@
         "citation_verifiability": 0.0,
         "completeness": 0.8,
         "format": 1.0,
-        "safety_no_hallucination": 1.0
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.9,
+        "explainability": 0.2
       },
-      "overall": 72.0,
+      "overall": 72.2,
       "failure_mode": "主要短板：引用可验证性（0.0）",
       "output": "扣非净利润：74752564425.52。"
     },
@@ -1091,9 +1397,12 @@
         "citation_verifiability": 0.6,
         "completeness": 0.8,
         "format": 1.0,
-        "safety_no_hallucination": 0.0
+        "safety_no_hallucination": 0.0,
+        "computation": 0.0,
+        "calibration": 0.9,
+        "explainability": 0.6
       },
-      "overall": 37.0,
+      "overall": 39.2,
       "failure_mode": "主要短板：事实准确性（0.0）",
       "output": "扣非净利润大约是 700 多亿元，建议核对年报原文确认精确值。"
     },
@@ -1106,9 +1415,12 @@
         "citation_verifiability": 0.0,
         "completeness": 0.8,
         "format": 1.0,
-        "safety_no_hallucination": 0.4
+        "safety_no_hallucination": 0.4,
+        "computation": 0.0,
+        "calibration": 0.9,
+        "explainability": 0.2
       },
-      "overall": 32.0,
+      "overall": 31.6,
       "failure_mode": "主要短板：事实准确性（0.0）",
       "output": "扣非净利润为 99 亿元。"
     },
@@ -1121,9 +1433,12 @@
         "citation_verifiability": 0.0,
         "completeness": 0.8,
         "format": 1.0,
-        "safety_no_hallucination": 0.4
+        "safety_no_hallucination": 0.4,
+        "computation": 0.0,
+        "calibration": 0.7,
+        "explainability": 0.2
       },
-      "overall": 32.0,
+      "overall": 29.6,
       "failure_mode": "主要短板：事实准确性（0.0）",
       "output": "贵州茅台作为白酒行业龙头，其盈利充分体现了品牌护城河与渠道掌控力，在宏观波动中展现出极强韧性，未来有望持续高质量增长。（通篇未给数值）"
     },
@@ -1136,9 +1451,12 @@
         "citation_verifiability": 0.0,
         "completeness": 0.8,
         "format": 1.0,
-        "safety_no_hallucination": 1.0
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.9,
+        "explainability": 0.2
       },
-      "overall": 72.0,
+      "overall": 72.2,
       "failure_mode": "主要短板：引用可验证性（0.0）",
       "output": "扣非净利润：74752564425.52（数据口径：扣除非经常性损益后的净利润）。"
     },
@@ -1151,9 +1469,12 @@
         "citation_verifiability": 0.6,
         "completeness": 0.8,
         "format": 1.0,
-        "safety_no_hallucination": 0.0
+        "safety_no_hallucination": 0.0,
+        "computation": 0.0,
+        "calibration": 0.9,
+        "explainability": 0.6
       },
-      "overall": 37.0,
+      "overall": 39.2,
       "failure_mode": "主要短板：事实准确性（0.0）",
       "output": "根据公开财务数据，贵州茅台2023年扣非净利润处于历史高位，具体数额请查阅年报。"
     },
@@ -1166,9 +1487,12 @@
         "citation_verifiability": 0.0,
         "completeness": 0.8,
         "format": 1.0,
-        "safety_no_hallucination": 0.4
+        "safety_no_hallucination": 0.4,
+        "computation": 0.0,
+        "calibration": 0.9,
+        "explainability": 0.2
       },
-      "overall": 32.0,
+      "overall": 31.6,
       "failure_mode": "主要短板：事实准确性（0.0）",
       "output": "扣非净利润为 12.3 亿元。"
     },
@@ -1181,9 +1505,12 @@
         "citation_verifiability": 0.0,
         "completeness": 0.8,
         "format": 1.0,
-        "safety_no_hallucination": 0.4
+        "safety_no_hallucination": 0.4,
+        "computation": 0.0,
+        "calibration": 0.9,
+        "explainability": 0.2
       },
-      "overall": 32.0,
+      "overall": 31.6,
       "failure_mode": "主要短板：事实准确性（0.0）",
       "output": "本报告认为公司基本面稳健，财务指标健康，长期价值突出，建议重点关注其龙头地位带来的确定性收益。（回避具体数值）"
     },
@@ -1196,9 +1523,12 @@
         "citation_verifiability": 0.0,
         "completeness": 0.8,
         "format": 1.0,
-        "safety_no_hallucination": 1.0
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.9,
+        "explainability": 0.2
       },
-      "overall": 72.0,
+      "overall": 72.2,
       "failure_mode": "主要短板：引用可验证性（0.0）",
       "output": "扣非净利润：74752564425.52。"
     },
@@ -1211,9 +1541,12 @@
         "citation_verifiability": 0.0,
         "completeness": 0.8,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.0,
+        "calibration": 0.7,
+        "explainability": 0.2
       },
-      "overall": 44.5,
+      "overall": 37.6,
       "failure_mode": "主要短板：事实准确性（0.0）",
       "output": "扣非净利润约七百多亿元级别，同比保持增长。"
     },
@@ -1226,9 +1559,12 @@
         "citation_verifiability": 0.0,
         "completeness": 0.8,
         "format": 1.0,
-        "safety_no_hallucination": 0.4
+        "safety_no_hallucination": 0.4,
+        "computation": 0.0,
+        "calibration": 0.9,
+        "explainability": 0.2
       },
-      "overall": 32.0,
+      "overall": 31.6,
       "failure_mode": "主要短板：事实准确性（0.0）",
       "output": "扣非净利润为 50 亿元。"
     },
@@ -1241,9 +1577,12 @@
         "citation_verifiability": 0.0,
         "completeness": 0.8,
         "format": 1.0,
-        "safety_no_hallucination": 0.4
+        "safety_no_hallucination": 0.4,
+        "computation": 0.0,
+        "calibration": 0.7,
+        "explainability": 0.2
       },
-      "overall": 32.0,
+      "overall": 29.6,
       "failure_mode": "主要短板：事实准确性（0.0）",
       "output": "在消费升级与高端化趋势下，公司量价齐升逻辑清晰，财务表现优异，具备长期配置价值。（无数值）"
     },
@@ -1256,9 +1595,12 @@
         "citation_verifiability": 0.0,
         "completeness": 0.8,
         "format": 1.0,
-        "safety_no_hallucination": 1.0
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.9,
+        "explainability": 0.2
       },
-      "overall": 72.0,
+      "overall": 72.2,
       "failure_mode": "主要短板：引用可验证性（0.0）",
       "output": "扣非净利润：74752564425.52。"
     },
@@ -1271,9 +1613,12 @@
         "citation_verifiability": 0.6,
         "completeness": 0.8,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.0,
+        "calibration": 0.7,
+        "explainability": 0.6
       },
-      "overall": 59.5,
+      "overall": 51.6,
       "failure_mode": "主要短板：事实准确性（0.0）",
       "output": "扣非净利润数值较大，反映主业盈利能力强，精确值以年报为准。"
     },
@@ -1286,9 +1631,12 @@
         "citation_verifiability": 0.0,
         "completeness": 0.8,
         "format": 1.0,
-        "safety_no_hallucination": 0.4
+        "safety_no_hallucination": 0.4,
+        "computation": 0.0,
+        "calibration": 0.9,
+        "explainability": 0.2
       },
-      "overall": 32.0,
+      "overall": 31.6,
       "failure_mode": "主要短板：事实准确性（0.0）",
       "output": "扣非净利润为 200 亿元。"
     },
@@ -1301,9 +1649,12 @@
         "citation_verifiability": 0.0,
         "completeness": 0.8,
         "format": 1.0,
-        "safety_no_hallucination": 0.4
+        "safety_no_hallucination": 0.4,
+        "computation": 0.0,
+        "calibration": 0.7,
+        "explainability": 0.2
       },
-      "overall": 32.0,
+      "overall": 29.6,
       "failure_mode": "主要短板：事实准确性（0.0）",
       "output": "公司作为核心资产，财务质量行业领先，分红与成长兼具，投资价值显著。（无数值）"
     },
@@ -1316,9 +1667,12 @@
         "citation_verifiability": 0.0,
         "completeness": 0.8,
         "format": 1.0,
-        "safety_no_hallucination": 1.0
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.9,
+        "explainability": 0.2
       },
-      "overall": 72.0,
+      "overall": 72.2,
       "failure_mode": "主要短板：引用可验证性（0.0）",
       "output": "扣非净利润：74752564425.52。"
     },
@@ -1331,9 +1685,12 @@
         "citation_verifiability": 0.0,
         "completeness": 0.8,
         "format": 1.0,
-        "safety_no_hallucination": 0.9
+        "safety_no_hallucination": 0.9,
+        "computation": 0.0,
+        "calibration": 0.7,
+        "explainability": 0.2
       },
-      "overall": 44.5,
+      "overall": 37.6,
       "failure_mode": "主要短板：事实准确性（0.0）",
       "output": "扣非净利润位于七百亿元量级，主业贡献突出。"
     },
@@ -1346,9 +1703,12 @@
         "citation_verifiability": 0.0,
         "completeness": 0.8,
         "format": 1.0,
-        "safety_no_hallucination": 0.4
+        "safety_no_hallucination": 0.4,
+        "computation": 0.0,
+        "calibration": 0.9,
+        "explainability": 0.2
       },
-      "overall": 32.0,
+      "overall": 31.6,
       "failure_mode": "主要短板：事实准确性（0.0）",
       "output": "扣非净利润为 35 亿元。"
     },
@@ -1361,9 +1721,12 @@
         "citation_verifiability": 0.0,
         "completeness": 0.8,
         "format": 1.0,
-        "safety_no_hallucination": 0.4
+        "safety_no_hallucination": 0.4,
+        "computation": 0.0,
+        "calibration": 0.7,
+        "explainability": 0.2
       },
-      "overall": 32.0,
+      "overall": 29.6,
       "failure_mode": "主要短板：事实准确性（0.0）",
       "output": "公司护城河深厚，现金流充沛，经营稳健，是稀缺的优质标的。（无数值）"
     }

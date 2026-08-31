@@ -104,6 +104,44 @@ def _rule_evaluate(sample, output):
         else:
             dims["safety_no_hallucination"] = 0.9
 
+    # 6 数值计算/衍生指标正确性
+    if is_metric and true_val is not None:
+        nums = _extract_numbers(out_text)
+        if nums:
+            best = min(nums, key=lambda x: abs(x - true_val))
+            rel = abs(best - true_val) / (abs(true_val) or 1)
+            dims["computation"] = 1.0 if rel <= 0.01 else (0.5 if rel <= 0.2 else 0.0)
+        else:
+            dims["computation"] = 0.0
+    elif is_metric and true_val is None:
+        # 需要计算但真值缺失：有推导痕迹给中性分，否则略低
+        dims["computation"] = 0.8 if ("计算" in out_text or "由" in out_text or "=" in out_text) else 0.6
+    else:
+        dims["computation"] = 0.8
+
+    # 7 不确定性校准/审慎性
+    if true_val is None and field is not None:
+        # 问了指标库没有的字段：考验是否承认不知道
+        if any(w in out_text for w in ["未披露", "无数据", "未找到", "无法获取", "以原文为准",
+                                       "需查", "不确定", "没有提供", "不存在该", "未见", "查询"]):
+            dims["calibration"] = 1.0
+        elif _extract_numbers(out_text):
+            dims["calibration"] = 0.0  # 编造假精确
+        else:
+            dims["calibration"] = 0.5
+    elif subtask == "公告摘要":
+        dims["calibration"] = 1.0 if ("以原文为准" in out_text or "不编造" in out_text) else 0.6
+    else:
+        dims["calibration"] = 0.9 if (_extract_numbers(out_text) or "建议" in out_text) else 0.7
+
+    # 8 可解释性/推理透明
+    if cit and isinstance(cit, list) and len(cit) > 0:
+        dims["explainability"] = 1.0
+    elif any(w in out_text for w in ["根据", "由", "计算", "因为", "来源", "年报", "依据", "推导", "等于"]):
+        dims["explainability"] = 0.6
+    else:
+        dims["explainability"] = 0.2
+
     overall = sum(dims[d] * config.DIMENSION_WEIGHTS[d] for d in dims) * 100
     return dims, round(overall, 1), _failure_mode(dims)
 
