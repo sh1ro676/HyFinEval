@@ -12,8 +12,13 @@ import config
 import data_store
 
 
-def call_hy3(messages, temperature=0.2, max_tokens=1024):
-    """通用 Hy3 / 混元 OpenAI 兼容调用。无 key 返回 None。"""
+def call_hy3(messages, temperature=0.2, max_tokens=3072):
+    """通用 Hy3 / 混元 OpenAI 兼容调用。无 key 返回 None。
+
+    注意：hy3 是推理模型，会先生成 reasoning_content 再生成 content；
+    若 max_tokens 太小，推理过程会耗尽额度导致 content 为空。
+    这里默认 max_tokens=3072 给推理+正式回答留足空间，并做兼容兜底。
+    """
     if not config.USE_HY3:
         return None
     url = config.HY3_BASE_URL.rstrip("/") + "/chat/completions"
@@ -29,9 +34,14 @@ def call_hy3(messages, temperature=0.2, max_tokens=1024):
         "stream": False,
     }
     try:
-        r = requests.post(url, headers=headers, json=payload, timeout=60)
+        r = requests.post(url, headers=headers, json=payload, timeout=180)
         r.raise_for_status()
-        return r.json()["choices"][0]["message"]["content"]
+        msg = r.json()["choices"][0]["message"]
+        content = (msg.get("content") or "").strip()
+        if not content:
+            # 推理模型兼容：content 为空时回退到思考过程，避免整条请求判失败
+            content = (msg.get("reasoning_content") or "").strip()
+        return content
     except Exception as e:  # 失败降级
         return f"[HY3_ERROR] {e}"
 

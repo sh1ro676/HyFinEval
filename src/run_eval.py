@@ -3,7 +3,8 @@
 运行完整评测：应用生成 -> 规则评估 -> 判别力/一致性/对抗性验证 -> 输出结果。
 用法：
   python run_eval.py                  # 用基线应用 + 规则评估（无需 key，立即看效果）
-  python run_eval.py --use-hy3       # 应用层与裁判均启用 Hy3（需 HY3_API_KEY）
+  python run_eval.py --use-hy3       # 应用层启用 Hy3（需 HY3_API_KEY）
+  python run_eval.py --use-hy3 --workers 10   # 接入推理模型时并发生成，显著提速
   python run_eval.py --use-hy3-judge # 应用用基线，仅裁判启用 Hy3 交叉验证
 """
 import os
@@ -11,6 +12,7 @@ import sys
 import json
 import argparse
 import statistics as st
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import data_store
 import baseline_app
 import hy3_app
@@ -51,6 +53,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--use-hy3", action="store_true", help="应用层启用 Hy3")
     ap.add_argument("--use-hy3-judge", action="store_true", help="裁判启用 Hy3 交叉验证")
+    ap.add_argument("--workers", type=int, default=1,
+                    help="应用生成并发线程数（默认1串行；接入 Hy3 推理模型建议 8-10）")
     args = ap.parse_args()
 
     use_hy3_app = args.use_hy3
@@ -64,13 +68,27 @@ def main():
     val_samples = [s for s in samples if s["subtask"] == "评估器验证"]
 
     # ---- 1. 应用评测 ----
+    # 生成阶段为网络 IO 密集（尤其推理模型），可并发；评估阶段为本地规则，串行即可。
     app_results = []
-    for s in app_samples:
-        out = generate_output(s, use_hy3_app)
-        ev = evaluator.evaluate(s, out, use_judge)
-        app_results.append({"id": s["id"], "subtask": s["subtask"],
-                            "difficulty": s["difficulty"], "counterfeit": s.get("is_counterfeit", False),
-                            "human_rating": s.get("human_anchor_rating"), **ev})
+    if use_hy3_app and args.workers > 1:
+        print(f"[信息] 并发生成中（workers={args.workers}）...", flush=True)
+        outs = {}
+        with ThreadPoolExecutor(max_workers=args.workers) as ex:
+            futs = {ex.submit(generate_output, s, True): s["id"] for s in app_samples}
+            for f in as_completed(futs):
+                outs[futs[f]] = f.result()
+        for s in app_samples:
+            ev = evaluator.evaluate(s, outs[s["id"]], use_judge)
+            app_results.append({"id": s["id"], "subtask": s["subtask"],
+                                "difficulty": s["difficulty"], "counterfeit": s.get("is_counterfeit", False),
+                                "human_rating": s.get("human_anchor_rating"), **ev})
+    else:
+        for s in app_samples:
+            out = generate_output(s, use_hy3_app)
+            ev = evaluator.evaluate(s, out, use_judge)
+            app_results.append({"id": s["id"], "subtask": s["subtask"],
+                                "difficulty": s["difficulty"], "counterfeit": s.get("is_counterfeit", False),
+                                "human_rating": s.get("human_anchor_rating"), **ev})
 
     # ---- 2. 验证集判别力（输出=人工构造的好坏中差对抗样本）----
     val_results = []
