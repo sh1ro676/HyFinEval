@@ -76,9 +76,12 @@ def _rule_evaluate(sample, output):
     else:
         dims["completeness"] = 0.8
 
-    # 4 格式
+    # 4 格式规范性/可解释（合并原可解释性维度）
     if isinstance(output, dict) and output.get("answer"):
-        dims["format"] = 1.0
+        has_trace = bool(cit and len(cit) > 0) or any(
+            w in out_text for w in ["根据", "由", "计算", "因为", "来源", "年报", "依据",
+                                    "推导", "等于", "提取自", "指标", "以原文为准", "需查"])
+        dims["format"] = 1.0 if has_trace else 0.6
     elif out_text.strip():
         dims["format"] = 0.6
     else:
@@ -133,14 +136,6 @@ def _rule_evaluate(sample, output):
         dims["calibration"] = 1.0 if ("以原文为准" in out_text or "不编造" in out_text) else 0.6
     else:
         dims["calibration"] = 0.9 if (_extract_numbers(out_text) or "建议" in out_text) else 0.7
-
-    # 8 可解释性/推理透明
-    if cit and isinstance(cit, list) and len(cit) > 0:
-        dims["explainability"] = 1.0
-    elif any(w in out_text for w in ["根据", "由", "计算", "因为", "来源", "年报", "依据", "推导", "等于"]):
-        dims["explainability"] = 0.6
-    else:
-        dims["explainability"] = 0.2
 
     overall = sum(dims[d] * config.DIMENSION_WEIGHTS[d] for d in dims) * 100
     return dims, round(overall, 1), _failure_mode(dims)

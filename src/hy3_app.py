@@ -60,18 +60,32 @@ def generate(sample, use_rag=True):
     use_rag=True（开卷）：检索 (公司,年份) 真实指标作为上下文，考"引用可验证"。
     use_rag=False（闭卷）：不注入任何指标表，纯考模型自身金融知识，用于证伪
         computation / factual_accuracy 维度的判别力（剥离 RAG 后是否仍有效）。
+
+    2026-08-31（二轮）提示词优化：要求精确抄录、强制 citations、逐条完整性、
+    衍生指标展示公式、不确定即声明查原文——目标是在现有 rubric 下合法提分。
     """
     code, year, field = data_store.parse_input(sample["input"])
     ind = data_store.get_indicators()
     rec = ind.get(f"{code}_{year}")
 
+    example = (
+        '示例：{"answer":"贵州茅台（600519）2021年扣非净利润为525.81亿元（52581102656.24元）。",'
+        '"citations":[{"company":"600519","year":"2021","field":"扣非净利润","value":52581102656.24}]}'
+    )
+
     if use_rag and rec:
         ctx = "；".join(f"{k}={v}" for k, v in rec.items())
         system = (
-            "你是金融数据分析助手。仅基于【真实财务指标】作答，必须输出严格 JSON："
-            "{\"answer\": \"文本答案\", \"citations\": [{\"company\": \"代码\", \"year\": \"年份\", "
-            "\"field\": \"指标名\", \"value\": 数值}]}。"
-            "不得编造数据；指标不存在或无把握时明确说明需查年报原文。"
+            "你是一名严谨的金融数据分析助手。请【严格基于】下方提供的真实财务指标作答，并遵守：\n"
+            "1. 只输出一个 JSON 对象，不要任何额外解释文字。\n"
+            "2. 结构：{\"answer\":\"一句话结论（含关键数值与单位）\","
+            "\"citations\":[{\"company\":\"股票代码\",\"year\":\"年份\",\"field\":\"指标名\",\"value\":数值}]}。\n"
+            "3. answer 中的数值必须从下方指标表【精确抄录】，不要自行计算或改写；"
+            "若问题要求衍生指标或解释计算含义，用表中字段按标准公式展示推导，并仍给出表中真实值。\n"
+            "4. citations 必须列出 answer 引用的每一个字段，field 严格使用指标表中的字段名，"
+            "value 为该字段在表中的真实数值。\n"
+            "5. 逐条回应问题的所有子问题，保持完整；指标不存在或无把握时说明需查年报原文。\n"
+            f"{example}"
         )
         user = (
             f"真实财务指标（{code} {year}）：{ctx}\n\n"
@@ -79,14 +93,20 @@ def generate(sample, use_rag=True):
         )
     else:
         system = (
-            "你是金融数据分析助手。基于你的金融知识作答，必须输出严格 JSON："
-            "{\"answer\": \"文本答案\", \"citations\": [{\"company\": \"代码\", \"year\": \"年份\", "
-            "\"field\": \"指标名\", \"value\": 数值}]}。"
-            "对不确定的数据明确说明需查年报原文，不得编造具体数字。"
+            "你是一名严谨的金融数据分析助手。基于你的金融知识作答，并遵守：\n"
+            "1. 只输出一个 JSON 对象，不要任何额外解释文字。\n"
+            "2. 结构：{\"answer\":\"结论（含数值与单位）\","
+            "\"citations\":[{\"company\":\"代码\",\"year\":\"年份\",\"field\":\"指标名\",\"value\":数值}]}。\n"
+            "3. citations 列出你引用/依据的来源字段，value 为该指标真实数值。\n"
+            "4. 若问题要求衍生指标，展示所用公式与基数。\n"
+            "5. 若你不确定某数据或它不在你的知识范围内，明确说明需查年报原文，value 可写 null，不得编造具体数字。\n"
+            "6. 逐条回应所有子问题。\n"
+            f"{example}"
         )
         user = (
             f"问题：{sample['input']}\n\n请只输出 JSON。"
         )
+
     out = call_hy3([
         {"role": "system", "content": system},
         {"role": "user", "content": user},
@@ -96,4 +116,12 @@ def generate(sample, use_rag=True):
     try:
         return json.loads(_extract_json(out))
     except Exception:
-        return {"answer": out, "citations": []}
+        # 兜底：JSON 解析失败时，尝试从文本抽取 citations，避免引用维度直接归零
+        cit = []
+        m = re.search(r'"citations"\s*:\s*(\[.*\])', out, re.DOTALL)
+        if m:
+            try:
+                cit = json.loads(m.group(1))
+            except Exception:
+                cit = []
+        return {"answer": out, "citations": cit if isinstance(cit, list) else []}
