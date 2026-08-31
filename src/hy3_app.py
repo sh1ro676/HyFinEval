@@ -54,23 +54,39 @@ def _extract_json(text):
     return text
 
 
-def generate(sample):
-    """RAG 检索 + Hy3 生成。返回 {answer, citations} 或 None（降级用）。"""
+def generate(sample, use_rag=True):
+    """RAG 检索 + Hy3 生成。返回 {answer, citations} 或 None（降级用）。
+
+    use_rag=True（开卷）：检索 (公司,年份) 真实指标作为上下文，考"引用可验证"。
+    use_rag=False（闭卷）：不注入任何指标表，纯考模型自身金融知识，用于证伪
+        computation / factual_accuracy 维度的判别力（剥离 RAG 后是否仍有效）。
+    """
     code, year, field = data_store.parse_input(sample["input"])
     ind = data_store.get_indicators()
     rec = ind.get(f"{code}_{year}")
-    ctx = "；".join(f"{k}={v}" for k, v in rec.items()) if rec else "（无可用上下文）"
 
-    system = (
-        "你是金融数据分析助手。仅基于【真实财务指标】作答，必须输出严格 JSON："
-        "{\"answer\": \"文本答案\", \"citations\": [{\"company\": \"代码\", \"year\": \"年份\", "
-        "\"field\": \"指标名\", \"value\": 数值}]}。"
-        "不得编造数据；指标不存在或无把握时明确说明需查年报原文。"
-    )
-    user = (
-        f"真实财务指标（{code} {year}）：{ctx}\n\n"
-        f"问题：{sample['input']}\n\n请只输出 JSON。"
-    )
+    if use_rag and rec:
+        ctx = "；".join(f"{k}={v}" for k, v in rec.items())
+        system = (
+            "你是金融数据分析助手。仅基于【真实财务指标】作答，必须输出严格 JSON："
+            "{\"answer\": \"文本答案\", \"citations\": [{\"company\": \"代码\", \"year\": \"年份\", "
+            "\"field\": \"指标名\", \"value\": 数值}]}。"
+            "不得编造数据；指标不存在或无把握时明确说明需查年报原文。"
+        )
+        user = (
+            f"真实财务指标（{code} {year}）：{ctx}\n\n"
+            f"问题：{sample['input']}\n\n请只输出 JSON。"
+        )
+    else:
+        system = (
+            "你是金融数据分析助手。基于你的金融知识作答，必须输出严格 JSON："
+            "{\"answer\": \"文本答案\", \"citations\": [{\"company\": \"代码\", \"year\": \"年份\", "
+            "\"field\": \"指标名\", \"value\": 数值}]}。"
+            "对不确定的数据明确说明需查年报原文，不得编造具体数字。"
+        )
+        user = (
+            f"问题：{sample['input']}\n\n请只输出 JSON。"
+        )
     out = call_hy3([
         {"role": "system", "content": system},
         {"role": "user", "content": user},

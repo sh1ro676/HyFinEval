@@ -6,6 +6,8 @@
   python run_eval.py --use-hy3       # 应用层启用 Hy3（需 HY3_API_KEY）
   python run_eval.py --use-hy3 --workers 10   # 接入推理模型时并发生成，显著提速
   python run_eval.py --use-hy3-judge # 应用用基线，仅裁判启用 Hy3 交叉验证
+  python run_eval.py --use-hy3 --no-rag   # 闭卷：不注入指标表，纯考模型自身知识（证伪 computation 维度）
+  python run_eval.py --use-hy3 --no-rag --out eval_results_norag.json  # 结果写入独立文件
 """
 import os
 import sys
@@ -20,9 +22,9 @@ import evaluator
 import config
 
 
-def generate_output(sample, use_hy3_app):
+def generate_output(sample, use_hy3_app, use_rag=True):
     if use_hy3_app:
-        out = hy3_app.generate(sample)
+        out = hy3_app.generate(sample, use_rag)
         if out:
             return out
     return baseline_app.baseline_generate(sample)
@@ -55,10 +57,15 @@ def main():
     ap.add_argument("--use-hy3-judge", action="store_true", help="裁判启用 Hy3 交叉验证")
     ap.add_argument("--workers", type=int, default=1,
                     help="应用生成并发线程数（默认1串行；接入 Hy3 推理模型建议 8-10）")
+    ap.add_argument("--no-rag", action="store_true",
+                    help="闭卷模式：不注入真实指标表，纯考模型自身知识（证伪 computation 维度）")
+    ap.add_argument("--out", type=str, default=None,
+                    help="结果输出文件名（默认 eval_results.json，便于开卷/闭卷并存）")
     args = ap.parse_args()
 
     use_hy3_app = args.use_hy3
     use_judge = args.use_hy3_judge
+    use_rag = not args.no_rag
     if use_hy3_app and not config.USE_HY3:
         print("[警告] 未检测到 HY3_API_KEY，回退到基线应用。")
         use_hy3_app = False
@@ -71,10 +78,10 @@ def main():
     # 生成阶段为网络 IO 密集（尤其推理模型），可并发；评估阶段为本地规则，串行即可。
     app_results = []
     if use_hy3_app and args.workers > 1:
-        print(f"[信息] 并发生成中（workers={args.workers}）...", flush=True)
+        print(f"[信息] 并发生成中（workers={args.workers}，RAG={'开卷' if use_rag else '闭卷'}）...", flush=True)
         outs = {}
         with ThreadPoolExecutor(max_workers=args.workers) as ex:
-            futs = {ex.submit(generate_output, s, True): s["id"] for s in app_samples}
+            futs = {ex.submit(generate_output, s, True, use_rag): s["id"] for s in app_samples}
             for f in as_completed(futs):
                 outs[futs[f]] = f.result()
         for s in app_samples:
@@ -84,7 +91,7 @@ def main():
                                 "human_rating": s.get("human_anchor_rating"), **ev})
     else:
         for s in app_samples:
-            out = generate_output(s, use_hy3_app)
+            out = generate_output(s, use_hy3_app, use_rag)
             ev = evaluator.evaluate(s, out, use_judge)
             app_results.append({"id": s["id"], "subtask": s["subtask"],
                                 "difficulty": s["difficulty"], "counterfeit": s.get("is_counterfeit", False),
@@ -132,6 +139,7 @@ def main():
     summary = {
         "use_hy3_app": use_hy3_app,
         "use_hy3_judge": use_judge,
+        "use_rag": use_rag,
         "app_sample_count": len(app_results),
         "val_sample_count": len(val_results),
         "app_overall_avg": avg(app_overall),
@@ -145,7 +153,7 @@ def main():
                               and disc.get("对抗", 100) < 50),
     }
 
-    out_path = os.path.join(config.RESULTS_DIR, "eval_results.json")
+    out_path = os.path.join(config.RESULTS_DIR, args.out or "eval_results.json")
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump({"summary": summary, "app_results": app_results,
                    "val_results": val_results}, f, ensure_ascii=False, indent=2)
@@ -157,7 +165,7 @@ def main():
 def _print_report(summary, app_results, val_results):
     print("=" * 60)
     print("A+B 路径评测报告（规则评估器）")
-    print(f"应用层用 Hy3：{summary['use_hy3_app']} | 裁判用 Hy3：{summary['use_hy3_judge']}")
+    print(f"应用层用 Hy3：{summary['use_hy3_app']} | 裁判用 Hy3：{summary['use_hy3_judge']} | RAG：{'开卷' if summary['use_rag'] else '闭卷'}")
     print("=" * 60)
     print(f"应用样本数：{summary['app_sample_count']}  平均综合分：{summary['app_overall_avg']}")
     print("分任务平均分：", summary["by_subtask"])
