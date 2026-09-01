@@ -1,0 +1,65 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HyFinEval Demo</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,"Microsoft YaHei",sans-serif;}
+body{background:#0f1729;color:#e8edf5;}
+.wrap{max-width:880px;margin:0 auto;padding:24px;}
+.slide{display:none;animation:fade 1s;background:#16213e;border:1px solid #2a3a5e;
+  border-radius:14px;padding:28px;min-height:420px;}
+.slide.active{display:block;}
+h1{font-size:26px;margin-bottom:12px;}
+h2{font-size:20px;margin:8px 0 14px;color:#9fe1cb;}
+.lead{font-size:16px;margin-bottom:10px;}
+.muted{color:#8b9bbd;font-size:13px;margin-top:10px;}
+.q{background:#0f1729;border-left:3px solid #1D9E75;padding:12px 14px;border-radius:8px;margin:10px 0;}
+.a{background:#0f1729;padding:12px 14px;border-radius:8px;line-height:1.7;}
+.kv{font-size:14px;margin-bottom:10px;}
+.cite{margin:10px 0 0 18px;font-size:13px;color:#9fe1cb;}
+.row{display:flex;align-items:center;gap:10px;margin:7px 0;font-size:13px;}
+.lab{width:160px;flex:none;}
+.bar{flex:1;height:10px;background:#0f1729;border-radius:6px;overflow:hidden;}
+.bar i{display:block;height:100%;}
+.val{width:42px;text-align:right;color:#9fe1cb;}
+.barwrap{margin-top:8px;}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+</style></head><body><div class="wrap">
+
+    <section class="slide">
+      <h1>📊 HyFinEval · 财报速读助手</h1>
+      <p class="lead">基于腾讯混元 Hy3 的金融分析应用：指标提取 / 财务问答 / 公告摘要。</p>
+      <p class="muted">真实用户场景：基金 / 行业分析师把一份财报从 30 分钟读到 1 分钟——
+      输出带引用、可溯源，并实时给出 7 维评分。</p>
+    </section>
+    <section class="slide">
+      <h2>① 输入</h2>
+      <div class="kv"><b>股票代码</b> 600519（贵州茅台）
+        &nbsp; <b>报告期</b> 2023 &nbsp; <b>任务</b> 财报指标提取</div>
+      <div class="q">请从贵州茅台（600519）2023年财务数据中提取【扣非净利润】的数值。</div>
+    </section>
+    <section class="slide">
+      <h2>② 模型输出 + ③ 引用溯源</h2>
+      <div class="a">扣非净利润：74752564425.52（单位：元，来源：600519 2023年报口径）</div>
+      <ul class="cite"><li>扣非净利润 = 74752564425.52 [600519 2023]</li></ul>
+    </section>
+    <section class="slide">
+      <h2>④ 7 维评分（综合 99.0）</h2>
+      <div class="row"><span class="lab">事实准确性</span><span class="bar"><i style="width:100%;background:#1D9E75"></i></span><span class="val">1.00</span></div><div class="row"><span class="lab">引用可验证性</span><span class="bar"><i style="width:100%;background:#1D9E75"></i></span><span class="val">1.00</span></div><div class="row"><span class="lab">完整性</span><span class="bar"><i style="width:100%;background:#1D9E75"></i></span><span class="val">1.00</span></div><div class="row"><span class="lab">格式规范性/可解释</span><span class="bar"><i style="width:100%;background:#1D9E75"></i></span><span class="val">1.00</span></div><div class="row"><span class="lab">安全合规/抗幻觉</span><span class="bar"><i style="width:100%;background:#1D9E75"></i></span><span class="val">1.00</span></div><div class="row"><span class="lab">数值计算/衍生指标正确性</span><span class="bar"><i style="width:100%;background:#1D9E75"></i></span><span class="val">1.00</span></div><div class="row"><span class="lab">不确定性校准/审慎性</span><span class="bar"><i style="width:90%;background:#1D9E75"></i></span><span class="val">0.90</span></div>
+      <p class="muted">失败模式：无明显失败模式</p>
+    </section>
+    <section class="slide">
+      <h2>另一示例 · 公告摘要</h2>
+      <div class="q">请摘要贵州茅台（600519）2023年相关公告的关键要素，不编造具体数字。</div>
+      <div class="a">该公告属于【其他重大事项】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。</div>
+      <h2>7 维评分（综合 88.8）</h2>
+      <div class="row"><span class="lab">事实准确性</span><span class="bar"><i style="width:90%;background:#1D9E75"></i></span><span class="val">0.90</span></div><div class="row"><span class="lab">引用可验证性</span><span class="bar"><i style="width:100%;background:#1D9E75"></i></span><span class="val">1.00</span></div><div class="row"><span class="lab">完整性</span><span class="bar"><i style="width:100%;background:#1D9E75"></i></span><span class="val">1.00</span></div><div class="row"><span class="lab">格式规范性/可解释</span><span class="bar"><i style="width:60%;background:#BA7517"></i></span><span class="val">0.60</span></div><div class="row"><span class="lab">安全合规/抗幻觉</span><span class="bar"><i style="width:90%;background:#1D9E75"></i></span><span class="val">0.90</span></div><div class="row"><span class="lab">数值计算/衍生指标正确性</span><span class="bar"><i style="width:80%;background:#1D9E75"></i></span><span class="val">0.80</span></div><div class="row"><span class="lab">不确定性校准/审慎性</span><span class="bar"><i style="width:100%;background:#1D9E75"></i></span><span class="val">1.00</span></div>
+    </section>
+    
+<div class="barwrap"><div id="prog" style="height:4px;background:#1D9E75;width:0;transition:width .3s"></div></div>
+</div>
+<script>
+var s=document.querySelectorAll('.slide');var i=0;s[0].classList.add('active');
+var N=s.length,T=4000;
+setInterval(function(){s[i].classList.remove('active');i=(i+1)%N;s[i].classList.add('active');
+  document.getElementById('prog').style.width=((i+1)/N*100)+'%';},T);
+</script></body></html>

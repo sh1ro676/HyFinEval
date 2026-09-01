@@ -14,6 +14,24 @@ INDICATORS_PATH = os.path.join(ROOT_DIR, "data_cache", "indicators.json")
 RESULTS_DIR = os.path.join(THIS_DIR, "results")
 os.makedirs(RESULTS_DIR, exist_ok=True)
 
+# ---- 从 .env 加载密钥（若存在）；仅填补未设置的环境变量，不覆盖系统环境变量 ----
+def _load_dotenv(path=os.path.join(ROOT_DIR, ".env")):
+    """最小 .env 解析：把 KEY=VALUE 注入 os.environ，避免把 key 写进命令/代码/README。"""
+    try:
+        with open(path, encoding="utf-8") as _f:
+            for _line in _f:
+                _line = _line.strip()
+                if not _line or _line.startswith("#") or "=" not in _line:
+                    continue
+                _k, _, _v = _line.partition("=")
+                _k, _v = _k.strip(), _v.strip().strip('"').strip("'")
+                if _k and _k not in os.environ:
+                    os.environ[_k] = _v
+    except FileNotFoundError:
+        pass
+
+_load_dotenv()
+
 # ---- Hy3 / 混元 API 配置（OpenAI 兼容接口）----
 # 任务书要求"基于 Hy3 构建"。默认指向腾讯云混元托管接口；
 # 若自部署 Hy3（vLLM/SGLang），把 HY3_BASE_URL 改成你的 endpoint 即可，无需改代码。

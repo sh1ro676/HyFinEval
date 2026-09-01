@@ -7,6 +7,7 @@ __pycache__/
 # 缓存 / 临时
 raw/
 *.log
+*.bak
 
 # 个人工作记忆（不随作品公开）
 memory/
