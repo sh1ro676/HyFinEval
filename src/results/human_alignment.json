@@ -1,6 +1,0 @@
-{
-  "n_labeled_A": 28,
-  "n_labeled_B": 0,
-  "auto_vs_humanA_spearman": 0.635,
-  "auto_vs_humanA_mae": 4.293
-}

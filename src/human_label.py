@@ -1,14 +1,18 @@
-"""人工标注 UI（B 组 · 独立页面）。
+# -*- coding: utf-8 -*-
+"""人工标注 UI（B 组 · 独立页面，轻量标注版）。
 
-用于获取「独立于自动 rubric 的人工质量判定」，从而合法计算
-auto-vs-human Spearman 与 标注者间 Cohen's Kappa。
+改为「非专家也能标」的轻量方案：不要求打 0–100 绝对分（那需要金融功底），
+只让标注者做两件【可观测】的事：
+  1) 整体质量三档（优 / 中 / 差）——基于可读性、有无明显问题判断，无需领域知识；
+  2) 若干可观测勾选项（格式完整 / 引用可溯源 / 无合规红线 / 无自相矛盾硬伤）——
+     这些信号看得到就能勾，不需要判断「对不对」。
+
+用于获取独立于自动 rubric 的人工判定，从而计算 auto-vs-human 一致性，
+以及（两位标注者各标一遍）标注者间 Cohen's Kappa。
 
 运行：  streamlit run src/human_label.py
 数据：  读取 data_cache/label_pool.json（由 build_label_pool.py 生成）
-保存：  data_cache/human_labels.json（{id: {annotator: score}}）
-
-标注者请【盲标】：本页默认隐藏 auto_score，仅展示 输入/模型输出/引用，
-请依据「输出质量」而非「题目难度」打 0–100 分。
+保存：  data_cache/human_labels.json（{id: {annotator: {band, flags}}})
 """
 import json
 import os
@@ -23,13 +27,23 @@ import config
 POOL = os.path.join(config.ROOT_DIR, "data_cache", "label_pool.json")
 LAB = os.path.join(config.ROOT_DIR, "data_cache", "human_labels.json")
 
-st.set_page_config(page_title="HyFinEval · 人工标注", layout="wide")
-st.title("HyFinEval 人工质量标注（盲标）")
+BANDS = ["优", "中", "差"]
+BAND_HELP = {
+    "优": "可读、结构完整、无明显错误/红线",
+    "中": "能用，但存在瑕疵（如缺小节、引用不全、轻微问题）",
+    "差": "明显错误、自相矛盾、触发合规红线或基本不可用",
+}
+# 可观测勾选项：True = 该正向质量信号成立（看得到就勾，不需要判断事实对错）
+FLAGS = [
+    ("format_ok", "格式完整（含结论 / 关键指标 / 风险与关注 / 简要分析 四小节）"),
+    ("cited", "引用可溯源（出现的数字基本都带引用行）"),
+    ("no_redline", "无合规红线（未出现荐股 / 保本 / 目标价等话术）"),
+    ("no_contra", "无明显的自相矛盾或事实硬伤"),
+]
 
-annotator = st.sidebar.selectbox("标注者", ["A", "B"], help="两位标注者各用 A/B 跑一遍，可算 Kappa")
-show_auto = st.sidebar.checkbox("显示自动分（仅校对用，正式标注请关闭）", value=False)
-st.sidebar.markdown("---")
-st.sidebar.info("请依据【输出质量】打分，不要被题目难度干扰。0–100，越高越好。")
+st.set_page_config(page_title="HyFinEval · 人工标注", layout="wide")
+st.title("HyFinEval 人工质量标注（轻量盲标）")
+st.caption("无需金融功底：只看『整体三档 + 可观测勾选』。请依据输出本身质量判断，不要被题目难度干扰。")
 
 
 def load_pool():
@@ -41,8 +55,16 @@ def load_pool():
 
 def load_labels():
     if os.path.exists(LAB):
-        return json.load(open(LAB, encoding="utf-8"))
+        try:
+            return json.load(open(LAB, encoding="utf-8"))
+        except Exception:
+            return {}
     return {}
+
+
+def _valid(entry):
+    """某标注者的值是否为新 schema（含 band）。旧占位 int 视为无效。"""
+    return isinstance(entry, dict) and "band" in entry
 
 
 pool = load_pool()
@@ -51,19 +73,25 @@ labels = load_labels()
 if not pool:
     st.stop()
 
+annotator = st.sidebar.selectbox("标注者", ["A", "B"], help="两位标注者各用 A/B 跑一遍，可算 Kappa")
+show_auto = st.sidebar.checkbox("显示自动分（仅校对用，正式标注请关闭）", value=False)
+st.sidebar.markdown("---")
+st.sidebar.info("整体档：优=无明显问题；中=有瑕疵但能用；差=明显错误 / 红线 / 不可用。")
+
 idx = st.sidebar.slider("样本序号", 0, len(pool) - 1, 0)
 item = pool[idx]
 item_id = item["id"]
 
-# 已存分数
-saved = labels.get(item_id, {}).get(annotator)
-default = int(saved) if saved is not None else 70
+saved = labels.get(item_id, {}).get(annotator) if isinstance(labels.get(item_id), dict) else None
+saved = saved if _valid(saved) else None
+default_band = saved["band"] if saved else "中"
+default_flags = saved.get("flags", {}) if saved else {}
 
 st.subheader(f"样本 {item_id}  ·  子任务：{item.get('subtask')}  ·  构造难度：{item.get('difficulty')}")
 st.markdown("**① 用户问题 / 输入**")
 st.write(item.get("input"))
 st.markdown("**② 模型输出**")
-st.write(item.get("output"))
+st.markdown(item.get("output") or "")
 cits = item.get("citations") or []
 if cits:
     st.markdown("**③ 引用 / 溯源**")
@@ -74,17 +102,32 @@ if cits:
 if show_auto:
     st.warning(f"⚠️ 当前自动 rubric 分 = {item.get('auto_score')}，盲标时请勿参考")
 
-score = st.slider("人工质量分（0–100）", 0, 100, default)
+band = st.radio("整体质量档", BANDS, index=BANDS.index(default_band),
+                help="；".join(f"{k}：{v}" for k, v in BAND_HELP.items()))
+st.markdown("**可观测勾选项**（看得到就勾，无需判断事实对错）")
+flags = {}
+for key, label in FLAGS:
+    flags[key] = st.checkbox(label, value=bool(default_flags.get(key)))
 
 if st.button("保存本条", type="primary"):
-    labels.setdefault(item_id, {})[annotator] = score
+    rec = {"band": band, "flags": flags}
+    labels.setdefault(item_id, {})[annotator] = rec
     json.dump(labels, open(LAB, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
-    st.success(f"已保存 {item_id} 标注者 {annotator} = {score}")
+    st.success(f"已保存 {item_id} 标注者 {annotator}：{band} · 勾选 {sum(flags.values())}/4")
 
-# 进度
-done_a = sum(1 for v in labels.values() if "A" in v)
-done_b = sum(1 for v in labels.values() if "B" in v)
+
+def _count(aid):
+    n = 0
+    for v in labels.values():
+        if isinstance(v, dict) and _valid(v.get(aid)):
+            n += 1
+    return n
+
+
+done_a, done_b = _count("A"), _count("B")
 st.sidebar.markdown(f"进度：A 已标 {done_a}/{len(pool)}，B 已标 {done_b}/{len(pool)}")
+st.sidebar.markdown("---")
+st.sidebar.info("第二位标注者把上方『标注者』切到 B 再标一遍同一批，即可在 label_stats.py 出 Kappa。")
 if os.path.exists(LAB):
     st.sidebar.download_button("下载 human_labels.json",
                                open(LAB, "r", encoding="utf-8").read(),
