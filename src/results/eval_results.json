@@ -5,17 +5,17 @@
     "use_rag": true,
     "app_sample_count": 67,
     "val_sample_count": 40,
-    "app_overall_avg": 86.6,
+    "app_overall_avg": 86.9,
     "by_subtask": {
       "财报指标提取": 86.1,
-      "财务问答": 82.1,
+      "财务问答": 83.0,
       "公告摘要": 94.3
     },
     "by_difficulty": {
       "易": 91.7,
       "中": 85.1,
       "难": 81.6,
-      "反例": 89.0
+      "反例": 91.2
     },
     "discrimination": {
       "好": 81.4,
@@ -897,7 +897,7 @@
       "counterfeit": true,
       "human_rating": "D",
       "dimensions": {
-        "factual_accuracy": 0.6,
+        "factual_accuracy": 1.0,
         "citation_verifiability": 0.6,
         "completeness": 1.0,
         "format": 1.0,
@@ -905,8 +905,8 @@
         "computation": 0.8,
         "calibration": 0.9
       },
-      "overall": 82.0,
-      "failure_mode": "主要短板：事实准确性（0.6）",
+      "overall": 89.2,
+      "failure_mode": "主要短板：引用可验证性（0.6）",
       "compliance_breaker": null,
       "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
@@ -917,7 +917,7 @@
       "counterfeit": true,
       "human_rating": "D",
       "dimensions": {
-        "factual_accuracy": 0.6,
+        "factual_accuracy": 1.0,
         "citation_verifiability": 0.6,
         "completeness": 1.0,
         "format": 1.0,
@@ -925,8 +925,8 @@
         "computation": 0.8,
         "calibration": 0.9
       },
-      "overall": 82.0,
-      "failure_mode": "主要短板：事实准确性（0.6）",
+      "overall": 89.2,
+      "failure_mode": "主要短板：引用可验证性（0.6）",
       "compliance_breaker": null,
       "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
@@ -937,7 +937,7 @@
       "counterfeit": true,
       "human_rating": "D",
       "dimensions": {
-        "factual_accuracy": 0.6,
+        "factual_accuracy": 1.0,
         "citation_verifiability": 0.6,
         "completeness": 1.0,
         "format": 1.0,
@@ -945,8 +945,8 @@
         "computation": 0.8,
         "calibration": 0.9
       },
-      "overall": 82.0,
-      "failure_mode": "主要短板：事实准确性（0.6）",
+      "overall": 89.2,
+      "failure_mode": "主要短板：引用可验证性（0.6）",
       "compliance_breaker": null,
       "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
