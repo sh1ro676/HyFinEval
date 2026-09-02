@@ -5,17 +5,17 @@
     "use_rag": true,
     "app_sample_count": 67,
     "val_sample_count": 40,
-    "app_overall_avg": 81.7,
+    "app_overall_avg": 86.6,
     "by_subtask": {
-      "财报指标提取": 77.5,
-      "财务问答": 81.4,
-      "公告摘要": 89.1
+      "财报指标提取": 86.1,
+      "财务问答": 82.1,
+      "公告摘要": 94.3
     },
     "by_difficulty": {
-      "易": 90.5,
-      "中": 78.1,
-      "难": 75.3,
-      "反例": 84.6
+      "易": 91.7,
+      "中": 85.1,
+      "难": 81.6,
+      "反例": 89.0
     },
     "discrimination": {
       "好": 81.4,
@@ -24,8 +24,9 @@
       "对抗": 31.5
     },
     "consistency_spearman": 0.901,
-    "consistency_app_spearman": 0.058,
+    "consistency_app_spearman": 0.041,
     "adversarial_avg": 31.5,
+    "compliance_breaker_count": 10,
     "discrimination_ok": true
   },
   "app_results": [
@@ -46,7 +47,8 @@
       },
       "overall": 99.0,
       "failure_mode": "无明显失败模式",
-      "output": "扣非净利润：52581102656.24（单位：元，来源：600519 2021年报口径）"
+      "compliance_breaker": null,
+      "output": "## 结论\n扣非净利润为 **52581102656.24** 元（600519 2021年报口径）。\n\n## 关键指标\n- 扣非净利润：52581102656.24 元\n\n## 简要分析\n该指标反映公司当期经营成果。本基线为确定性抽取，仅回显真实指标库中的数值，不做主观解读；如需趋势判断，请结合多期数据与行业对比。\n\n## 风险与提示\n数值以年报披露为准；投资决策需综合营收、现金流、负债等多维度，勿单凭单一指标。"
     },
     {
       "id": "FIN-002",
@@ -65,7 +67,8 @@
       },
       "overall": 99.0,
       "failure_mode": "无明显失败模式",
-      "output": "主营业务利润：81902307963.77（单位：元，来源：600519 2021年报口径）"
+      "compliance_breaker": null,
+      "output": "## 结论\n主营业务利润为 **81902307963.77** 元（600519 2021年报口径）。\n\n## 关键指标\n- 主营业务利润：81902307963.77 元\n\n## 简要分析\n该指标反映公司当期经营成果。本基线为确定性抽取，仅回显真实指标库中的数值，不做主观解读；如需趋势判断，请结合多期数据与行业对比。\n\n## 风险与提示\n数值以年报披露为准；投资决策需综合营收、现金流、负债等多维度，勿单凭单一指标。"
     },
     {
       "id": "FIN-003",
@@ -84,7 +87,8 @@
       },
       "overall": 99.0,
       "failure_mode": "无明显失败模式",
-      "output": "总资产：255168195159.9（单位：元，来源：600519 2021年报口径）"
+      "compliance_breaker": null,
+      "output": "## 结论\n总资产为 **255168195159.9** 元（600519 2021年报口径）。\n\n## 关键指标\n- 总资产：255168195159.9 元\n\n## 简要分析\n该指标反映公司当期经营成果。本基线为确定性抽取，仅回显真实指标库中的数值，不做主观解读；如需趋势判断，请结合多期数据与行业对比。\n\n## 风险与提示\n数值以年报披露为准；投资决策需综合营收、现金流、负债等多维度，勿单凭单一指标。"
     },
     {
       "id": "FIN-004",
@@ -103,7 +107,8 @@
       },
       "overall": 99.0,
       "failure_mode": "无明显失败模式",
-      "output": "资产负债率：22.8127（单位：元，来源：600519 2021年报口径）"
+      "compliance_breaker": null,
+      "output": "## 结论\n资产负债率为 **22.8127** 元（600519 2021年报口径）。\n\n## 关键指标\n- 资产负债率：22.8127 元\n\n## 简要分析\n该指标反映公司当期经营成果。本基线为确定性抽取，仅回显真实指标库中的数值，不做主观解读；如需趋势判断，请结合多期数据与行业对比。\n\n## 风险与提示\n数值以年报披露为准；投资决策需综合营收、现金流、负债等多维度，勿单凭单一指标。"
     },
     {
       "id": "FIN-005",
@@ -122,7 +127,8 @@
       },
       "overall": 99.0,
       "failure_mode": "无明显失败模式",
-      "output": "净资产收益率：27.68（单位：元，来源：600519 2021年报口径）"
+      "compliance_breaker": null,
+      "output": "## 结论\n净资产收益率为 **27.68** 元（600519 2021年报口径）。\n\n## 关键指标\n- 净资产收益率：27.68 元\n\n## 简要分析\n该指标反映公司当期经营成果。本基线为确定性抽取，仅回显真实指标库中的数值，不做主观解读；如需趋势判断，请结合多期数据与行业对比。\n\n## 风险与提示\n数值以年报披露为准；投资决策需综合营收、现金流、负债等多维度，勿单凭单一指标。"
     },
     {
       "id": "FIN-006",
@@ -141,7 +147,8 @@
       },
       "overall": 99.0,
       "failure_mode": "无明显失败模式",
-      "output": "扣非净利润：62791872697.72（单位：元，来源：600519 2022年报口径）"
+      "compliance_breaker": null,
+      "output": "## 结论\n扣非净利润为 **62791872697.72** 元（600519 2022年报口径）。\n\n## 关键指标\n- 扣非净利润：62791872697.72 元\n\n## 简要分析\n该指标反映公司当期经营成果。本基线为确定性抽取，仅回显真实指标库中的数值，不做主观解读；如需趋势判断，请结合多期数据与行业对比。\n\n## 风险与提示\n数值以年报披露为准；投资决策需综合营收、现金流、负债等多维度，勿单凭单一指标。"
     },
     {
       "id": "FIN-007",
@@ -160,7 +167,8 @@
       },
       "overall": 99.0,
       "failure_mode": "无明显失败模式",
-      "output": "主营业务利润：95510556621.14（单位：元，来源：600519 2022年报口径）"
+      "compliance_breaker": null,
+      "output": "## 结论\n主营业务利润为 **95510556621.14** 元（600519 2022年报口径）。\n\n## 关键指标\n- 主营业务利润：95510556621.14 元\n\n## 简要分析\n该指标反映公司当期经营成果。本基线为确定性抽取，仅回显真实指标库中的数值，不做主观解读；如需趋势判断，请结合多期数据与行业对比。\n\n## 风险与提示\n数值以年报披露为准；投资决策需综合营收、现金流、负债等多维度，勿单凭单一指标。"
     },
     {
       "id": "FIN-008",
@@ -179,7 +187,8 @@
       },
       "overall": 99.0,
       "failure_mode": "无明显失败模式",
-      "output": "总资产：254364804995.25（单位：元，来源：600519 2022年报口径）"
+      "compliance_breaker": null,
+      "output": "## 结论\n总资产为 **254364804995.25** 元（600519 2022年报口径）。\n\n## 关键指标\n- 总资产：254364804995.25 元\n\n## 简要分析\n该指标反映公司当期经营成果。本基线为确定性抽取，仅回显真实指标库中的数值，不做主观解读；如需趋势判断，请结合多期数据与行业对比。\n\n## 风险与提示\n数值以年报披露为准；投资决策需综合营收、现金流、负债等多维度，勿单凭单一指标。"
     },
     {
       "id": "FIN-009",
@@ -189,16 +198,17 @@
       "human_rating": "A",
       "dimensions": {
         "factual_accuracy": 0.6,
-        "citation_verifiability": 0.0,
+        "citation_verifiability": 0.6,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.6,
         "calibration": 0.9
       },
-      "overall": 61.8,
-      "failure_mode": "主要短板：引用可验证性（0.0）",
-      "output": "未在 600519 2021 数据中找到【None】。"
+      "overall": 77.8,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "compliance_breaker": null,
+      "output": "## 结论\n未在 600519 2021 指标库中找到【None】。\n\n## 关键指标\n（无）\n\n## 简要分析\n该字段可能未纳入本基线预置指标库，或需从年报原文提取；启用 Hy3 后可基于上传 PDF 或更广数据源补全。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-010",
@@ -208,16 +218,17 @@
       "human_rating": "A",
       "dimensions": {
         "factual_accuracy": 0.6,
-        "citation_verifiability": 0.0,
+        "citation_verifiability": 0.6,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.6,
         "calibration": 0.9
       },
-      "overall": 61.8,
-      "failure_mode": "主要短板：引用可验证性（0.0）",
-      "output": "未在 600519 2022 数据中找到【None】。"
+      "overall": 77.8,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "compliance_breaker": null,
+      "output": "## 结论\n未在 600519 2022 指标库中找到【None】。\n\n## 关键指标\n（无）\n\n## 简要分析\n该字段可能未纳入本基线预置指标库，或需从年报原文提取；启用 Hy3 后可基于上传 PDF 或更广数据源补全。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-011",
@@ -227,16 +238,17 @@
       "human_rating": "A",
       "dimensions": {
         "factual_accuracy": 0.6,
-        "citation_verifiability": 0.0,
+        "citation_verifiability": 0.6,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.6,
         "calibration": 0.9
       },
-      "overall": 61.8,
-      "failure_mode": "主要短板：引用可验证性（0.0）",
-      "output": "未在 600519 2023 数据中找到【None】。"
+      "overall": 77.8,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "compliance_breaker": null,
+      "output": "## 结论\n未在 600519 2023 指标库中找到【None】。\n\n## 关键指标\n（无）\n\n## 简要分析\n该字段可能未纳入本基线预置指标库，或需从年报原文提取；启用 Hy3 后可基于上传 PDF 或更广数据源补全。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-012",
@@ -246,16 +258,17 @@
       "human_rating": "A",
       "dimensions": {
         "factual_accuracy": 0.6,
-        "citation_verifiability": 0.0,
+        "citation_verifiability": 0.6,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.6,
         "calibration": 0.9
       },
-      "overall": 61.8,
-      "failure_mode": "主要短板：引用可验证性（0.0）",
-      "output": "未在 000858 2021 数据中找到【None】。"
+      "overall": 77.8,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "compliance_breaker": null,
+      "output": "## 结论\n未在 000858 2021 指标库中找到【None】。\n\n## 关键指标\n（无）\n\n## 简要分析\n该字段可能未纳入本基线预置指标库，或需从年报原文提取；启用 Hy3 后可基于上传 PDF 或更广数据源补全。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-013",
@@ -265,16 +278,17 @@
       "human_rating": "A",
       "dimensions": {
         "factual_accuracy": 0.6,
-        "citation_verifiability": 0.0,
+        "citation_verifiability": 0.6,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.6,
         "calibration": 0.9
       },
-      "overall": 61.8,
-      "failure_mode": "主要短板：引用可验证性（0.0）",
-      "output": "未在 000858 2022 数据中找到【None】。"
+      "overall": 77.8,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "compliance_breaker": null,
+      "output": "## 结论\n未在 000858 2022 指标库中找到【None】。\n\n## 关键指标\n（无）\n\n## 简要分析\n该字段可能未纳入本基线预置指标库，或需从年报原文提取；启用 Hy3 后可基于上传 PDF 或更广数据源补全。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-014",
@@ -284,16 +298,17 @@
       "human_rating": "A",
       "dimensions": {
         "factual_accuracy": 0.6,
-        "citation_verifiability": 0.0,
+        "citation_verifiability": 0.6,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.6,
         "calibration": 0.9
       },
-      "overall": 61.8,
-      "failure_mode": "主要短板：引用可验证性（0.0）",
-      "output": "未在 000858 2023 数据中找到【None】。"
+      "overall": 77.8,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "compliance_breaker": null,
+      "output": "## 结论\n未在 000858 2023 指标库中找到【None】。\n\n## 关键指标\n（无）\n\n## 简要分析\n该字段可能未纳入本基线预置指标库，或需从年报原文提取；启用 Hy3 后可基于上传 PDF 或更广数据源补全。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-015",
@@ -303,16 +318,17 @@
       "human_rating": "A",
       "dimensions": {
         "factual_accuracy": 0.6,
-        "citation_verifiability": 0.0,
+        "citation_verifiability": 0.6,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.6,
         "calibration": 0.9
       },
-      "overall": 61.8,
-      "failure_mode": "主要短板：引用可验证性（0.0）",
-      "output": "未在 300750 2021 数据中找到【None】。"
+      "overall": 77.8,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "compliance_breaker": null,
+      "output": "## 结论\n未在 300750 2021 指标库中找到【None】。\n\n## 关键指标\n（无）\n\n## 简要分析\n该字段可能未纳入本基线预置指标库，或需从年报原文提取；启用 Hy3 后可基于上传 PDF 或更广数据源补全。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-016",
@@ -322,16 +338,17 @@
       "human_rating": "A",
       "dimensions": {
         "factual_accuracy": 0.6,
-        "citation_verifiability": 0.0,
+        "citation_verifiability": 0.6,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.6,
         "calibration": 0.9
       },
-      "overall": 61.8,
-      "failure_mode": "主要短板：引用可验证性（0.0）",
-      "output": "未在 300750 2022 数据中找到【None】。"
+      "overall": 77.8,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "compliance_breaker": null,
+      "output": "## 结论\n未在 300750 2022 指标库中找到【None】。\n\n## 关键指标\n（无）\n\n## 简要分析\n该字段可能未纳入本基线预置指标库，或需从年报原文提取；启用 Hy3 后可基于上传 PDF 或更广数据源补全。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-017",
@@ -341,16 +358,17 @@
       "human_rating": "A",
       "dimensions": {
         "factual_accuracy": 0.6,
-        "citation_verifiability": 0.0,
+        "citation_verifiability": 0.6,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.6,
         "calibration": 0.9
       },
-      "overall": 61.8,
-      "failure_mode": "主要短板：引用可验证性（0.0）",
-      "output": "未在 600519 None 数据中找到【None】。"
+      "overall": 77.8,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "compliance_breaker": null,
+      "output": "## 结论\n未在 600519 None 指标库中找到【None】。\n\n## 关键指标\n（无）\n\n## 简要分析\n该字段可能未纳入本基线预置指标库，或需从年报原文提取；启用 Hy3 后可基于上传 PDF 或更广数据源补全。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-018",
@@ -360,16 +378,17 @@
       "human_rating": "A",
       "dimensions": {
         "factual_accuracy": 0.6,
-        "citation_verifiability": 0.0,
+        "citation_verifiability": 0.6,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.6,
         "calibration": 0.9
       },
-      "overall": 61.8,
-      "failure_mode": "主要短板：引用可验证性（0.0）",
-      "output": "未在 600519 None 数据中找到【None】。"
+      "overall": 77.8,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "compliance_breaker": null,
+      "output": "## 结论\n未在 600519 None 指标库中找到【None】。\n\n## 关键指标\n（无）\n\n## 简要分析\n该字段可能未纳入本基线预置指标库，或需从年报原文提取；启用 Hy3 后可基于上传 PDF 或更广数据源补全。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-019",
@@ -379,16 +398,17 @@
       "human_rating": "A",
       "dimensions": {
         "factual_accuracy": 0.6,
-        "citation_verifiability": 0.0,
+        "citation_verifiability": 0.6,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.6,
         "calibration": 0.9
       },
-      "overall": 61.8,
-      "failure_mode": "主要短板：引用可验证性（0.0）",
-      "output": "未在 000858 None 数据中找到【None】。"
+      "overall": 77.8,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "compliance_breaker": null,
+      "output": "## 结论\n未在 000858 None 指标库中找到【None】。\n\n## 关键指标\n（无）\n\n## 简要分析\n该字段可能未纳入本基线预置指标库，或需从年报原文提取；启用 Hy3 后可基于上传 PDF 或更广数据源补全。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-020",
@@ -398,16 +418,17 @@
       "human_rating": "A",
       "dimensions": {
         "factual_accuracy": 0.6,
-        "citation_verifiability": 0.0,
+        "citation_verifiability": 0.6,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.6,
         "calibration": 0.9
       },
-      "overall": 61.8,
-      "failure_mode": "主要短板：引用可验证性（0.0）",
-      "output": "未在 000858 None 数据中找到【None】。"
+      "overall": 77.8,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "compliance_breaker": null,
+      "output": "## 结论\n未在 000858 None 指标库中找到【None】。\n\n## 关键指标\n（无）\n\n## 简要分析\n该字段可能未纳入本基线预置指标库，或需从年报原文提取；启用 Hy3 后可基于上传 PDF 或更广数据源补全。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-021",
@@ -417,16 +438,17 @@
       "human_rating": "A",
       "dimensions": {
         "factual_accuracy": 0.6,
-        "citation_verifiability": 0.0,
+        "citation_verifiability": 0.6,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.6,
         "calibration": 0.9
       },
-      "overall": 61.8,
-      "failure_mode": "主要短板：引用可验证性（0.0）",
-      "output": "未在 300750 None 数据中找到【None】。"
+      "overall": 77.8,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "compliance_breaker": null,
+      "output": "## 结论\n未在 300750 None 指标库中找到【None】。\n\n## 关键指标\n（无）\n\n## 简要分析\n该字段可能未纳入本基线预置指标库，或需从年报原文提取；启用 Hy3 后可基于上传 PDF 或更广数据源补全。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-022",
@@ -436,16 +458,17 @@
       "human_rating": "A",
       "dimensions": {
         "factual_accuracy": 0.6,
-        "citation_verifiability": 0.0,
+        "citation_verifiability": 0.6,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.6,
         "calibration": 0.9
       },
-      "overall": 61.8,
-      "failure_mode": "主要短板：引用可验证性（0.0）",
-      "output": "未在 300750 None 数据中找到【None】。"
+      "overall": 77.8,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "compliance_breaker": null,
+      "output": "## 结论\n未在 300750 None 指标库中找到【None】。\n\n## 关键指标\n（无）\n\n## 简要分析\n该字段可能未纳入本基线预置指标库，或需从年报原文提取；启用 Hy3 后可基于上传 PDF 或更广数据源补全。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-023",
@@ -464,7 +487,8 @@
       },
       "overall": 89.4,
       "failure_mode": "主要短板：安全合规/抗幻觉（0.4）",
-      "output": "资产负债率：19.421（单位：元，来源：600519 2022年报口径）"
+      "compliance_breaker": null,
+      "output": "## 结论\n资产负债率为 **19.421** 元（600519 2022年报口径）。\n\n## 关键指标\n- 资产负债率：19.421 元\n\n## 简要分析\n该指标反映公司当期经营成果。本基线为确定性抽取，仅回显真实指标库中的数值，不做主观解读；如需趋势判断，请结合多期数据与行业对比。\n\n## 风险与提示\n数值以年报披露为准；投资决策需综合营收、现金流、负债等多维度，勿单凭单一指标。"
     },
     {
       "id": "FIN-024",
@@ -483,7 +507,8 @@
       },
       "overall": 89.4,
       "failure_mode": "主要短板：安全合规/抗幻觉（0.4）",
-      "output": "净资产收益率：31.75（单位：元，来源：600519 2022年报口径）"
+      "compliance_breaker": null,
+      "output": "## 结论\n净资产收益率为 **31.75** 元（600519 2022年报口径）。\n\n## 关键指标\n- 净资产收益率：31.75 元\n\n## 简要分析\n该指标反映公司当期经营成果。本基线为确定性抽取，仅回显真实指标库中的数值，不做主观解读；如需趋势判断，请结合多期数据与行业对比。\n\n## 风险与提示\n数值以年报披露为准；投资决策需综合营收、现金流、负债等多维度，勿单凭单一指标。"
     },
     {
       "id": "FIN-025",
@@ -502,7 +527,8 @@
       },
       "overall": 89.4,
       "failure_mode": "主要短板：安全合规/抗幻觉（0.4）",
-      "output": "扣非净利润：74752564425.52（单位：元，来源：600519 2023年报口径）"
+      "compliance_breaker": null,
+      "output": "## 结论\n扣非净利润为 **74752564425.52** 元（600519 2023年报口径）。\n\n## 关键指标\n- 扣非净利润：74752564425.52 元\n\n## 简要分析\n该指标反映公司当期经营成果。本基线为确定性抽取，仅回显真实指标库中的数值，不做主观解读；如需趋势判断，请结合多期数据与行业对比。\n\n## 风险与提示\n数值以年报披露为准；投资决策需综合营收、现金流、负债等多维度，勿单凭单一指标。"
     },
     {
       "id": "FIN-026",
@@ -521,7 +547,8 @@
       },
       "overall": 89.4,
       "failure_mode": "主要短板：安全合规/抗幻觉（0.4）",
-      "output": "主营业务利润：113592155243.76（单位：元，来源：600519 2023年报口径）"
+      "compliance_breaker": null,
+      "output": "## 结论\n主营业务利润为 **113592155243.76** 元（600519 2023年报口径）。\n\n## 关键指标\n- 主营业务利润：113592155243.76 元\n\n## 简要分析\n该指标反映公司当期经营成果。本基线为确定性抽取，仅回显真实指标库中的数值，不做主观解读；如需趋势判断，请结合多期数据与行业对比。\n\n## 风险与提示\n数值以年报披露为准；投资决策需综合营收、现金流、负债等多维度，勿单凭单一指标。"
     },
     {
       "id": "FIN-027",
@@ -540,7 +567,8 @@
       },
       "overall": 80.4,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+      "compliance_breaker": null,
+      "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-028",
@@ -559,7 +587,8 @@
       },
       "overall": 80.4,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+      "compliance_breaker": null,
+      "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-029",
@@ -578,7 +607,8 @@
       },
       "overall": 80.4,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+      "compliance_breaker": null,
+      "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-030",
@@ -597,7 +627,8 @@
       },
       "overall": 80.4,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+      "compliance_breaker": null,
+      "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-031",
@@ -616,7 +647,8 @@
       },
       "overall": 80.4,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+      "compliance_breaker": null,
+      "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-032",
@@ -635,7 +667,8 @@
       },
       "overall": 80.4,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+      "compliance_breaker": null,
+      "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-033",
@@ -654,7 +687,8 @@
       },
       "overall": 80.4,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+      "compliance_breaker": null,
+      "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-034",
@@ -673,7 +707,8 @@
       },
       "overall": 80.4,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+      "compliance_breaker": null,
+      "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-035",
@@ -692,7 +727,8 @@
       },
       "overall": 80.4,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+      "compliance_breaker": null,
+      "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-036",
@@ -711,7 +747,8 @@
       },
       "overall": 80.4,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+      "compliance_breaker": null,
+      "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-037",
@@ -730,7 +767,8 @@
       },
       "overall": 80.4,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+      "compliance_breaker": null,
+      "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-038",
@@ -749,7 +787,8 @@
       },
       "overall": 80.4,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+      "compliance_breaker": null,
+      "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-039",
@@ -768,7 +807,8 @@
       },
       "overall": 80.4,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+      "compliance_breaker": null,
+      "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-040",
@@ -787,7 +827,8 @@
       },
       "overall": 80.4,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+      "compliance_breaker": null,
+      "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-041",
@@ -806,7 +847,8 @@
       },
       "overall": 80.4,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+      "compliance_breaker": null,
+      "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-042",
@@ -825,7 +867,8 @@
       },
       "overall": 80.4,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+      "compliance_breaker": null,
+      "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-043",
@@ -844,7 +887,8 @@
       },
       "overall": 80.4,
       "failure_mode": "主要短板：事实准确性（0.6）",
-      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+      "compliance_breaker": null,
+      "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-044",
@@ -857,13 +901,14 @@
         "citation_verifiability": 0.6,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.4,
+        "safety_no_hallucination": 1.0,
         "computation": 0.8,
         "calibration": 0.9
       },
-      "overall": 72.4,
-      "failure_mode": "主要短板：安全合规/抗幻觉（0.4）",
-      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+      "overall": 82.0,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "compliance_breaker": null,
+      "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-045",
@@ -876,13 +921,14 @@
         "citation_verifiability": 0.6,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.4,
+        "safety_no_hallucination": 1.0,
         "computation": 0.8,
         "calibration": 0.9
       },
-      "overall": 72.4,
-      "failure_mode": "主要短板：安全合规/抗幻觉（0.4）",
-      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+      "overall": 82.0,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "compliance_breaker": null,
+      "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-046",
@@ -895,13 +941,14 @@
         "citation_verifiability": 0.6,
         "completeness": 1.0,
         "format": 1.0,
-        "safety_no_hallucination": 0.4,
+        "safety_no_hallucination": 1.0,
         "computation": 0.8,
         "calibration": 0.9
       },
-      "overall": 72.4,
-      "failure_mode": "主要短板：安全合规/抗幻觉（0.4）",
-      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+      "overall": 82.0,
+      "failure_mode": "主要短板：事实准确性（0.6）",
+      "compliance_breaker": null,
+      "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-047",
@@ -913,14 +960,15 @@
         "factual_accuracy": 0.9,
         "citation_verifiability": 1.0,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.8,
         "calibration": 1.0
       },
-      "overall": 88.8,
-      "failure_mode": "主要短板：格式规范性/可解释（0.6）",
-      "output": "该公告属于【利润分配/分红】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+      "overall": 94.0,
+      "failure_mode": "无明显失败模式",
+      "compliance_breaker": null,
+      "output": "## 结论\n该公告属于【利润分配/分红】类事项。\n\n## 关键要素\n- 事项内容：利润分配/分红\n- 涉及主体：以公告披露为准\n- 金额/比例：如公告含具体数字须以原文为准\n- 生效时间：以审议/披露日为准\n- 审议程序：董事会/股东大会等\n\n## 简要分析\n以上为通用要素框架；本基线不读取公告原文，仅作结构提示。\n\n## 风险与提示\n具体数字须以公告原文为准，本基线不编造。"
     },
     {
       "id": "FIN-048",
@@ -932,14 +980,15 @@
         "factual_accuracy": 0.9,
         "citation_verifiability": 1.0,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.8,
         "calibration": 1.0
       },
-      "overall": 88.8,
-      "failure_mode": "主要短板：格式规范性/可解释（0.6）",
-      "output": "该公告属于【其他重大事项】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+      "overall": 94.0,
+      "failure_mode": "无明显失败模式",
+      "compliance_breaker": null,
+      "output": "## 结论\n该公告属于【其他重大事项】类事项。\n\n## 关键要素\n- 事项内容：其他重大事项\n- 涉及主体：以公告披露为准\n- 金额/比例：如公告含具体数字须以原文为准\n- 生效时间：以审议/披露日为准\n- 审议程序：董事会/股东大会等\n\n## 简要分析\n以上为通用要素框架；本基线不读取公告原文，仅作结构提示。\n\n## 风险与提示\n具体数字须以公告原文为准，本基线不编造。"
     },
     {
       "id": "FIN-049",
@@ -951,14 +1000,15 @@
         "factual_accuracy": 0.9,
         "citation_verifiability": 1.0,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.8,
         "calibration": 1.0
       },
-      "overall": 88.8,
-      "failure_mode": "主要短板：格式规范性/可解释（0.6）",
-      "output": "该公告属于【利润分配/分红】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+      "overall": 94.0,
+      "failure_mode": "无明显失败模式",
+      "compliance_breaker": null,
+      "output": "## 结论\n该公告属于【利润分配/分红】类事项。\n\n## 关键要素\n- 事项内容：利润分配/分红\n- 涉及主体：以公告披露为准\n- 金额/比例：如公告含具体数字须以原文为准\n- 生效时间：以审议/披露日为准\n- 审议程序：董事会/股东大会等\n\n## 简要分析\n以上为通用要素框架；本基线不读取公告原文，仅作结构提示。\n\n## 风险与提示\n具体数字须以公告原文为准，本基线不编造。"
     },
     {
       "id": "FIN-050",
@@ -970,14 +1020,15 @@
         "factual_accuracy": 0.9,
         "citation_verifiability": 1.0,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.8,
         "calibration": 1.0
       },
-      "overall": 88.8,
-      "failure_mode": "主要短板：格式规范性/可解释（0.6）",
-      "output": "该公告属于【股东增持】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+      "overall": 94.0,
+      "failure_mode": "无明显失败模式",
+      "compliance_breaker": null,
+      "output": "## 结论\n该公告属于【股东增持】类事项。\n\n## 关键要素\n- 事项内容：股东增持\n- 涉及主体：以公告披露为准\n- 金额/比例：如公告含具体数字须以原文为准\n- 生效时间：以审议/披露日为准\n- 审议程序：董事会/股东大会等\n\n## 简要分析\n以上为通用要素框架；本基线不读取公告原文，仅作结构提示。\n\n## 风险与提示\n具体数字须以公告原文为准，本基线不编造。"
     },
     {
       "id": "FIN-051",
@@ -989,14 +1040,15 @@
         "factual_accuracy": 0.9,
         "citation_verifiability": 1.0,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.8,
         "calibration": 1.0
       },
-      "overall": 88.8,
-      "failure_mode": "主要短板：格式规范性/可解释（0.6）",
-      "output": "该公告属于【股东增持】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+      "overall": 94.0,
+      "failure_mode": "无明显失败模式",
+      "compliance_breaker": null,
+      "output": "## 结论\n该公告属于【股东增持】类事项。\n\n## 关键要素\n- 事项内容：股东增持\n- 涉及主体：以公告披露为准\n- 金额/比例：如公告含具体数字须以原文为准\n- 生效时间：以审议/披露日为准\n- 审议程序：董事会/股东大会等\n\n## 简要分析\n以上为通用要素框架；本基线不读取公告原文，仅作结构提示。\n\n## 风险与提示\n具体数字须以公告原文为准，本基线不编造。"
     },
     {
       "id": "FIN-052",
@@ -1008,14 +1060,15 @@
         "factual_accuracy": 0.9,
         "citation_verifiability": 1.0,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.8,
         "calibration": 1.0
       },
-      "overall": 88.8,
-      "failure_mode": "主要短板：格式规范性/可解释（0.6）",
-      "output": "该公告属于【其他重大事项】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+      "overall": 94.0,
+      "failure_mode": "无明显失败模式",
+      "compliance_breaker": null,
+      "output": "## 结论\n该公告属于【其他重大事项】类事项。\n\n## 关键要素\n- 事项内容：其他重大事项\n- 涉及主体：以公告披露为准\n- 金额/比例：如公告含具体数字须以原文为准\n- 生效时间：以审议/披露日为准\n- 审议程序：董事会/股东大会等\n\n## 简要分析\n以上为通用要素框架；本基线不读取公告原文，仅作结构提示。\n\n## 风险与提示\n具体数字须以公告原文为准，本基线不编造。"
     },
     {
       "id": "FIN-053",
@@ -1027,14 +1080,15 @@
         "factual_accuracy": 0.9,
         "citation_verifiability": 1.0,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.8,
         "calibration": 1.0
       },
-      "overall": 88.8,
-      "failure_mode": "主要短板：格式规范性/可解释（0.6）",
-      "output": "该公告属于【股东增持】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+      "overall": 94.0,
+      "failure_mode": "无明显失败模式",
+      "compliance_breaker": null,
+      "output": "## 结论\n该公告属于【股东增持】类事项。\n\n## 关键要素\n- 事项内容：股东增持\n- 涉及主体：以公告披露为准\n- 金额/比例：如公告含具体数字须以原文为准\n- 生效时间：以审议/披露日为准\n- 审议程序：董事会/股东大会等\n\n## 简要分析\n以上为通用要素框架；本基线不读取公告原文，仅作结构提示。\n\n## 风险与提示\n具体数字须以公告原文为准，本基线不编造。"
     },
     {
       "id": "FIN-054",
@@ -1046,14 +1100,15 @@
         "factual_accuracy": 0.9,
         "citation_verifiability": 1.0,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.8,
         "calibration": 1.0
       },
-      "overall": 88.8,
-      "failure_mode": "主要短板：格式规范性/可解释（0.6）",
-      "output": "该公告属于【股东增持】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+      "overall": 94.0,
+      "failure_mode": "无明显失败模式",
+      "compliance_breaker": null,
+      "output": "## 结论\n该公告属于【股东增持】类事项。\n\n## 关键要素\n- 事项内容：股东增持\n- 涉及主体：以公告披露为准\n- 金额/比例：如公告含具体数字须以原文为准\n- 生效时间：以审议/披露日为准\n- 审议程序：董事会/股东大会等\n\n## 简要分析\n以上为通用要素框架；本基线不读取公告原文，仅作结构提示。\n\n## 风险与提示\n具体数字须以公告原文为准，本基线不编造。"
     },
     {
       "id": "FIN-055",
@@ -1065,14 +1120,15 @@
         "factual_accuracy": 0.9,
         "citation_verifiability": 1.0,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.8,
         "calibration": 1.0
       },
-      "overall": 88.8,
-      "failure_mode": "主要短板：格式规范性/可解释（0.6）",
-      "output": "该公告属于【其他重大事项】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+      "overall": 94.0,
+      "failure_mode": "无明显失败模式",
+      "compliance_breaker": null,
+      "output": "## 结论\n该公告属于【其他重大事项】类事项。\n\n## 关键要素\n- 事项内容：其他重大事项\n- 涉及主体：以公告披露为准\n- 金额/比例：如公告含具体数字须以原文为准\n- 生效时间：以审议/披露日为准\n- 审议程序：董事会/股东大会等\n\n## 简要分析\n以上为通用要素框架；本基线不读取公告原文，仅作结构提示。\n\n## 风险与提示\n具体数字须以公告原文为准，本基线不编造。"
     },
     {
       "id": "FIN-056",
@@ -1084,14 +1140,15 @@
         "factual_accuracy": 0.9,
         "citation_verifiability": 1.0,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.8,
         "calibration": 1.0
       },
-      "overall": 88.8,
-      "failure_mode": "主要短板：格式规范性/可解释（0.6）",
-      "output": "该公告属于【利润分配/分红】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+      "overall": 94.0,
+      "failure_mode": "无明显失败模式",
+      "compliance_breaker": null,
+      "output": "## 结论\n该公告属于【利润分配/分红】类事项。\n\n## 关键要素\n- 事项内容：利润分配/分红\n- 涉及主体：以公告披露为准\n- 金额/比例：如公告含具体数字须以原文为准\n- 生效时间：以审议/披露日为准\n- 审议程序：董事会/股东大会等\n\n## 简要分析\n以上为通用要素框架；本基线不读取公告原文，仅作结构提示。\n\n## 风险与提示\n具体数字须以公告原文为准，本基线不编造。"
     },
     {
       "id": "FIN-057",
@@ -1103,14 +1160,15 @@
         "factual_accuracy": 0.9,
         "citation_verifiability": 1.0,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.8,
         "calibration": 1.0
       },
-      "overall": 88.8,
-      "failure_mode": "主要短板：格式规范性/可解释（0.6）",
-      "output": "该公告属于【其他重大事项】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+      "overall": 94.0,
+      "failure_mode": "无明显失败模式",
+      "compliance_breaker": null,
+      "output": "## 结论\n该公告属于【其他重大事项】类事项。\n\n## 关键要素\n- 事项内容：其他重大事项\n- 涉及主体：以公告披露为准\n- 金额/比例：如公告含具体数字须以原文为准\n- 生效时间：以审议/披露日为准\n- 审议程序：董事会/股东大会等\n\n## 简要分析\n以上为通用要素框架；本基线不读取公告原文，仅作结构提示。\n\n## 风险与提示\n具体数字须以公告原文为准，本基线不编造。"
     },
     {
       "id": "FIN-058",
@@ -1122,14 +1180,15 @@
         "factual_accuracy": 0.9,
         "citation_verifiability": 1.0,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.8,
         "calibration": 1.0
       },
-      "overall": 88.8,
-      "failure_mode": "主要短板：格式规范性/可解释（0.6）",
-      "output": "该公告属于【股权激励】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+      "overall": 94.0,
+      "failure_mode": "无明显失败模式",
+      "compliance_breaker": null,
+      "output": "## 结论\n该公告属于【股权激励】类事项。\n\n## 关键要素\n- 事项内容：股权激励\n- 涉及主体：以公告披露为准\n- 金额/比例：如公告含具体数字须以原文为准\n- 生效时间：以审议/披露日为准\n- 审议程序：董事会/股东大会等\n\n## 简要分析\n以上为通用要素框架；本基线不读取公告原文，仅作结构提示。\n\n## 风险与提示\n具体数字须以公告原文为准，本基线不编造。"
     },
     {
       "id": "FIN-059",
@@ -1141,14 +1200,15 @@
         "factual_accuracy": 0.9,
         "citation_verifiability": 1.0,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 1.0,
         "computation": 0.8,
         "calibration": 1.0
       },
-      "overall": 90.4,
-      "failure_mode": "主要短板：格式规范性/可解释（0.6）",
-      "output": "该公告属于【股权激励】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+      "overall": 95.6,
+      "failure_mode": "无明显失败模式",
+      "compliance_breaker": null,
+      "output": "## 结论\n该公告属于【股权激励】类事项。\n\n## 关键要素\n- 事项内容：股权激励\n- 涉及主体：以公告披露为准\n- 金额/比例：如公告含具体数字须以原文为准\n- 生效时间：以审议/披露日为准\n- 审议程序：董事会/股东大会等\n\n## 简要分析\n以上为通用要素框架；本基线不读取公告原文，仅作结构提示。\n\n## 风险与提示\n具体数字须以公告原文为准，本基线不编造。"
     },
     {
       "id": "FIN-060",
@@ -1160,14 +1220,15 @@
         "factual_accuracy": 0.9,
         "citation_verifiability": 1.0,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 1.0,
         "computation": 0.8,
         "calibration": 1.0
       },
-      "overall": 90.4,
-      "failure_mode": "主要短板：格式规范性/可解释（0.6）",
-      "output": "该公告属于【股权激励】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+      "overall": 95.6,
+      "failure_mode": "无明显失败模式",
+      "compliance_breaker": null,
+      "output": "## 结论\n该公告属于【股权激励】类事项。\n\n## 关键要素\n- 事项内容：股权激励\n- 涉及主体：以公告披露为准\n- 金额/比例：如公告含具体数字须以原文为准\n- 生效时间：以审议/披露日为准\n- 审议程序：董事会/股东大会等\n\n## 简要分析\n以上为通用要素框架；本基线不读取公告原文，仅作结构提示。\n\n## 风险与提示\n具体数字须以公告原文为准，本基线不编造。"
     },
     {
       "id": "FIN-061",
@@ -1179,14 +1240,15 @@
         "factual_accuracy": 0.9,
         "citation_verifiability": 1.0,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 1.0,
         "computation": 0.8,
         "calibration": 1.0
       },
-      "overall": 90.4,
-      "failure_mode": "主要短板：格式规范性/可解释（0.6）",
-      "output": "该公告属于【股份回购】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+      "overall": 95.6,
+      "failure_mode": "无明显失败模式",
+      "compliance_breaker": null,
+      "output": "## 结论\n该公告属于【股份回购】类事项。\n\n## 关键要素\n- 事项内容：股份回购\n- 涉及主体：以公告披露为准\n- 金额/比例：如公告含具体数字须以原文为准\n- 生效时间：以审议/披露日为准\n- 审议程序：董事会/股东大会等\n\n## 简要分析\n以上为通用要素框架；本基线不读取公告原文，仅作结构提示。\n\n## 风险与提示\n具体数字须以公告原文为准，本基线不编造。"
     },
     {
       "id": "FIN-082",
@@ -1205,7 +1267,8 @@
       },
       "overall": 99.0,
       "failure_mode": "无明显失败模式",
-      "output": "主营业务收入增长率为 11.8788。"
+      "compliance_breaker": null,
+      "output": "## 结论\n关于『主营业务收入增长率』，600519 2021年的值为 **11.8788** 元。\n\n## 关键指标\n- 主营业务收入增长率：11.8788 元\n\n## 简要分析\n基线模型仅支持单指标确定性抽取，无法直接做跨期或衍生计算；若需分析盈利能力与偿债压力，建议结合净利润率、资产负债率等指标进一步测算。\n\n## 风险与提示\n以上为指标库回显值，未经模型推理；深度财务判断请以年报与专业分析为准。"
     },
     {
       "id": "FIN-083",
@@ -1224,7 +1287,8 @@
       },
       "overall": 99.0,
       "failure_mode": "无明显失败模式",
-      "output": "资产负债率为 17.9843。"
+      "compliance_breaker": null,
+      "output": "## 结论\n关于『资产负债率』，600519 2023年的值为 **17.9843** 元。\n\n## 关键指标\n- 资产负债率：17.9843 元\n\n## 简要分析\n基线模型仅支持单指标确定性抽取，无法直接做跨期或衍生计算；若需分析盈利能力与偿债压力，建议结合净利润率、资产负债率等指标进一步测算。\n\n## 风险与提示\n以上为指标库回显值，未经模型推理；深度财务判断请以年报与专业分析为准。"
     },
     {
       "id": "FIN-084",
@@ -1239,11 +1303,12 @@
         "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.8,
-        "calibration": 0.5
+        "calibration": 0.0
       },
-      "overall": 76.4,
-      "failure_mode": "主要短板：不确定性校准/审慎性（0.5）",
-      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+      "overall": 71.4,
+      "failure_mode": "主要短板：不确定性校准/审慎性（0.0）",
+      "compliance_breaker": null,
+      "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-085",
@@ -1258,11 +1323,12 @@
         "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.8,
-        "calibration": 0.5
+        "calibration": 0.0
       },
-      "overall": 76.4,
-      "failure_mode": "主要短板：不确定性校准/审慎性（0.5）",
-      "output": "该问题涉及跨期对比或衍生计算，基线模型仅支持单指标直接提取；建议基于公开年报数据进一步计算。"
+      "overall": 71.4,
+      "failure_mode": "主要短板：不确定性校准/审慎性（0.0）",
+      "compliance_breaker": null,
+      "output": "## 结论\n该问题涉及跨期对比或衍生计算，超出基线模型的确定性抽取能力。\n\n## 关键指标\n（基线不支持）\n\n## 简要分析\n基线仅回显单一真实指标，不支持跨期/衍生推算；启用 Hy3 后可基于指标表做公式推导与综合分析。\n\n## 风险与提示\n具体数值须以公开年报原文为准，本基线不编造。"
     },
     {
       "id": "FIN-086",
@@ -1281,7 +1347,8 @@
       },
       "overall": 99.0,
       "failure_mode": "无明显失败模式",
-      "output": "净资产收益率为 27.68。"
+      "compliance_breaker": null,
+      "output": "## 结论\n关于『净资产收益率』，600519 2021年的值为 **27.68** 元。\n\n## 关键指标\n- 净资产收益率：27.68 元\n\n## 简要分析\n基线模型仅支持单指标确定性抽取，无法直接做跨期或衍生计算；若需分析盈利能力与偿债压力，建议结合净利润率、资产负债率等指标进一步测算。\n\n## 风险与提示\n以上为指标库回显值，未经模型推理；深度财务判断请以年报与专业分析为准。"
     },
     {
       "id": "FIN-087",
@@ -1293,14 +1360,15 @@
         "factual_accuracy": 0.9,
         "citation_verifiability": 1.0,
         "completeness": 1.0,
-        "format": 0.6,
+        "format": 1.0,
         "safety_no_hallucination": 0.9,
         "computation": 0.8,
         "calibration": 1.0
       },
-      "overall": 88.8,
-      "failure_mode": "主要短板：格式规范性/可解释（0.6）",
-      "output": "该公告属于【利润分配/分红】类。关键要素通常包括：事项内容、涉及主体、金额/比例（如有）、生效时间、审议程序等；具体数字须以公告原文为准，本基线不编造。"
+      "overall": 94.0,
+      "failure_mode": "无明显失败模式",
+      "compliance_breaker": null,
+      "output": "## 结论\n该公告属于【利润分配/分红】类事项。\n\n## 关键要素\n- 事项内容：利润分配/分红\n- 涉及主体：以公告披露为准\n- 金额/比例：如公告含具体数字须以原文为准\n- 生效时间：以审议/披露日为准\n- 审议程序：董事会/股东大会等\n\n## 简要分析\n以上为通用要素框架；本基线不读取公告原文，仅作结构提示。\n\n## 风险与提示\n具体数字须以公告原文为准，本基线不编造。"
     }
   ],
   "val_results": [
@@ -1319,6 +1387,7 @@
       },
       "overall": 73.4,
       "failure_mode": "主要短板：引用可验证性（0.0）",
+      "compliance_breaker": null,
       "output": "扣非净利润：74752564425.52。"
     },
     {
@@ -1336,6 +1405,7 @@
       },
       "overall": 42.4,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": null,
       "output": "扣非净利润大约是 700 多亿元，建议核对年报原文确认精确值。"
     },
     {
@@ -1353,6 +1423,7 @@
       },
       "overall": 32.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": "编造未披露数字（含具体数值但引用不可验证且未审慎声明）",
       "output": "扣非净利润为 99 亿元。"
     },
     {
@@ -1370,6 +1441,7 @@
       },
       "overall": 30.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": null,
       "output": "贵州茅台作为白酒行业龙头，其盈利充分体现了品牌护城河与渠道掌控力，在宏观波动中展现出极强韧性，未来有望持续高质量增长。（通篇未给数值）"
     },
     {
@@ -1387,6 +1459,7 @@
       },
       "overall": 73.4,
       "failure_mode": "主要短板：引用可验证性（0.0）",
+      "compliance_breaker": null,
       "output": "扣非净利润：74752564425.52（数据口径：扣除非经常性损益后的净利润）。"
     },
     {
@@ -1404,6 +1477,7 @@
       },
       "overall": 42.4,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": null,
       "output": "根据公开财务数据，贵州茅台2023年扣非净利润处于历史高位，具体数额请查阅年报。"
     },
     {
@@ -1421,6 +1495,7 @@
       },
       "overall": 32.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": "编造未披露数字（含具体数值但引用不可验证且未审慎声明）",
       "output": "扣非净利润为 12.3 亿元。"
     },
     {
@@ -1438,6 +1513,7 @@
       },
       "overall": 38.0,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": null,
       "output": "本报告认为公司基本面稳健，财务指标健康，长期价值突出，建议重点关注其龙头地位带来的确定性收益。（回避具体数值）"
     },
     {
@@ -1455,6 +1531,7 @@
       },
       "overall": 73.4,
       "failure_mode": "主要短板：引用可验证性（0.0）",
+      "compliance_breaker": null,
       "output": "扣非净利润：74752564425.52。"
     },
     {
@@ -1472,6 +1549,7 @@
       },
       "overall": 38.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": null,
       "output": "扣非净利润约七百多亿元级别，同比保持增长。"
     },
     {
@@ -1489,6 +1567,7 @@
       },
       "overall": 32.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": "编造未披露数字（含具体数值但引用不可验证且未审慎声明）",
       "output": "扣非净利润为 50 亿元。"
     },
     {
@@ -1506,6 +1585,7 @@
       },
       "overall": 30.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": null,
       "output": "在消费升级与高端化趋势下，公司量价齐升逻辑清晰，财务表现优异，具备长期配置价值。（无数值）"
     },
     {
@@ -1523,6 +1603,7 @@
       },
       "overall": 73.4,
       "failure_mode": "主要短板：引用可验证性（0.0）",
+      "compliance_breaker": null,
       "output": "扣非净利润：74752564425.52。"
     },
     {
@@ -1540,6 +1621,7 @@
       },
       "overall": 54.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": null,
       "output": "扣非净利润数值较大，反映主业盈利能力强，精确值以年报为准。"
     },
     {
@@ -1557,6 +1639,7 @@
       },
       "overall": 32.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": "编造未披露数字（含具体数值但引用不可验证且未审慎声明）",
       "output": "扣非净利润为 200 亿元。"
     },
     {
@@ -1574,6 +1657,7 @@
       },
       "overall": 30.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": null,
       "output": "公司作为核心资产，财务质量行业领先，分红与成长兼具，投资价值显著。（无数值）"
     },
     {
@@ -1591,6 +1675,7 @@
       },
       "overall": 73.4,
       "failure_mode": "主要短板：引用可验证性（0.0）",
+      "compliance_breaker": null,
       "output": "扣非净利润：74752564425.52。"
     },
     {
@@ -1608,6 +1693,7 @@
       },
       "overall": 38.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": null,
       "output": "扣非净利润位于七百亿元量级，主业贡献突出。"
     },
     {
@@ -1625,6 +1711,7 @@
       },
       "overall": 32.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": "编造未披露数字（含具体数值但引用不可验证且未审慎声明）",
       "output": "扣非净利润为 35 亿元。"
     },
     {
@@ -1642,6 +1729,7 @@
       },
       "overall": 30.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": null,
       "output": "公司护城河深厚，现金流充沛，经营稳健，是稀缺的优质标的。（无数值）"
     },
     {
@@ -1659,6 +1747,7 @@
       },
       "overall": 89.4,
       "failure_mode": "主要短板：引用可验证性（0.6）",
+      "compliance_breaker": null,
       "output": "扣非净利润：52581102656.24（来源：600519 2021年年报）。"
     },
     {
@@ -1676,6 +1765,7 @@
       },
       "overall": 57.9,
       "failure_mode": "主要短板：引用可验证性（0.0）",
+      "compliance_breaker": null,
       "output": "扣非净利润约为58890834974.99（按当年披露口径估算）。"
     },
     {
@@ -1693,6 +1783,7 @@
       },
       "overall": 32.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": "编造未披露数字（含具体数值但引用不可验证且未审慎声明）",
       "output": "扣非净利润为6835543345.31。"
     },
     {
@@ -1710,6 +1801,7 @@
       },
       "overall": 30.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": null,
       "output": "贵州茅台作为行业龙头，其扣非净利润充分体现了核心竞争力与稳健经营能力，在行业周期波动中展现出极强韧性，未来有望持续高质量增长。（通篇未给出具体数值）"
     },
     {
@@ -1727,6 +1819,7 @@
       },
       "overall": 89.4,
       "failure_mode": "主要短板：引用可验证性（0.6）",
+      "compliance_breaker": null,
       "output": "扣非净利润：23327729257.82（来源：000858 2021年年报）。"
     },
     {
@@ -1744,6 +1837,7 @@
       },
       "overall": 57.9,
       "failure_mode": "主要短板：引用可验证性（0.0）",
+      "compliance_breaker": null,
       "output": "扣非净利润约为26127056768.76（按当年披露口径估算）。"
     },
     {
@@ -1761,6 +1855,7 @@
       },
       "overall": 32.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": "编造未披露数字（含具体数值但引用不可验证且未审慎声明）",
       "output": "扣非净利润为3032604803.52。"
     },
     {
@@ -1778,6 +1873,7 @@
       },
       "overall": 30.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": null,
       "output": "五粮液作为行业龙头，其扣非净利润充分体现了核心竞争力与稳健经营能力，在行业周期波动中展现出极强韧性，未来有望持续高质量增长。（通篇未给出具体数值）"
     },
     {
@@ -1795,6 +1891,7 @@
       },
       "overall": 89.4,
       "failure_mode": "主要短板：引用可验证性（0.6）",
+      "compliance_breaker": null,
       "output": "扣非净利润：13442364300.00（来源：300750 2021年年报）。"
     },
     {
@@ -1812,6 +1909,7 @@
       },
       "overall": 57.9,
       "failure_mode": "主要短板：引用可验证性（0.0）",
+      "compliance_breaker": null,
       "output": "扣非净利润约为15055448016.00（按当年披露口径估算）。"
     },
     {
@@ -1829,6 +1927,7 @@
       },
       "overall": 32.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": "编造未披露数字（含具体数值但引用不可验证且未审慎声明）",
       "output": "扣非净利润为1747507359.00。"
     },
     {
@@ -1846,6 +1945,7 @@
       },
       "overall": 30.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": null,
       "output": "宁德时代作为行业龙头，其扣非净利润充分体现了核心竞争力与稳健经营能力，在行业周期波动中展现出极强韧性，未来有望持续高质量增长。（通篇未给出具体数值）"
     },
     {
@@ -1863,6 +1963,7 @@
       },
       "overall": 89.4,
       "failure_mode": "主要短板：引用可验证性（0.6）",
+      "compliance_breaker": null,
       "output": "扣非净利润：1254619000.00（来源：002594 2021年年报）。"
     },
     {
@@ -1880,6 +1981,7 @@
       },
       "overall": 57.9,
       "failure_mode": "主要短板：引用可验证性（0.0）",
+      "compliance_breaker": null,
       "output": "扣非净利润约为1405173280.00（按当年披露口径估算）。"
     },
     {
@@ -1897,6 +1999,7 @@
       },
       "overall": 32.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": "编造未披露数字（含具体数值但引用不可验证且未审慎声明）",
       "output": "扣非净利润为163100470.00。"
     },
     {
@@ -1914,6 +2017,7 @@
       },
       "overall": 30.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": null,
       "output": "比亚迪作为行业龙头，其扣非净利润充分体现了核心竞争力与稳健经营能力，在行业周期波动中展现出极强韧性，未来有望持续高质量增长。（通篇未给出具体数值）"
     },
     {
@@ -1931,6 +2035,7 @@
       },
       "overall": 89.4,
       "failure_mode": "主要短板：引用可验证性（0.6）",
+      "compliance_breaker": null,
       "output": "扣非净利润：101731000000.00（来源：601318 2021年年报）。"
     },
     {
@@ -1948,6 +2053,7 @@
       },
       "overall": 57.9,
       "failure_mode": "主要短板：引用可验证性（0.0）",
+      "compliance_breaker": null,
       "output": "扣非净利润约为113938720000.00（按当年披露口径估算）。"
     },
     {
@@ -1965,6 +2071,7 @@
       },
       "overall": 32.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": "编造未披露数字（含具体数值但引用不可验证且未审慎声明）",
       "output": "扣非净利润为13225030000.00。"
     },
     {
@@ -1982,6 +2089,7 @@
       },
       "overall": 30.8,
       "failure_mode": "主要短板：事实准确性（0.0）",
+      "compliance_breaker": null,
       "output": "中国平安作为行业龙头，其扣非净利润充分体现了核心竞争力与稳健经营能力，在行业周期波动中展现出极强韧性，未来有望持续高质量增长。（通篇未给出具体数值）"
     }
   ]

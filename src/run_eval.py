@@ -149,6 +149,8 @@ def main():
         "consistency_spearman": round(corr, 3) if corr is not None else None,
         "consistency_app_spearman": round(app_corr, 3) if app_corr is not None else None,
         "adversarial_avg": adv_avg,
+        "compliance_breaker_count": sum(
+            1 for r in app_results + val_results if r.get("compliance_breaker")),
         "discrimination_ok": (disc.get("好", 0) > disc.get("中", 0) > disc.get("差", 0)
                               and disc.get("对抗", 100) < 50),
     }
@@ -176,6 +178,7 @@ def _print_report(summary, app_results, val_results):
     print(f"一致性 Spearman(验证集评估分 vs 人工锚定)：{summary['consistency_spearman']}")
     print(f"一致性 Spearman(应用样本评估分 vs 人工锚定)：{summary['consistency_app_spearman']}（基线版区分度参考）")
     print(f"对抗性（对抗样本平均分，应<50）：{summary['adversarial_avg']}")
+    print(f"合规熔断层触发数（金融红线封顶）：{summary['compliance_breaker_count']}")
     print("=" * 60)
 
 

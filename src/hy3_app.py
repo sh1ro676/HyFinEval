@@ -12,7 +12,7 @@ import config
 import data_store
 
 
-def call_hy3(messages, temperature=0.2, max_tokens=3072):
+def call_hy3(messages, temperature=0.2, max_tokens=4096):
     """通用 Hy3 / 混元 OpenAI 兼容调用。无 key 返回 None。
 
     注意：hy3 是推理模型，会先生成 reasoning_content 再生成 content；
@@ -54,56 +54,104 @@ def _extract_json(text):
     return text
 
 
-def generate(sample, use_rag=True):
+def retrieve_pdf_pages(pages, query, top_k=3):
+    """从已解析的 PDF 页中，按关键词/指标词重叠选出最相关的 top_k 页。
+
+    pages: list[{"page":int,"text":str}]；返回 [(page, text), ...]
+    """
+    import re as _re
+    q_tokens = set(_re.findall(r"[\u4e00-\u9fff]{2,}|[A-Za-z0-9]+", query or ""))
+    kw = ["营收", "净利润", "资产", "负债", "现金流", "毛利率", "净资产", "利润",
+          "分红", "公告", "回购", "增持", "重组", "研发", "费用", "收入", "负债率"]
+    scored = []
+    for p in pages:
+        text = p.get("text") or ""
+        score = 0.0
+        for t in q_tokens:
+            if t and t in text:
+                score += 1.0
+        for k in kw:
+            if k in text:
+                score += 0.3
+        scored.append((score, p))
+    scored.sort(key=lambda x: x[0], reverse=True)
+    top = [p for s, p in scored[:top_k] if s > 0]
+    if not top:
+        top = pages[:top_k]
+    return [(p["page"], p["text"]) for p in top]
+
+
+def generate(sample, use_rag=True, pdf_pages=None, pdf_name=None):
     """RAG 检索 + Hy3 生成。返回 {answer, citations} 或 None（降级用）。
 
-    use_rag=True（开卷）：检索 (公司,年份) 真实指标作为上下文，考"引用可验证"。
-    use_rag=False（闭卷）：不注入任何指标表，纯考模型自身金融知识，用于证伪
-        computation / factual_accuracy 维度的判别力（剥离 RAG 后是否仍有效）。
+    上下文来源（可叠加）：
+      - 指标表：use_rag=True 且 (code,year) 在 indicators.json 中（开卷，字段级可验证）。
+      - 上传文档：pdf_pages 非空时，检索相关页注入，要求按页码引用（覆盖任意股票/年份）。
+    两者皆无则闭卷，模型凭知识作答，数值须标注未经核实、不得编造。
 
-    2026-08-31（二轮）提示词优化：要求精确抄录、强制 citations、逐条完整性、
-    衍生指标展示公式、不确定即声明查原文——目标是在现有 rubric 下合法提分。
+    输出 answer 为多小节 Markdown（## 结论 / ## 关键指标 / ## 风险与关注 / ## 简要分析），
+    杜绝一两句话敷衍；citations 含 field/value（指标）或 page/excerpt（文档）。
     """
     code, year, field = data_store.parse_input(sample["input"])
     ind = data_store.get_indicators()
     rec = ind.get(f"{code}_{year}")
+    has_ind = bool(use_rag and rec)
+    has_pdf = bool(pdf_pages)
 
     example = (
-        '示例：{"answer":"贵州茅台（600519）2021年扣非净利润为525.81亿元（52581102656.24元）。",'
-        '"citations":[{"company":"600519","year":"2021","field":"扣非净利润","value":52581102656.24}]}'
+        '示例：{"answer":"## 结论\\n贵州茅台（600519）2021年扣非净利润为525.81亿元。'
+        '\\n\\n## 关键指标\\n- 扣非净利润：52581102656.24元",'
+        '"citations":[{"company":"600519","year":"2021","field":"扣非净利润",'
+        '"value":52581102656.24,"source":"indicators"}]}'
     )
 
-    if use_rag and rec:
-        ctx = "；".join(f"{k}={v}" for k, v in rec.items())
-        system = (
-            "你是一名严谨的金融数据分析助手。请【严格基于】下方提供的真实财务指标作答，并遵守：\n"
-            "1. 只输出一个 JSON 对象，不要任何额外解释文字。\n"
-            "2. 结构：{\"answer\":\"一句话结论（含关键数值与单位）\","
-            "\"citations\":[{\"company\":\"股票代码\",\"year\":\"年份\",\"field\":\"指标名\",\"value\":数值}]}。\n"
-            "3. answer 中的数值必须从下方指标表【精确抄录】，不要自行计算或改写；"
-            "若问题要求衍生指标或解释计算含义，用表中字段按标准公式展示推导，并仍给出表中真实值。\n"
-            "4. citations 必须列出 answer 引用的每一个字段，field 严格使用指标表中的字段名，"
-            "value 为该字段在表中的真实数值。\n"
-            "5. 逐条回应问题的所有子问题，保持完整；指标不存在或无把握时说明需查年报原文。\n"
-            f"{example}"
-        )
-        user = (
-            f"真实财务指标（{code} {year}）：{ctx}\n\n"
-            f"问题：{sample['input']}\n\n请只输出 JSON。"
-        )
+    # 组装上下文
+    ctx_parts = []
+    if has_ind:
+        ctx_parts.append("【真实指标表】（" + code + " " + year + "）："
+                         + "；".join(f"{k}={v}" for k, v in rec.items()))
+    if has_pdf:
+        sel = retrieve_pdf_pages(pdf_pages, sample["input"], top_k=3)
+        pdf_ctx = "\n".join(f"[第{p}页] {t}" for p, t in sel)
+        ctx_parts.append("【上传文档 " + (pdf_name or "PDF") + " 相关页】\n" + pdf_ctx)
+    ctx = "\n\n".join(ctx_parts)
+
+    src_note = []
+    if has_ind:
+        src_note.append("已提供【真实指标表】")
+    if has_pdf:
+        src_note.append("已提供【上传文档】")
+    if not src_note:
+        src_note.append("未提供任何真实数据（闭卷）")
+    src_desc = "；".join(src_note)
+
+    system = (
+        "你是一名严谨的金融数据分析助手。" + src_desc + "。请输出一个 JSON 对象，结构：\n"
+        "{\"answer\":\"多小节分析（Markdown，必须含：## 结论 / ## 关键指标 / "
+        "## 风险与关注 / ## 简要分析 四个小节，有实质内容，禁止一两句话敷衍）\","
+        "\"citations\":[{\"company\":\"代码\",\"year\":\"年份\",\"field\":\"指标名\",\"value\":数值,"
+        "\"page\":页码,\"source\":\"indicators|pdf\",\"excerpt\":\"原文摘录\"}]}\n"
+        "规则：\n"
+        "1. 只输出一个 JSON 对象，不要任何额外解释文字。\n"
+        "2. answer 必须分点、有实质内容；凡出现具体数值必须精确并列入 citations。\n"
+        "3. 若提供了【真实指标表】，其中字段的具体数值必须精确抄录，不得自行改写；"
+        "衍生指标用表中字段按标准公式展示推导，并仍给出表中真实值。\n"
+        "4. 若提供了【上传文档】，回答优先基于文档，每条引用标注 page（页码）与 excerpt（原文摘录）；"
+        "文档未覆盖的内容可补充说明，但须注明『据公开知识，未经文档核实』。\n"
+        "5. 不得编造无法确认的具体数字；不确定写『需以原文为准』，对应 value 写 null。\n"
+        "6. 逐条回应问题所有子问题，保持完整。\n"
+        f"{example}"
+    )
+
+    if ctx:
+        user = f"{ctx}\n\n问题：{sample['input']}\n\n请只输出 JSON。"
     else:
-        system = (
-            "你是一名严谨的金融数据分析助手。基于你的金融知识作答，并遵守：\n"
-            "1. 只输出一个 JSON 对象，不要任何额外解释文字。\n"
-            "2. 结构：{\"answer\":\"结论（含数值与单位）\","
-            "\"citations\":[{\"company\":\"代码\",\"year\":\"年份\",\"field\":\"指标名\",\"value\":数值}]}。\n"
-            "3. citations 列出你引用/依据的来源字段，value 为该指标真实数值。\n"
-            "4. 若问题要求衍生指标，展示所用公式与基数。\n"
-            "5. 若你不确定某数据或它不在你的知识范围内，明确说明需查年报原文，value 可写 null，不得编造具体数字。\n"
-            "6. 逐条回应所有子问题。\n"
-            f"{example}"
-        )
         user = (
+            "当前为闭卷模式（未提供真实指标表或上传文档）。请基于你的金融知识作答：\n"
+            "1. 对于金融概念、分析方法、分析框架、行业常识，直接用知识清晰作答，不要整体拒答；\n"
+            "2. 对于具体财务数值：有把握可给并注明『据公开资料/记忆，未经指标库核实』，"
+            "不确定写『需以年报原文为准』；\n"
+            "3. 不得编造具体数字；若要求衍生指标，展示所用公式与基数。\n"
             f"问题：{sample['input']}\n\n请只输出 JSON。"
         )
 

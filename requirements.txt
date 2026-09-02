@@ -2,3 +2,4 @@ akshare
 pandas
 requests
 streamlit
+pdfplumber
