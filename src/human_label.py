@@ -16,6 +16,7 @@
 """
 import json
 import os
+import re
 import sys
 
 import streamlit as st
@@ -91,8 +92,73 @@ st.subheader(f"样本 {item_id}  ·  子任务：{item.get('subtask')}  ·  构�
 st.markdown("**① 用户问题 / 输入**")
 st.write(item.get("input"))
 st.markdown("**② 模型输出**")
-st.markdown(item.get("output") or "")
-cits = item.get("citations") or []
+
+
+def _unescape_json_like(s):
+    """把 JSON 字符串里的 \\n、\\t、\\" 等转义序列还原为真实字符。"""
+    if not isinstance(s, str):
+        return s
+    # 顺序很重要：先处理 \\ 再处理 \"
+    s = s.replace('\\\\', '\\')
+    s = s.replace('\\n', '\n')
+    s = s.replace('\\r', '\r')
+    s = s.replace('\\t', '\t')
+    s = s.replace('\\"', '"')
+    s = s.replace("\\'", "'")
+    return s
+
+
+def _extract_answer_from_truncated_json(raw):
+    """对截断/损坏的 JSON 字符串，尽最大努力提取 answer 字段文本。"""
+    m = re.search(r'"answer"\s*:\s*"(.*)', raw, re.DOTALL)
+    if not m:
+        return ""
+    txt = m.group(1)
+    # 截断字符串常以未闭合的 " 结尾；尽量找到最后一个可闭合的位置
+    # 策略：从末尾向前找未被转义的 "，若找不到则直接取到末尾并清理
+    end = len(txt)
+    for i in range(end - 1, -1, -1):
+        if txt[i] == '"':
+            # 检查前面连续奇数个反斜杠 -> 被转义，不算闭合
+            backslashes = 0
+            j = i - 1
+            while j >= 0 and txt[j] == '\\':
+                backslashes += 1
+                j -= 1
+            if backslashes % 2 == 0:
+                end = i
+                break
+    txt = txt[:end]
+    return _unescape_json_like(txt)
+
+
+def _normalize_output(raw):
+    """兼容旧版标注池：output 字段偶尔是 JSON 字符串（answer 里套了 JSON），
+    此时提取内层 answer 文本，避免把 \\n/## 当纯文本显示。
+
+    也兼容 JSON 被截断的情况（如模型输出过长被截断）。
+    """
+    if not raw:
+        return "", []
+    if isinstance(raw, dict):
+        return raw.get("answer", ""), raw.get("citations", [])
+    if isinstance(raw, str) and raw.strip().startswith("{"):
+        try:
+            parsed = json.loads(raw)
+            if isinstance(parsed, dict):
+                return parsed.get("answer", ""), parsed.get("citations", [])
+        except Exception:
+            pass
+        # 解析失败：可能是截断 JSON，尝试提取 answer 文本
+        answer_text = _extract_answer_from_truncated_json(raw)
+        if answer_text:
+            return answer_text, []
+    return raw, []
+
+
+answer_text, parsed_cits = _normalize_output(item.get("output"))
+st.markdown(answer_text)
+cits = item.get("citations") or parsed_cits or []
 if cits:
     st.markdown("**③ 引用 / 溯源**")
     st.table([{"字段": c.get("field"), "数值": c.get("value"),

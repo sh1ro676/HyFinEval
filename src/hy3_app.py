@@ -138,15 +138,61 @@ def generate(sample, use_rag=True, pdf_pages=None, pdf_name=None):
     ])
     if not out or out.startswith("[HY3_ERROR]"):
         return None
-    try:
-        return json.loads(_extract_json(out))
-    except Exception:
-        # 兜底：JSON 解析失败时，尝试从文本抽取 citations，避免引用维度直接归零
-        cit = []
-        m = re.search(r'"citations"\s*:\s*(\[.*\])', out, re.DOTALL)
-        if m:
-            try:
-                cit = json.loads(m.group(1))
-            except Exception:
-                cit = []
-        return {"answer": out, "citations": cit if isinstance(cit, list) else []}
+
+    parsed = _parse_hy3_json(out)
+    if parsed is not None:
+        return parsed
+
+    # 兜底：尝试从文本抽取 citations，避免引用维度直接归零
+    cit = []
+    m = re.search(r'"citations"\s*:\s*(\[.*\])', out, re.DOTALL)
+    if m:
+        try:
+            cit = json.loads(m.group(1))
+        except Exception:
+            cit = []
+    return {"answer": out, "citations": cit if isinstance(cit, list) else []}
+
+
+def _strip_code_fences(text):
+    """去掉模型可能包裹的 markdown 代码块标记（```json ... ```）。"""
+    text = text.strip()
+    if text.startswith("```"):
+        # 去掉第一行 ```json 等
+        text = text.split("\n", 1)[-1]
+    if text.endswith("```"):
+        text = text.rsplit("\n", 1)[0]
+    return text.strip()
+
+
+def _parse_hy3_json(text):
+    """多角度解析模型返回的 JSON，失败返回 None。
+
+    模型输出可能：
+      1) 纯 JSON 对象；
+      2) 被 markdown 代码块包裹；
+      3) JSON 外带少量说明文字；
+      4) 返回的是字符串化的 JSON（双重序列化）。
+    """
+    candidates = [
+        text,
+        _strip_code_fences(text),
+        _extract_json(text),
+        _strip_code_fences(_extract_json(text)),
+    ]
+    for cand in candidates:
+        if not cand:
+            continue
+        try:
+            obj = json.loads(cand)
+            # 双重序列化兜底：偶尔模型把 JSON 字符串又包了一层字符串
+            if isinstance(obj, str) and obj.strip().startswith("{"):
+                obj = json.loads(obj.strip())
+            if isinstance(obj, dict):
+                # 确保至少返回 answer 字符串；citations 默认空列表
+                answer = obj.get("answer") or ""
+                citations = obj.get("citations") or []
+                return {"answer": answer, "citations": citations}
+        except Exception:
+            continue
+    return None
