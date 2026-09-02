@@ -135,7 +135,7 @@ def generate(sample, use_rag=True, pdf_pages=None, pdf_name=None):
     out = call_hy3([
         {"role": "system", "content": system},
         {"role": "user", "content": user},
-    ])
+    ], max_tokens=8192)
     if not out or out.startswith("[HY3_ERROR]"):
         return None
 
