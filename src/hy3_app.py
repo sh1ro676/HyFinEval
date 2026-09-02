@@ -10,6 +10,7 @@ import re
 import requests
 import config
 import data_store
+import retrieval
 
 
 def call_hy3(messages, temperature=0.2, max_tokens=4096):
@@ -54,33 +55,6 @@ def _extract_json(text):
     return text
 
 
-def retrieve_pdf_pages(pages, query, top_k=3):
-    """从已解析的 PDF 页中，按关键词/指标词重叠选出最相关的 top_k 页。
-
-    pages: list[{"page":int,"text":str}]；返回 [(page, text), ...]
-    """
-    import re as _re
-    q_tokens = set(_re.findall(r"[\u4e00-\u9fff]{2,}|[A-Za-z0-9]+", query or ""))
-    kw = ["营收", "净利润", "资产", "负债", "现金流", "毛利率", "净资产", "利润",
-          "分红", "公告", "回购", "增持", "重组", "研发", "费用", "收入", "负债率"]
-    scored = []
-    for p in pages:
-        text = p.get("text") or ""
-        score = 0.0
-        for t in q_tokens:
-            if t and t in text:
-                score += 1.0
-        for k in kw:
-            if k in text:
-                score += 0.3
-        scored.append((score, p))
-    scored.sort(key=lambda x: x[0], reverse=True)
-    top = [p for s, p in scored[:top_k] if s > 0]
-    if not top:
-        top = pages[:top_k]
-    return [(p["page"], p["text"]) for p in top]
-
-
 def generate(sample, use_rag=True, pdf_pages=None, pdf_name=None):
     """RAG 检索 + Hy3 生成。返回 {answer, citations} 或 None（降级用）。
 
@@ -111,7 +85,7 @@ def generate(sample, use_rag=True, pdf_pages=None, pdf_name=None):
         ctx_parts.append("【真实指标表】（" + code + " " + year + "）："
                          + "；".join(f"{k}={v}" for k, v in rec.items()))
     if has_pdf:
-        sel = retrieve_pdf_pages(pdf_pages, sample["input"], top_k=3)
+        sel = retrieval.retrieve_pdf_pages(pdf_pages, sample["input"], top_k=3)
         pdf_ctx = "\n".join(f"[第{p}页] {t}" for p, t in sel)
         ctx_parts.append("【上传文档 " + (pdf_name or "PDF") + " 相关页】\n" + pdf_ctx)
     ctx = "\n\n".join(ctx_parts)
