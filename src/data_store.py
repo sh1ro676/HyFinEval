@@ -27,7 +27,7 @@ def get_indicators():
 def parse_input(text):
     """从样本 input 解析 (code, year, field)。"""
     code = None
-    m = re.search(r"[（(](\d{6})[）)]", text)
+    m = re.search(r"[（(](\d{4,6})[）)]", text)
     if m:
         code = m.group(1)
     year = None
@@ -63,5 +63,6 @@ def company_name(code):
         "600519": "贵州茅台", "000858": "五粮液", "300750": "宁德时代",
         "002594": "比亚迪", "601318": "中国平安", "000001": "平安银行",
         "600036": "招商银行", "600276": "恒瑞医药", "000333": "美的集团",
+        "00700": "腾讯控股",
     }
     return names.get(code, code)
