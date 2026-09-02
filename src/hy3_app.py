@@ -36,6 +36,9 @@ def call_hy3(messages, temperature=0.2, max_tokens=4096):
     }
     try:
         r = requests.post(url, headers=headers, json=payload, timeout=180)
+        # 强制按 UTF-8 解码：部分 OpenAI 兼容网关返回 Content-Type 不带 charset，
+        # requests 会按 latin-1 误解码，导致中文答案整段乱码（mojibake）。
+        r.encoding = "utf-8"
         r.raise_for_status()
         msg = r.json()["choices"][0]["message"]
         content = (msg.get("content") or "").strip()
