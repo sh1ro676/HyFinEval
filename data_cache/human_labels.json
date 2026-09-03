@@ -1,1 +1,200 @@
-{}
+{
+  "FIN-083": {
+    "A": {
+      "band": "优",
+      "flags": {
+        "format_ok": true,
+        "cited": true,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-045": {
+    "A": {
+      "band": "中",
+      "flags": {
+        "format_ok": true,
+        "cited": true,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-010": {
+    "A": {
+      "band": "优",
+      "flags": {
+        "format_ok": true,
+        "cited": true,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-035": {
+    "A": {
+      "band": "优",
+      "flags": {
+        "format_ok": true,
+        "cited": true,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-019": {
+    "A": {
+      "band": "优",
+      "flags": {
+        "format_ok": true,
+        "cited": true,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-025": {
+    "A": {
+      "band": "中",
+      "flags": {
+        "format_ok": true,
+        "cited": true,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-031": {
+    "A": {
+      "band": "优",
+      "flags": {
+        "format_ok": true,
+        "cited": true,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-032": {
+    "A": {
+      "band": "中",
+      "flags": {
+        "format_ok": true,
+        "cited": true,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-043": {
+    "A": {
+      "band": "差",
+      "flags": {
+        "format_ok": true,
+        "cited": true,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-028": {
+    "A": {
+      "band": "优",
+      "flags": {
+        "format_ok": true,
+        "cited": true,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-057": {
+    "A": {
+      "band": "中",
+      "flags": {
+        "format_ok": true,
+        "cited": false,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-006": {
+    "A": {
+      "band": "优",
+      "flags": {
+        "format_ok": true,
+        "cited": true,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-060": {
+    "A": {
+      "band": "中",
+      "flags": {
+        "format_ok": true,
+        "cited": true,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-020": {
+    "A": {
+      "band": "优",
+      "flags": {
+        "format_ok": true,
+        "cited": true,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-022": {
+    "A": {
+      "band": "优",
+      "flags": {
+        "format_ok": true,
+        "cited": true,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-034": {
+    "A": {
+      "band": "优",
+      "flags": {
+        "format_ok": true,
+        "cited": true,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-044": {
+    "A": {
+      "band": "差",
+      "flags": {
+        "format_ok": true,
+        "cited": true,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-005": {
+    "A": {
+      "band": "优",
+      "flags": {
+        "format_ok": true,
+        "cited": true,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  }
+}

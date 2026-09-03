@@ -7,8 +7,10 @@ reasoning_content（思考草稿）当答案写进标注池。修复生成侧后
 （含已人工标注的条目）保持原样，保证标注与输出一一对应。
 
 用法：
-  python src/resample_label_pool.py --id FIN-019
-  python src/resample_label_pool.py --id FIN-019 --id FIN-005 --id FIN-059
+  python src/resample_label_pool.py --id FIN-019           # 重生成指定条目
+  python src/resample_label_pool.py --id FIN-019 --id FIN-005
+  python src/resample_label_pool.py --rescore              # 只重算全池 auto_score（不调 API、不动输出）
+  python src/resample_label_pool.py --rescore --id FIN-019 # 只重算指定条目的分数
 """
 import argparse
 import json
@@ -35,13 +37,35 @@ def is_echo(text):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--id", action="append", required=True)
+    ap.add_argument("--id", action="append", default=[])
+    ap.add_argument("--rescore", action="store_true",
+                    help="只重算 auto_score：不调 API、不改动 output/citations，"
+                         "用于解析器逻辑修正后刷新评分")
     args = ap.parse_args()
     ids = set(args.id)
 
     pool = json.load(open(POOL, encoding="utf-8"))
     by_id = {it["id"]: (i, it) for i, it in enumerate(pool)}
     samples = {s["id"]: s for s in data_store.load_samples()}
+
+    if args.rescore:
+        targets = [it for it in pool if not ids or it["id"] in ids]
+        print(f"重算 auto_score：{len(targets)} 条（不改动输出内容）")
+        for it in targets:
+            s = samples.get(it["id"])
+            if not s:
+                print(f"  {it['id']} 不在样本集，跳过")
+                continue
+            out = {"answer": it.get("output") or "",
+                   "citations": it.get("citations") or []}
+            ev = evaluator.evaluate(s, out)
+            old = it.get("auto_score")
+            it["auto_score"] = round(ev["overall"], 1)
+            print(f"  {it['id']}: {old} -> {it['auto_score']}")
+        with open(POOL, "w", encoding="utf-8") as f:
+            json.dump(pool, f, ensure_ascii=False, indent=2)
+        print(f"已写回 {POOL}")
+        return
 
     for rid in sorted(ids):
         if rid not in by_id or rid not in samples:

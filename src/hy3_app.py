@@ -79,12 +79,11 @@ def generate(sample, use_rag=True, pdf_pages=None, pdf_name=None):
         years = []
         if year and ind.get(f"{code}_{year}"):
             years.append(year)
-        else:
-            # 兜底：对比类表述（如「2022与2021两年」）正则提取不到年份，
-            # 扫描输入中所有合理年份，取指标库中存在的注入
-            for y in re.findall(r"(?:19|20)\d{2}", sample["input"]):
-                if y not in years and ind.get(f"{code}_{y}"):
-                    years.append(y)
+        # 对比类题目（「2023与2022两年」）需要多年数据：主年份之外，
+        # 补上输入中出现的其他年份。放在 if 之外，避免主年份命中时漏掉另一年。
+        for y in re.findall(r"(?:19|20)\d{2}", sample["input"]):
+            if y not in years and ind.get(f"{code}_{y}"):
+                years.append(y)
         recs = [(y, ind[f"{code}_{y}"]) for y in years]
     has_ind = bool(use_rag and recs)
     has_pdf = bool(pdf_pages)
