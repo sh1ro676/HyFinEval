@@ -41,10 +41,13 @@ def call_hy3(messages, temperature=0.2, max_tokens=4096):
         r.encoding = "utf-8"
         r.raise_for_status()
         msg = r.json()["choices"][0]["message"]
+        # 仅取正式回答 content。严禁回退到 reasoning_content：那是模型的思考草稿
+        # （"我们需要输出…规则说…"），当答案用会污染标注池与评测，且思考过程里的
+        # 关键词（规则/citations 等）会让规则评估器误打高分。content 为空 = 推理
+        # 耗尽 max_tokens 被截断，应判失败并交由上层重试/降级。
         content = (msg.get("content") or "").strip()
         if not content:
-            # 推理模型兼容：content 为空时回退到思考过程，避免整条请求判失败
-            content = (msg.get("reasoning_content") or "").strip()
+            return None
         return content
     except Exception as e:  # 失败降级
         return f"[HY3_ERROR] {e}"
@@ -71,8 +74,19 @@ def generate(sample, use_rag=True, pdf_pages=None, pdf_name=None):
     """
     code, year, field = data_store.parse_input(sample["input"])
     ind = data_store.get_indicators()
-    rec = ind.get(f"{code}_{year}")
-    has_ind = bool(use_rag and rec)
+    recs = []  # [(year, rec)]，可能多年（对比类题目如「2022与2021两年」）
+    if code:
+        years = []
+        if year and ind.get(f"{code}_{year}"):
+            years.append(year)
+        else:
+            # 兜底：对比类表述（如「2022与2021两年」）正则提取不到年份，
+            # 扫描输入中所有合理年份，取指标库中存在的注入
+            for y in re.findall(r"(?:19|20)\d{2}", sample["input"]):
+                if y not in years and ind.get(f"{code}_{y}"):
+                    years.append(y)
+        recs = [(y, ind[f"{code}_{y}"]) for y in years]
+    has_ind = bool(use_rag and recs)
     has_pdf = bool(pdf_pages)
 
     example = (
@@ -85,8 +99,9 @@ def generate(sample, use_rag=True, pdf_pages=None, pdf_name=None):
     # 组装上下文
     ctx_parts = []
     if has_ind:
-        ctx_parts.append("【真实指标表】（" + code + " " + year + "）："
-                         + "；".join(f"{k}={v}" for k, v in rec.items()))
+        for y, rec in recs:
+            ctx_parts.append("【真实指标表】（" + code + " " + y + "）："
+                             + "；".join(f"{k}={v}" for k, v in rec.items()))
     if has_pdf:
         sel = retrieval.retrieve_pdf_pages(pdf_pages, sample["input"], top_k=3)
         pdf_ctx = "\n".join(f"[第{p}页] {t}" for p, t in sel)
@@ -132,10 +147,14 @@ def generate(sample, use_rag=True, pdf_pages=None, pdf_name=None):
             f"问题：{sample['input']}\n\n请只输出 JSON。"
         )
 
-    out = call_hy3([
+    messages = [
         {"role": "system", "content": system},
         {"role": "user", "content": user},
-    ], max_tokens=8192)
+    ]
+    out = call_hy3(messages, max_tokens=8192)
+    if not out or out.startswith("[HY3_ERROR]"):
+        # content 为空多为推理过程耗尽 max_tokens 被截断，属偶发：重试一次
+        out = call_hy3(messages, max_tokens=8192, temperature=0.6)
     if not out or out.startswith("[HY3_ERROR]"):
         return None
 
