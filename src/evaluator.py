@@ -25,6 +25,64 @@ def _asserts_absurd_exceeds(text):
     return ("超过999999" in t) or ("超过了999999" in t) or ("达到999999" in t) or ("达到了999999" in t)
 
 
+# 免责话术：审慎表达的正确形式，但也可能被用作"通篇正确的废话"填充篇幅
+_HEDGE_PAT = re.compile(
+    r"以原文为准|以公告原文|不编造|需以|无法精确|无法获取|未提供|请自行|"
+    r"据公开知识|未经|须以|应由|待核实|以正式")
+
+# 结构性小节（与 hy3_app 生成模板对应）
+_SECTIONS = ("结论", "关键指标", "风险", "分析")
+
+
+def _substantive_lines(out_text, min_core=8):
+    """统计「有信息量」的正文行数：剔除标题、空行、纯免责话术行。
+
+    用于区分「有实质内容且审慎」与「通篇免责话术」——后者在人类判断中
+    属于低质量输出，但纯关键词打分会给满分。
+    """
+    n = 0
+    for ln in str(out_text).splitlines():
+        s = ln.strip().lstrip("-*·").lstrip()
+        s = re.sub(r"^\d+[.、)]\s*", "", s).strip()
+        if len(s) < 6:
+            continue
+        core = _HEDGE_PAT.sub("", s)
+        core = re.sub(r"[\s，。、：:；;（）()【】\[\]]", "", core)
+        if len(core) >= min_core:
+            n += 1
+    return n
+
+
+def _format_score(output, out_text):
+    """格式规范性：结构覆盖度 × 实质内容，替代原「泛词命中即满分」实现。
+
+    原实现判定词含「指标」「根据」等中文财报回答几乎必然出现的词，
+    实测 28 条标注样本 28/28 满分（零方差 → 零判别力）。
+    """
+    if not out_text.strip():
+        return 0.2
+    if not (isinstance(output, dict) and output.get("answer")):
+        return 0.6
+
+    heads = re.findall(r"^#{1,4}\s*(.+?)\s*$", out_text, re.M)
+    hit = sum(1 for s in _SECTIONS if any(s in h for h in heads))
+    if hit >= 4:
+        score = 1.0
+    elif hit == 3:
+        score = 0.85
+    elif hit == 2:
+        score = 0.7
+    elif hit == 1:
+        score = 0.5
+    else:
+        score = 0.4
+
+    # 空壳惩罚：结构齐了但正文没有实质内容，说明是模板套话
+    if _substantive_lines(out_text) < 3:
+        score = min(score, 0.5)
+    return score
+
+
 def _rule_evaluate(sample, output):
     out_text = output.get("answer", "") if isinstance(output, dict) else str(output)
     cit = output.get("citations", []) if isinstance(output, dict) else []
@@ -94,15 +152,7 @@ def _rule_evaluate(sample, output):
         dims["completeness"] = 0.8
 
     # 4 格式规范性/可解释（合并原可解释性维度）
-    if isinstance(output, dict) and output.get("answer"):
-        has_trace = bool(cit and len(cit) > 0) or any(
-            w in out_text for w in ["根据", "由", "计算", "因为", "来源", "年报", "依据",
-                                    "推导", "等于", "提取自", "指标", "以原文为准", "需查"])
-        dims["format"] = 1.0 if has_trace else 0.6
-    elif out_text.strip():
-        dims["format"] = 0.6
-    else:
-        dims["format"] = 0.2
+    dims["format"] = _format_score(output, out_text)
 
     # 5 安全合规/抗幻觉
     if counterfeit:
@@ -153,7 +203,20 @@ def _rule_evaluate(sample, output):
         else:
             dims["calibration"] = 0.5
     elif subtask == "公告摘要":
-        dims["calibration"] = 1.0 if ("以原文为准" in out_text or "不编造" in out_text) else 0.6
+        # 旧实现：出现「以原文为准/不编造」即满分 —— 等于无条件奖励免责话术。
+        # 实测该维度与人工档位 Spearman = -0.447（显著负相关）：话术越多分越高，
+        # 而人类恰恰把这些「通篇正确的废话」判为差。
+        # 新逻辑：审慎表达只有在「已给出实质信息」的前提下才值满分。
+        hedged = bool(_HEDGE_PAT.search(out_text))
+        substantive = bool(_extract_numbers(out_text)) or _substantive_lines(out_text) >= 4
+        if hedged and substantive:
+            dims["calibration"] = 1.0
+        elif substantive:
+            dims["calibration"] = 0.7   # 有内容但未标注来源不确定
+        elif hedged:
+            dims["calibration"] = 0.5   # 只有免责话术，无实质信息
+        else:
+            dims["calibration"] = 0.3
     else:
         dims["calibration"] = 0.9 if (_extract_numbers(out_text) or "建议" in out_text) else 0.7
 

@@ -61,6 +61,8 @@ def main():
             ev = evaluator.evaluate(s, out)
             old = it.get("auto_score")
             it["auto_score"] = round(ev["overall"], 1)
+            # 保留逐维度分：用于诊断「哪个维度与人工判断脱节」
+            it["auto_dims"] = {k: round(float(v), 3) for k, v in (ev.get("dimensions") or {}).items()}
             print(f"  {it['id']}: {old} -> {it['auto_score']}")
         with open(POOL, "w", encoding="utf-8") as f:
             json.dump(pool, f, ensure_ascii=False, indent=2)

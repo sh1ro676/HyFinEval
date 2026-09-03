@@ -136,7 +136,7 @@
       "band": "中",
       "flags": {
         "format_ok": true,
-        "cited": true,
+        "cited": false,
         "no_redline": true,
         "no_contra": true
       }
@@ -192,6 +192,116 @@
       "flags": {
         "format_ok": true,
         "cited": true,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-046": {
+    "A": {
+      "band": "中",
+      "flags": {
+        "format_ok": true,
+        "cited": true,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-049": {
+    "A": {
+      "band": "优",
+      "flags": {
+        "format_ok": true,
+        "cited": true,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-059": {
+    "A": {
+      "band": "差",
+      "flags": {
+        "format_ok": true,
+        "cited": true,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-061": {
+    "A": {
+      "band": "中",
+      "flags": {
+        "format_ok": true,
+        "cited": false,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-008": {
+    "A": {
+      "band": "中",
+      "flags": {
+        "format_ok": true,
+        "cited": true,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-053": {
+    "A": {
+      "band": "中",
+      "flags": {
+        "format_ok": true,
+        "cited": false,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-084": {
+    "A": {
+      "band": "中",
+      "flags": {
+        "format_ok": true,
+        "cited": true,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-058": {
+    "A": {
+      "band": "中",
+      "flags": {
+        "format_ok": true,
+        "cited": false,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-012": {
+    "A": {
+      "band": "中",
+      "flags": {
+        "format_ok": true,
+        "cited": true,
+        "no_redline": true,
+        "no_contra": true
+      }
+    }
+  },
+  "FIN-052": {
+    "A": {
+      "band": "差",
+      "flags": {
+        "format_ok": true,
+        "cited": false,
         "no_redline": true,
         "no_contra": true
       }

@@ -19,6 +19,7 @@ import baseline_app
 import hy3_app
 import evaluator
 import config
+import stats_utils
 
 
 def generate_output(sample, use_hy3_app, use_rag=True):
@@ -30,23 +31,8 @@ def generate_output(sample, use_hy3_app, use_rag=True):
 
 
 def spearman(a, b):
-    n = len(a)
-    if n < 2:
-        return None
-    ra = _rank(a); rb = _rank(b)
-    mean = sum(ra) / n
-    cov = sum((ra[i] - mean) * (rb[i] - mean) for i in range(n))
-    va = sum((x - mean) ** 2 for x in ra) ** 0.5
-    vb = sum((x - mean) ** 2 for x in rb) ** 0.5
-    return cov / (va * vb) if va and vb else None
-
-
-def _rank(xs):
-    order = sorted(range(len(xs)), key=lambda i: xs[i])
-    ranks = [0] * len(xs)
-    for r, i in enumerate(order):
-        ranks[i] = r + 1
-    return ranks
+    """委托到 stats_utils：带并列修正的平均秩实现（已与 scipy 对齐）。"""
+    return stats_utils.spearman(a, b)
 
 
 def main():

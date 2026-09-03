@@ -1,0 +1,124 @@
+{
+  "n_labeled_A": 28,
+  "n_labeled_B": 0,
+  "auto_vs_humanA_spearman": 0.05,
+  "auto_vs_humanA_kendall": 0.041,
+  "auto_vs_humanA_mae": 27.257,
+  "n_alignA": 28,
+  "n_unique_autoA": 8,
+  "n_unique_humanA": 3,
+  "per_subtask": {
+    "公告摘要": {
+      "n": 8,
+      "spearman": -0.466,
+      "kendall": -0.423,
+      "auto_avg": 89.6,
+      "human_band_dist": {
+        "优": 1,
+        "中": 5,
+        "差": 2
+      }
+    },
+    "财务问答": {
+      "n": 11,
+      "spearman": -0.035,
+      "kendall": -0.029,
+      "auto_avg": 94.9,
+      "human_band_dist": {
+        "优": 5,
+        "中": 4,
+        "差": 2
+      }
+    },
+    "财报指标提取": {
+      "n": 9,
+      "spearman": 0.151,
+      "kendall": 0.141,
+      "auto_avg": 88.8,
+      "human_band_dist": {
+        "优": 6,
+        "中": 3,
+        "差": 0
+      }
+    }
+  },
+  "band_agreement_exact": 0.536,
+  "band_agreement_adjacent": 0.929,
+  "band_kappa_auto_vs_human": 0.708,
+  "band_threshold_note": "auto 分档阈值：>=95 优 / 85~95 中 / <85 差",
+  "confusion_matrix": {
+    "差": {
+      "差": 0,
+      "中": 0,
+      "优": 1
+    },
+    "中": {
+      "差": 3,
+      "中": 8,
+      "优": 4
+    },
+    "优": {
+      "差": 1,
+      "中": 4,
+      "优": 7
+    }
+  },
+  "per_dimension": {
+    "factual_accuracy": {
+      "spearman_vs_human": 0.211,
+      "n_unique_values": 3,
+      "mode_share": 0.5
+    },
+    "citation_verifiability": {
+      "spearman_vs_human": -0.208,
+      "n_unique_values": 2,
+      "mode_share": 0.964
+    },
+    "completeness": {
+      "spearman_vs_human": 0.341,
+      "n_unique_values": 3,
+      "mode_share": 0.714
+    },
+    "format": {
+      "spearman_vs_human": null,
+      "n_unique_values": 1,
+      "mode_share": 1.0
+    },
+    "safety_no_hallucination": {
+      "spearman_vs_human": 0.165,
+      "n_unique_values": 3,
+      "mode_share": 0.571
+    },
+    "computation": {
+      "spearman_vs_human": 0.309,
+      "n_unique_values": 2,
+      "mode_share": 0.5
+    },
+    "calibration": {
+      "spearman_vs_human": -0.413,
+      "n_unique_values": 2,
+      "mode_share": 0.679
+    }
+  },
+  "inter_annotator_kappa": null,
+  "n_both": 0,
+  "kappa_note": "仅单人标注，标注者间一致性未估计",
+  "flags": {
+    "格式完整": {
+      "positive_rate_A": 1.0,
+      "n_A": 28
+    },
+    "引用可溯源": {
+      "positive_rate_A": 0.786,
+      "n_A": 28
+    },
+    "无合规红线": {
+      "positive_rate_A": 1.0,
+      "n_A": 28
+    },
+    "无自相矛盾/硬伤": {
+      "positive_rate_A": 1.0,
+      "n_A": 28
+    }
+  }
+}

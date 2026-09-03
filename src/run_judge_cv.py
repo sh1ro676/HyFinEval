@@ -20,6 +20,7 @@ import config
 import hy3_app
 import baseline_app
 import evaluator
+import stats_utils
 
 
 def stratified_sample(samples, n, seed=42):
@@ -39,20 +40,8 @@ def stratified_sample(samples, n, seed=42):
 
 
 def spearman(a, b):
-    def rank(x):
-        order = sorted(range(len(x)), key=lambda i: x[i])
-        r = [0] * len(x)
-        for i, v in enumerate(order):
-            r[v] = i + 1
-        return r
-    if len(a) < 2:
-        return None
-    ra, rb = rank(a), rank(b)
-    m = sum(ra) / len(ra)
-    cov = sum((ra[i] - m) * (rb[i] - m) for i in range(len(ra)))
-    va = sum((x - m) ** 2 for x in ra) ** 0.5
-    vb = sum((x - m) ** 2 for x in rb) ** 0.5
-    return cov / (va * vb) if va and vb else None
+    """委托到 stats_utils：带并列修正的平均秩实现（已与 scipy 对齐）。"""
+    return stats_utils.spearman(a, b)
 
 
 def main():

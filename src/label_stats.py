@@ -17,6 +17,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import config
+import stats_utils
 
 BAND_MAP = {"优": 90, "中": 60, "差": 30}
 BAND_IDX = {"优": 2, "中": 1, "差": 0}
@@ -27,41 +28,6 @@ FLAG_DESC = {
     "no_redline": "无合规红线",
     "no_contra": "无自相矛盾/硬伤",
 }
-
-
-def spearman(a, b):
-    def rank(x):
-        order = sorted(range(len(x)), key=lambda i: x[i])
-        r = [0] * len(x)
-        for i, v in enumerate(order):
-            r[v] = i + 1
-        return r
-    if len(a) < 2:
-        return None
-    ra, rb = rank(a), rank(b)
-    m = sum(ra) / len(ra)
-    cov = sum((ra[i] - m) * (rb[i] - m) for i in range(len(ra)))
-    va = sum((x - m) ** 2 for x in ra) ** 0.5
-    vb = sum((x - m) ** 2 for x in rb) ** 0.5
-    return cov / (va * vb) if va and vb else None
-
-
-def quad_weighted_kappa(ba, bb, k=3):
-    """在 k 档（已为 0..k-1 整数）上计算二次加权 Kappa。"""
-    n = len(ba)
-    hist = {}
-    for x, y in zip(ba, bb):
-        hist[(x, y)] = hist.get((x, y), 0) + 1
-    row = [sum(hist.get((i, j), 0) for j in range(k)) for i in range(k)]
-    col = [sum(hist.get((i, j), 0) for i in range(k)) for j in range(k)]
-    po = sum(hist.get((i, i), 0) for i in range(k)) / n
-    pe = sum(row[i] * col[i] for i in range(k)) / (n * n)
-    wsum = 0.0
-    for i in range(k):
-        for j in range(k):
-            w = (i - j) ** 2 / (k - 1) ** 2
-            wsum += w * hist.get((i, j), 0) / n
-    return 1 - wsum / (1 - pe) if (1 - pe) else 1.0
 
 
 def _score(entry):
@@ -111,23 +77,108 @@ def main():
             return
         ra = [auto[i] for i in common]
         rh = [H[i] for i in common]
-        rho = spearman(ra, rh)
+        rho = stats_utils.spearman(ra, rh)
+        tau = stats_utils.kendall_tau_b(ra, rh)
         mad = sum(abs(ra[k] - rh[k]) for k in range(len(ra))) / len(ra)
         out[f"auto_vs_human{tag}_spearman"] = round(rho, 3) if rho is not None else None
+        out[f"auto_vs_human{tag}_kendall"] = round(tau, 3) if tau is not None else None
         out[f"auto_vs_human{tag}_mae"] = round(mad, 3)
         out[f"n_align{tag}"] = len(common)
+        # 并列强度：并列越重，秩相关越保守，需一并报告以便解读
+        out[f"n_unique_auto{tag}"] = len(set(ra))
+        out[f"n_unique_human{tag}"] = len(set(rh))
 
     _align("A", A)
     _align("B", B)
+
+    subtask = {p["id"]: p.get("subtask") or "未分类" for p in pool}
+
+    # ---------- 子任务级拆分：评估器效度强烈依赖「有无可核实真值」 ----------
+    by_sub = {}
+    for i in A:
+        by_sub.setdefault(subtask.get(i, "未分类"), []).append(i)
+    per_subtask = {}
+    for st in sorted(by_sub):
+        ids = [i for i in by_sub[st] if i in auto]
+        if len(ids) < 3:
+            continue
+        ra = [auto[i] for i in ids]
+        rh = [A[i] for i in ids]
+        rho = stats_utils.spearman(ra, rh)
+        tau = stats_utils.kendall_tau_b(ra, rh)
+        dist = {"优": 0, "中": 0, "差": 0}
+        for i in ids:
+            b = lab[i]["A"].get("band")
+            if b in dist:
+                dist[b] += 1
+        per_subtask[st] = {
+            "n": len(ids),
+            "spearman": round(rho, 3) if rho is not None else None,
+            "kendall": round(tau, 3) if tau is not None else None,
+            "auto_avg": round(sum(ra) / len(ra), 1),
+            "human_band_dist": dist,
+        }
+    out["per_subtask"] = per_subtask
+
+    # ---------- 三档一致率：把连续 auto 分映射到与人工同尺度 ----------
+    # 阈值依据：99 为满分档（各维度全 1.0），85 以下出现明确短板
+    def _auto_band(s):
+        return 2 if s >= 95 else (1 if s >= 85 else 0)
+
+    band_names = ["差", "中", "优"]
+    ids_all = [i for i in A if i in auto]
+    if ids_all:
+        ab = [_auto_band(auto[i]) for i in ids_all]
+        hb = [BAND_IDX[lab[i]["A"]["band"]] for i in ids_all]
+        exact = sum(1 for x, y in zip(ab, hb) if x == y) / len(ab)
+        adj = sum(1 for x, y in zip(ab, hb) if abs(x - y) <= 1) / len(ab)
+        out["band_agreement_exact"] = round(exact, 3)
+        out["band_agreement_adjacent"] = round(adj, 3)
+        out["band_kappa_auto_vs_human"] = round(stats_utils.quad_weighted_kappa(ab, hb, k=3), 3)
+        out["band_threshold_note"] = "auto 分档阈值：>=95 优 / 85~95 中 / <85 差"
+        # 混淆矩阵（行=auto档，列=人工档）
+        cm = {band_names[r]: {band_names[c]: 0 for c in range(3)} for r in range(3)}
+        for x, y in zip(ab, hb):
+            cm[band_names[x]][band_names[y]] += 1
+        out["confusion_matrix"] = cm
+
+    # ---------- 逐维度诊断：哪个维度与人工判断脱节 ----------
+    dim_keys = None
+    for p in pool:
+        if isinstance(p.get("auto_dims"), dict) and p["auto_dims"]:
+            dim_keys = list(p["auto_dims"].keys())
+            break
+    if dim_keys:
+        dims_stat = {}
+        for d in dim_keys:
+            vals, hum = [], []
+            for p in pool:
+                if p["id"] in A and isinstance(p.get("auto_dims"), dict) and d in p["auto_dims"]:
+                    vals.append(float(p["auto_dims"][d]))
+                    hum.append(BAND_IDX[lab[p["id"]]["A"]["band"]])
+            if len(vals) < 3:
+                continue
+            rho = stats_utils.spearman(vals, hum)
+            dims_stat[d] = {
+                "spearman_vs_human": round(rho, 3) if rho is not None else None,
+                "n_unique_values": len(set(vals)),
+                "mode_share": round(max(vals.count(v) for v in set(vals)) / len(vals), 3),
+            }
+        out["per_dimension"] = dims_stat
 
     # 标注者间 Kappa（三档）
     Aidx = {i: _idx(v.get("A")) for i, v in lab.items() if _valid(v.get("A"))}
     Bidx = {i: _idx(v.get("B")) for i, v in lab.items() if _valid(v.get("B"))}
     both = [i for i in Aidx if i in Bidx]
     if len(both) >= 2:
-        out["inter_annotator_kappa"] = round(quad_weighted_kappa([Aidx[i] for i in both],
-                                                                [Bidx[i] for i in both], k=3), 3)
+        out["inter_annotator_kappa"] = round(stats_utils.quad_weighted_kappa([Aidx[i] for i in both],
+                                                                            [Bidx[i] for i in both], k=3), 3)
         out["n_both"] = len(both)
+    else:
+        # 单人标注：无法估计标注者间一致性，如实记录为缺失而非省略
+        out["inter_annotator_kappa"] = None
+        out["n_both"] = 0
+        out["kappa_note"] = "仅单人标注，标注者间一致性未估计"
 
     # 可观测勾选项统计
     flag_stats = {}
