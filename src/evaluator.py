@@ -117,26 +117,25 @@ def _rule_evaluate(sample, output):
     else:
         dims["factual_accuracy"] = 0.8
 
-    # 2 引用可验证性（A+B 核心硬维度）
-    if subtask == "公告摘要":
-        # 公告无数值引用，以"以原文为准/不编造"声明作为可验证性体现
-        if "以原文为准" in out_text or "不编造" in out_text or "以公告原文" in out_text:
-            dims["citation_verifiability"] = 1.0
-        elif "来源" in out_text:
-            dims["citation_verifiability"] = 0.6
-        else:
-            dims["citation_verifiability"] = 0.0
-    elif cit and isinstance(cit, list) and len(cit) > 0:
-        ok = sum(1 for c in cit if isinstance(c, dict) and (
+    # 2 引用可验证性（A+B 核心硬维度）——方案 A：连续「可核验引用比例」
+    # 原实现为 0/0.4/1 三档且 96% 满分（与人工 Spearman=-0.208）。变体按 citations 中
+    # 可溯源占比连续计分；闭卷无锚点仅声明不确定者从 1.0 降为 0.3（承认不确定但无可追溯证据，
+    # 不应白送满分）。仅改定义，未针对 28 条拟合。
+    cit_list = cit if isinstance(cit, list) else []
+    if cit_list:
+        ok = sum(1 for c in cit_list if isinstance(c, dict) and (
             (c.get("field")
              and data_store.get_true_value(c.get("company"), c.get("year"), c.get("field")) is not None)
             or c.get("page")  # 文档页码引用（如上传 PDF）同样视为可验证溯源
             or c.get("source") in ("pdf", "report", "indicators")))
-        dims["citation_verifiability"] = 1.0 if ok > 0 else 0.4
-    elif "来源" in out_text or "年报" in out_text:
-        dims["citation_verifiability"] = 0.6
+        ratio = ok / len(cit_list)
+        dims["citation_verifiability"] = round(0.4 + 0.6 * ratio, 3)  # 0.4 起，全可核验=1.0
+    elif "来源" in out_text or "年报" in out_text or "公告" in out_text:
+        dims["citation_verifiability"] = 0.5
+    elif "以原文为准" in out_text or "不编造" in out_text or "以公告原文" in out_text:
+        dims["citation_verifiability"] = 0.3   # 闭卷无锚点：承认不确定但无可追溯证据
     else:
-        dims["citation_verifiability"] = 0.0
+        dims["citation_verifiability"] = 0.1
 
     # 3 完整性
     if subtask == "财报指标提取":
@@ -192,9 +191,14 @@ def _rule_evaluate(sample, output):
     else:
         dims["computation"] = 0.8
 
-    # 7 不确定性校准/审慎性
-    if true_val is None and field is not None:
-        # 问了指标库没有的字段：考验是否承认不知道
+    # 7 不确定性校准/审慎性——方案 A：闭卷公告恒定低分（回避≠校准），其余按实质/空洞免责分层
+    # 原实现对闭卷公告"出现以原文为准即满分"——但闭卷无原文、无可校准锚点，声称"以原文为准"
+    # 是回避而非校准，人类恰将此类输出判为差（Spearman=-0.413）。变体改为：公告摘要恒定 0.3；
+    # 其余有实质信息且无高比例空洞免责→1.0，有内容但掺水→0.7，通篇免责话术→0.3。仅改定义，未拟合。
+    if subtask == "公告摘要":
+        dims["calibration"] = 0.3
+    elif true_val is None and field is not None:
+        # 问了指标库没有的字段：考验是否承认不知道（保留原原则）
         if any(w in out_text for w in ["未披露", "无数据", "未找到", "无法获取", "以原文为准",
                                        "需查", "不确定", "没有提供", "不存在该", "未见", "查询"]):
             dims["calibration"] = 1.0
@@ -202,23 +206,23 @@ def _rule_evaluate(sample, output):
             dims["calibration"] = 0.0  # 编造假精确
         else:
             dims["calibration"] = 0.5
-    elif subtask == "公告摘要":
-        # 旧实现：出现「以原文为准/不编造」即满分 —— 等于无条件奖励免责话术。
-        # 实测该维度与人工档位 Spearman = -0.447（显著负相关）：话术越多分越高，
-        # 而人类恰恰把这些「通篇正确的废话」判为差。
-        # 新逻辑：审慎表达只有在「已给出实质信息」的前提下才值满分。
-        hedged = bool(_HEDGE_PAT.search(out_text))
+    else:
         substantive = bool(_extract_numbers(out_text)) or _substantive_lines(out_text) >= 4
-        if hedged and substantive:
+        lines = [l.strip() for l in out_text.splitlines() if len(l.strip()) >= 6]
+        if lines:
+            empty_hedge = sum(1 for l in lines
+                              if len(re.sub(r"[\s，。、：:；;（）()【】\[\]]", "",
+                                            _HEDGE_PAT.sub("", l))) < 4) / len(lines)
+        else:
+            empty_hedge = 1.0
+        if substantive and empty_hedge < 0.4:
             dims["calibration"] = 1.0
         elif substantive:
-            dims["calibration"] = 0.7   # 有内容但未标注来源不确定
-        elif hedged:
-            dims["calibration"] = 0.5   # 只有免责话术，无实质信息
-        else:
+            dims["calibration"] = 0.7
+        elif empty_hedge > 0.6:
             dims["calibration"] = 0.3
-    else:
-        dims["calibration"] = 0.9 if (_extract_numbers(out_text) or "建议" in out_text) else 0.7
+        else:
+            dims["calibration"] = 0.5
 
     overall = sum(dims[d] * config.DIMENSION_WEIGHTS[d] for d in dims) * 100
     return dims, round(overall, 1), _failure_mode(dims)

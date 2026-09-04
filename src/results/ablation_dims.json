@@ -1,0 +1,83 @@
+{
+ "n": 28,
+ "overall_rho": {
+  "orig": 0.065,
+  "variant": 0.341
+ },
+ "per_subtask": {
+  "公告摘要": {
+   "n": 8,
+   "rho_orig": -0.582,
+   "rho_variant": -0.094
+  },
+  "财务问答": {
+   "n": 11,
+   "rho_orig": -0.035,
+   "rho_variant": 0.0
+  },
+  "财报指标提取": {
+   "n": 9,
+   "rho_orig": 0.055,
+   "rho_variant": 0.055
+  }
+ },
+ "per_dimension": {
+  "format": {
+   "orig": {
+    "n_unique": 1,
+    "mode_share": 1.0,
+    "spearman_vs_human": null
+   },
+   "variant": {
+    "n_unique": 1,
+    "mode_share": 1.0,
+    "spearman_vs_human": null,
+    "min": 1.0,
+    "max": 1.0,
+    "mean": 1.0,
+    "dist": {
+     "1.0": 28
+    }
+   }
+  },
+  "citation_verifiability": {
+   "orig": {
+    "n_unique": 2,
+    "mode_share": 0.964,
+    "spearman_vs_human": -0.208
+   },
+   "variant": {
+    "n_unique": 3,
+    "mode_share": 0.75,
+    "spearman_vs_human": 0.234,
+    "min": 0.4,
+    "max": 1.0,
+    "mean": 0.871,
+    "dist": {
+     "0.4": 1,
+     "0.5": 6,
+     "1.0": 21
+    }
+   }
+  },
+  "calibration": {
+   "orig": {
+    "n_unique": 2,
+    "mode_share": 0.679,
+    "spearman_vs_human": -0.413
+   },
+   "variant": {
+    "n_unique": 2,
+    "mode_share": 0.714,
+    "spearman_vs_human": 0.384,
+    "min": 0.3,
+    "max": 1.0,
+    "mean": 0.8,
+    "dist": {
+     "0.3": 8,
+     "1.0": 20
+    }
+   }
+  }
+ }
+}

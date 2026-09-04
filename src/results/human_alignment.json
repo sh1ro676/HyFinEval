@@ -1,18 +1,18 @@
 {
   "n_labeled_A": 28,
   "n_labeled_B": 0,
-  "auto_vs_humanA_spearman": 0.05,
-  "auto_vs_humanA_kendall": 0.041,
-  "auto_vs_humanA_mae": 27.257,
+  "auto_vs_humanA_spearman": 0.275,
+  "auto_vs_humanA_kendall": 0.234,
+  "auto_vs_humanA_mae": 24.257,
   "n_alignA": 28,
-  "n_unique_autoA": 8,
+  "n_unique_autoA": 9,
   "n_unique_humanA": 3,
   "per_subtask": {
     "公告摘要": {
       "n": 8,
-      "spearman": -0.466,
-      "kendall": -0.423,
-      "auto_avg": 89.6,
+      "spearman": 0.014,
+      "kendall": 0.05,
+      "auto_avg": 75.8,
       "human_band_dist": {
         "优": 1,
         "中": 5,
@@ -21,9 +21,9 @@
     },
     "财务问答": {
       "n": 11,
-      "spearman": -0.035,
-      "kendall": -0.029,
-      "auto_avg": 94.9,
+      "spearman": 0.0,
+      "kendall": 0.0,
+      "auto_avg": 95.9,
       "human_band_dist": {
         "优": 5,
         "中": 4,
@@ -34,7 +34,7 @@
       "n": 9,
       "spearman": 0.151,
       "kendall": 0.141,
-      "auto_avg": 88.8,
+      "auto_avg": 89.7,
       "human_band_dist": {
         "优": 6,
         "中": 3,
@@ -42,20 +42,20 @@
       }
     }
   },
-  "band_agreement_exact": 0.536,
-  "band_agreement_adjacent": 0.929,
-  "band_kappa_auto_vs_human": 0.708,
+  "band_agreement_exact": 0.429,
+  "band_agreement_adjacent": 0.893,
+  "band_kappa_auto_vs_human": 0.663,
   "band_threshold_note": "auto 分档阈值：>=95 优 / 85~95 中 / <85 差",
   "confusion_matrix": {
     "差": {
-      "差": 0,
-      "中": 0,
-      "优": 1
+      "差": 2,
+      "中": 5,
+      "优": 2
     },
     "中": {
-      "差": 3,
-      "中": 8,
-      "优": 4
+      "差": 1,
+      "中": 3,
+      "优": 3
     },
     "优": {
       "差": 1,
@@ -70,9 +70,9 @@
       "mode_share": 0.5
     },
     "citation_verifiability": {
-      "spearman_vs_human": -0.208,
-      "n_unique_values": 2,
-      "mode_share": 0.964
+      "spearman_vs_human": 0.234,
+      "n_unique_values": 3,
+      "mode_share": 0.75
     },
     "completeness": {
       "spearman_vs_human": 0.341,
@@ -95,9 +95,9 @@
       "mode_share": 0.5
     },
     "calibration": {
-      "spearman_vs_human": -0.413,
+      "spearman_vs_human": 0.384,
       "n_unique_values": 2,
-      "mode_share": 0.679
+      "mode_share": 0.714
     }
   },
   "inter_annotator_kappa": null,
