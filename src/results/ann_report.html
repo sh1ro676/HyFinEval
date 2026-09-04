@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>公告摘要重建 · 开卷 vs 闭卷实测报告</title>
+<style>
+  :root{
+    --bg:#f7f8fa; --card:#ffffff; --text:#1f2328; --muted:#5b6570;
+    --line:#e3e6ea; --accent:#1f6feb; --green:#1a7f37; --red:#c0392b;
+    --amber:#b8860b;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;padding:32px 20px;background:var(--bg);color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    line-height:1.7;}
+  .wrap{max-width:960px;margin:0 auto}
+  h1{font-size:26px;margin:0 0 6px}
+  .sub{color:var(--muted);font-size:14px;margin-bottom:28px}
+  h2{font-size:19px;margin:34px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-bottom:18px}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:20px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+  .kpi .label{font-size:12px;color:var(--muted);margin-bottom:6px}
+  .kpi .val{font-size:26px;font-weight:600;letter-spacing:-.5px}
+  .kpi .note{font-size:12px;color:var(--muted);margin-top:4px}
+  .up{color:var(--green)} .down{color:var(--red)} .amber{color:var(--amber)}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line)}
+  th{background:#f0f2f5;font-weight:600;font-size:13px}
+  td.num{text-align:right;font-variant-numeric:tabular-nums}
+  .bar-row{display:flex;align-items:center;margin-bottom:7px;font-size:13px}
+  .bar-label{width:130px;flex-shrink:0;color:var(--muted)}
+  .bar-track{flex:1;background:#eef0f3;border-radius:4px;height:18px;overflow:hidden}
+  .bar-fill{height:100%;background:var(--accent);border-radius:4px}
+  .bar-val{width:70px;text-align:right;flex-shrink:0;font-variant-numeric:tabular-nums}
+  .hist{display:flex;align-items:flex-end;gap:5px;height:130px;margin:10px 0 4px}
+  .hist-col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
+  .hist-bar{width:100%;background:var(--accent);border-radius:3px 3px 0 0;min-height:2px}
+  .hist-axis{display:flex;gap:5px;font-size:10px;color:var(--muted);text-align:center}
+  .hist-axis div{flex:1}
+  .quote{background:#fbfcfd;border-left:3px solid var(--accent);padding:12px 16px;margin:10px 0;
+    font-size:13.5px;border-radius:0 6px 6px 0}
+  .quote.bad{border-left-color:var(--red)}
+  .quote.good{border-left-color:var(--green)}
+  .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:10px;margin-right:6px}
+  .tag-o{background:#e7f3ff;color:#1f6feb}
+  .tag-c{background:#fdf0ee;color:#c0392b}
+  code{background:#f0f2f5;padding:1px 5px;border-radius:4px;font-size:12.5px}
+  .note-box{background:#fffbea;border:1px solid #f0e2b6;border-radius:8px;padding:14px 16px;font-size:13.5px}
+  ul{padding-left:20px} li{margin-bottom:6px}
+  .footer{color:var(--muted);font-size:12px;text-align:center;margin-top:36px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>公告摘要重建：开卷 vs 闭卷实测报告</h1>
+<div class="sub">HyFinEval · 61 组严格配对样本 · 真实巨潮公告原文 · Hy3 生成</div>
+
+<div class="note-box">
+<strong>一句话结论：</strong>此前「公告摘要」人工标注效度存疑，根因<strong>不是模型差、也不是标注者看不懂</strong>，
+而是<strong>任务闭卷</strong>——模型手里根本没原文，只能输出"以原文为准"的通用框架。
+实测：闭卷对真实关键事实的覆盖率仅 <strong>1.6%</strong>，喂原文后升至 <strong>51.1%</strong>。
+</div>
+
+<h2>一、核心指标对比</h2>
+<div class="kpis">
+  <div class="kpi">
+    <div class="label">事实覆盖率（开卷）</div>
+    <div class="val up">51.1%</div>
+    <div class="note">闭卷仅 1.6%</div>
+  </div>
+  <div class="kpi">
+    <div class="label">配对差（开卷−闭卷）</div>
+    <div class="val up">+48.1pp</div>
+    <div class="note">n=57 组配对</div>
+  </div>
+  <div class="kpi">
+    <div class="label">幻觉率（开卷）</div>
+    <div class="val">6.4%</div>
+    <div class="note">44/61 条为 0</div>
+  </div>
+  <div class="kpi">
+    <div class="label">免责话术次数</div>
+    <div class="val up">3.3 → 14.9</div>
+    <div class="note">开卷降低 78%</div>
+  </div>
+</div>
+
+<div class="card">
+<table>
+  <thead><tr><th>指标</th><th class="num">开卷（喂原文）</th><th class="num">闭卷（仅标题）</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>事实覆盖率</td><td class="num up"><strong>0.511</strong></td><td class="num">0.016</td><td>输出覆盖原文关键数值的比例</td></tr>
+    <tr><td>免责语次数</td><td class="num">3.26</td><td class="num">14.93</td><td>"以原文为准"等话术出现次数</td></tr>
+    <tr><td>实质行数</td><td class="num">19.1</td><td class="num">15.2</td><td>去掉套话后仍有内容的行数</td></tr>
+    <tr><td>输出字数</td><td class="num">1124</td><td class="num">1039</td><td>长度接近，但信息量天差地别</td></tr>
+    <tr><td>给出未标注来源的具体数值</td><td class="num">—</td><td class="num down">51/61 条</td><td>闭卷下模型仍给出硬数字</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>二、关键发现：开卷后终于有了「可判别的差异」</h2>
+<div class="card">
+<p style="margin-top:0">原评估器在该子任务失效的直接原因，是 <code>factual</code> 维度<strong>零方差</strong>（8 条全 1.0），
+排不出序。重建后，覆盖率在 61 条开卷样本上<strong>标准差 0.295、跨度 0.00~0.93</strong>——终于有了判别力。</p>
+<div class="hist">
+  <div class="hist-col"><div class="hist-bar" style="height:83%"></div></div>
+  <div class="hist-col"><div class="hist-bar" style="height:25%"></div></div>
+  <div class="hist-col"><div class="hist-bar" style="height:17%"></div></div>
+  <div class="hist-col"><div class="hist-bar" style="height:42%"></div></div>
+  <div class="hist-col"><div class="hist-bar" style="height:25%"></div></div>
+  <div class="hist-col"><div class="hist-bar" style="height:75%"></div></div>
+  <div class="hist-col"><div class="hist-bar" style="height:75%"></div></div>
+  <div class="hist-col"><div class="hist-bar" style="height:50%"></div></div>
+  <div class="hist-col"><div class="hist-bar" style="height:100%"></div></div>
+  <div class="hist-col"><div class="hist-bar" style="height:17%"></div></div>
+</div>
+<div class="hist-axis">
+  <div>0-.1</div><div>.1-.2</div><div>.2-.3</div><div>.3-.4</div><div>.4-.5</div>
+  <div>.5-.6</div><div>.6-.7</div><div>.7-.8</div><div>.8-.9</div><div>.9-1</div>
+</div>
+<p style="font-size:13px;color:var(--muted);margin-bottom:0">
+开卷样本事实覆盖率分布（横轴区间，纵轴条数）。分布横跨全域：10 条低于 0.1、14 条高于 0.8。
+</p>
+</div>
+
+<h2>三、不同公告类型的覆盖难度差异明显</h2>
+<div class="card">
+  <div class="bar-row"><div class="bar-label">股东/高管增持</div>
+    <div class="bar-track"><div class="bar-fill" style="width:75.7%"></div></div><div class="bar-val">0.757</div></div>
+  <div class="bar-row"><div class="bar-label">利润分配/分红</div>
+    <div class="bar-track"><div class="bar-fill" style="width:64.5%"></div></div><div class="bar-val">0.645</div></div>
+  <div class="bar-row"><div class="bar-label">业绩预告/快报</div>
+    <div class="bar-track"><div class="bar-fill" style="width:48.8%"></div></div><div class="bar-val">0.488</div></div>
+  <div class="bar-row"><div class="bar-label">股份回购</div>
+    <div class="bar-track"><div class="bar-fill" style="width:43.0%"></div></div><div class="bar-val">0.430</div></div>
+  <div class="bar-row"><div class="bar-label">股权激励</div>
+    <div class="bar-track"><div class="bar-fill" style="width:24.3%"></div></div><div class="bar-val">0.243</div></div>
+  <p style="font-size:13px;color:var(--muted);margin:12px 0 0">
+  样本数：分红 16 / 回购 14 / 业绩 13 / 激励 10 / 增持 8。股权激励最难——数字密集、条款复杂，
+  是后续重点攻坚方向。</p>
+</div>
+
+<h2>四、同题对照：一组样本看清差异</h2>
+<div class="card">
+<p style="margin-top:0"><strong>比亚迪《2023年前三季度业绩预告》</strong></p>
+
+<p style="margin-bottom:6px"><span class="tag tag-o">开卷 FIN-147</span> 覆盖率 <strong class="up">0.93</strong></p>
+<div class="quote good">
+- 归属于上市公司股东的净利润：盈利人民币 <strong>2,050,000 万元–2,250,000 万元</strong>，
+上年同期 931,147 万元，<strong>同比上升 120.16%-141.64%</strong>。<br>
+- 扣非净利润：盈利 1,830,000 万元–2,020,000 万元，同比上升 118.78%-141.49%。<br>
+- 基本每股收益：盈利 <strong>7.06 元/股至 7.74 元/股</strong>，上年 3.20 元/股。
+</div>
+
+<p style="margin-bottom:6px"><span class="tag tag-c">闭卷 FIN-148</span> 覆盖率 <strong class="down">0.00</strong>（同一篇公告，模型没看到原文）</p>
+<div class="quote bad">
+- 归属于上市公司股东的净利润：约为<strong>（需以公告原文为准）</strong>万元–<strong>（需以公告原文为准）</strong>万元；<br>
+- 扣除非经常性损益后……
+</div>
+
+<p style="font-size:13.5px;margin-bottom:0">这就是"车轱辘话"的成因——<strong>不是模型不肯说，是它根本没有可说的材料</strong>。
+闭卷输出的字数（1039）与开卷（1124）相差无几，但真实信息量近乎为零。</p>
+</div>
+
+<h2>五、方法与局限</h2>
+<div class="card">
+<ul>
+<li><strong>数据来源</strong>：巨潮资讯网公开公告 PDF，10 家上市公司，5 类公告，68 篇正文成功解析。</li>
+<li><strong>配对设计</strong>：同一篇公告生成「开卷（喂原文）」与「闭卷（仅标题）」两条样本，
+构成同题异上下文的<strong>干净对照</strong>，补上此前开闭卷口径不纯的缺口。</li>
+<li><strong>客观真值</strong>：从喂给模型的原文中自动抽取金额/比例/日期作为 ground-truth facts，
+据此计算覆盖率与幻觉率——<strong>不依赖主观标注</strong>，解决了该子任务"缺真值"的问题。</li>
+<li><strong>局限性</strong>：① 覆盖率是<strong>数值级</strong>匹配，不衡量语义忠实度与可读性；
+② 原文截断至 5000 字（少数长公告），真值仅从可见部分抽取以保证公平；
+③ 幻觉率把"原文未出现但正确"的表述也算作幻觉，属保守上界；
+④ 客观指标尚未与人工标注对齐，相关性待标注后验证。</li>
+</ul>
+</div>
+
+<div class="footer">
+生成时间 2026-09-04 · HyFinEval · 数据：data_cache/ann_outputs.json、ann_scores.json
+</div>
+
+</div>
+</body>
+</html>
