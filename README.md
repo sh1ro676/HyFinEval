@@ -16,7 +16,7 @@
 
 > 不堆花哨应用，而是把 **80% 的精力压在任务书真正看重的「评估方法设计」上**：用一套 **7 维度可量化 rubric + 引用可验证硬规则 + 三件套有效性验证**，把"什么叫好的金融 AI 输出"变成**可复现、可证伪**的数字。
 
-![HyFinEval 运行演示](demo.gif)
+<video src="assets/videos/01_main_loop.mp4" controls muted loop autoplay width="100%"></video>
 
 本项目以金融分析为落地场景，基于腾讯混元（Hy3 / HunYuan）大模型 API 构建了一个金融问答 / 指标提取应用，并设计了与之配套的评估体系。评估体系在 107 条样本（应用 67 + 验证集 40）上跑通，关键验证指标：**内部判别力排序正确（好 71.4 > 中 41.7 > 差 30.2 > 对抗 28.4）、对抗样本平均分仅 28.4（远低于 50 阈值）**。
 
@@ -348,13 +348,8 @@ E.5 证明元数据级 KB 无效，并指出根因是**该子任务为闭卷设�
 
 ## 演示
 
-| 演示 | 说明 |
-|---|---|
-| ![运行闭环](demo.gif) | 应用 → 引用溯源 → 7 维评分 完整闭环 |
-| ![合规熔断](demo_breaker.gif) | 命中金融红线（违规荐股）即封顶 40 分 |
-| ![双源RAG](demo_pdf.gif) | 上传 PDF 按页码引用，与指标真相库构成双源知识 |
-
-> 想录制**真实运行时**视频：本地装好依赖后执行 `streamlit run src/app.py`，用任意录屏软件（OBS / 系统自带）对着浏览器里的应用操作即可。本项目也提供离线 demo 素材生成脚本 `python src/build_demo.py`（生成 demo.html 轮播 + demo.gif）与 `python src/build_demo_clips.py`（生成上述两张补充 GIF），无需 API key。
+> 以下 4 段**真实运行时录屏**已覆盖原 GIF 演示的全部能力（主闭环 / 合规熔断 / 双源 RAG / 开闭卷对照）。
+> 无 API key 时也可用离线 demo 脚本生成 GIF：`python src/build_demo.py`（demo.html 轮播 + demo.gif）与 `python src/build_demo_clips.py`（合规熔断、双源 RAG 补充 GIF）。
 
 ### 完整演示视频
 
@@ -428,7 +423,7 @@ HyFinEval/
 ├── .gitignore / .env.example
 ├── build_finance_samples.py   # 零成本样本集构建（akshare + 巨潮）
 ├── samples.json / samples.csv # 评测样本集（107 条，难例+反例 44%）
-├── demo.html / demo.gif       # ≤2 分钟演示（应用 → 引用溯源 → 7 维评分 闭环）
+├── demo.html / demo.gif       # 离线 GIF 素材（已被 assets/videos/ 视频替代）
 ├── assets/videos/             # 演示视频（真实录屏，见 docs/录制脚本.md）
 ├── data_cache/                # 真实财务数据缓存
 ├── src/                       # 应用 + 评估实现
@@ -469,7 +464,7 @@ HyFinEval/
 
 ## 后续计划
 
-- [x] ≤2 分钟 demo（demo.html 自动轮播 + demo.gif），展示 应用 → 引用溯源 → 7 维评分 闭环
+- [x] ≤2 分钟 demo（原 demo.gif 已升级为 4 段真实运行视频，见「演示」章节；demo.html/demo.gif 离线素材仍保留）
 - [x] 接入真实 Hy3 后补充带 citations 的评测对比（已完成：基线开卷应用均分 86.8，方案A 后；见上）
 - [x] README 一致性宣称去虚标（内部自洽 ≠ 人类对齐），新增「数据来源」「开闭卷对照证伪抄表」等章节
 - [x] 合规熔断层（金融红线封顶 40，基线实测 10 次触发零误伤）
