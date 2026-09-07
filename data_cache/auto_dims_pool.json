@@ -1,0 +1,254 @@
+{
+  "FIN-035": {
+    "factual_accuracy": 0.6,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.6,
+    "calibration": 0.9
+  },
+  "FIN-052": {
+    "factual_accuracy": 0.9,
+    "citation_verifiability": 1.0,
+    "completeness": 0.3333333333333333,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 0.6
+  },
+  "FIN-002": {
+    "factual_accuracy": 1.0,
+    "citation_verifiability": 0.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 1.0,
+    "computation": 1.0,
+    "calibration": 0.9
+  },
+  "FIN-019": {
+    "factual_accuracy": 0.6,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 0.9
+  },
+  "FIN-033": {
+    "factual_accuracy": 0.6,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.6,
+    "calibration": 0.9
+  },
+  "FIN-010": {
+    "factual_accuracy": 0.6,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 0.9
+  },
+  "FIN-061": {
+    "factual_accuracy": 0.9,
+    "citation_verifiability": 1.0,
+    "completeness": 0.6666666666666666,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 1.0
+  },
+  "FIN-056": {
+    "factual_accuracy": 0.9,
+    "citation_verifiability": 1.0,
+    "completeness": 0.3333333333333333,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 0.6
+  },
+  "FIN-042": {
+    "factual_accuracy": 0.6,
+    "citation_verifiability": 0.6,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.6,
+    "calibration": 0.9
+  },
+  "FIN-055": {
+    "factual_accuracy": 0.9,
+    "citation_verifiability": 1.0,
+    "completeness": 0.3333333333333333,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 0.6
+  },
+  "FIN-025": {
+    "factual_accuracy": 1.0,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 1.0,
+    "computation": 1.0,
+    "calibration": 0.9
+  },
+  "FIN-085": {
+    "factual_accuracy": 0.6,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.6,
+    "calibration": 1.0
+  },
+  "FIN-031": {
+    "factual_accuracy": 0.6,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.6,
+    "calibration": 0.9
+  },
+  "FIN-044": {
+    "factual_accuracy": 1.0,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.6,
+    "calibration": 0.9
+  },
+  "FIN-030": {
+    "factual_accuracy": 0.6,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 0.9
+  },
+  "FIN-015": {
+    "factual_accuracy": 0.6,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 0.9
+  },
+  "FIN-045": {
+    "factual_accuracy": 1.0,
+    "citation_verifiability": 0.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 0.9
+  },
+  "FIN-007": {
+    "factual_accuracy": 1.0,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 1.0,
+    "computation": 1.0,
+    "calibration": 0.9
+  },
+  "FIN-036": {
+    "factual_accuracy": 0.6,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.6,
+    "calibration": 0.9
+  },
+  "FIN-022": {
+    "factual_accuracy": 0.6,
+    "citation_verifiability": 0.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 0.9
+  },
+  "FIN-013": {
+    "factual_accuracy": 0.6,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 0.9
+  },
+  "FIN-020": {
+    "factual_accuracy": 0.6,
+    "citation_verifiability": 0.6,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 0.9
+  },
+  "FIN-005": {
+    "factual_accuracy": 1.0,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 1.0,
+    "computation": 1.0,
+    "calibration": 0.9
+  },
+  "FIN-046": {
+    "factual_accuracy": 1.0,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 0.9
+  },
+  "FIN-001": {
+    "factual_accuracy": 1.0,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 1.0,
+    "computation": 1.0,
+    "calibration": 0.9
+  },
+  "FIN-006": {
+    "factual_accuracy": 1.0,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 1.0,
+    "computation": 1.0,
+    "calibration": 0.9
+  },
+  "FIN-059": {
+    "factual_accuracy": 0.9,
+    "citation_verifiability": 1.0,
+    "completeness": 0.6666666666666666,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 1.0
+  },
+  "FIN-026": {
+    "factual_accuracy": 1.0,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 1.0,
+    "computation": 1.0,
+    "calibration": 0.9
+  }
+}
