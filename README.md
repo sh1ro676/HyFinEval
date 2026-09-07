@@ -356,6 +356,29 @@ E.5 证明元数据级 KB 无效，并指出根因是**该子任务为闭卷设�
 
 > 想录制**真实运行时**视频：本地装好依赖后执行 `streamlit run src/app.py`，用任意录屏软件（OBS / 系统自带）对着浏览器里的应用操作即可。本项目也提供离线 demo 素材生成脚本 `python src/build_demo.py`（生成 demo.html 轮播 + demo.gif）与 `python src/build_demo_clips.py`（生成上述两张补充 GIF），无需 API key。
 
+### 完整演示视频
+
+以下为真实运行时录屏（**视频待录制上传**）。录制分镜、参数与转码方式见 [docs/录制脚本.md](docs/录制脚本.md)。
+
+| 视频 | 说明 |
+|---|---|
+| 主闭环 | 应用 → 引用溯源 → 7 维评分 完整闭环 |
+| 开卷 vs 闭卷 | 同一问题对照：有引用高分 vs 无引用低分 |
+| 合规熔断 | 命中金融红线（违规荐股）即封顶 40 分 |
+| 双源 RAG | 上传 PDF 按页码引用，与指标真相库构成双源知识 |
+| 批处理与报告 | `run_eval.py` 跑完整样本集 + 生成评估报告 |
+
+<!-- 视频录好并放入 assets/videos/ 后，删除本注释即可显示播放器
+
+<video src="assets/videos/01_main_loop.mp4" controls muted width="100%"></video>
+<video src="assets/videos/02_openbook_vs_closedbook.mp4" controls muted width="100%"></video>
+<video src="assets/videos/03_compliance_breaker.mp4" controls muted width="100%"></video>
+<video src="assets/videos/04_dual_source_rag.mp4" controls muted width="100%"></video>
+<video src="assets/videos/05_batch_eval_report.mp4" controls muted width="100%"></video>
+
+-->
+
+
 ## 快速开始
 
 ### 1. 安装依赖
@@ -396,6 +419,7 @@ HyFinEval/
 ├── build_finance_samples.py   # 零成本样本集构建（akshare + 巨潮）
 ├── samples.json / samples.csv # 评测样本集（107 条，难例+反例 44%）
 ├── demo.html / demo.gif       # ≤2 分钟演示（应用 → 引用溯源 → 7 维评分 闭环）
+├── assets/videos/             # 演示视频（真实录屏，见 docs/录制脚本.md）
 ├── data_cache/                # 真实财务数据缓存
 ├── src/                       # 应用 + 评估实现
 │   ├── config.py  data_store.py        # 配置 + 指标真相库检索
@@ -408,7 +432,8 @@ HyFinEval/
 └── docs/                      # 评估方法路径说明
     ├── 路径A-轻量LLM-as-Judge.md
     ├── 路径A+B-RAG引用可验证.md
-    └── 路径C-多Agent对抗验证.md
+    ├── 路径C-多Agent对抗验证.md
+    └── 录制脚本.md            # 演示视频分镜与录制参数
 ```
 
 ---

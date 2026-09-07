@@ -1,0 +1,254 @@
+{
+  "FIN-083": {
+    "factual_accuracy": 1.0,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 1.0,
+    "computation": 1.0,
+    "calibration": 1.0
+  },
+  "FIN-045": {
+    "factual_accuracy": 1.0,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 1.0,
+    "computation": 1.0,
+    "calibration": 1.0
+  },
+  "FIN-010": {
+    "factual_accuracy": 0.6,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 1.0
+  },
+  "FIN-035": {
+    "factual_accuracy": 0.6,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 1.0
+  },
+  "FIN-019": {
+    "factual_accuracy": 1.0,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 1.0,
+    "computation": 1.0,
+    "calibration": 1.0
+  },
+  "FIN-025": {
+    "factual_accuracy": 1.0,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 1.0,
+    "computation": 1.0,
+    "calibration": 1.0
+  },
+  "FIN-031": {
+    "factual_accuracy": 1.0,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 1.0,
+    "computation": 1.0,
+    "calibration": 1.0
+  },
+  "FIN-032": {
+    "factual_accuracy": 1.0,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 1.0,
+    "computation": 1.0,
+    "calibration": 1.0
+  },
+  "FIN-043": {
+    "factual_accuracy": 0.6,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 1.0
+  },
+  "FIN-028": {
+    "factual_accuracy": 1.0,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 1.0,
+    "computation": 1.0,
+    "calibration": 1.0
+  },
+  "FIN-057": {
+    "factual_accuracy": 0.9,
+    "citation_verifiability": 0.5,
+    "completeness": 0.6666666666666666,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 0.3
+  },
+  "FIN-052": {
+    "factual_accuracy": 0.9,
+    "citation_verifiability": 0.5,
+    "completeness": 0.6666666666666666,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 0.3
+  },
+  "FIN-006": {
+    "factual_accuracy": 1.0,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 1.0,
+    "computation": 1.0,
+    "calibration": 1.0
+  },
+  "FIN-060": {
+    "factual_accuracy": 0.9,
+    "citation_verifiability": 0.5,
+    "completeness": 0.6666666666666666,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 0.3
+  },
+  "FIN-020": {
+    "factual_accuracy": 1.0,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 1.0,
+    "computation": 1.0,
+    "calibration": 1.0
+  },
+  "FIN-022": {
+    "factual_accuracy": 1.0,
+    "citation_verifiability": 0.4,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 1.0,
+    "computation": 1.0,
+    "calibration": 1.0
+  },
+  "FIN-034": {
+    "factual_accuracy": 0.6,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 1.0
+  },
+  "FIN-044": {
+    "factual_accuracy": 1.0,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 1.0,
+    "computation": 1.0,
+    "calibration": 1.0
+  },
+  "FIN-005": {
+    "factual_accuracy": 1.0,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 1.0,
+    "computation": 1.0,
+    "calibration": 1.0
+  },
+  "FIN-046": {
+    "factual_accuracy": 1.0,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 1.0,
+    "computation": 1.0,
+    "calibration": 1.0
+  },
+  "FIN-049": {
+    "factual_accuracy": 0.9,
+    "citation_verifiability": 1.0,
+    "completeness": 0.3333333333333333,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 0.3
+  },
+  "FIN-059": {
+    "factual_accuracy": 0.9,
+    "citation_verifiability": 1.0,
+    "completeness": 0.6666666666666666,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 0.3
+  },
+  "FIN-061": {
+    "factual_accuracy": 0.9,
+    "citation_verifiability": 0.5,
+    "completeness": 0.6666666666666666,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 0.3
+  },
+  "FIN-008": {
+    "factual_accuracy": 1.0,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 1.0,
+    "computation": 1.0,
+    "calibration": 1.0
+  },
+  "FIN-053": {
+    "factual_accuracy": 0.9,
+    "citation_verifiability": 0.5,
+    "completeness": 0.3333333333333333,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 0.3
+  },
+  "FIN-084": {
+    "factual_accuracy": 0.6,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 1.0
+  },
+  "FIN-058": {
+    "factual_accuracy": 0.9,
+    "citation_verifiability": 0.5,
+    "completeness": 0.6666666666666666,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 0.3
+  },
+  "FIN-012": {
+    "factual_accuracy": 0.6,
+    "citation_verifiability": 1.0,
+    "completeness": 1.0,
+    "format": 1.0,
+    "safety_no_hallucination": 0.9,
+    "computation": 0.8,
+    "calibration": 1.0
+  }
+}

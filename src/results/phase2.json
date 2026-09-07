@@ -1,0 +1,101 @@
+{
+  "n": 28,
+  "baseline_auto_score_spearman": 0.275,
+  "global_fit_insample_spearman": 0.39,
+  "global_fit_loo_cv_spearman": -0.139,
+  "per_subtask_offset_insample_spearman": 0.17,
+  "per_subtask_offset_loo_cv_spearman": 0.067,
+  "ridge_global_loo_cv_spearman": 0.109,
+  "ridge_best_lambda": 100.0,
+  "per_subtask_combined_insample_spearman": 0.3,
+  "base_dimension_weights": {
+    "factual_accuracy": 0.18,
+    "citation_verifiability": 0.18,
+    "completeness": 0.12,
+    "format": 0.13,
+    "safety_no_hallucination": 0.16,
+    "computation": 0.13,
+    "calibration": 0.1
+  },
+  "fitted_global_weights": {
+    "factual_accuracy": -1.3304,
+    "citation_verifiability": -4.6362,
+    "completeness": -28.3181,
+    "format": 5.9119,
+    "safety_no_hallucination": 6.2698,
+    "computation": 6.6276,
+    "calibration": 26.1505
+  },
+  "per_subtask": {
+    "财报指标提取": {
+      "n": 9,
+      "insample_spearman": 0.273,
+      "weights": {
+        "factual_accuracy": 1.071,
+        "citation_verifiability": -2.5,
+        "completeness": 1.071,
+        "format": 1.071,
+        "safety_no_hallucination": 1.071,
+        "computation": 1.071,
+        "calibration": 1.071
+      }
+    },
+    "财务问答": {
+      "n": 11,
+      "insample_spearman": 0.0,
+      "weights": {
+        "factual_accuracy": -0.353,
+        "citation_verifiability": 1.059,
+        "completeness": 1.059,
+        "format": 1.059,
+        "safety_no_hallucination": 0.706,
+        "computation": 0.353,
+        "calibration": 1.059
+      }
+    },
+    "公告摘要": {
+      "n": 8,
+      "insample_spearman": 0.677,
+      "weights": {
+        "factual_accuracy": 2.134,
+        "citation_verifiability": -1.25,
+        "completeness": -8.625,
+        "format": 2.371,
+        "safety_no_hallucination": 2.134,
+        "computation": 1.897,
+        "calibration": 0.711
+      }
+    }
+  },
+  "ids": [
+    "FIN-005",
+    "FIN-006",
+    "FIN-008",
+    "FIN-010",
+    "FIN-012",
+    "FIN-019",
+    "FIN-020",
+    "FIN-022",
+    "FIN-025",
+    "FIN-028",
+    "FIN-031",
+    "FIN-032",
+    "FIN-034",
+    "FIN-035",
+    "FIN-043",
+    "FIN-044",
+    "FIN-045",
+    "FIN-046",
+    "FIN-049",
+    "FIN-052",
+    "FIN-053",
+    "FIN-057",
+    "FIN-058",
+    "FIN-059",
+    "FIN-060",
+    "FIN-061",
+    "FIN-083",
+    "FIN-084"
+  ],
+  "note": "诚实上界以 global_fit_loo_cv_spearman 为准；insample 数字为乐观上界（含过拟合）。"
+}
