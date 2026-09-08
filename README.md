@@ -18,6 +18,8 @@
 
 <img src="assets/gifs/01_main_loop.gif" width="100%" alt="HyFinEval 主闭环：开卷生成 → 引用溯源 → 7 维评分">
 
+> 📺 想要更高清、可点播的 **1080p 原片**？→ [assets/playback.html](assets/playback.html)（4 段 MP4 全片播放）
+
 本项目以金融分析为落地场景，基于腾讯混元（Hy3 / HunYuan）大模型 API 构建了一个金融问答 / 指标提取应用，并设计了与之配套的评估体系。评估体系在 107 条样本（应用 67 + 验证集 40）上跑通，关键验证指标：**内部判别力排序正确（好 71.4 > 中 41.7 > 差 30.2 > 对抗 28.4）、对抗样本平均分仅 28.4（远低于 50 阈值）**。
 
 > **关于"一致性"的诚实说明**：上述判别力是「评估分 vs 作者构造的好坏档」的**内部自洽验证**，**不等同于"自动评分与独立人类判定对齐"**。本项目的"人类对齐"证据由独立的**人工标注研究**提供（28 条真人盲标，三档二次加权 κ = 0.663、细粒度 Spearman = 0.275，方案A 修复后；修复前 κ=0.708/ρ=0.050），见下方「E. 人工对齐」节。该研究同时暴露出评估器的真实边界：缺真值子任务（公告摘要）原呈显著负相关（−0.466），方案A 修复 `calibration`/`citation` 后转为近中性（+0.014）。
@@ -353,16 +355,16 @@ E.5 证明元数据级 KB 无效，并指出根因是**该子任务为闭卷设�
 
 | 演示 | 说明 |
 |---|---|
-| ![主闭环](assets/gifs/01_main_loop.gif) | 应用 → 引用溯源 → 7 维评分 完整闭环（[MP4](assets/videos/01_main_loop.mp4)） |
-| ![开卷 vs 闭卷](assets/gifs/02_openbook_vs_closedbook.gif) | 同一问题对照：有引用高分 vs 无引用低分（[MP4](assets/videos/02_openbook_vs_closedbook.mp4)） |
-| ![合规熔断](assets/gifs/03_compliance_breaker.gif) | 命中金融红线（违规荐股）即封顶 40 分（[MP4](assets/videos/03_compliance_breaker.mp4)） |
-| ![双源 RAG](assets/gifs/04_dual_source_rag.gif) | 上传 PDF 按页码引用，与指标真相库构成双源知识（[MP4](assets/videos/04_dual_source_rag.mp4)） |
+| ![主闭环](assets/gifs/01_main_loop.gif) | 应用 → 引用溯源 → 7 维评分 完整闭环（[MP4](assets/videos/01_main_loop.mp4)｜[▶ 播放 1080p](assets/playback.html#1)） |
+| ![开卷 vs 闭卷](assets/gifs/02_openbook_vs_closedbook.gif) | 同一问题对照：有引用高分 vs 无引用低分（[MP4](assets/videos/02_openbook_vs_closedbook.mp4)｜[▶ 播放 1080p](assets/playback.html#2)） |
+| ![合规熔断](assets/gifs/03_compliance_breaker.gif) | 命中金融红线（违规荐股）即封顶 40 分（[MP4](assets/videos/03_compliance_breaker.mp4)｜[▶ 播放 1080p](assets/playback.html#3)） |
+| ![双源 RAG](assets/gifs/04_dual_source_rag.gif) | 上传 PDF 按页码引用，与指标真相库构成双源知识（[MP4](assets/videos/04_dual_source_rag.mp4)｜[▶ 播放 1080p](assets/playback.html#4)） |
 
 > 离线生成脚本（无需 API key）：`python src/build_demo.py`（demo.html 轮播 + demo.gif）。
 
 ### 完整录屏与逐帧讲解
 
-以下为视频**逐帧文字讲解**（GIF 看不真切时对照读）。分镜与参数见 [docs/录制脚本.md](docs/录制脚本.md)。
+以下为视频**逐帧文字讲解**（GIF 看不真切时对照读）。分镜与参数见 [docs/录制脚本.md](docs/录制脚本.md)。想要 1080p 可点播全片？→ [assets/playback.html](assets/playback.html)。
 
 #### 1｜主闭环：查询 → 生成 → 引用溯源 → 7 维评分
 
@@ -433,9 +435,10 @@ HyFinEval/
 ├── build_finance_samples.py   # 零成本样本集构建（akshare + 巨潮）
 ├── samples.json / samples.csv # 评测样本集（107 条，难例+反例 44%）
 ├── demo.html / demo.gif       # 离线 GIF 素材（无 key 兜底）
-├── assets/videos/             # 4 段 Hy3 实测 MP4 录屏（供下载）
-├── assets/gifs/               # 上述视频转 GIF，用于 README 内嵌
-├── assets/videos/             # 演示视频（真实录屏，见 docs/录制脚本.md）
+├── assets/
+│   ├── playback.html          # 1080p 原片播放页（GitHub 不支持 <video>，用独立页）
+│   ├── gifs/                  # 4 段自动循环 GIF（README 内嵌）
+│   └── videos/                # 4 段 Hy3 实测 MP4（1080p），含 _legacy_720p 旧版备份
 ├── data_cache/                # 真实财务数据缓存
 ├── src/                       # 应用 + 评估实现
 │   ├── config.py  data_store.py        # 配置 + 指标真相库检索

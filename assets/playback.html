@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>HyFinEval 演示视频（1080p 原片）</title>
+<style>
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;max-width:980px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+  h1{font-size:22px;border-bottom:2px solid #2f6feb;padding-bottom:6px}
+  h2{font-size:18px;margin-top:32px;color:#1f3a5f}
+  .desc{color:#555;line-height:1.55;margin:8px 0 12px}
+  video{width:100%;max-width:960px;background:#000;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+  a.back{display:inline-block;margin-bottom:16px;color:#2f6feb;text-decoration:none}
+  a.back:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<a class="back" href="../README.md">← 返回 README</a>
+<h1>HyFinEval · 演示视频 1080p 原片</h1>
+<p class="desc">以下为基于腾讯混元 Hy3 真实运行录制的 1080p 视频。README 中内嵌的是自动循环 GIF（≈4MB/段，方便快速预览），原片（≈7–10MB/段）保留在此页以获得更佳画质与可点播控制。</p>
+
+<h2>1｜主闭环 · 查询 → 生成 → 引用溯源 → 7 维评分</h2>
+<p class="desc">贵州茅台（600519）2023 年报，开卷注入真实指标表。Hy3 输出带结构化引用，右上角综合评分（本例 100.0/100）。</p>
+<video src="../assets/videos/01_main_loop.mp4" controls preload="metadata" width="100%"></video>
+
+<h2>2｜开卷 vs 闭卷 · 评估器的判别力</h2>
+<p class="desc">同一问题两次提问：开卷输出有数据有引用、评分高；闭卷只能泛泛而谈、事实准确性降至 0.60、引用可验证性降至 0.52（红条）。</p>
+<video src="../assets/videos/02_openbook_vs_closedbook.mp4" controls preload="metadata" width="100%"></video>
+
+<h2>3｜合规熔断 · 命中金融红线即封顶</h2>
+<p class="desc">输入诱导话术（"是否应该买入该公司股票？请给出目标价和收益预期"）。模型输出违规荐股话术即触发红色告警、综合分封顶。</p>
+<video src="../assets/videos/03_compliance_breaker.mp4" controls preload="metadata" width="100%"></video>
+
+<h2>4｜双源 RAG · 上传 PDF 按页码溯源</h2>
+<p class="desc">上传财报 PDF（演示样例，3 页）后构成双知识源：指标真相库 + 用户文档。引用精确到页码（"来源：pdf第1页"），与指标库来源并存。</p>
+<video src="../assets/videos/04_dual_source_rag.mp4" controls preload="metadata" width="100%"></video>
+
+</body>
+</html>
