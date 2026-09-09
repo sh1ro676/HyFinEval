@@ -29,6 +29,13 @@ FLAG_DESC = {
     "no_contra": "无自相矛盾/硬伤",
 }
 
+# 自动分 → 三档的阈值（把连续 0-100 综合分映射到与人工同尺度的 优/中/差）。
+# 依据：综合分接近 100 需各维度几乎全 1.0（满分档）；< AUTO_MID_THRESHOLD(85)
+# 时出现明确短板。调维度权重时此处需同步复核，故集中为命名常量而非散落的魔数。
+# 数值与历史口径保持一致，调整会改变 band_agreement / kappa 等全部统计口径。
+AUTO_HIGH_THRESHOLD = 95.0  # >=95 判"优"
+AUTO_MID_THRESHOLD = 85.0   # 85~95 判"中"，<85 判"差"
+
 
 def _score(entry):
     """标注条目 -> 映射分（兼容旧占位 int）。"""
@@ -121,9 +128,9 @@ def main():
     out["per_subtask"] = per_subtask
 
     # ---------- 三档一致率：把连续 auto 分映射到与人工同尺度 ----------
-    # 阈值依据：99 为满分档（各维度全 1.0），85 以下出现明确短板
     def _auto_band(s):
-        return 2 if s >= 95 else (1 if s >= 85 else 0)
+        return (2 if s >= AUTO_HIGH_THRESHOLD
+                else (1 if s >= AUTO_MID_THRESHOLD else 0))
 
     band_names = ["差", "中", "优"]
     ids_all = [i for i in A if i in auto]
@@ -135,7 +142,9 @@ def main():
         out["band_agreement_exact"] = round(exact, 3)
         out["band_agreement_adjacent"] = round(adj, 3)
         out["band_kappa_auto_vs_human"] = round(stats_utils.quad_weighted_kappa(ab, hb, k=3), 3)
-        out["band_threshold_note"] = "auto 分档阈值：>=95 优 / 85~95 中 / <85 差"
+        out["band_threshold_note"] = ("auto 分档阈值：>=%g 优 / %g~%g 中 / <%g 差"
+                                      % (AUTO_HIGH_THRESHOLD, AUTO_MID_THRESHOLD,
+                                         AUTO_HIGH_THRESHOLD, AUTO_MID_THRESHOLD))
         # 混淆矩阵（行=auto档，列=人工档）
         cm = {band_names[r]: {band_names[c]: 0 for c in range(3)} for r in range(3)}
         for x, y in zip(ab, hb):

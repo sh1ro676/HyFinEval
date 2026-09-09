@@ -12,9 +12,13 @@
   .spearmanr 在无缺失数据情形下的结果，已用 scipy 交叉验证。
 """
 import math
+from typing import List, Optional, Sequence
+
+Number = float
+Seq = Sequence[float]
 
 
-def average_rank(xs):
+def average_rank(xs: Sequence[Number]) -> List[float]:
     """平均秩：并列元素取所占秩位的均值。
 
     例：[10, 20, 20, 30] -> [1.0, 2.5, 2.5, 4.0]
@@ -37,7 +41,7 @@ def average_rank(xs):
     return ranks
 
 
-def pearson(a, b):
+def pearson(a: Seq, b: Seq) -> Optional[float]:
     """皮尔逊相关系数（供 Kendall tau-b 等调用）。"""
     n = len(a)
     if n < 2:
@@ -51,7 +55,7 @@ def pearson(a, b):
     return cov / math.sqrt(va * vb)
 
 
-def spearman(a, b):
+def spearman(a: Optional[Seq], b: Optional[Seq]) -> Optional[float]:
     """Spearman 秩相关（带并列修正）。无并列时退化为 Pearson-on-ranks。"""
     if a is None or b is None or len(a) != len(b) or len(a) < 2:
         return None
@@ -59,7 +63,7 @@ def spearman(a, b):
     return pearson(ra, rb)
 
 
-def kendall_tau_b(a, b):
+def kendall_tau_b(a: Seq, b: Seq) -> Optional[float]:
     """Kendall's tau-b：小样本 + 大量并列时比 Spearman 更稳健的补充指标。"""
     n = len(a)
     if n < 2:
@@ -84,7 +88,7 @@ def kendall_tau_b(a, b):
     return (conc - disc) / denom
 
 
-def quad_weighted_kappa(ba, bb, k=3):
+def quad_weighted_kappa(ba: Seq, bb: Seq, k: int = 3) -> Optional[float]:
     """在 k 档（取值 0..k-1 的整数）上计算二次加权 Cohen's Kappa。"""
     n = len(ba)
     if n < 2:

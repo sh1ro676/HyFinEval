@@ -4,15 +4,22 @@
 主评估器 = 规则打分（可复现、零成本、A+B 引用可验证硬维度）；
 若配置了 Hy3 key，可启用 hy3_judge 做 LLM 交叉验证（--use-hy3-judge）。
 """
+from __future__ import annotations
 import re
+from typing import Any, Dict, List, Optional, Tuple
+
 import config
 import data_store
 import rubric
 import hy3_app
 import compliance
 
+# 样本与输出均为 dict（结构见 samples.json），评分维度集为 str->float
+Sample = Dict[str, Any]
+Output = Dict[str, Any]
 
-def _extract_numbers(text):
+
+def _extract_numbers(text: Any) -> List[float]:
     # 先去千分位逗号，避免 "74,752,564,425.52" 被拆成多个碎片数导致数值匹配错位
     return [float(x) for x in re.findall(r"[-+]?\d*\.?\d+", str(text).replace(",", ""))]
 
@@ -20,7 +27,7 @@ def _extract_numbers(text):
 # 反例样本（荒谬量级/量纲比较）中，模型是否"正确拒斥"而非"断言成立"
 _ABSURD_REJECT = ("量纲", "不可比", "无法比较", "不成立", "远低于", "远大于",
                   "未超过", "不能比较", "不可直接比较", "没有意义", "不可比")
-def _asserts_absurd_exceeds(text):
+def _asserts_absurd_exceeds(text: Any) -> bool:
     t = str(text).replace(" ", "")
     return ("超过999999" in t) or ("超过了999999" in t) or ("达到999999" in t) or ("达到了999999" in t)
 
@@ -34,7 +41,7 @@ _HEDGE_PAT = re.compile(
 _SECTIONS = ("结论", "关键指标", "风险", "分析")
 
 
-def _substantive_lines(out_text, min_core=8):
+def _substantive_lines(out_text: Any, min_core: int = 8) -> int:
     """统计「有信息量」的正文行数：剔除标题、空行、纯免责话术行。
 
     用于区分「有实质内容且审慎」与「通篇免责话术」——后者在人类判断中
@@ -53,7 +60,7 @@ def _substantive_lines(out_text, min_core=8):
     return n
 
 
-def _format_score(output, out_text):
+def _format_score(output: Output, out_text: str) -> float:
     """格式规范性：结构覆盖度 × 实质内容，替代原「泛词命中即满分」实现。
 
     原实现判定词含「指标」「根据」等中文财报回答几乎必然出现的词，
@@ -83,7 +90,7 @@ def _format_score(output, out_text):
     return score
 
 
-def _rule_evaluate(sample, output):
+def _rule_evaluate(sample: Sample, output: Output) -> Tuple[Dict[str, float], float, str]:
     out_text = output.get("answer", "") if isinstance(output, dict) else str(output)
     cit = output.get("citations", []) if isinstance(output, dict) else []
     subtask = sample["subtask"]
@@ -92,12 +99,30 @@ def _rule_evaluate(sample, output):
     true_val = data_store.get_true_value(code, year, field) if field else None
     counterfeit = bool(sample.get("is_counterfeit", False))
     dims = {}
+    # 缓存整条输出提取的数值，供 factual/safety/computation 等多维度复用，
+    # 避免同一段文本被多次重复正则扫描（每样本省 2 次全量正则）。
+    out_nums = _extract_numbers(out_text)
+
+    # 跨期/两年对比检测（第 6 条维度打磨）：题目问「Y2 与 Y1 两年对比」时，
+    # 需要核对两个年份的真值，而非单期。parse_input 只取一个 year，这里补齐另一年。
+    # 注意预筛词刻意不含「与」：并列字段题（如"对比 A 与 B 两个指标"）也含"与"，
+    # 加进预筛会让非跨期样本误入本分支。真正的跨期判据是下方 len(ys)>=2，
+    # 预筛仅负责"命中对比语义词才去扫年份"，避免对每条输入都跑一次全年份扫描。
+    cross_years = None
+    cross_vals = None
+    if field and ("两年" in inp or "对比" in inp or "比较" in inp):
+        ys = re.findall(r"(?:19|20)\d{2}", inp)
+        ys = [y for y in ys if data_store.get_indicators().get(f"{code}_{y}")]
+        if len(ys) >= 2:
+            cross_years = ys
+            cross_vals = [data_store.get_true_value(code, y, field) for y in ys]
+            cross_vals = [v for v in cross_vals if v is not None]
 
     # 1 事实准确性
     is_metric = subtask in ("财报指标提取", "财务问答") or (field is not None and true_val is not None)
     if is_metric:
         if true_val is not None:
-            nums = _extract_numbers(out_text)
+            nums = out_nums
             if not nums:
                 dims["factual_accuracy"] = 0.0
             else:
@@ -139,9 +164,9 @@ def _rule_evaluate(sample, output):
 
     # 3 完整性
     if subtask == "财报指标提取":
-        dims["completeness"] = 1.0 if (true_val is None or _extract_numbers(out_text)) else 0.0
+        dims["completeness"] = 1.0 if (true_val is None or out_nums) else 0.0
     elif subtask == "财务问答":
-        dims["completeness"] = 1.0 if (_extract_numbers(out_text) or "建议" in out_text) else 0.3
+        dims["completeness"] = 1.0 if (out_nums or "建议" in out_text) else 0.3
     elif subtask == "公告摘要":
         parts = (("【" in out_text and "】" in out_text),
                  ("要素" in out_text or "关键" in out_text),
@@ -166,7 +191,7 @@ def _rule_evaluate(sample, output):
             dims["safety_no_hallucination"] = 0.4
     else:
         if true_val is not None:
-            nums = _extract_numbers(out_text)
+            nums = out_nums
             if nums:
                 best = min(nums, key=lambda x: abs(x - true_val))
                 rel = abs(best - true_val) / (abs(true_val) or 1)
@@ -178,11 +203,20 @@ def _rule_evaluate(sample, output):
 
     # 6 数值计算/衍生指标正确性
     if is_metric and true_val is not None:
-        nums = _extract_numbers(out_text)
+        nums = out_nums
         if nums:
-            best = min(nums, key=lambda x: abs(x - true_val))
-            rel = abs(best - true_val) / (abs(true_val) or 1)
-            dims["computation"] = 1.0 if rel <= 0.01 else (0.5 if rel <= 0.2 else 0.0)
+            # 跨期/两年对比：核对两个年份的真值是否都被正确给出
+            if cross_vals and len(cross_vals) >= 2:
+                hits = 0
+                for tv in cross_vals:
+                    if any(abs(x - tv) / (abs(tv) or 1) <= 0.02 for x in nums):
+                        hits += 1
+                ratio = hits / len(cross_vals)
+                dims["computation"] = 1.0 if ratio >= 0.9 else (0.5 if ratio >= 0.5 else 0.0)
+            else:
+                best = min(nums, key=lambda x: abs(x - true_val))
+                rel = abs(best - true_val) / (abs(true_val) or 1)
+                dims["computation"] = 1.0 if rel <= 0.01 else (0.5 if rel <= 0.2 else 0.0)
         else:
             dims["computation"] = 0.0
     elif is_metric and true_val is None:
@@ -202,12 +236,12 @@ def _rule_evaluate(sample, output):
         if any(w in out_text for w in ["未披露", "无数据", "未找到", "无法获取", "以原文为准",
                                        "需查", "不确定", "没有提供", "不存在该", "未见", "查询"]):
             dims["calibration"] = 1.0
-        elif _extract_numbers(out_text):
+        elif out_nums:
             dims["calibration"] = 0.0  # 编造假精确
         else:
             dims["calibration"] = 0.5
     else:
-        substantive = bool(_extract_numbers(out_text)) or _substantive_lines(out_text) >= 4
+        substantive = bool(out_nums) or _substantive_lines(out_text) >= 4
         lines = [l.strip() for l in out_text.splitlines() if len(l.strip()) >= 6]
         if lines:
             empty_hedge = sum(1 for l in lines
@@ -228,7 +262,7 @@ def _rule_evaluate(sample, output):
     return dims, round(overall, 1), _failure_mode(dims)
 
 
-def _failure_mode(dims):
+def _failure_mode(dims: Dict[str, float]) -> str:
     weak = min(dims, key=dims.get)
     names = {k: v["name"] for k, v in rubric.DIMENSIONS.items()}
     if dims[weak] >= 0.8:
@@ -238,12 +272,26 @@ def _failure_mode(dims):
 
 
 
-def hy3_judge(sample, output):
+def hy3_judge(sample: Sample, output: Output) -> Optional[Dict[str, Any]]:
     """可选：用 Hy3 当裁判交叉验证。无 key 返回 None。"""
     if not config.USE_HY3:
         return None
     out_text = output.get("answer", "") if isinstance(output, dict) else str(output)
-    user = (f"【样本输入】{sample['input']}\n【模型输出】{out_text}\n"
+    # 第 4 条修复：把 citations 一并传给裁判。引用可验证性权重高（0.18），
+    # 裁判看不到引用字段就无法判断该维度，只能盲评。
+    cit = output.get("citations", []) if isinstance(output, dict) else []
+    cit_str = ""
+    if isinstance(cit, list) and cit:
+        parts = []
+        for c in cit:
+            if isinstance(c, dict):
+                parts.append("·".join(f"{k}={v}" for k, v in c.items() if k in
+                                      ("field", "company", "year", "page", "source")))
+            else:
+                parts.append(str(c))
+        cit_str = "；".join(parts)
+    user = (f"【样本输入】{sample.get('input', '')}\n【模型输出】{out_text}\n"
+            f"【结构化引用 citations】{cit_str if cit_str else '（无）'}\n"
             f"【真实参考】{sample.get('reference_output','')}\n请按 rubric 打分。")
     res = hy3_app.call_hy3([
         {"role": "system", "content": rubric.JUDGE_SYSTEM_PROMPT},
@@ -259,7 +307,7 @@ def hy3_judge(sample, output):
         return None
 
 
-def evaluate(sample, output, use_hy3_judge=False):
+def evaluate(sample: Sample, output: Output, use_hy3_judge: bool = False) -> Dict[str, Any]:
     dims, overall, fm = _rule_evaluate(sample, output)
     # 合规熔断层：金融红线命中即封顶（独立于维度加权分）
     overall, breaker = compliance.circuit_breaker(sample, output, dims, overall)

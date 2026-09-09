@@ -1,23 +1,26 @@
 # -*- coding: utf-8 -*-
 """数据层：加载样本与真实指标，提供按 (代码,年份,字段) 的检索。"""
+from __future__ import annotations
 import json
 import re
+from typing import Any, Dict, List, Optional
+
 import config
 
 _IND = None
 
 
-def load_samples():
+def load_samples() -> List[Dict[str, Any]]:
     with open(config.SAMPLES_PATH, encoding="utf-8") as f:
         return json.load(f)
 
 
-def load_indicators():
+def load_indicators() -> Dict[str, Any]:
     with open(config.INDICATORS_PATH, encoding="utf-8") as f:
         return json.load(f)
 
 
-def get_indicators():
+def get_indicators() -> Dict[str, Any]:
     global _IND
     if _IND is None:
         _IND = load_indicators()
@@ -27,7 +30,7 @@ def get_indicators():
 _FIELDS = None
 
 
-def _known_fields():
+def _known_fields() -> List[str]:
     """指标库中出现过的指标名，长名优先（避免「净利润」抢掉「净利润增长率」）。"""
     global _FIELDS
     if _FIELDS is None:
@@ -39,7 +42,7 @@ def _known_fields():
     return _FIELDS
 
 
-def parse_input(text):
+def parse_input(text: str) -> tuple[Optional[str], Optional[str], Optional[str]]:
     """从样本 input 解析 (code, year, field)。
 
     三类兜底（针对自然语言提问，非【】模板题）：
@@ -77,7 +80,8 @@ def parse_input(text):
     return code, year, field
 
 
-def get_true_value(code, year, field):
+def get_true_value(code: Optional[str], year: Optional[str],
+                   field: Optional[str]) -> Optional[Any]:
     """取真实指标值。field 可能带『的数值』等后缀，做模糊匹配。"""
     ind = get_indicators()
     rec = ind.get(f"{code}_{year}")
@@ -94,7 +98,7 @@ def get_true_value(code, year, field):
     return None
 
 
-def company_name(code):
+def company_name(code: str) -> str:
     names = {
         "600519": "贵州茅台", "000858": "五粮液", "300750": "宁德时代",
         "002594": "比亚迪", "601318": "中国平安", "000001": "平安银行",

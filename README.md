@@ -1,14 +1,48 @@
-# HyFinEval · 混元金融评估应用与评判标准
+<p align="center">
+  <img src="https://img.shields.io/badge/犀牛鸟-开源实战任务-important" alt="犀牛鸟开源实战">
+</p>
 
-> **犀牛鸟开源实战任务 · 混元大语言模型项目（个人作品）**
->
-> *HyFinEval — A HunYuan-powered Financial Application with a Reproducible Evaluation Methodology*
+<h1 align="center">📊 HyFinEval</h1>
 
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Python](https://img.shields.io/badge/python-3.13-3776AB)](https://www.python.org)
-[![Eval](https://img.shields.io/badge/evaluation-reproducible-brightgreen)](src/evaluator.py)
-[![Consistency](https://img.shields.io/badge/consistency-internal--discrimination-blue)](src/results/eval_report.md)
-[![Samples](https://img.shields.io/badge/samples-107%20(44%25%20hard)%20--blue)](samples.json)
+<p align="center"><b>混元金融评估应用与评判标准</b></p>
+
+<p align="center">
+  <i>HyFinEval — A HunYuan-powered Financial Application with a Reproducible Evaluation Methodology</i>
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="License"></a>
+  <a href="https://www.python.org"><img src="https://img.shields.io/badge/python-3.13-3776AB" alt="Python"></a>
+  <a href="src/evaluator.py"><img src="https://img.shields.io/badge/evaluation-reproducible-brightgreen" alt="Reproducible Eval"></a>
+  <a href="src/results/eval_report.md"><img src="https://img.shields.io/badge/consistency-Spearman_0.937-9cf" alt="Consistency"></a>
+  <a href="src/results/human_alignment.json"><img src="https://img.shields.io/badge/human_alignment-%CE%BA_0.663-blue" alt="Human Alignment"></a>
+  <a href="samples.json"><img src="https://img.shields.io/badge/samples-107-blueviolet" alt="Samples"></a>
+  <a href="samples.json"><img src="https://img.shields.io/badge/hard%2Fadversarial-44%25-orange" alt="Hard ratio"></a>
+</p>
+
+<br/>
+
+> **🦏 犀牛鸟开源实战任务 · 混元大语言模型项目（个人作品）**
+
+<details open>
+<summary>📑 <b>目录 Table of Contents</b></summary>
+
+- [✨ 一句话亮点](#一句话亮点)
+- [🏆 项目亮点](#项目亮点)
+- [🏗️ 系统架构](#系统架构)
+- [⚖️ 评测方法：7 维度可量化 Rubric](#评测方法7-维度可量化-rubric)
+- [📈 评测结果（真实数据）](#评测结果真实数据)
+- [🧪 验证脚本与复现命令](#验证脚本与复现命令)
+- [🗄️ 数据来源与构建方式](#数据来源与构建方式)
+- [💬 典型案例](#典型案例)
+- [🎬 演示](#演示)
+- [🚀 快速开始](#快速开始)
+- [📂 仓库结构](#仓库结构)
+- [🧾 样本集说明（零成本构建）](#样本集说明零成本构建)
+- [🛡️ 安全与合规](#安全与合规)
+- [🗺️ 后续计划](#后续计划)
+
+</details>
 
 ---
 
@@ -145,7 +179,7 @@ flowchart TB
 
 > 本层**仅针对金融场景合规红线**，与通用安全机制解耦，是评估方法的重要组成部分而非附加项。
 
-评估器内置 `evaluator._compliance_circuit_breaker()`：**一旦命中任一条金融红线，总分直接封顶 `COMPLIANCE_CAP = 40`**，无论"专业感"多高。三条红线：
+评估器内置合规熔断层 `compliance.circuit_breaker()`：**一旦命中任一条金融红线，总分直接封顶 `COMPLIANCE_CAP = 40`**，无论"专业感"多高。三条红线：
 
 1. **编造未披露数字**：输出含具体数值，但引用可验证 < 0.5 且事实准确性 < 0.5 且未做审慎声明（如"以原文为准"）；
 2. **伪造引用**：citations 非空但全部无法核验（字段不在真相库、无页码、无合法来源）；
@@ -167,6 +201,7 @@ flowchart TB
 | **人工标注** | `streamlit run src/human_label.py` | 盲标 UI，产出 `data_cache/human_labels.json` |
 | **人工对齐统计** | `python src/label_stats.py` | 子任务级 Spearman + 三档一致率/κ + 逐维度诊断 + 勾选项命中率 |
 | **统计工具自检** | `python -c "import stats_utils"` | 平均秩 Spearman / Kendall τ-b / 加权 κ（与 scipy 偏差 <1e-15） |
+| **单元测试** | `python -m pytest tests/ -q` | 覆盖 7 维评分 / 合规红线 / 统计函数 / 公告抽取 / 数据检索 / 交易所映射（62 例） |
 
 **已实测**：
 - 稳定性重测 3 次，overall 方差 = 0.0、重测 Spearman = 1.0。**注意该轮为基线确定性生成**（`use_hy3_app=false`），方差恒为 0 只证明**评估器可复现**，不代表模型输出稳定；Hy3 模式下的真实波动待重测。
@@ -326,8 +361,6 @@ E.5 证明元数据级 KB 无效，并指出根因是**该子任务为闭卷设�
 
 ---
 
----
-
 ## 典型案例
 
 **① 应用样本 FIN-047（公告摘要 / 易，得分 95，构造档 A）**
@@ -395,28 +428,35 @@ E.5 证明元数据级 KB 无效，并指出根因是**该子任务为闭卷设�
 批量跑完整样本集 + 生成评估报告的终端演示待补录，命令见 [docs/录制脚本.md](docs/录制脚本.md) 第 5 节：`python src/run_eval.py` → `python src/gen_report.py`。
 
 
-## 快速开始
+## 🚀 快速开始
 
-### 1. 安装依赖
+### ✅ 0. 环境准备（推荐 venv）
 ```bash
-pip install akshare pandas requests openai
+python -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+pip install -r requirements.txt  # 或见下方分步安装
 ```
 
-### 2. 运行基线评测（无需 API key，立即出结果）
+### 📦 1. 安装依赖
+```bash
+pip install akshare pandas requests openai pypdf
+```
+
+### ⚡ 2. 运行基线评测（无需 API key，立即出结果）
 ```bash
 python src/run_eval.py
 # 产出 src/results/eval_results.json + eval_report.md
 ```
 
-### 3. 接入混元 Hy3（效果更佳）
+### 🔑 3. 接入混元 Hy3（效果更佳）
 复制 `.env.example` 为 `.env` 填入 key（**绝不提交 `.env`**），然后：
 ```powershell
-$env:HY3_API_KEY="你的key"
-python src/run_eval.py --use-hy3          # 应用用真实模型生成（带 citations）
-python src/run_eval.py --use-hy3-judge   # 评估器用 Hy3 作交叉裁判
+$env:HY3_API_KEY = "你的key"
+python src/run_eval.py --use-hy3           # 应用用真实模型生成（带 citations）
+python src/run_eval.py --use-hy3-judge     # 评估器用 Hy3 作交叉裁判
 ```
 
-### 4. 启动 Web UI（演示 / 真实用户场景）
+### 🖥️ 4. 启动 Web UI（演示 / 真实用户场景）
 ```bash
 pip install streamlit
 streamlit run src/app.py
@@ -439,15 +479,24 @@ HyFinEval/
 │   ├── playback.html          # 1080p 原片播放页（GitHub 不支持 <video>，用独立页）
 │   ├── gifs/                  # 4 段自动循环 GIF（README 内嵌）
 │   └── videos/                # 4 段 Hy3 实测 MP4（1080p），含 _legacy_720p 旧版备份
-├── data_cache/                # 真实财务数据缓存
+├── data_cache/                # 真实财务数据缓存（含公告原文/配对样本/评分）
 ├── src/                       # 应用 + 评估实现
 │   ├── config.py  data_store.py        # 配置 + 指标真相库检索
 │   ├── baseline_app.py  hy3_app.py     # 生成模块（基线 / 混元 Hy3）
 │   ├── retrieval.py                 # 上传 PDF 页面级检索（双源 RAG 之一）
-│   ├── rubric.py  evaluator.py  compliance.py  # 7 维评分 + 合规熔断层
+│   ├── rubric.py  ann_utils.py        # 7 维 rubric / 公告抽取共享工具
+│   ├── evaluator.py  compliance.py    # 7 维规则评分 + 合规熔断层
+│   ├── stats_utils.py                 # 统一统计（平均秩 Spearman / τ-b / 加权 κ）
 │   ├── run_eval.py  run_demo.py  gen_report.py
+│   ├── run_stability.py  run_judge_cv.py  label_stats.py
+│   ├── fetch_announcements.py  build_announcement_samples.py
+│   ├── gen_announcement_outputs.py  score_announcement.py
 │   ├── app.py  build_demo.py   # Streamlit Web UI + demo 素材构建
-│   └── results/               # eval_results.json / eval_report.md
+│   └── results/               # eval_results.json / eval_report.md / ann_report.html
+├── tests/                     # 单元测试（pytest，62 例全绿）
+│   ├── conftest.py  test_evaluator.py  test_compliance.py
+│   └── test_stats_utils.py  test_ann_utils.py  test_data_store.py
+│   └── test_fetch_announcements.py
 └── docs/                      # 评估方法路径说明
     ├── 路径A-轻量LLM-as-Judge.md
     ├── 路径A+B-RAG引用可验证.md
@@ -478,6 +527,7 @@ HyFinEval/
 
 ## 后续计划
 
+**✅ 已完成**
 - [x] ≤2 分钟 demo（原 demo.gif 已升级为 4 段真实运行视频，见「演示」章节；demo.html/demo.gif 离线素材仍保留）
 - [x] 接入真实 Hy3 后补充带 citations 的评测对比（已完成：基线开卷应用均分 86.8，方案A 后；见上）
 - [x] README 一致性宣称去虚标（内部自洽 ≠ 人类对齐），新增「数据来源」「开闭卷对照证伪抄表」等章节
@@ -487,6 +537,8 @@ HyFinEval/
 - [x] **独立人工标注研究（28 条真人盲标完成）**：方案A 修复后三档 κ = 0.663、严格一致率 42.9%、Spearman = 0.275（修复前 κ=0.708/ρ=0.050）；子任务级分化 +0.151 / +0.000 / +0.014；结果见 `results/human_alignment.json` 与 README E 节
 - [x] **统计口径修正**：`spearman` 全项目统一到 `stats_utils.py` 平均秩实现（原 4 份拷贝均无并列修正），验证集一致性 0.901 → 0.937
 - [x] **方案A：修复 `citation`/`calibration` 两维度定义（释放死方差）**：`citation` 由 0/0.4/1 三档改为按可溯源比例连续计分（闭卷无锚点 0.3），与人工 −0.208→+0.234；`calibration` 闭卷公告恒定 0.3（回避≠校准），与人工 −0.413→+0.384；总体 ρ 0.050→0.275。消融见 `src/ablation_dims.py`。`format` 变体因与人类反向已回退惰性定义
+
+**📌 待办**
 - [ ] 第二标注者：补齐 B 组以估计标注者间 κ（当前为单人，无法区分评估器偏差与个人偏差）
 - [ ] 裁判缺陷修复：`hy3_judge` 未传入 `citations`（而引用可验证性权重 0.18）、三档制致分数坍缩为 5 个取值 → 修复后重跑 `run_judge_cv.py`
 - [ ] 权重重构：`format`(0.13) 在本批数据上仍零方差（方案A 确认密度判据与人类反向），其权重预算待在更大样本上重新标定或并入 citation/calibration
@@ -494,5 +546,13 @@ HyFinEval/
 
 ---
 
-
 *本项目为犀牛鸟开源实战任务个人作品，非官方出品，仅供学习与评测参考。*
+
+---
+
+<p align="center">
+  <b>HyFinEval</b> · 基于腾讯混元的金融评估应用与评判标准 ·
+  <a href="LICENSE">MIT License</a> ·
+  <a href="https://github.com/sh1ro676/HyFinEval">GitHub Repository</a>
+</p>
+

@@ -8,18 +8,32 @@ A+B 特色：先检索 (公司,年份) 的真实指标作为上下文（RAG 思�
 import json
 import re
 import requests
+from typing import Any, Dict, List, Optional, Sequence
+
 import config
 import data_store
 import retrieval
 
+# 结构化输出：{answer, citations}
+Output = Dict[str, Any]
 
-def call_hy3(messages, temperature=0.2, max_tokens=4096):
-    """通用 Hy3 / 混元 OpenAI 兼容调用。无 key 返回 None。
 
-    注意：hy3 是推理模型，会先生成 reasoning_content 再生成 content；
-    若 max_tokens 太小，推理过程会耗尽额度导致 content 为空。
-    这里默认 max_tokens=3072 给推理+正式回答留足空间，并做兼容兜底。
-    """
+# HTTP 连接池：跨多次调用复用底层 TCP/TLS 连接，显著降低并发推理场景的握手开销。
+# 线程安全：requests.Session 非严格线程安全，但同一时刻对 session 的并发 post 由
+# urllib3 连接池内部加锁处理，实测多线程（--workers 16）下可安全复用。
+_SESSION = None
+
+
+def _get_session():
+    global _SESSION
+    if _SESSION is None:
+        _SESSION = requests.Session()
+    return _SESSION
+
+
+def call_hy3(messages: Sequence[Dict[str, str]], temperature: float = 0.2,
+             max_tokens: int = 4096) -> Optional[str]:
+    """通用 Hy3 / 混元 OpenAI 兼容调用。无 key 或失败返回 None。"""
     if not config.USE_HY3:
         return None
     url = config.HY3_BASE_URL.rstrip("/") + "/chat/completions"
@@ -35,7 +49,7 @@ def call_hy3(messages, temperature=0.2, max_tokens=4096):
         "stream": False,
     }
     try:
-        r = requests.post(url, headers=headers, json=payload, timeout=180)
+        r = _get_session().post(url, headers=headers, json=payload, timeout=180)
         # 强制按 UTF-8 解码：部分 OpenAI 兼容网关返回 Content-Type 不带 charset，
         # requests 会按 latin-1 误解码，导致中文答案整段乱码（mojibake）。
         r.encoding = "utf-8"
@@ -49,11 +63,13 @@ def call_hy3(messages, temperature=0.2, max_tokens=4096):
         if not content:
             return None
         return content
+    except KeyboardInterrupt:  # 允许用户 Ctrl+C 中断批量评测
+        raise
     except Exception as e:  # 失败降级
         return f"[HY3_ERROR] {e}"
 
 
-def _extract_json(text):
+def _extract_json(text: str) -> str:
     s = text.find("{")
     e = text.rfind("}")
     if s != -1 and e != -1:
@@ -61,7 +77,9 @@ def _extract_json(text):
     return text
 
 
-def generate(sample, use_rag=True, pdf_pages=None, pdf_name=None):
+def generate(sample: Dict[str, Any], use_rag: bool = True,
+             pdf_pages: Optional[Any] = None,
+             pdf_name: Optional[str] = None) -> Optional[Output]:
     """RAG 检索 + Hy3 生成。返回 {answer, citations} 或 None（降级用）。
 
     上下文来源（可叠加）：
@@ -160,6 +178,8 @@ def generate(sample, use_rag=True, pdf_pages=None, pdf_name=None):
     parsed = _parse_hy3_json(out)
     if parsed is not None:
         return parsed
+    if out.startswith("[HY3_ERROR]"):
+        return None
 
     # 兜底：尝试从文本抽取 citations，避免引用维度直接归零
     cit = []
@@ -172,7 +192,7 @@ def generate(sample, use_rag=True, pdf_pages=None, pdf_name=None):
     return {"answer": out, "citations": cit if isinstance(cit, list) else []}
 
 
-def _strip_code_fences(text):
+def _strip_code_fences(text: str) -> str:
     """去掉模型可能包裹的 markdown 代码块标记（```json ... ```）。"""
     text = text.strip()
     if text.startswith("```"):
@@ -183,7 +203,7 @@ def _strip_code_fences(text):
     return text.strip()
 
 
-def _parse_hy3_json(text):
+def _parse_hy3_json(text: str) -> Optional[Output]:
     """多角度解析模型返回的 JSON，失败返回 None。
 
     模型输出可能：

@@ -60,6 +60,29 @@ COMPANIES = {
     "000333": "美的集团",
 }
 
+# ---- A 股交易所判定：按股票代码前缀映射，取代简化的 "6 开头=沪" 判断 ----
+# 巨潮资讯的 column 参数：sse=上交所 / szse=深交所。
+# 前缀规则（A 股实际编码）：
+#   沪市（sse）：600/601/603/605 主板，688 科创板，689 科创板存托凭证
+#   深市（szse）：000/001 深主板，002/003 中小板(已并入主板)，300/301 创业板
+#   例外（代码不以 6 开头但属沪市，或反之）：
+#     900xxx B 股 -> 沪市；200xxx B 股 -> 深市（本项目不涉及 B 股，映射已含以防扩展）
+# 巨潮查询接口对 6 位 A 股代码用上述两列即可，前缀不匹配时默认按首位兜底。
+_SSE_PREFIXES = ("600", "601", "603", "605", "688", "689", "900")
+_SZSE_PREFIXES = ("000", "001", "002", "003", "300", "301", "200")
+
+
+def exchange_of(code):
+    """按代码前缀判定交易所巨潮 column（sse/szse）；无法识别时按首位数字兜底。"""
+    code = str(code).strip()
+    if code.startswith(_SSE_PREFIXES):
+        return "sse"
+    if code.startswith(_SZSE_PREFIXES):
+        return "szse"
+    # 兜底：沪市主板均以 6 开头（历史行为），其余归深市
+    return "sse" if code.startswith("6") else "szse"
+
+
 # 公告类型 -> 标题关键词（按顺序首个命中为准）
 # 顺序有讲究：「限制性股票/股票期权」必须先于「回购」判断，否则
 # "关于部分限制性股票回购注销完成的公告" 会被误分为股份回购（实为股权激励）。
@@ -203,7 +226,7 @@ def main():
 
     for code in codes:
         name = COMPANIES.get(code, code)
-        column = "sse" if code.startswith("6") else "szse"
+        column = exchange_of(code)
         orgid = get_orgid(code)
         if not orgid:
             print("[%s %s] 无法获取 orgId，跳过" % (code, name))

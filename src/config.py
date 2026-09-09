@@ -36,8 +36,8 @@ _load_dotenv()
 # 任务书要求"基于 Hy3 构建"。默认指向腾讯云混元托管接口；
 # 若自部署 Hy3（vLLM/SGLang），把 HY3_BASE_URL 改成你的 endpoint 即可，无需改代码。
 HY3_API_KEY = os.environ.get("HY3_API_KEY") or os.environ.get("HUNYUAN_API_KEY") or ""
-HY3_BASE_URL = os.environ.get("HY3_BASE_URL") or "https://api.hunyuan.cloud.tencent.com/v1"
-HY3_MODEL = os.environ.get("HY3_MODEL") or "hunyuan-turbo"
+HY3_BASE_URL = os.environ.get("HY3_BASE_URL") or "https://tokenhub-intl.tencentmaas.com/v1"
+HY3_MODEL = os.environ.get("HY3_MODEL") or "hy3"
 
 # 是否启用真实 Hy3 生成/裁判：有 key 才 True。无 key 时自动降级为基线/规则评估。
 USE_HY3 = bool(HY3_API_KEY)

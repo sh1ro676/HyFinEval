@@ -110,7 +110,8 @@ def main():
     if not os.path.exists(SAMPLES):
         print("未找到 %s，请先运行 src/build_announcement_samples.py" % SAMPLES)
         return
-    samples = json.load(open(SAMPLES, encoding="utf-8"))
+    with open(SAMPLES, encoding="utf-8") as _f:
+        samples = json.load(_f)
     if args.only:
         samples = [s for s in samples if s["mode"] == args.only]
 

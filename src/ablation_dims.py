@@ -102,7 +102,8 @@ def main():
         if len(c) <= 8:
             res["per_dimension"][dim]["variant"]["dist"] = {str(k): v for k, v in sorted(c.items())}
 
-    json.dump(res, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    with open(OUT, "w", encoding="utf-8") as _f:
+        json.dump(res, _f, ensure_ascii=False, indent=1)
 
     # 打印
     print("方案 A 消融结果（n=%d）" % len(rows))

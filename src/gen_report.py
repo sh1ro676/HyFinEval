@@ -7,7 +7,8 @@ import config
 RES = os.path.join(config.RESULTS_DIR, "eval_results.json")
 OUT = os.path.join(config.RESULTS_DIR, "eval_report.md")
 
-res = json.load(open(RES, encoding="utf-8"))
+with open(RES, encoding="utf-8") as _f:
+    res = json.load(_f)
 s = res["summary"]
 app = res["app_results"]
 val = res["val_results"]
@@ -83,5 +84,6 @@ lines.append("2. 应用层当前用基线（确定性抽取）跑通闭环；接
 lines.append("3. 在真实 Hy3 key 就绪后，运行 `python run_eval.py --use-hy3` 即可切换为 Hy3 应用 + Hy3 裁判的完整体验，评估层无需任何改动。")
 lines.append("")
 
-open(OUT, "w", encoding="utf-8").write("\n".join(lines))
+with open(OUT, "w", encoding="utf-8") as _f:
+    _f.write("\n".join(lines))
 print("报告已生成：", OUT)

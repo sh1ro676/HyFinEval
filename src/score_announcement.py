@@ -33,19 +33,16 @@ import sys
 sys.stdout.reconfigure(encoding="utf-8")
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SRC = os.path.dirname(os.path.abspath(__file__))
+if SRC not in sys.path:
+    sys.path.insert(0, SRC)
+from ann_utils import MONEY, RATIO, DATE, YMD_DASH, norm  # noqa: E402
+
 OUTS = os.path.join(ROOT, "data_cache", "ann_outputs.json")
 OUT = os.path.join(ROOT, "data_cache", "ann_scores.json")
 
-MONEY = re.compile(r"\d[\d,]*\.?\d*\s*(?:亿元|万元|元|股|份|手|万股|亿股)")
-RATIO = re.compile(r"\d+(?:\.\d+)?\s*%")
-DATE = re.compile(r"\d{4}\s*[-/年]\s*\d{1,2}\s*[-/月]\s*\d{1,2}")
-YMD_DASH = re.compile(r"\d{4}/\d{1,2}/\d{1,2}")
 HEDGE = ["以原文为准", "以公告原文", "据公开知识", "未经", "未核实",
          "不得编造", "需以", "原文未披露", "无法确认"]
-
-
-def norm(s):
-    return re.sub(r"[\s,]", "", s or "")
 
 
 def num_core(s):
@@ -160,7 +157,8 @@ def main():
     if not os.path.exists(OUTS):
         print("未找到 %s，请先运行 src/gen_announcement_outputs.py" % OUTS)
         return
-    recs = json.load(open(OUTS, encoding="utf-8"))
+    with open(OUTS, encoding="utf-8") as _f:
+        recs = json.load(_f)
     scores = [score_one(r) for r in recs]
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(scores, f, ensure_ascii=False, indent=1)

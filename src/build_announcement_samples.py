@@ -34,21 +34,15 @@ import sys
 sys.stdout.reconfigure(encoding="utf-8")
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SRC = os.path.dirname(os.path.abspath(__file__))
+if SRC not in sys.path:
+    sys.path.insert(0, SRC)
+from ann_utils import MONEY, RATIO, DATE, YMD_DASH, normalize  # noqa: E402
+
 TEXTS = os.path.join(ROOT, "data_cache", "announcement_texts.json")
 OUT = os.path.join(ROOT, "data_cache", "ann_samples.json")
 ID_START = 105                      # 现有 samples.json 最大为 FIN-104
 CONTEXT_LIMIT = 5000                # 喂给模型的原文上限（字符）
-
-# ---- 关键事实抽取模式（ground-truth facts）----
-MONEY = re.compile(r"\d[\d,]*\.?\d*\s*(?:亿元|万元|元|股|份|手|万股|亿股)")
-RATIO = re.compile(r"\d+(?:\.\d+)?\s*%")
-DATE = re.compile(r"\d{4}\s*[-/年]\s*\d{1,2}\s*[-/月]\s*\d{1,2}")
-YMD_DASH = re.compile(r"\d{4}/\d{1,2}/\d{1,2}")
-
-
-def normalize(s):
-    """归一化数值串：去掉空白与千分位，便于后续与模型输出做匹配。"""
-    return re.sub(r"[\s,]", "", s or "")
 
 
 def extract_facts(text):

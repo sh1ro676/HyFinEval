@@ -12,7 +12,7 @@ import sys
 import json
 import argparse
 import statistics as st
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import data_store
 import baseline_app
@@ -58,8 +58,8 @@ def main():
         if use_hy3_app and args.workers > 1:
             with ThreadPoolExecutor(max_workers=args.workers) as ex:
                 futs = {ex.submit(generate_output, s, True, use_rag): s["id"] for s in samples}
-                for f in futs:
-                    outs[f.result() if False else futs[f]] = f.result()
+                for f in as_completed(futs):
+                    outs[futs[f]] = f.result()
         else:
             for s in samples:
                 outs[s["id"]] = generate_output(s, use_hy3_app, use_rag)
