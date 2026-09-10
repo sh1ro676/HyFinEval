@@ -93,7 +93,7 @@ def quad_weighted_kappa(ba: Seq, bb: Seq, k: int = 3) -> Optional[float]:
     n = len(ba)
     if n < 2:
         return None
-    hist = {}
+    hist: dict[tuple[float, float], int] = {}
     for x, y in zip(ba, bb):
         hist[(x, y)] = hist.get((x, y), 0) + 1
     row = [sum(hist.get((i, j), 0) for j in range(k)) for i in range(k)]

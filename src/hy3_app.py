@@ -116,6 +116,7 @@ def generate(sample: Dict[str, Any], use_rag: bool = True,
     # 组装上下文
     ctx_parts = []
     if has_ind:
+        assert code is not None  # has_ind 由 recs 推导，recs 仅当 code 非空才填充
         for y, rec in recs:
             ctx_parts.append("【真实指标表】（" + code + " " + y + "）："
                              + "；".join(f"{k}={v}" for k, v in rec.items()))

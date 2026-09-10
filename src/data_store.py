@@ -34,7 +34,7 @@ def _known_fields() -> List[str]:
     """指标库中出现过的指标名，长名优先（避免「净利润」抢掉「净利润增长率」）。"""
     global _FIELDS
     if _FIELDS is None:
-        names = set()
+        names: set[str] = set()
         for rec in get_indicators().values():
             if isinstance(rec, dict):
                 names.update(rec.keys())

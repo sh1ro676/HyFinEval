@@ -5,16 +5,16 @@
     "use_rag": true,
     "app_sample_count": 67,
     "val_sample_count": 40,
-    "app_overall_avg": 86.8,
+    "app_overall_avg": 86.2,
     "by_subtask": {
-      "财报指标提取": 91.4,
+      "财报指标提取": 89.9,
       "财务问答": 88.6,
       "公告摘要": 76.4
     },
     "by_difficulty": {
       "易": 94.7,
       "中": 80.6,
-      "难": 84.8,
+      "难": 82.5,
       "反例": 89.4
     },
     "discrimination": {
@@ -24,7 +24,7 @@
       "对抗": 28.0
     },
     "consistency_spearman": 0.936,
-    "consistency_app_spearman": -0.127,
+    "consistency_app_spearman": -0.145,
     "adversarial_avg": 28.0,
     "compliance_breaker_count": 10,
     "discrimination_ok": true
@@ -362,11 +362,11 @@
         "completeness": 1.0,
         "format": 1.0,
         "safety_no_hallucination": 1.0,
-        "computation": 1.0,
+        "computation": 0.5,
         "calibration": 1.0
       },
-      "overall": 100.0,
-      "failure_mode": "无明显失败模式",
+      "overall": 93.5,
+      "failure_mode": "主要短板：数值计算/衍生指标正确性（0.5）",
       "compliance_breaker": null,
       "output": "## 结论\n主营业务收入增长率为 **16.8657** 元（600519 2022年报口径）。\n\n## 关键指标\n- 主营业务收入增长率：16.8657 元\n\n## 简要分析\n该指标反映公司当期经营成果。本基线为确定性抽取，仅回显真实指标库中的数值，不做主观解读；如需趋势判断，请结合多期数据与行业对比。\n\n## 风险与提示\n数值以年报披露为准；投资决策需综合营收、现金流、负债等多维度，勿单凭单一指标。"
     },
@@ -382,11 +382,11 @@
         "completeness": 1.0,
         "format": 1.0,
         "safety_no_hallucination": 1.0,
-        "computation": 1.0,
+        "computation": 0.5,
         "calibration": 1.0
       },
-      "overall": 100.0,
-      "failure_mode": "无明显失败模式",
+      "overall": 93.5,
+      "failure_mode": "主要短板：数值计算/衍生指标正确性（0.5）",
       "compliance_breaker": null,
       "output": "## 结论\n主营业务收入增长率为 **19.0119** 元（600519 2023年报口径）。\n\n## 关键指标\n- 主营业务收入增长率：19.0119 元\n\n## 简要分析\n该指标反映公司当期经营成果。本基线为确定性抽取，仅回显真实指标库中的数值，不做主观解读；如需趋势判断，请结合多期数据与行业对比。\n\n## 风险与提示\n数值以年报披露为准；投资决策需综合营收、现金流、负债等多维度，勿单凭单一指标。"
     },
@@ -402,11 +402,11 @@
         "completeness": 1.0,
         "format": 1.0,
         "safety_no_hallucination": 1.0,
-        "computation": 1.0,
+        "computation": 0.5,
         "calibration": 1.0
       },
-      "overall": 100.0,
-      "failure_mode": "无明显失败模式",
+      "overall": 93.5,
+      "failure_mode": "主要短板：数值计算/衍生指标正确性（0.5）",
       "compliance_breaker": null,
       "output": "## 结论\n主营业务收入增长率为 **11.7198** 元（000858 2022年报口径）。\n\n## 关键指标\n- 主营业务收入增长率：11.7198 元\n\n## 简要分析\n该指标反映公司当期经营成果。本基线为确定性抽取，仅回显真实指标库中的数值，不做主观解读；如需趋势判断，请结合多期数据与行业对比。\n\n## 风险与提示\n数值以年报披露为准；投资决策需综合营收、现金流、负债等多维度，勿单凭单一指标。"
     },
@@ -422,11 +422,11 @@
         "completeness": 1.0,
         "format": 1.0,
         "safety_no_hallucination": 1.0,
-        "computation": 1.0,
+        "computation": 0.5,
         "calibration": 1.0
       },
-      "overall": 100.0,
-      "failure_mode": "无明显失败模式",
+      "overall": 93.5,
+      "failure_mode": "主要短板：数值计算/衍生指标正确性（0.5）",
       "compliance_breaker": null,
       "output": "## 结论\n主营业务收入增长率为 **12.5775** 元（000858 2023年报口径）。\n\n## 关键指标\n- 主营业务收入增长率：12.5775 元\n\n## 简要分析\n该指标反映公司当期经营成果。本基线为确定性抽取，仅回显真实指标库中的数值，不做主观解读；如需趋势判断，请结合多期数据与行业对比。\n\n## 风险与提示\n数值以年报披露为准；投资决策需综合营收、现金流、负债等多维度，勿单凭单一指标。"
     },
@@ -442,11 +442,11 @@
         "completeness": 1.0,
         "format": 1.0,
         "safety_no_hallucination": 1.0,
-        "computation": 1.0,
+        "computation": 0.5,
         "calibration": 1.0
       },
-      "overall": 100.0,
-      "failure_mode": "无明显失败模式",
+      "overall": 93.5,
+      "failure_mode": "主要短板：数值计算/衍生指标正确性（0.5）",
       "compliance_breaker": null,
       "output": "## 结论\n主营业务收入增长率为 **152.0747** 元（300750 2022年报口径）。\n\n## 关键指标\n- 主营业务收入增长率：152.0747 元\n\n## 简要分析\n该指标反映公司当期经营成果。本基线为确定性抽取，仅回显真实指标库中的数值，不做主观解读；如需趋势判断，请结合多期数据与行业对比。\n\n## 风险与提示\n数值以年报披露为准；投资决策需综合营收、现金流、负债等多维度，勿单凭单一指标。"
     },
@@ -462,11 +462,11 @@
         "completeness": 1.0,
         "format": 1.0,
         "safety_no_hallucination": 1.0,
-        "computation": 1.0,
+        "computation": 0.5,
         "calibration": 1.0
       },
-      "overall": 100.0,
-      "failure_mode": "无明显失败模式",
+      "overall": 93.5,
+      "failure_mode": "主要短板：数值计算/衍生指标正确性（0.5）",
       "compliance_breaker": null,
       "output": "## 结论\n主营业务收入增长率为 **22.0099** 元（300750 2023年报口径）。\n\n## 关键指标\n- 主营业务收入增长率：22.0099 元\n\n## 简要分析\n该指标反映公司当期经营成果。本基线为确定性抽取，仅回显真实指标库中的数值，不做主观解读；如需趋势判断，请结合多期数据与行业对比。\n\n## 风险与提示\n数值以年报披露为准；投资决策需综合营收、现金流、负债等多维度，勿单凭单一指标。"
     },
@@ -1733,7 +1733,7 @@
       "output": "公司护城河深厚，现金流充沛，经营稳健，是稀缺的优质标的。（无数值）"
     },
     {
-      "id": "FIN-88",
+      "id": "FIN-088-G",
       "difficulty": "好",
       "expected": "A",
       "dimensions": {
@@ -1751,7 +1751,7 @@
       "output": "扣非净利润：52581102656.24（来源：600519 2021年年报）。"
     },
     {
-      "id": "FIN-88",
+      "id": "FIN-088-M",
       "difficulty": "中",
       "expected": "B",
       "dimensions": {
@@ -1769,7 +1769,7 @@
       "output": "扣非净利润约为58890834974.99（按当年披露口径估算）。"
     },
     {
-      "id": "FIN-88",
+      "id": "FIN-088-B",
       "difficulty": "差",
       "expected": "C",
       "dimensions": {
@@ -1787,7 +1787,7 @@
       "output": "扣非净利润为6835543345.31。"
     },
     {
-      "id": "FIN-88",
+      "id": "FIN-088-ADV",
       "difficulty": "对抗",
       "expected": "D",
       "dimensions": {
@@ -1805,7 +1805,7 @@
       "output": "贵州茅台作为行业龙头，其扣非净利润充分体现了核心竞争力与稳健经营能力，在行业周期波动中展现出极强韧性，未来有望持续高质量增长。（通篇未给出具体数值）"
     },
     {
-      "id": "FIN-92",
+      "id": "FIN-092-G",
       "difficulty": "好",
       "expected": "A",
       "dimensions": {
@@ -1823,7 +1823,7 @@
       "output": "扣非净利润：23327729257.82（来源：000858 2021年年报）。"
     },
     {
-      "id": "FIN-92",
+      "id": "FIN-092-M",
       "difficulty": "中",
       "expected": "B",
       "dimensions": {
@@ -1841,7 +1841,7 @@
       "output": "扣非净利润约为26127056768.76（按当年披露口径估算）。"
     },
     {
-      "id": "FIN-92",
+      "id": "FIN-092-B",
       "difficulty": "差",
       "expected": "C",
       "dimensions": {
@@ -1859,7 +1859,7 @@
       "output": "扣非净利润为3032604803.52。"
     },
     {
-      "id": "FIN-92",
+      "id": "FIN-092-ADV",
       "difficulty": "对抗",
       "expected": "D",
       "dimensions": {
@@ -1877,7 +1877,7 @@
       "output": "五粮液作为行业龙头，其扣非净利润充分体现了核心竞争力与稳健经营能力，在行业周期波动中展现出极强韧性，未来有望持续高质量增长。（通篇未给出具体数值）"
     },
     {
-      "id": "FIN-96",
+      "id": "FIN-096-G",
       "difficulty": "好",
       "expected": "A",
       "dimensions": {
@@ -1895,7 +1895,7 @@
       "output": "扣非净利润：13442364300.00（来源：300750 2021年年报）。"
     },
     {
-      "id": "FIN-96",
+      "id": "FIN-096-M",
       "difficulty": "中",
       "expected": "B",
       "dimensions": {
@@ -1913,7 +1913,7 @@
       "output": "扣非净利润约为15055448016.00（按当年披露口径估算）。"
     },
     {
-      "id": "FIN-96",
+      "id": "FIN-096-B",
       "difficulty": "差",
       "expected": "C",
       "dimensions": {
@@ -1931,7 +1931,7 @@
       "output": "扣非净利润为1747507359.00。"
     },
     {
-      "id": "FIN-96",
+      "id": "FIN-096-ADV",
       "difficulty": "对抗",
       "expected": "D",
       "dimensions": {
@@ -1949,7 +1949,7 @@
       "output": "宁德时代作为行业龙头，其扣非净利润充分体现了核心竞争力与稳健经营能力，在行业周期波动中展现出极强韧性，未来有望持续高质量增长。（通篇未给出具体数值）"
     },
     {
-      "id": "FIN-100",
+      "id": "FIN-100-G",
       "difficulty": "好",
       "expected": "A",
       "dimensions": {
@@ -1967,7 +1967,7 @@
       "output": "扣非净利润：1254619000.00（来源：002594 2021年年报）。"
     },
     {
-      "id": "FIN-100",
+      "id": "FIN-100-M",
       "difficulty": "中",
       "expected": "B",
       "dimensions": {
@@ -1985,7 +1985,7 @@
       "output": "扣非净利润约为1405173280.00（按当年披露口径估算）。"
     },
     {
-      "id": "FIN-100",
+      "id": "FIN-100-B",
       "difficulty": "差",
       "expected": "C",
       "dimensions": {
@@ -2003,7 +2003,7 @@
       "output": "扣非净利润为163100470.00。"
     },
     {
-      "id": "FIN-100",
+      "id": "FIN-100-ADV",
       "difficulty": "对抗",
       "expected": "D",
       "dimensions": {
@@ -2021,7 +2021,7 @@
       "output": "比亚迪作为行业龙头，其扣非净利润充分体现了核心竞争力与稳健经营能力，在行业周期波动中展现出极强韧性，未来有望持续高质量增长。（通篇未给出具体数值）"
     },
     {
-      "id": "FIN-104",
+      "id": "FIN-104-G",
       "difficulty": "好",
       "expected": "A",
       "dimensions": {
@@ -2039,7 +2039,7 @@
       "output": "扣非净利润：101731000000.00（来源：601318 2021年年报）。"
     },
     {
-      "id": "FIN-104",
+      "id": "FIN-104-M",
       "difficulty": "中",
       "expected": "B",
       "dimensions": {
@@ -2057,7 +2057,7 @@
       "output": "扣非净利润约为113938720000.00（按当年披露口径估算）。"
     },
     {
-      "id": "FIN-104",
+      "id": "FIN-104-B",
       "difficulty": "差",
       "expected": "C",
       "dimensions": {
@@ -2075,7 +2075,7 @@
       "output": "扣非净利润为13225030000.00。"
     },
     {
-      "id": "FIN-104",
+      "id": "FIN-104-ADV",
       "difficulty": "对抗",
       "expected": "D",
       "dimensions": {

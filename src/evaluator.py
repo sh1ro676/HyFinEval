@@ -209,6 +209,7 @@ def _rule_evaluate(sample: Sample, output: Output) -> Tuple[Dict[str, float], fl
             if cross_vals and len(cross_vals) >= 2:
                 hits = 0
                 for tv in cross_vals:
+                    assert tv is not None  # cross_vals 已过滤 None，此处收窄类型
                     if any(abs(x - tv) / (abs(tv) or 1) <= 0.02 for x in nums):
                         hits += 1
                 ratio = hits / len(cross_vals)
@@ -263,7 +264,7 @@ def _rule_evaluate(sample: Sample, output: Output) -> Tuple[Dict[str, float], fl
 
 
 def _failure_mode(dims: Dict[str, float]) -> str:
-    weak = min(dims, key=dims.get)
+    weak = min(dims, key=lambda k: dims[k])
     names = {k: v["name"] for k, v in rubric.DIMENSIONS.items()}
     if dims[weak] >= 0.8:
         return "无明显失败模式"

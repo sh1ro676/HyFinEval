@@ -1,5 +1,7 @@
 # A+B 路径实现（金融方向 · 第一版）
 
+> ⚠️ **存档注记**：本文档是第一版开发期的说明存档，其目录结构、评测结果（81.3/0.998）等已被后续演进取代。当前完整、最新的项目文档见**仓库根目录 `README.md`**，代码以 `src/` 实际为准（现含 `compliance.py`/`stats_utils.py`/`ann_utils.py`/`retrieval.py` 等模块及 `tests/`）。此处仅保留历史上下文，运行方法请以主 README「快速开始」为准。
+
 基于「犀牛鸟开源-实战任务-混元大语言模型项目」第一个任务：开放式场景的 AI 应用 + 评判标准设计。
 本目录为 **路径 A+B（轻量 LLM-as-Judge + 引用可验证）** 的可运行第一版。
 
@@ -34,8 +36,8 @@ python run_demo.py
 
 # 2) 接入真实 Hy3（需先设置环境变量）
 export HY3_API_KEY="你的key"        # 或 HUNYUAN_API_KEY
-export HY3_BASE_URL="https://api.hunyuan.cloud.tencent.com/v1"
-export HY3_MODEL="hunyuan-turbo"
+export HY3_BASE_URL="https://tokenhub-intl.tencentmaas.com/v1"   # 默认走 TokenHub 平台，与 config.py 一致
+export HY3_MODEL="hy3"
 python run_eval.py --use-hy3        # 应用层与裁判均用 Hy3
 python run_eval.py --use-hy3-judge  # 应用用基线，仅裁判用 Hy3 交叉验证
 ```
