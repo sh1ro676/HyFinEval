@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  test:
+    name: pytest (py${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # 3.11 验证向后兼容（项目用了 from __future__ import annotations），
+        # 3.13 与本地开发/评测环境一致
+        python-version: ["3.11", "3.13"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install test dependencies
+        # 仅装测试所需最小集：pytest + requests（evaluator -> hy3_app 依赖 requests）。
+        # 不装 akshare/pandas/streamlit 等重型包——测试链路不触及，装了会显著拖慢 CI。
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest requests
+
+      - name: Run unit tests
+        # 全部用例为离线确定性测试，不发起任何网络请求、不需要 API key
+        run: python -m pytest tests/ -q
