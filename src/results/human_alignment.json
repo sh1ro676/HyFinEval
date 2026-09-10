@@ -1,18 +1,18 @@
 {
   "n_labeled_A": 28,
   "n_labeled_B": 0,
-  "auto_vs_humanA_spearman": 0.275,
-  "auto_vs_humanA_kendall": 0.234,
-  "auto_vs_humanA_mae": 24.257,
+  "auto_vs_humanA_spearman": 0.278,
+  "auto_vs_humanA_kendall": 0.239,
+  "auto_vs_humanA_mae": 24.279,
   "n_alignA": 28,
-  "n_unique_autoA": 9,
+  "n_unique_autoA": 8,
   "n_unique_humanA": 3,
   "per_subtask": {
     "公告摘要": {
       "n": 8,
-      "spearman": 0.014,
-      "kendall": 0.05,
-      "auto_avg": 75.8,
+      "spearman": 0.066,
+      "kendall": 0.106,
+      "auto_avg": 77.5,
       "human_band_dist": {
         "优": 1,
         "中": 5,
@@ -23,7 +23,7 @@
       "n": 11,
       "spearman": 0.0,
       "kendall": 0.0,
-      "auto_avg": 95.9,
+      "auto_avg": 95.2,
       "human_band_dist": {
         "优": 5,
         "中": 4,
@@ -34,7 +34,7 @@
       "n": 9,
       "spearman": 0.151,
       "kendall": 0.141,
-      "auto_avg": 89.7,
+      "auto_avg": 89.2,
       "human_band_dist": {
         "优": 6,
         "中": 3,
@@ -42,18 +42,18 @@
       }
     }
   },
-  "band_agreement_exact": 0.429,
+  "band_agreement_exact": 0.393,
   "band_agreement_adjacent": 0.893,
-  "band_kappa_auto_vs_human": 0.663,
+  "band_kappa_auto_vs_human": 0.645,
   "band_threshold_note": "auto 分档阈值：>=95 优 / 85~95 中 / <85 差",
   "confusion_matrix": {
     "差": {
-      "差": 2,
+      "差": 1,
       "中": 5,
       "优": 2
     },
     "中": {
-      "差": 1,
+      "差": 2,
       "中": 3,
       "优": 3
     },

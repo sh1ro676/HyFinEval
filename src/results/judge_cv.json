@@ -1,7 +1,7 @@
 {
-  "n": 22,
-  "spearman_rule_vs_judge": 0.129,
-  "mean_abs_diff": 11.182,
+  "n": 24,
+  "spearman_rule_vs_judge": 0.515,
+  "mean_abs_diff": 14.962,
   "ids": [
     "FIN-019",
     "FIN-032",
@@ -13,6 +13,7 @@
     "FIN-028",
     "FIN-022",
     "FIN-005",
+    "FIN-052",
     "FIN-031",
     "FIN-043",
     "FIN-053",
@@ -24,6 +25,7 @@
     "FIN-008",
     "FIN-083",
     "FIN-044",
-    "FIN-020"
+    "FIN-020",
+    "FIN-035"
   ]
 }

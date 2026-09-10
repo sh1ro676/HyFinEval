@@ -46,13 +46,14 @@ USE_HY3 = bool(HY3_API_KEY)
 # 权重和 = 1.0。2026-08-31：原 5 维扩充为 8 维（新增 computation/calibration/explainability）；
 # 2026-08-31（二轮）：将重叠的 explainability 并入 format（0.05+0.08=0.13），回归 7 维。
 DIMENSION_WEIGHTS = {
-    "factual_accuracy": 0.18,          # 数值与真实指标一致（规则校验）
-    "citation_verifiability": 0.18,   # A+B 核心硬维度：引用可追溯
-    "completeness": 0.12,             # 覆盖问题全部要点
+    "factual_accuracy": 0.21,          # 数值与真实指标一致（规则校验）
+    "citation_verifiability": 0.21,   # A+B 核心硬维度：引用可追溯
+    "completeness": 0.00,             # 2026-09-10 权重重构：67 条应用样本实证恒满分（零方差、无判别力），
+                                      # 权重按比例重分给其余有方差维度；维度分仍计算并展示（供诊断），不参与总分
     "format": 0.13,                   # 格式规范 + 可解释（合并原可解释性，权重并入）
-    "safety_no_hallucination": 0.16,  # 反例/对抗识别、不编造
-    "computation": 0.13,              # 衍生指标计算正确性（闭卷模式判别力来源）
-    "calibration": 0.10,              # 不确定时审慎表达，不假精确
+    "safety_no_hallucination": 0.18,  # 反例/对抗识别、不编造
+    "computation": 0.15,              # 衍生指标计算正确性（闭卷模式判别力来源）
+    "calibration": 0.12,              # 不确定时审慎表达，不假精确
 }
 
 DIMENSION_NAMES = {
