@@ -1,0 +1,73 @@
+{
+  "n": 23,
+  "baseline": {
+    "rule_score": {
+      "n": 23,
+      "spearman": 0.197,
+      "kappa": 0.595,
+      "mae": 28.12,
+      "strict_agreement": 0.478,
+      "adjacent_agreement": 0.826
+    },
+    "committee_mean": {
+      "n": 23,
+      "spearman": 0.643,
+      "kappa": 0.67,
+      "mae": 26.06,
+      "strict_agreement": 0.391,
+      "adjacent_agreement": 0.913
+    }
+  },
+  "bt_per_role": {
+    "strict_auditor": {
+      "n": 23,
+      "spearman": 0.571,
+      "kappa": 0.666,
+      "mae": 45.94,
+      "strict_agreement": 0.348,
+      "adjacent_agreement": 0.87,
+      "transitivity_violation": 0.0
+    },
+    "pragmatic_analyst": {
+      "n": 23,
+      "spearman": 0.631,
+      "kappa": 0.717,
+      "mae": 41.83,
+      "strict_agreement": 0.391,
+      "adjacent_agreement": 0.913,
+      "transitivity_violation": 0.0
+    },
+    "casual_reader": {
+      "n": 23,
+      "spearman": 0.59,
+      "kappa": 0.72,
+      "mae": 42.58,
+      "strict_agreement": 0.391,
+      "adjacent_agreement": 0.913,
+      "transitivity_violation": 0.0
+    },
+    "committee_mean": {
+      "n": 23,
+      "spearman": 0.643,
+      "kappa": 0.616,
+      "mae": 49.94,
+      "strict_agreement": 0.304,
+      "adjacent_agreement": 0.826,
+      "transitivity_violation": 0.0
+    }
+  },
+  "bt_fusion": {
+    "n": 23,
+    "spearman": 0.593,
+    "kappa": 0.658,
+    "mae": 37.94,
+    "strict_agreement": 0.348,
+    "adjacent_agreement": 0.87
+  },
+  "transitivity": {
+    "strict_auditor": 0.0,
+    "pragmatic_analyst": 0.0,
+    "casual_reader": 0.0,
+    "committee_mean": 0.0
+  }
+}
