@@ -1,0 +1,371 @@
+{
+  "n_total": 28,
+  "median_std": 2.25,
+  "all": {
+    "n": 28,
+    "spearman": 0.259,
+    "kappa": 0.632,
+    "mae": 24.47,
+    "strict_agreement": 0.571,
+    "adjacent_agreement": 0.857,
+    "description": "全量样本"
+  },
+  "low_disagreement": {
+    "n": 14,
+    "spearman": -0.392,
+    "kappa": 0.562,
+    "mae": 18.92,
+    "strict_agreement": 0.714,
+    "adjacent_agreement": 0.929,
+    "description": "低分歧组（std < 2.25）"
+  },
+  "high_disagreement": {
+    "n": 14,
+    "spearman": -0.03,
+    "kappa": 0.524,
+    "mae": 30.02,
+    "strict_agreement": 0.429,
+    "adjacent_agreement": 0.786,
+    "description": "高分歧组（std >= 2.25）"
+  },
+  "by_reliability": {
+    "可信": {
+      "n": 20,
+      "spearman": 0.007,
+      "kappa": 0.731,
+      "mae": 20.51,
+      "strict_agreement": 0.65,
+      "adjacent_agreement": 0.95,
+      "description": "可靠性=可信"
+    },
+    "存疑": {
+      "n": 3,
+      "spearman": -1.0,
+      "kappa": 0.0,
+      "mae": 39.63,
+      "strict_agreement": 0.333,
+      "adjacent_agreement": 0.333,
+      "description": "可靠性=存疑"
+    },
+    "需人工复核": {
+      "n": 5,
+      "spearman": -0.167,
+      "kappa": 0.531,
+      "mae": 31.24,
+      "strict_agreement": 0.4,
+      "adjacent_agreement": 0.8,
+      "description": "可靠性=需人工复核"
+    }
+  },
+  "by_subtask": {
+    "财务问答": {
+      "n": 11,
+      "spearman": 0.0,
+      "kappa": 0.5,
+      "mae": 28.18,
+      "strict_agreement": 0.455,
+      "adjacent_agreement": 0.818,
+      "description": "子任务=财务问答"
+    },
+    "财报指标提取": {
+      "n": 9,
+      "spearman": -0.055,
+      "kappa": 0.523,
+      "mae": 22.22,
+      "strict_agreement": 0.556,
+      "adjacent_agreement": 0.889,
+      "description": "子任务=财报指标提取"
+    },
+    "公告摘要": {
+      "n": 8,
+      "spearman": 0.073,
+      "kappa": 0.688,
+      "mae": 21.9,
+      "strict_agreement": 0.75,
+      "adjacent_agreement": 0.875,
+      "description": "子任务=公告摘要"
+    }
+  },
+  "samples": [
+    {
+      "id": "FIN-045",
+      "rule_score": 100.0,
+      "committee_mean": 100.0,
+      "committee_std": 0.0,
+      "committee_reliability": "可信",
+      "human_band": "中",
+      "human_score": 60,
+      "subtask": "财务问答"
+    },
+    {
+      "id": "FIN-035",
+      "rule_score": 86.8,
+      "committee_mean": 100.0,
+      "committee_std": 0.0,
+      "committee_reliability": "可信",
+      "human_band": "优",
+      "human_score": 90,
+      "subtask": "财务问答"
+    },
+    {
+      "id": "FIN-010",
+      "rule_score": 86.8,
+      "committee_mean": 100.0,
+      "committee_std": 0.0,
+      "committee_reliability": "可信",
+      "human_band": "优",
+      "human_score": 90,
+      "subtask": "财报指标提取"
+    },
+    {
+      "id": "FIN-019",
+      "rule_score": 100.0,
+      "committee_mean": 100.0,
+      "committee_std": 0.0,
+      "committee_reliability": "可信",
+      "human_band": "优",
+      "human_score": 90,
+      "subtask": "财报指标提取"
+    },
+    {
+      "id": "FIN-025",
+      "rule_score": 100.0,
+      "committee_mean": 100.0,
+      "committee_std": 0.0,
+      "committee_reliability": "可信",
+      "human_band": "中",
+      "human_score": 60,
+      "subtask": "财报指标提取"
+    },
+    {
+      "id": "FIN-043",
+      "rule_score": 86.8,
+      "committee_mean": 69.1,
+      "committee_std": 11.17,
+      "committee_reliability": "需人工复核",
+      "human_band": "差",
+      "human_score": 30,
+      "subtask": "财务问答"
+    },
+    {
+      "id": "FIN-083",
+      "rule_score": 100.0,
+      "committee_mean": 99.0,
+      "committee_std": 1.73,
+      "committee_reliability": "可信",
+      "human_band": "优",
+      "human_score": 90,
+      "subtask": "财务问答"
+    },
+    {
+      "id": "FIN-032",
+      "rule_score": 100.0,
+      "committee_mean": 100.0,
+      "committee_std": 0.0,
+      "committee_reliability": "可信",
+      "human_band": "中",
+      "human_score": 60,
+      "subtask": "财务问答"
+    },
+    {
+      "id": "FIN-031",
+      "rule_score": 100.0,
+      "committee_mean": 100.0,
+      "committee_std": 0.0,
+      "committee_reliability": "可信",
+      "human_band": "优",
+      "human_score": 90,
+      "subtask": "财务问答"
+    },
+    {
+      "id": "FIN-028",
+      "rule_score": 100.0,
+      "committee_mean": 98.2,
+      "committee_std": 2.25,
+      "committee_reliability": "可信",
+      "human_band": "优",
+      "human_score": 90,
+      "subtask": "财务问答"
+    },
+    {
+      "id": "FIN-057",
+      "rule_score": 74.2,
+      "committee_mean": 90.6,
+      "committee_std": 4.21,
+      "committee_reliability": "可信",
+      "human_band": "中",
+      "human_score": 60,
+      "subtask": "公告摘要"
+    },
+    {
+      "id": "FIN-052",
+      "rule_score": 74.2,
+      "committee_mean": 81.0,
+      "committee_std": 20.78,
+      "committee_reliability": "需人工复核",
+      "human_band": "差",
+      "human_score": 30,
+      "subtask": "公告摘要"
+    },
+    {
+      "id": "FIN-046",
+      "rule_score": 100.0,
+      "committee_mean": 95.3,
+      "committee_std": 4.07,
+      "committee_reliability": "可信",
+      "human_band": "中",
+      "human_score": 60,
+      "subtask": "财务问答"
+    },
+    {
+      "id": "FIN-060",
+      "rule_score": 74.2,
+      "committee_mean": 73.3,
+      "committee_std": 14.84,
+      "committee_reliability": "需人工复核",
+      "human_band": "中",
+      "human_score": 60,
+      "subtask": "公告摘要"
+    },
+    {
+      "id": "FIN-022",
+      "rule_score": 40.0,
+      "committee_mean": 92.0,
+      "committee_std": 8.54,
+      "committee_reliability": "存疑",
+      "human_band": "优",
+      "human_score": 90,
+      "subtask": "财报指标提取"
+    },
+    {
+      "id": "FIN-044",
+      "rule_score": 100.0,
+      "committee_mean": 85.8,
+      "committee_std": 0.17,
+      "committee_reliability": "可信",
+      "human_band": "差",
+      "human_score": 30,
+      "subtask": "财务问答"
+    },
+    {
+      "id": "FIN-020",
+      "rule_score": 100.0,
+      "committee_mean": 98.7,
+      "committee_std": 1.53,
+      "committee_reliability": "可信",
+      "human_band": "优",
+      "human_score": 90,
+      "subtask": "财报指标提取"
+    },
+    {
+      "id": "FIN-006",
+      "rule_score": 100.0,
+      "committee_mean": 100.0,
+      "committee_std": 0.0,
+      "committee_reliability": "可信",
+      "human_band": "优",
+      "human_score": 90,
+      "subtask": "财报指标提取"
+    },
+    {
+      "id": "FIN-005",
+      "rule_score": 100.0,
+      "committee_mean": 100.0,
+      "committee_std": 0.0,
+      "committee_reliability": "可信",
+      "human_band": "优",
+      "human_score": 90,
+      "subtask": "财报指标提取"
+    },
+    {
+      "id": "FIN-034",
+      "rule_score": 86.8,
+      "committee_mean": 99.3,
+      "committee_std": 0.0,
+      "committee_reliability": "可信",
+      "human_band": "优",
+      "human_score": 90,
+      "subtask": "财务问答"
+    },
+    {
+      "id": "FIN-059",
+      "rule_score": 84.7,
+      "committee_mean": 72.9,
+      "committee_std": 8.61,
+      "committee_reliability": "存疑",
+      "human_band": "差",
+      "human_score": 30,
+      "subtask": "公告摘要"
+    },
+    {
+      "id": "FIN-058",
+      "rule_score": 74.2,
+      "committee_mean": 88.2,
+      "committee_std": 4.13,
+      "committee_reliability": "可信",
+      "human_band": "中",
+      "human_score": 60,
+      "subtask": "公告摘要"
+    },
+    {
+      "id": "FIN-008",
+      "rule_score": 100.0,
+      "committee_mean": 97.6,
+      "committee_std": 4.1,
+      "committee_reliability": "可信",
+      "human_band": "中",
+      "human_score": 60,
+      "subtask": "财报指标提取"
+    },
+    {
+      "id": "FIN-049",
+      "rule_score": 84.7,
+      "committee_mean": 90.7,
+      "committee_std": 0.99,
+      "committee_reliability": "可信",
+      "human_band": "优",
+      "human_score": 90,
+      "subtask": "公告摘要"
+    },
+    {
+      "id": "FIN-012",
+      "rule_score": 86.8,
+      "committee_mean": 96.3,
+      "committee_std": 3.56,
+      "committee_reliability": "可信",
+      "human_band": "中",
+      "human_score": 60,
+      "subtask": "财报指标提取"
+    },
+    {
+      "id": "FIN-053",
+      "rule_score": 74.2,
+      "committee_mean": 78.6,
+      "committee_std": 7.15,
+      "committee_reliability": "存疑",
+      "human_band": "中",
+      "human_score": 60,
+      "subtask": "公告摘要"
+    },
+    {
+      "id": "FIN-084",
+      "rule_score": 86.8,
+      "committee_mean": 86.1,
+      "committee_std": 18.88,
+      "committee_reliability": "需人工复核",
+      "human_band": "中",
+      "human_score": 60,
+      "subtask": "财务问答"
+    },
+    {
+      "id": "FIN-061",
+      "rule_score": 74.2,
+      "committee_mean": 66.6,
+      "committee_std": 10.99,
+      "committee_reliability": "需人工复核",
+      "human_band": "中",
+      "human_score": 60,
+      "subtask": "公告摘要"
+    }
+  ]
+}

@@ -308,7 +308,86 @@ def hy3_judge(sample: Sample, output: Output) -> Optional[Dict[str, Any]]:
         return None
 
 
-def evaluate(sample: Sample, output: Output, use_hy3_judge: bool = False) -> Dict[str, Any]:
+def _call_judge_role(sample: Sample, output: Output, role_key: str, system_prompt: str) -> Optional[Dict[str, Any]]:
+    """对指定角色调用一次 Hy3 裁判。"""
+    if not config.USE_HY3:
+        return None
+    out_text = output.get("answer", "") if isinstance(output, dict) else str(output)
+    cit = output.get("citations", []) if isinstance(output, dict) else []
+    cit_str = ""
+    if isinstance(cit, list) and cit:
+        parts = []
+        for c in cit:
+            if isinstance(c, dict):
+                parts.append("·".join(f"{k}={v}" for k, v in c.items() if k in
+                                      ("field", "company", "year", "page", "source")))
+            else:
+                parts.append(str(c))
+        cit_str = "；".join(parts)
+    user = (f"【样本输入】{sample.get('input', '')}\n【模型输出】{out_text}\n"
+            f"【结构化引用 citations】{cit_str if cit_str else '（无）'}\n"
+            f"【真实参考】{sample.get('reference_output','')}\n请按 rubric 打分。")
+    res = hy3_app.call_hy3([
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user},
+    ], temperature=0.3)  # 适度放大角色差异
+    if not res:
+        return None
+    try:
+        import json
+        j = json.loads(hy3_app._extract_json(res))
+        j["_role"] = role_key
+        return j
+    except Exception:
+        return None
+
+
+def hy3_committee(sample: Sample, output: Output) -> Optional[Dict[str, Any]]:
+    """裁判委员会：三角色独立打分，输出平均分 + 分歧度（标准差）。
+
+    核心假设：裁判分歧大的样本，自动评分的不确定性也高；分歧度可作为
+    「选择性可信」信号——低分歧时采纳自动分，高分歧时标记需人工复核。
+    裁判分数**不并入主分**，仅做交叉验证与不确定性量化。
+    """
+    if not config.USE_HY3:
+        return None
+    import statistics
+    scores = []
+    role_results = []
+    for role_key, role_name, prompt in rubric.COMMITTEE_ROLES:
+        j = _call_judge_role(sample, output, role_key, prompt)
+        if j and isinstance(j.get("overall"), (int, float)):
+            scores.append(float(j["overall"]))
+            role_results.append({
+                "role": role_key,
+                "role_name": role_name,
+                "overall": float(j["overall"]),
+                "failure_mode": j.get("failure_mode", ""),
+                "dimensions": j.get("dimensions", {}),
+            })
+    if not scores:
+        return None
+    mean = statistics.mean(scores)
+    std = statistics.stdev(scores) if len(scores) > 1 else 0.0
+    range_val = max(scores) - min(scores)
+    # 可靠性阈值：基于 28 条预实验观察，std < 5 视为高度一致，5~10 中等，>=10 显著分歧
+    if std < 5.0:
+        reliability = "可信"
+    elif std < 10.0:
+        reliability = "存疑"
+    else:
+        reliability = "需人工复核"
+    return {
+        "committee_scores": scores,
+        "committee_mean": round(mean, 1),
+        "committee_std": round(std, 2),
+        "committee_range": round(range_val, 1),
+        "committee_reliability": reliability,
+        "role_results": role_results,
+    }
+
+
+def evaluate(sample: Sample, output: Output, use_hy3_judge: bool = False, use_committee: bool = False) -> Dict[str, Any]:
     dims, overall, fm = _rule_evaluate(sample, output)
     # 合规熔断层：金融红线命中即封顶（独立于维度加权分）
     overall, breaker = compliance.circuit_breaker(sample, output, dims, overall)
@@ -324,4 +403,8 @@ def evaluate(sample: Sample, output: Output, use_hy3_judge: bool = False) -> Dic
         if j:
             result["hy3_judge_overall"] = j.get("overall")
             result["hy3_judge_dims"] = j.get("dimensions")
+    if use_committee:
+        c = hy3_committee(sample, output)
+        if c:
+            result["committee"] = c
     return result
