@@ -11,13 +11,14 @@
 </p>
 
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="License"></a>
-  <a href="https://www.python.org"><img src="https://img.shields.io/badge/python-3.13-3776AB" alt="Python"></a>
-  <a href="src/evaluator.py"><img src="https://img.shields.io/badge/evaluation-reproducible-brightgreen" alt="Reproducible Eval"></a>
-  <a href="src/results/eval_report.md"><img src="https://img.shields.io/badge/consistency-Spearman_0.936-9cf" alt="Consistency"></a>
-  <a href="src/results/human_alignment.json"><img src="https://img.shields.io/badge/human_alignment-%CE%BA_0.645-blue" alt="Human Alignment"></a>
-  <a href="samples.json"><img src="https://img.shields.io/badge/samples-107-blueviolet" alt="Samples"></a>
-  <a href="samples.json"><img src="https://img.shields.io/badge/hard%2Fadversarial-44%25-orange" alt="Hard ratio"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="License"></a>
+  <a href="https://www.python.org"><img src="https://img.shields.io/badge/python-3.13-3776AB?style=flat-square" alt="Python"></a>
+  <a href="src/evaluator.py"><img src="https://img.shields.io/badge/evaluation-reproducible-brightgreen?style=flat-square" alt="Reproducible Eval"></a>
+  <a href="src/results/eval_report.md"><img src="https://img.shields.io/badge/consistency-Spearman_0.936-9cf?style=flat-square" alt="Consistency"></a>
+  <a href="src/results/human_alignment.json"><img src="https://img.shields.io/badge/human_alignment-%CE%BA_0.645-blue?style=flat-square" alt="Human Alignment"></a>
+  <a href="src/results/strict_auditor_analysis.json"><img src="https://img.shields.io/badge/strict_auditor-%CE%BA_0.696-blueviolet?style=flat-square" alt="Strict Auditor"></a>
+  <a href="samples.json"><img src="https://img.shields.io/badge/samples-150-blueviolet?style=flat-square" alt="Samples"></a>
+  <a href="samples.json"><img src="https://img.shields.io/badge/hard%2Fadversarial-44%25-orange?style=flat-square" alt="Hard ratio"></a>
 </p>
 
 <br/>
@@ -46,7 +47,11 @@
 
 ---
 
-## 一句话亮点
+<p align="right"><a href="#top">⬆ 回到顶部</a></p>
+
+## ✨ 一句话亮点
+
+<p align="right"><a href="#top">⬆ 回到顶部</a></p>
 
 > 不堆花哨应用，而是把 **80% 的精力压在任务书真正看重的「评估方法设计」上**：用一套 **7 维度可量化 rubric + 引用可验证硬规则 + 三件套有效性验证**，把"什么叫好的金融 AI 输出"变成**可复现、可证伪**的数字。
 
@@ -56,11 +61,13 @@
 
 本项目以金融分析为落地场景，基于腾讯混元（Hy3 / HunYuan）大模型 API 构建了一个金融问答 / 指标提取应用，并设计了与之配套的评估体系。评估体系在 107 条样本（应用 67 + 验证集 40）上跑通，关键验证指标：**内部判别力排序正确（好 77.5 > 中 42.9 > 差 26.5 > 对抗 20.5，严格递减）、对抗样本平均分仅 20.5（远低于 50 阈值）**。
 
-> **关于"一致性"的诚实说明**：上述判别力是「评估分 vs 作者构造的好坏档」的**内部自洽验证**，**不等同于"自动评分与独立人类判定对齐"**。本项目的"人类对齐"证据由独立的**人工标注研究**提供（28 条真人盲标，三档二次加权 κ = 0.645、细粒度 Spearman = 0.278，当前口径；方案A 修复后为 κ = 0.663、ρ = 0.275，修复前 κ=0.708/ρ=0.050），见下方「E. 人工对齐」节。该研究同时暴露出评估器的真实边界：缺真值子任务（公告摘要）原呈显著负相关（−0.466），方案A 修复 `calibration`/`citation` 后转为近中性（历史消融口径 +0.014）。
+> ⚠️ **关于"一致性"的诚实说明**：上述判别力是「评估分 vs 作者构造的好坏档」的**内部自洽验证**，**不等同于"自动评分与独立人类判定对齐"**。本项目的"人类对齐"证据由独立的**人工标注研究**提供（28 条真人盲标，三档二次加权 κ = 0.645、细粒度 Spearman = 0.278，当前口径；方案A 修复后为 κ = 0.663、ρ = 0.275，修复前 κ=0.708/ρ=0.050），见下方「E. 人工对齐」节。该研究同时暴露出评估器的真实边界：缺真值子任务（公告摘要）原呈显著负相关（−0.466），方案A 修复 `calibration`/`citation` 后转为近中性（历史消融口径 +0.014）。
 
 ---
 
-## 项目亮点
+## 🏆 项目亮点
+
+<p align="right"><a href="#top">⬆ 回到顶部</a></p>
 
 | # | 亮点 | 说明 |
 |---|---|---|
@@ -74,7 +81,9 @@
 
 ---
 
-## 系统架构
+## 🏗️ 系统架构
+
+<p align="right"><a href="#top">⬆ 回到顶部</a></p>
 
 ```mermaid
 flowchart TB
@@ -103,7 +112,7 @@ flowchart TB
 
 ---
 
-## 评测方法：7 维度可量化 Rubric
+## 📐 评测方法：7 维度可量化 Rubric
 
 评估真相**只用 `data_cache/indicators.json` 里的真实财务数据**（反例样本的"标准答案"是故意写错的，绝不当真相）。每条样本打 7 个维度（取 1.0 / 0.5 / 0.0 三档），加权合成 0–100 总分。
 
@@ -123,7 +132,7 @@ flowchart TB
 
 ---
 
-## 评测结果（真实数据）
+## 📊 评测结果（真实数据）
 
 > 评估体系在 107 条样本（应用 67 + 验证集 40）上跑通；以下给出**基线版**与**真实混元 Hy3 接入版**两档结果，验证"换模型不影响评估体系成立"。维度已于 2026-08-31 由 5 维扩充并合并至 7 维（消除「格式/可解释」重叠）；判别力阶梯于同日由每档 5 条扩充至每档 10 条，验证集 20→40。
 
@@ -151,7 +160,7 @@ flowchart TB
 | **内部一致性** | 评估分 vs 构造好坏档（好/中/差/对抗）排序吻合（验证集 40 条） | ✅ 自洽（非独立人类对齐） |
 | **对抗性** | 对抗样本均分 20.5（阈值 < 50） | ✅ 可识破堆术语/伪引用/编造 |
 
-> **关于"一致性"的诚实说明**：上表数值实为「评估分 vs 作者构造的好坏档」的**内部自洽性**（验证集为人工构造的好/中/差/对抗四档，每档 10 条），实测 Spearman = **0.936**，证明 rubric 能复现构造档位，但**不等同于"自动评分与独立人类判定对齐"**——构造档位质量差异明显，会高估评估器在真实输出分布上的表现。
+> ⚠️ **关于"一致性"的诚实说明**：上表数值实为「评估分 vs 作者构造的好坏档」的**内部自洽性**（验证集为人工构造的好/中/差/对抗四档，每档 10 条），实测 Spearman = **0.936**，证明 rubric 能复现构造档位，但**不等同于"自动评分与独立人类判定对齐"**——构造档位质量差异明显，会高估评估器在真实输出分布上的表现。
 >
 > 应用样本上评估分 vs 题目预设档位（A/D 二值）的相关为 **−0.185**，但该指标本身**设计不当**：A/D 标记的是"该样本是否为对抗样本"，而非答案质量，A 组内部的质量差异完全未被刻画，故不作为效度证据。
 >
@@ -161,7 +170,7 @@ flowchart TB
 
 > 本实验回应"评估器是否只是在抄注入的指标表"这一质疑：若**闭卷**（不注入指标表）下直接依赖指标表的维度显著下滑，而开卷稳定，则证明该维度测的是"基于真实数据的溯源能力"而非套路。
 >
-> **口径说明（重要）**：当前保留的两份结果**生成器不同**——开卷为**基线生成 + RAG**（eval_results.json），闭卷为**真实 Hy3 生成 + 无 RAG**（eval_results_norag.json）。综合分之差混入了生成器风格因素，仅作参考；**由 RAG 直接决定的维度（引用可验证性）提供干净证据**。
+> 📌 **口径说明（重要）**：当前保留的两份结果**生成器不同**——开卷为**基线生成 + RAG**（eval_results.json），闭卷为**真实 Hy3 生成 + 无 RAG**（eval_results_norag.json）。综合分之差混入了生成器风格因素，仅作参考；**由 RAG 直接决定的维度（引用可验证性）提供干净证据**。
 
 **结果（应用 67 条，逐维度均值；开卷列为方案A 后 evaluator 重算，闭卷列仍为方案A 前口径）**：
 
@@ -180,7 +189,7 @@ flowchart TB
 
 ### C2. 裁判委员会与不确定性量化（多 Agent 第一优先 · 已验证）
 
-> **动机**：单裁判交叉验证 ρ = 0.515 仅说明「规则分与模型裁判中等相关」，但未回答一个更关键的问题——**裁判什么时候可信、什么时候不可信？** 若裁判内部高度一致的样本自动分也更可靠，则可引入「选择性可信」机制：低分歧时采纳自动分，高分歧时标记人工复核。
+> 💡 **动机**：单裁判交叉验证 ρ = 0.515 仅说明「规则分与模型裁判中等相关」，但未回答一个更关键的问题——**裁判什么时候可信、什么时候不可信？** 若裁判内部高度一致的样本自动分也更可靠，则可引入「选择性可信」机制：低分歧时采纳自动分，高分歧时标记人工复核。
 
 **方法**：让同一 Hy3 模型扮演三个独立角色各自打分（**不换模型，仅换 role prompt**）：
 - **严格审计员**（四大会计风格）：数字误差 >1% 即扣分，引用必须精确追溯到公司-年份-字段；
@@ -220,7 +229,7 @@ python src/analyze_committee.py
 
 ### C3. 成对比较锦标赛（模拟验证 · 方向C）
 
-> **动机**：绝对打分（0-100）认知负担高、并列严重（28 条自动分仅 8 个不同取值），导致细粒度排序 ρ 仅 0.259。成对比较（"A 比 B 好"）认知负担更低、一致性更高，且天然消除 ceiling effect——因为不需要给"90"还是"92"，只需要说"A>B"。
+> 💡 **动机**：绝对打分（0-100）认知负担高、并列严重（28 条自动分仅 8 个不同取值），导致细粒度排序 ρ 仅 0.259。成对比较（"A 比 B 好"）认知负担更低、一致性更高，且天然消除 ceiling effect——因为不需要给"90"还是"92"，只需要说"A>B"。
 
 **方法**：从三角色绝对分推导 pairwise 胜负（A 分数 > B 分数则 A 胜），用 **Bradley-Terry 模型**聚合全局能力值，再与人工标注对齐验证。同时报告**传递性违例率**（A>B, B>C, C>A 的循环比例）作为成对比较质量的内部指标。
 
@@ -270,7 +279,7 @@ python src/pairwise_judge.py --workers 10
 
 ### C4. 严格审计员全面打分与扩样本验证（换裁判 + 扩样本）
 
-> **动机**：C2/C3 的委员会实验暴露了两点问题：① 委员会平均分虽强，但含"普通读者"等宽容角色，可能稀释信号；② 交叉验证样本量偏小（28 条），统计功效不足。因此本实验做两件事：**统一换用对齐度最高的"严格审计员"角色独立打分**，并把样本从 28 条扩到 **150 条**（28 条 label_pool + 122 条公告摘要）。
+> 💡 **动机**：C2/C3 的委员会实验暴露了两点问题：① 委员会平均分虽强，但含"普通读者"等宽容角色，可能稀释信号；② 交叉验证样本量偏小（28 条），统计功效不足。因此本实验做两件事：**统一换用对齐度最高的"严格审计员"角色独立打分**，并把样本从 28 条扩到 **150 条**（28 条 label_pool + 122 条公告摘要）。
 
 **方法**：
 - **裁判**：仅保留委员会中表现最优的**严格审计员**（四大会计风格，数字误差 >1% 即扣分，引用必须精确追溯），去除其他两个角色以避免宽容稀释；
@@ -306,7 +315,7 @@ python src/pairwise_judge.py --workers 10
 
 #### C4.1 公告摘要专用评估器（info_coverage 维度验证）
 
-> **动机**：C4 发现严格审计员对公告摘要的覆盖率区分度仅 4.4 分。为了验证"盲区在裁判 prompt 还是规则 rubric 本身"，我们设计了一个**公告摘要专用评估器**，新增 `info_coverage`（信息覆盖度）维度，基于 `ann_scores.json` 中的客观指标（fact_coverage / hallucination_rate / substantive_lines / hedge_count）直接计算。
+> 💡 **动机**：C4 发现严格审计员对公告摘要的覆盖率区分度仅 4.4 分。为了验证"盲区在裁判 prompt 还是规则 rubric 本身"，我们设计了一个**公告摘要专用评估器**，新增 `info_coverage`（信息覆盖度）维度，基于 `ann_scores.json` 中的客观指标（fact_coverage / hallucination_rate / substantive_lines / hedge_count）直接计算。
 
 **info_coverage 计算逻辑**：
 - 核心信号：`fact_coverage`（模型输出覆盖了多少 ground truth 事实）
@@ -336,7 +345,7 @@ python src/ann_evaluator.py
 
 #### C4.2 真实 pairwise 锦标赛尝试与替代验证
 
-> **动机**：C3 的模拟 pairwise 从 committee 分数推导，但"从绝对分推导 pairwise"损失了距离信息。本实验尝试让严格审计员**直接做 A>B 比较**，验证真实 pairwise 是否能突破绝对分天花板。
+> 💡 **动机**：C3 的模拟 pairwise 从 committee 分数推导，但"从绝对分推导 pairwise"损失了距离信息。本实验尝试让严格审计员**直接做 A>B 比较**，验证真实 pairwise 是否能突破绝对分天花板。
 
 **尝试过程**：
 - 并发 3 workers，106 次调用（53 pair × 左右互换）：18 分钟，**0/106 成功**（全部返回 None）
@@ -393,7 +402,7 @@ python src/analyze_strict_auditor.py
 
 ---
 
-## 验证脚本与复现命令
+## 🧪 验证脚本与复现命令
 
 | 目标 | 命令 | 说明 |
 |---|---|---|
@@ -423,7 +432,7 @@ python src/analyze_strict_auditor.py
 
 ### E. 人工对齐（真人盲标 · 已完成）
 
-> **设计取舍**：0–100 绝对打分需要金融功底，非专家「看不出好坏」；因此本项目改为**轻量标注**——标注者只需做两件【可观测】判断，无需判断事实对错：
+> 🎨 **设计取舍**：0–100 绝对打分需要金融功底，非专家「看不出好坏」；因此本项目改为**轻量标注**——标注者只需做两件【可观测】判断，无需判断事实对错：
 > 1. **整体质量三档**（优 / 中 / 差）：基于可读性、有无明显问题，不要求领域知识；
 > 2. **四个可观测勾选**：格式完整（四小节）/ 引用可溯源 / 无合规红线 / 无自相矛盾硬伤——看得到就能勾。
 
@@ -561,7 +570,7 @@ E.5 证明元数据级 KB 无效，并指出根因是**该子任务为闭卷设�
 
 ---
 
-## 数据来源与构建方式
+## 📚 数据来源与构建方式
 
 本项目的"可验证"建立在**真实数据**之上：
 
@@ -574,7 +583,9 @@ E.5 证明元数据级 KB 无效，并指出根因是**该子任务为闭卷设�
 
 ---
 
-## 典型案例
+## 💡 典型案例
+
+<p align="right"><a href="#top">⬆ 回到顶部</a></p>
 
 **① 应用样本 FIN-047（公告摘要 / 易，得分 95，构造档 A）**
 ```
@@ -594,7 +605,9 @@ E.5 证明元数据级 KB 无效，并指出根因是**该子任务为闭卷设�
 
 ---
 
-## 演示
+## 🎬 演示
+
+<p align="right"><a href="#top">⬆ 回到顶部</a></p>
 
 > GitHub README 出于安全沙箱策略**不支持 `<video>` 标签**——视频以**自动循环 GIF** 形式展示。
 > 想要更高画质/可点播的 MP4，请直接下载 [`assets/videos/`](assets/videos/) 或访问各段 MP4 链接。
@@ -639,6 +652,8 @@ E.5 证明元数据级 KB 无效，并指出根因是**该子任务为闭卷设�
 
 ## 🚀 快速开始
 
+<p align="right"><a href="#top">⬆ 回到顶部</a></p>
+
 ### ✅ 0. 环境准备（推荐 venv）
 ```bash
 python -m venv .venv
@@ -674,7 +689,9 @@ streamlit run src/app.py
 
 ---
 
-## 仓库结构
+## 📂 仓库结构
+
+<p align="right"><a href="#top">⬆ 回到顶部</a></p>
 
 ```
 HyFinEval/
@@ -715,7 +732,7 @@ HyFinEval/
 
 ---
 
-## 样本集说明（零成本构建）
+## 🧾 样本集说明（零成本构建）
 
 - 数据源：akshare 财务分析指标（真实绝对值+比率）、巨潮 cninfo 披露列表（真实公告标题）
 - 成本：公开、无需鉴权、零成本；不含任何 API key
@@ -725,7 +742,9 @@ HyFinEval/
 
 ---
 
-## 安全与合规
+## 🛡️ 安全与合规
+
+<p align="right"><a href="#top">⬆ 回到顶部</a></p>
 
 - API key 仅经环境变量 / `.env` 传入，代码不硬编码、不提交仓库
 - 样本均为公开数据或基于公开数据的确定性改写，无隐私 / 商业秘密
@@ -734,7 +753,9 @@ HyFinEval/
 
 ---
 
-## 后续计划
+## 🗺️ 后续计划
+
+<p align="right"><a href="#top">⬆ 回到顶部</a></p>
 
 **✅ 已完成**
 - [x] ≤2 分钟 demo（原 demo.gif 已升级为 4 段真实运行视频，见「演示」章节；demo.html/demo.gif 离线素材仍保留）
@@ -758,7 +779,7 @@ HyFinEval/
 
 ---
 
-*本项目为犀牛鸟开源实战任务个人作品，非官方出品，仅供学习与评测参考。*
+> 📝 *本项目为犀牛鸟开源实战任务个人作品，非官方出品，仅供学习与评测参考。*
 
 ---
 
@@ -766,5 +787,11 @@ HyFinEval/
   <b>HyFinEval</b> · 基于腾讯混元的金融评估应用与评判标准 ·
   <a href="LICENSE">MIT License</a> ·
   <a href="https://github.com/sh1ro676/HyFinEval">GitHub Repository</a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/built_with-%E7%8B%92%E7%89%9B%E9%B8%9F%E5%AE%9E%E6%88%98-ff6b6b?style=flat-square" alt="Built with 犀牛鸟">
+  <img src="https://img.shields.io/badge/powered_by-Tencent_Hunyuan-0052d9?style=flat-square" alt="Powered by Hunyuan">
+  <img src="https://img.shields.io/badge/eval-reproducible_rules-20c997?style=flat-square" alt="Reproducible Rules">
 </p>
 
