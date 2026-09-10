@@ -302,7 +302,72 @@ python src/pairwise_judge.py --workers 10
 - **换裁判**是正收益：严格审计员独立打分应替代委员会平均，作为交叉验证的默认裁判；
 - **扩样本**揭示了裁判的盲区：在缺乏人工标注的领域（公告摘要），裁判分与客观指标的关联中等偏弱，且对覆盖率区分不足。这提示**公告摘要子任务需要专门的评估维度**（如"信息覆盖度"），而非复用财报/问答的七维 rubric。
 
+---
+
+#### C4.1 公告摘要专用评估器（info_coverage 维度验证）
+
+> **动机**：C4 发现严格审计员对公告摘要的覆盖率区分度仅 4.4 分。为了验证"盲区在裁判 prompt 还是规则 rubric 本身"，我们设计了一个**公告摘要专用评估器**，新增 `info_coverage`（信息覆盖度）维度，基于 `ann_scores.json` 中的客观指标（fact_coverage / hallucination_rate / substantive_lines / hedge_count）直接计算。
+
+**info_coverage 计算逻辑**：
+- 核心信号：`fact_coverage`（模型输出覆盖了多少 ground truth 事实）
+- 修正项：anti-hallucination（不编造奖励）、substantiveness（有实质内容奖励）、anti-hedge（不回避奖励）
+- 公式：`info_coverage = max(0, min(1, fact_coverage - 幻觉惩罚 + 实质奖励 - 回避惩罚))`
+
+**分组对比（122 条公告摘要）**：
+
+| 评估器 | 高覆盖率均分 (>0.3, n=45) | 低覆盖率均分 (≤0.3, n=77) | **区分度** |
+|---|---|---|---|
+| 专用评估器（含 info_coverage） | **80.2** | **47.7** | **32.5** |
+| 专用评估器（不含 info_coverage，七维对照） | **81.5** | **48.7** | **32.8** |
+
+**关键发现**：
+
+1. **区分度从 4.4 跃升到 32.5——规则评估器本身没有盲区**。专用评估器（无论是否含 info_coverage）对高/低覆盖率组的区分度都在 32 分以上，说明**盲区不在规则 rubric，而在裁判的评估视角**。严格审计员的 prompt 侧重"硬伤检测"，不敏感于"覆盖了多少事实"，导致裁判分区分度仅 4.4。
+2. **info_coverage 与 factual_accuracy 高度重叠**（ρ = 0.929）。在公告摘要中，现有的 `factual_accuracy` 维度如果正确映射到 `fact_coverage`，已经在承担"信息覆盖"的信号功能。单独新增 `info_coverage` 维度的边际收益有限（区分度 32.5 vs 32.8，几乎相同）。
+3. **核心洞察**：真正需要做的不是"新增维度"，而是**给裁判的 prompt 增加"信息覆盖广度"的评估指令**。规则评估器已经有足够的区分力，裁判只是"看不到"这个信号。
+
 **复现命令**：
+```bash
+# 公告摘要专用评估器（纯规则，无需 API，秒级）
+python src/ann_evaluator.py
+```
+
+---
+
+#### C4.2 真实 pairwise 锦标赛尝试与替代验证
+
+> **动机**：C3 的模拟 pairwise 从 committee 分数推导，但"从绝对分推导 pairwise"损失了距离信息。本实验尝试让严格审计员**直接做 A>B 比较**，验证真实 pairwise 是否能突破绝对分天花板。
+
+**尝试过程**：
+- 并发 3 workers，106 次调用（53 pair × 左右互换）：18 分钟，**0/106 成功**（全部返回 None）
+- 串行 1 worker，54 次调用（neighbor=1），每对间隔 6 秒：26 分钟后仍无输出，强制终止
+- 单条诊断：pairwise prompt（~1000 字符，含两份输出）单条耗时 **30 秒**且返回 None；简单 prompt 仅需 2.7 秒且成功——确认 **Hy3 API 对长 prompt + 高频调用有限流/超时限制**
+
+**结论**：当前 API 条件下，真实 pairwise 锦标赛**无法可靠跑通**。
+
+**替代验证（模拟 pairwise，从严格审计员绝对分推导）**：
+
+| 方法 | κ | ρ | MAE |
+|---|---|---|---|
+| BT 聚合（从严格审计员绝对分推导） | 0.529 | 0.403 | 37.53 |
+| **严格审计员绝对分（直接）** | **0.696** | **0.450** | **22.07** |
+
+**核心发现**：BT 聚合反而比绝对分更差（κ 0.529 < 0.696）。这再次验证 C3 结论：**成对比较形式无法突破已有最优预测器的天花板**——严格审计员的绝对分本身就是本数据集上的最优信号，任何二次加工都会因信息损失而劣化。
+
+**真实 pairwise 脚本仍保留**（`src/pairwise_judge.py`），已加入 429 限流重试 + 串行降速 + max_tokens=256 修复，待 API 条件改善后可重跑。
+
+**复现命令**：
+```bash
+# 严格审计员 pairwise 模拟（无需 API，复用 strict_auditor_all.json）
+python src/simulate_pairwise_strict.py
+
+# 真实 pairwise（需 HY3 key，约 10-15 分钟，当前 API 条件下可能失败）
+python src/pairwise_judge.py --workers 1 --neighbor 1
+```
+
+---
+
+**复现命令**（C4 主实验）：
 ```bash
 # 1) 严格审计员全面打分（150 条，需 HY3 key，约 5-8 分钟）
 python src/run_strict_auditor_all.py --workers 10
@@ -340,6 +405,8 @@ python src/analyze_strict_auditor.py
 | **严格审计员全面打分** | `python src/run_strict_auditor_all.py --workers 10` | 统一换用最优角色，覆盖 28+122=150 条（需 HY3 key，约 5-8 分钟） |
 | **严格审计员分析** | `python src/analyze_strict_auditor.py` | 28 条人工对齐 + 122 条 vs fact_coverage 客观验证 |
 | **模拟 pairwise 锦标赛** | `python src/simulate_pairwise.py` | 从 committee 分数推导 pairwise → BT 聚合（无需新 API） |
+| **严格审计员 pairwise 模拟** | `python src/simulate_pairwise_strict.py` | 从严格审计员绝对分推导 pairwise → BT 聚合（无需新 API） |
+| **公告摘要专用评估器** | `python src/ann_evaluator.py` | 含 info_coverage 维度，122 条秒级评估（纯规则，无需 API） |
 | **pairwise 综合分析** | `python src/analyze_pairwise_overall.py` | 整合模拟 BT + 各角色绝对分 + 规则分的对比报告 |
 | **真实 pairwise（可选）** | `python src/pairwise_judge.py --workers 10` | 让裁判直接说 A>B，聚焦邻居 pair + 左右互换（需 key） |
 | **稳定性重测** | `python src/run_stability.py --runs 3` | 同批重跑，报方差 / 重测 Spearman |

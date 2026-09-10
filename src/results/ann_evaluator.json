@@ -1,0 +1,2338 @@
+{
+  "n_total": 122,
+  "with_info_coverage": {
+    "high_coverage_mean": 80.2,
+    "low_coverage_mean": 47.7,
+    "diff": 32.5
+  },
+  "without_info_coverage": {
+    "high_coverage_mean": 81.5,
+    "low_coverage_mean": 48.7,
+    "diff": 32.8
+  },
+  "info_coverage_correlation": {
+    "info_coverage_vs_fact_coverage": 0.929,
+    "overall_with_vs_fact_coverage": 0.881,
+    "overall_without_vs_fact_coverage": 0.885
+  },
+  "samples": [
+    {
+      "id": "FIN-106",
+      "mode": "闭卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.3,
+        "info_coverage": 0.1
+      },
+      "overall": 43.0,
+      "overall_no_info_coverage": 42.8,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.1
+    },
+    {
+      "id": "FIN-168",
+      "mode": "闭卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.8,
+        "info_coverage": 0.1
+      },
+      "overall": 48.2,
+      "overall_no_info_coverage": 48.1,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.09999999999999999
+    },
+    {
+      "id": "FIN-136",
+      "mode": "闭卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.1
+      },
+      "overall": 45.0,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.1
+    },
+    {
+      "id": "FIN-135",
+      "mode": "开卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 0.869
+      },
+      "overall": 83.0,
+      "overall_no_info_coverage": 84.3,
+      "fact_coverage": 0.7692307692307693,
+      "info_coverage": 0.8692307692307693
+    },
+    {
+      "id": "FIN-167",
+      "mode": "开卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.882
+      },
+      "overall": 86.3,
+      "overall_no_info_coverage": 87.5,
+      "fact_coverage": 0.631578947368421,
+      "info_coverage": 0.881578947368421
+    },
+    {
+      "id": "FIN-105",
+      "mode": "开卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.695
+      },
+      "overall": 83.8,
+      "overall_no_info_coverage": 87.5,
+      "fact_coverage": 0.5454545454545454,
+      "info_coverage": 0.6954545454545454
+    },
+    {
+      "id": "FIN-110",
+      "mode": "闭卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.0
+      },
+      "overall": 43.7,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-116",
+      "mode": "闭卷",
+      "type": "股东/高管增持",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.0
+      },
+      "overall": 43.7,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-112",
+      "mode": "闭卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.0
+      },
+      "overall": 43.7,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-120",
+      "mode": "闭卷",
+      "type": "股东/高管增持",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.1
+      },
+      "overall": 45.0,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.1
+    },
+    {
+      "id": "FIN-118",
+      "mode": "闭卷",
+      "type": "股东/高管增持",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.1
+      },
+      "overall": 45.0,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.1
+    },
+    {
+      "id": "FIN-108",
+      "mode": "闭卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.3,
+        "info_coverage": 0.0
+      },
+      "overall": 41.7,
+      "overall_no_info_coverage": 42.8,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-122",
+      "mode": "闭卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.2
+      },
+      "overall": 46.3,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.2
+    },
+    {
+      "id": "FIN-121",
+      "mode": "开卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.8,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.15
+      },
+      "overall": 58.5,
+      "overall_no_info_coverage": 58.0,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.15
+    },
+    {
+      "id": "FIN-114",
+      "mode": "闭卷",
+      "type": "股东/高管增持",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.3,
+        "info_coverage": 0.0
+      },
+      "overall": 41.7,
+      "overall_no_info_coverage": 42.8,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-124",
+      "mode": "闭卷",
+      "type": "股权激励",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.0
+      },
+      "overall": 43.7,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-111",
+      "mode": "开卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 0.933
+      },
+      "overall": 83.8,
+      "overall_no_info_coverage": 84.3,
+      "fact_coverage": 0.8333333333333334,
+      "info_coverage": 0.9333333333333333
+    },
+    {
+      "id": "FIN-119",
+      "mode": "开卷",
+      "type": "股东/高管增持",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 1.0
+      },
+      "overall": 87.8,
+      "overall_no_info_coverage": 87.5,
+      "fact_coverage": 0.7777777777777778,
+      "info_coverage": 1.0
+    },
+    {
+      "id": "FIN-130",
+      "mode": "闭卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.0
+      },
+      "overall": 43.7,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-115",
+      "mode": "开卷",
+      "type": "股东/高管增持",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 1.0
+      },
+      "overall": 84.7,
+      "overall_no_info_coverage": 84.3,
+      "fact_coverage": 0.8,
+      "info_coverage": 1.0
+    },
+    {
+      "id": "FIN-126",
+      "mode": "闭卷",
+      "type": "股权激励",
+      "dimensions": {
+        "factual_accuracy": 0.041,
+        "citation_verifiability": 0.5,
+        "completeness": 0.032,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.12
+      },
+      "overall": 46.1,
+      "overall_no_info_coverage": 46.0,
+      "fact_coverage": 0.02040816326530612,
+      "info_coverage": 0.12040816326530615
+    },
+    {
+      "id": "FIN-109",
+      "mode": "开卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.8,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 0.25
+      },
+      "overall": 56.7,
+      "overall_no_info_coverage": 54.8,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.25
+    },
+    {
+      "id": "FIN-128",
+      "mode": "闭卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.0
+      },
+      "overall": 43.7,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-134",
+      "mode": "闭卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 0.118,
+        "citation_verifiability": 0.5,
+        "completeness": 0.056,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.159
+      },
+      "overall": 48.0,
+      "overall_no_info_coverage": 47.7,
+      "fact_coverage": 0.058823529411764705,
+      "info_coverage": 0.15882352941176472
+    },
+    {
+      "id": "FIN-127",
+      "mode": "开卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 0.8
+      },
+      "overall": 82.1,
+      "overall_no_info_coverage": 84.3,
+      "fact_coverage": 0.6,
+      "info_coverage": 0.7999999999999999
+    },
+    {
+      "id": "FIN-137",
+      "mode": "开卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.8,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.25
+      },
+      "overall": 59.8,
+      "overall_no_info_coverage": 58.0,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.25
+    },
+    {
+      "id": "FIN-138",
+      "mode": "闭卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.0
+      },
+      "overall": 43.7,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-132",
+      "mode": "闭卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 0.211,
+        "citation_verifiability": 0.5,
+        "completeness": 0.722,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.3,
+        "info_coverage": 0.205
+      },
+      "overall": 48.2,
+      "overall_no_info_coverage": 54.5,
+      "fact_coverage": 0.10526315789473684,
+      "info_coverage": 0.20526315789473684
+    },
+    {
+      "id": "FIN-142",
+      "mode": "闭卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.0
+      },
+      "overall": 43.7,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-107",
+      "mode": "开卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 0.667,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 0.875
+      },
+      "overall": 83.1,
+      "overall_no_info_coverage": 80.7,
+      "fact_coverage": 0.625,
+      "info_coverage": 0.875
+    },
+    {
+      "id": "FIN-140",
+      "mode": "闭卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 0.211,
+        "citation_verifiability": 0.5,
+        "completeness": 0.741,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.205
+      },
+      "overall": 50.3,
+      "overall_no_info_coverage": 56.8,
+      "fact_coverage": 0.10526315789473684,
+      "info_coverage": 0.20526315789473684
+    },
+    {
+      "id": "FIN-133",
+      "mode": "开卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 1.0
+      },
+      "overall": 87.8,
+      "overall_no_info_coverage": 87.5,
+      "fact_coverage": 0.8235294117647058,
+      "info_coverage": 1.0
+    },
+    {
+      "id": "FIN-148",
+      "mode": "闭卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.3,
+        "info_coverage": 0.0
+      },
+      "overall": 41.7,
+      "overall_no_info_coverage": 42.8,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-146",
+      "mode": "闭卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.3,
+        "info_coverage": 0.0
+      },
+      "overall": 41.7,
+      "overall_no_info_coverage": 42.8,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-144",
+      "mode": "闭卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.0
+      },
+      "overall": 43.7,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-117",
+      "mode": "开卷",
+      "type": "股东/高管增持",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.667,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.967
+      },
+      "overall": 82.2,
+      "overall_no_info_coverage": 82.1,
+      "fact_coverage": 0.8,
+      "info_coverage": 0.9666666666666667
+    },
+    {
+      "id": "FIN-150",
+      "mode": "闭卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 0.133,
+        "citation_verifiability": 0.5,
+        "completeness": 0.133,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.3,
+        "info_coverage": 0.167
+      },
+      "overall": 46.3,
+      "overall_no_info_coverage": 46.7,
+      "fact_coverage": 0.06666666666666667,
+      "info_coverage": 0.16666666666666666
+    },
+    {
+      "id": "FIN-145",
+      "mode": "开卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 1.0
+      },
+      "overall": 84.7,
+      "overall_no_info_coverage": 84.3,
+      "fact_coverage": 0.8125,
+      "info_coverage": 1.0
+    },
+    {
+      "id": "FIN-147",
+      "mode": "开卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 1.0
+      },
+      "overall": 84.7,
+      "overall_no_info_coverage": 84.3,
+      "fact_coverage": 0.9285714285714286,
+      "info_coverage": 1.0
+    },
+    {
+      "id": "FIN-152",
+      "mode": "闭卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 0.286,
+        "citation_verifiability": 0.5,
+        "completeness": 0.444,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.3,
+        "info_coverage": 0.243
+      },
+      "overall": 50.0,
+      "overall_no_info_coverage": 52.9,
+      "fact_coverage": 0.14285714285714285,
+      "info_coverage": 0.24285714285714285
+    },
+    {
+      "id": "FIN-129",
+      "mode": "开卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.893
+      },
+      "overall": 86.4,
+      "overall_no_info_coverage": 87.5,
+      "fact_coverage": 0.6428571428571429,
+      "info_coverage": 0.8928571428571429
+    },
+    {
+      "id": "FIN-154",
+      "mode": "闭卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.0
+      },
+      "overall": 43.7,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-156",
+      "mode": "闭卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.1
+      },
+      "overall": 45.0,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.1
+    },
+    {
+      "id": "FIN-123",
+      "mode": "开卷",
+      "type": "股权激励",
+      "dimensions": {
+        "factual_accuracy": 0.145,
+        "citation_verifiability": 0.8,
+        "completeness": 0.754,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 0.223
+      },
+      "overall": 58.9,
+      "overall_no_info_coverage": 65.6,
+      "fact_coverage": 0.07272727272727272,
+      "info_coverage": 0.22272727272727272
+    },
+    {
+      "id": "FIN-158",
+      "mode": "闭卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.3,
+        "info_coverage": 0.1
+      },
+      "overall": 43.0,
+      "overall_no_info_coverage": 42.8,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.1
+    },
+    {
+      "id": "FIN-113",
+      "mode": "开卷",
+      "type": "股东/高管增持",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 1.0
+      },
+      "overall": 87.8,
+      "overall_no_info_coverage": 87.5,
+      "fact_coverage": 0.8181818181818182,
+      "info_coverage": 1.0
+    },
+    {
+      "id": "FIN-159",
+      "mode": "开卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.8,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.25
+      },
+      "overall": 59.8,
+      "overall_no_info_coverage": 58.0,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.25
+    },
+    {
+      "id": "FIN-157",
+      "mode": "开卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.917
+      },
+      "overall": 86.7,
+      "overall_no_info_coverage": 87.5,
+      "fact_coverage": 0.6666666666666666,
+      "info_coverage": 0.9166666666666666
+    },
+    {
+      "id": "FIN-160",
+      "mode": "闭卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.1
+      },
+      "overall": 45.0,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.1
+    },
+    {
+      "id": "FIN-162",
+      "mode": "闭卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.3,
+        "info_coverage": 0.0
+      },
+      "overall": 41.7,
+      "overall_no_info_coverage": 42.8,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-164",
+      "mode": "闭卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.0
+      },
+      "overall": 43.7,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-143",
+      "mode": "开卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 0.667,
+        "citation_verifiability": 0.8,
+        "completeness": 0.667,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.583
+      },
+      "overall": 76.3,
+      "overall_no_info_coverage": 77.7,
+      "fact_coverage": 0.3333333333333333,
+      "info_coverage": 0.5833333333333333
+    },
+    {
+      "id": "FIN-149",
+      "mode": "开卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 1.0
+      },
+      "overall": 84.7,
+      "overall_no_info_coverage": 84.3,
+      "fact_coverage": 0.8666666666666667,
+      "info_coverage": 1.0
+    },
+    {
+      "id": "FIN-172",
+      "mode": "闭卷",
+      "type": "股东/高管增持",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.0
+      },
+      "overall": 43.7,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-166",
+      "mode": "闭卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.0
+      },
+      "overall": 43.7,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-170",
+      "mode": "闭卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.8,
+        "info_coverage": 0.25
+      },
+      "overall": 50.1,
+      "overall_no_info_coverage": 48.1,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.25
+    },
+    {
+      "id": "FIN-165",
+      "mode": "开卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 0.333,
+        "citation_verifiability": 0.8,
+        "completeness": 0.667,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.417
+      },
+      "overall": 68.0,
+      "overall_no_info_coverage": 71.4,
+      "fact_coverage": 0.16666666666666666,
+      "info_coverage": 0.41666666666666663
+    },
+    {
+      "id": "FIN-169",
+      "mode": "开卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 0.865
+      },
+      "overall": 82.9,
+      "overall_no_info_coverage": 84.3,
+      "fact_coverage": 0.6153846153846154,
+      "info_coverage": 0.8653846153846154
+    },
+    {
+      "id": "FIN-173",
+      "mode": "开卷",
+      "type": "股东/高管增持",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.95
+      },
+      "overall": 87.2,
+      "overall_no_info_coverage": 87.5,
+      "fact_coverage": 0.8,
+      "info_coverage": 0.9500000000000001
+    },
+    {
+      "id": "FIN-171",
+      "mode": "开卷",
+      "type": "股东/高管增持",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 0.963
+      },
+      "overall": 84.2,
+      "overall_no_info_coverage": 84.3,
+      "fact_coverage": 0.8125,
+      "info_coverage": 0.9625
+    },
+    {
+      "id": "FIN-174",
+      "mode": "闭卷",
+      "type": "股东/高管增持",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.3,
+        "info_coverage": 0.0
+      },
+      "overall": 41.7,
+      "overall_no_info_coverage": 42.8,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-176",
+      "mode": "闭卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.0
+      },
+      "overall": 43.7,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-131",
+      "mode": "开卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.2,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.684
+      },
+      "overall": 72.7,
+      "overall_no_info_coverage": 76.2,
+      "fact_coverage": 0.6842105263157895,
+      "info_coverage": 0.6842105263157895
+    },
+    {
+      "id": "FIN-178",
+      "mode": "闭卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 0.087,
+        "citation_verifiability": 0.5,
+        "completeness": 0.056,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.143
+      },
+      "overall": 47.2,
+      "overall_no_info_coverage": 47.1,
+      "fact_coverage": 0.043478260869565216,
+      "info_coverage": 0.1434782608695652
+    },
+    {
+      "id": "FIN-182",
+      "mode": "闭卷",
+      "type": "股权激励",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.3,
+        "info_coverage": 0.0
+      },
+      "overall": 41.7,
+      "overall_no_info_coverage": 42.8,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-184",
+      "mode": "闭卷",
+      "type": "股权激励",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.3,
+        "info_coverage": 0.0
+      },
+      "overall": 41.7,
+      "overall_no_info_coverage": 42.8,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-181",
+      "mode": "开卷",
+      "type": "股权激励",
+      "dimensions": {
+        "factual_accuracy": 0.667,
+        "citation_verifiability": 0.8,
+        "completeness": 0.444,
+        "format": 0.8,
+        "safety_no_hallucination": 0.538,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.368
+      },
+      "overall": 66.3,
+      "overall_no_info_coverage": 67.9,
+      "fact_coverage": 0.3333333333333333,
+      "info_coverage": 0.3679487179487179
+    },
+    {
+      "id": "FIN-180",
+      "mode": "闭卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.0
+      },
+      "overall": 43.7,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-175",
+      "mode": "开卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.8,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.15
+      },
+      "overall": 58.5,
+      "overall_no_info_coverage": 58.0,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.15
+    },
+    {
+      "id": "FIN-179",
+      "mode": "开卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.8,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.25
+      },
+      "overall": 59.8,
+      "overall_no_info_coverage": 58.0,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.25
+    },
+    {
+      "id": "FIN-183",
+      "mode": "开卷",
+      "type": "股权激励",
+      "dimensions": {
+        "factual_accuracy": 0.286,
+        "citation_verifiability": 0.8,
+        "completeness": 0.333,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 0.393
+      },
+      "overall": 63.7,
+      "overall_no_info_coverage": 63.8,
+      "fact_coverage": 0.14285714285714285,
+      "info_coverage": 0.39285714285714285
+    },
+    {
+      "id": "FIN-186",
+      "mode": "闭卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.3,
+        "info_coverage": 0.1
+      },
+      "overall": 43.0,
+      "overall_no_info_coverage": 42.8,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.1
+    },
+    {
+      "id": "FIN-188",
+      "mode": "闭卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.1
+      },
+      "overall": 45.0,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.09999999999999999
+    },
+    {
+      "id": "FIN-190",
+      "mode": "闭卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.1
+      },
+      "overall": 45.0,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.1
+    },
+    {
+      "id": "FIN-194",
+      "mode": "闭卷",
+      "type": "股权激励",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.3,
+        "info_coverage": 0.1
+      },
+      "overall": 43.0,
+      "overall_no_info_coverage": 42.8,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.1
+    },
+    {
+      "id": "FIN-185",
+      "mode": "开卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.75
+      },
+      "overall": 84.6,
+      "overall_no_info_coverage": 87.5,
+      "fact_coverage": 0.5,
+      "info_coverage": 0.75
+    },
+    {
+      "id": "FIN-192",
+      "mode": "闭卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 0.2,
+        "citation_verifiability": 0.5,
+        "completeness": 0.111,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.2
+      },
+      "overall": 50.0,
+      "overall_no_info_coverage": 49.9,
+      "fact_coverage": 0.1,
+      "info_coverage": 0.19999999999999998
+    },
+    {
+      "id": "FIN-187",
+      "mode": "开卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 0.933,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.717
+      },
+      "overall": 82.9,
+      "overall_no_info_coverage": 86.2,
+      "fact_coverage": 0.4666666666666667,
+      "info_coverage": 0.7166666666666667
+    },
+    {
+      "id": "FIN-196",
+      "mode": "闭卷",
+      "type": "股权激励",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.0
+      },
+      "overall": 43.7,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-200",
+      "mode": "闭卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 0.286,
+        "citation_verifiability": 0.5,
+        "completeness": 0.75,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.3,
+        "info_coverage": 0.243
+      },
+      "overall": 50.0,
+      "overall_no_info_coverage": 56.2,
+      "fact_coverage": 0.14285714285714285,
+      "info_coverage": 0.24285714285714285
+    },
+    {
+      "id": "FIN-155",
+      "mode": "开卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.942
+      },
+      "overall": 87.1,
+      "overall_no_info_coverage": 87.5,
+      "fact_coverage": 0.6923076923076923,
+      "info_coverage": 0.9423076923076923
+    },
+    {
+      "id": "FIN-202",
+      "mode": "闭卷",
+      "type": "股权激励",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.0
+      },
+      "overall": 43.7,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-191",
+      "mode": "开卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.833,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 0.908
+      },
+      "overall": 80.9,
+      "overall_no_info_coverage": 81.6,
+      "fact_coverage": 0.7,
+      "info_coverage": 0.9083333333333333
+    },
+    {
+      "id": "FIN-163",
+      "mode": "开卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 0.6,
+        "citation_verifiability": 0.8,
+        "completeness": 0.667,
+        "format": 0.8,
+        "safety_no_hallucination": 0.176,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.344
+      },
+      "overall": 59.1,
+      "overall_no_info_coverage": 63.2,
+      "fact_coverage": 0.3,
+      "info_coverage": 0.34411764705882353
+    },
+    {
+      "id": "FIN-161",
+      "mode": "开卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 0.744,
+        "format": 0.8,
+        "safety_no_hallucination": 0.867,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 0.667
+      },
+      "overall": 78.3,
+      "overall_no_info_coverage": 79.4,
+      "fact_coverage": 0.5,
+      "info_coverage": 0.6666666666666666
+    },
+    {
+      "id": "FIN-204",
+      "mode": "闭卷",
+      "type": "股权激励",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.1
+      },
+      "overall": 45.0,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.1
+    },
+    {
+      "id": "FIN-206",
+      "mode": "闭卷",
+      "type": "股东/高管增持",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.3,
+        "info_coverage": 0.0
+      },
+      "overall": 41.7,
+      "overall_no_info_coverage": 42.8,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-153",
+      "mode": "开卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.714,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 0.853
+      },
+      "overall": 78.3,
+      "overall_no_info_coverage": 79.7,
+      "fact_coverage": 0.7241379310344828,
+      "info_coverage": 0.8527093596059113
+    },
+    {
+      "id": "FIN-208",
+      "mode": "闭卷",
+      "type": "股东/高管增持",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.3,
+        "info_coverage": 0.0
+      },
+      "overall": 41.7,
+      "overall_no_info_coverage": 42.8,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-195",
+      "mode": "开卷",
+      "type": "股权激励",
+      "dimensions": {
+        "factual_accuracy": 0.75,
+        "citation_verifiability": 0.8,
+        "completeness": 0.667,
+        "format": 0.8,
+        "safety_no_hallucination": 0.167,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.317
+      },
+      "overall": 61.3,
+      "overall_no_info_coverage": 65.9,
+      "fact_coverage": 0.375,
+      "info_coverage": 0.31666666666666665
+    },
+    {
+      "id": "FIN-201",
+      "mode": "开卷",
+      "type": "股权激励",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.714,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 0.956
+      },
+      "overall": 79.6,
+      "overall_no_info_coverage": 79.7,
+      "fact_coverage": 0.7777777777777778,
+      "info_coverage": 0.9563492063492064
+    },
+    {
+      "id": "FIN-210",
+      "mode": "闭卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.3,
+        "info_coverage": 0.0
+      },
+      "overall": 41.7,
+      "overall_no_info_coverage": 42.8,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-212",
+      "mode": "闭卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.3,
+        "info_coverage": 0.0
+      },
+      "overall": 41.7,
+      "overall_no_info_coverage": 42.8,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-205",
+      "mode": "开卷",
+      "type": "股东/高管增持",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 0.995,
+        "format": 0.8,
+        "safety_no_hallucination": 0.643,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.727
+      },
+      "overall": 78.7,
+      "overall_no_info_coverage": 81.7,
+      "fact_coverage": 0.5666666666666667,
+      "info_coverage": 0.7273809523809524
+    },
+    {
+      "id": "FIN-214",
+      "mode": "闭卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.0
+      },
+      "overall": 43.7,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-189",
+      "mode": "开卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.2,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.695
+      },
+      "overall": 72.9,
+      "overall_no_info_coverage": 76.2,
+      "fact_coverage": 0.5454545454545454,
+      "info_coverage": 0.6954545454545454
+    },
+    {
+      "id": "FIN-193",
+      "mode": "开卷",
+      "type": "股权激励",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.8,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 0.15
+      },
+      "overall": 55.3,
+      "overall_no_info_coverage": 54.8,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.15
+    },
+    {
+      "id": "FIN-218",
+      "mode": "闭卷",
+      "type": "股权激励",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.0
+      },
+      "overall": 43.7,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-177",
+      "mode": "开卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.2,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 0.92
+      },
+      "overall": 72.7,
+      "overall_no_info_coverage": 73.0,
+      "fact_coverage": 0.8695652173913043,
+      "info_coverage": 0.9195652173913044
+    },
+    {
+      "id": "FIN-220",
+      "mode": "闭卷",
+      "type": "股权激励",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.0
+      },
+      "overall": 43.7,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-216",
+      "mode": "闭卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.3,
+        "info_coverage": 0.0
+      },
+      "overall": 41.7,
+      "overall_no_info_coverage": 42.8,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-224",
+      "mode": "闭卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 0.154,
+        "citation_verifiability": 0.5,
+        "completeness": 0.067,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.3,
+        "info_coverage": 0.177
+      },
+      "overall": 46.8,
+      "overall_no_info_coverage": 46.4,
+      "fact_coverage": 0.07692307692307693,
+      "info_coverage": 0.17692307692307693
+    },
+    {
+      "id": "FIN-217",
+      "mode": "开卷",
+      "type": "股权激励",
+      "dimensions": {
+        "factual_accuracy": 0.037,
+        "citation_verifiability": 0.8,
+        "completeness": 0.022,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 0.119
+      },
+      "overall": 55.6,
+      "overall_no_info_coverage": 55.8,
+      "fact_coverage": 0.018518518518518517,
+      "info_coverage": 0.11851851851851851
+    },
+    {
+      "id": "FIN-222",
+      "mode": "闭卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 0.211,
+        "citation_verifiability": 0.5,
+        "completeness": 0.714,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.205
+      },
+      "overall": 50.3,
+      "overall_no_info_coverage": 56.5,
+      "fact_coverage": 0.10526315789473684,
+      "info_coverage": 0.20526315789473684
+    },
+    {
+      "id": "FIN-226",
+      "mode": "闭卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.3,
+        "info_coverage": 0.0
+      },
+      "overall": 41.7,
+      "overall_no_info_coverage": 42.8,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-228",
+      "mode": "闭卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.5,
+        "info_coverage": 0.0
+      },
+      "overall": 43.7,
+      "overall_no_info_coverage": 44.9,
+      "fact_coverage": 0.0,
+      "info_coverage": 0.0
+    },
+    {
+      "id": "FIN-223",
+      "mode": "开卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.625,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 0.952
+      },
+      "overall": 78.2,
+      "overall_no_info_coverage": 78.3,
+      "fact_coverage": 0.8461538461538461,
+      "info_coverage": 0.9524038461538462
+    },
+    {
+      "id": "FIN-225",
+      "mode": "开卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 0.8,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.167,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.442
+      },
+      "overall": 63.9,
+      "overall_no_info_coverage": 70.4,
+      "fact_coverage": 0.4,
+      "info_coverage": 0.44166666666666665
+    },
+    {
+      "id": "FIN-213",
+      "mode": "开卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 0.963,
+        "citation_verifiability": 0.8,
+        "completeness": 0.867,
+        "format": 0.8,
+        "safety_no_hallucination": 0.8,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.581
+      },
+      "overall": 78.6,
+      "overall_no_info_coverage": 82.2,
+      "fact_coverage": 0.48148148148148145,
+      "info_coverage": 0.5814814814814815
+    },
+    {
+      "id": "FIN-151",
+      "mode": "开卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.821
+      },
+      "overall": 85.5,
+      "overall_no_info_coverage": 87.5,
+      "fact_coverage": 0.5714285714285714,
+      "info_coverage": 0.8214285714285714
+    },
+    {
+      "id": "FIN-141",
+      "mode": "开卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 0.571,
+        "citation_verifiability": 0.8,
+        "completeness": 0.667,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.536
+      },
+      "overall": 73.9,
+      "overall_no_info_coverage": 75.9,
+      "fact_coverage": 0.2857142857142857,
+      "info_coverage": 0.5357142857142857
+    },
+    {
+      "id": "FIN-207",
+      "mode": "开卷",
+      "type": "股东/高管增持",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.934
+      },
+      "overall": 87.0,
+      "overall_no_info_coverage": 87.5,
+      "fact_coverage": 0.6842105263157895,
+      "info_coverage": 0.9342105263157895
+    },
+    {
+      "id": "FIN-209",
+      "mode": "开卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.059,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 0.815
+      },
+      "overall": 67.6,
+      "overall_no_info_coverage": 69.2,
+      "fact_coverage": 0.85,
+      "info_coverage": 0.8147058823529412
+    },
+    {
+      "id": "FIN-139",
+      "mode": "开卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.776
+      },
+      "overall": 84.9,
+      "overall_no_info_coverage": 87.5,
+      "fact_coverage": 0.5263157894736842,
+      "info_coverage": 0.7763157894736842
+    },
+    {
+      "id": "FIN-199",
+      "mode": "开卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.714,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.75
+      },
+      "overall": 80.1,
+      "overall_no_info_coverage": 82.9,
+      "fact_coverage": 0.5714285714285714,
+      "info_coverage": 0.75
+    },
+    {
+      "id": "FIN-227",
+      "mode": "开卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 0.727,
+        "citation_verifiability": 0.8,
+        "completeness": 0.667,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 0.564
+      },
+      "overall": 74.0,
+      "overall_no_info_coverage": 75.6,
+      "fact_coverage": 0.36363636363636365,
+      "info_coverage": 0.5636363636363636
+    },
+    {
+      "id": "FIN-203",
+      "mode": "开卷",
+      "type": "股权激励",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.2,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 0.697,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.723
+      },
+      "overall": 68.5,
+      "overall_no_info_coverage": 71.4,
+      "fact_coverage": 0.5483870967741935,
+      "info_coverage": 0.7226295210166178
+    },
+    {
+      "id": "FIN-125",
+      "mode": "开卷",
+      "type": "股权激励",
+      "dimensions": {
+        "factual_accuracy": 0.245,
+        "citation_verifiability": 0.8,
+        "completeness": 0.19,
+        "format": 0.8,
+        "safety_no_hallucination": 0.833,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 0.331
+      },
+      "overall": 59.6,
+      "overall_no_info_coverage": 58.8,
+      "fact_coverage": 0.12244897959183673,
+      "info_coverage": 0.3307823129251701
+    },
+    {
+      "id": "FIN-215",
+      "mode": "开卷",
+      "type": "股份回购",
+      "dimensions": {
+        "factual_accuracy": 0.457,
+        "citation_verifiability": 0.2,
+        "completeness": 0.417,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 0.229
+      },
+      "overall": 56.9,
+      "overall_no_info_coverage": 59.8,
+      "fact_coverage": 0.22857142857142856,
+      "info_coverage": 0.22857142857142856
+    },
+    {
+      "id": "FIN-219",
+      "mode": "开卷",
+      "type": "股权激励",
+      "dimensions": {
+        "factual_accuracy": 0.076,
+        "citation_verifiability": 0.8,
+        "completeness": 0.164,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 0.288
+      },
+      "overall": 58.5,
+      "overall_no_info_coverage": 58.0,
+      "fact_coverage": 0.0379746835443038,
+      "info_coverage": 0.2879746835443038
+    },
+    {
+      "id": "FIN-221",
+      "mode": "开卷",
+      "type": "利润分配/分红",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.6,
+        "calibration": 0.9,
+        "info_coverage": 1.0
+      },
+      "overall": 87.8,
+      "overall_no_info_coverage": 87.5,
+      "fact_coverage": 0.7894736842105263,
+      "info_coverage": 1.0
+    },
+    {
+      "id": "FIN-211",
+      "mode": "开卷",
+      "type": "业绩预告/快报",
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 0.615,
+        "format": 0.8,
+        "safety_no_hallucination": 0.0,
+        "computation": 0.6,
+        "calibration": 0.6,
+        "info_coverage": 0.923
+      },
+      "overall": 68.0,
+      "overall_no_info_coverage": 64.1,
+      "fact_coverage": 0.9230769230769231,
+      "info_coverage": 0.9230769230769231
+    }
+  ]
+}
