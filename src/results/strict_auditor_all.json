@@ -1,0 +1,2138 @@
+{
+  "n_total": 150,
+  "n_ok": 138,
+  "n_label_pool": 28,
+  "n_announcement": 122,
+  "samples": [
+    {
+      "id": "FIN-031",
+      "status": "ok",
+      "overall": 92.9,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.5
+      },
+      "failure_mode": "使用'以原文为准'免责话术回避盈利质量评估，无实质数据支撑导致校准维度扣分"
+    },
+    {
+      "id": "FIN-083",
+      "status": "ok",
+      "overall": 96.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.7
+      },
+      "failure_mode": "无重大缺陷，仅不确定性校准未精确指向年报原文致微扣分"
+    },
+    {
+      "id": "FIN-035",
+      "status": "ok",
+      "overall": 100.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "无"
+    },
+    {
+      "id": "FIN-045",
+      "status": "ok",
+      "overall": 100.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "无失败模式，模型准确识别量纲混淆并精确引用真实指标"
+    },
+    {
+      "id": "FIN-010",
+      "status": "ok",
+      "overall": 100.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "无失败模式"
+    },
+    {
+      "id": "FIN-028",
+      "status": "ok",
+      "overall": 100.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "无失败模式，输出严谨且引用精确可追溯"
+    },
+    {
+      "id": "FIN-025",
+      "status": "ok",
+      "overall": 100.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "无失败模式，数据精确且引用完整可追溯"
+    },
+    {
+      "id": "FIN-032",
+      "status": "parse_fail",
+      "overall": null
+    },
+    {
+      "id": "FIN-043",
+      "status": "ok",
+      "overall": 64.0,
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 1.0,
+        "completeness": 0.5,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "未提供任何实际财务数值与增长率，滥用免责声明回避量化分析要求"
+    },
+    {
+      "id": "FIN-019",
+      "status": "parse_fail",
+      "overall": null
+    },
+    {
+      "id": "FIN-020",
+      "status": "ok",
+      "overall": 97.1,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "仅增长率数值缺失百分号单位，格式规范性微瑕，其余维度严谨可追溯。"
+    },
+    {
+      "id": "FIN-052",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用可验证性不足，未提供精确至公司-年份-字段的citations，仅模糊提及公告原文"
+    },
+    {
+      "id": "FIN-057",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "Citation缺失导致可追溯性不足，但其余维度合规"
+    },
+    {
+      "id": "FIN-005",
+      "status": "ok",
+      "overall": 100.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "无"
+    },
+    {
+      "id": "FIN-060",
+      "status": "ok",
+      "overall": 36.0,
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.0,
+        "completeness": 0.4,
+        "format": 0.4,
+        "safety_no_hallucination": 0.4,
+        "computation": 1.0,
+        "calibration": 0.3
+      },
+      "failure_mode": "滥用免责话术回避关键数值与引用追溯，缺失注销数量等核心数据且无任何实质来源支撑"
+    },
+    {
+      "id": "FIN-044",
+      "status": "ok",
+      "overall": 85.7,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 0.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "总资产对比999999亿元占比计算错误（误算为1.36%，真实约0.1356%），衍生指标计算失误"
+    },
+    {
+      "id": "FIN-006",
+      "status": "ok",
+      "overall": 92.9,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.5
+      },
+      "failure_mode": "附加免责话术无实质数据支撑且不确定性未指向权威源"
+    },
+    {
+      "id": "FIN-046",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 0.5,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "未识别输入中999999亿元阈值的荒谬性，仅机械比对而未警示前提异常"
+    },
+    {
+      "id": "FIN-034",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 0.5,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "净利润增长率及部分盈利指标与公开财报口径可能存在超20%偏差，但引用追溯与结构规范"
+    },
+    {
+      "id": "FIN-053",
+      "status": "ok",
+      "overall": 78.6,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 0.5,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "完全缺失结构化引用与精确追溯，仅依赖未核实常识，导致可验证性零分且格式推导依据不足"
+    },
+    {
+      "id": "FIN-022",
+      "status": "ok",
+      "overall": 81.4,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.4,
+        "completeness": 1.0,
+        "format": 0.9,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.4
+      },
+      "failure_mode": "依赖记忆值并附加免责声明，引用仅标注public无法精确追溯至真实年报指标"
+    },
+    {
+      "id": "FIN-061",
+      "status": "ok",
+      "overall": 43.0,
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.2,
+        "completeness": 0.3,
+        "format": 0.3,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.2
+      },
+      "failure_mode": "通篇使用'以原文为准'免责话术回避具体数值与引用，缺失关键财务数据且不可验证。"
+    },
+    {
+      "id": "FIN-058",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "模糊提及法规但无公司-年份-字段级精确引用，可追溯性不足"
+    },
+    {
+      "id": "FIN-012",
+      "status": "ok",
+      "overall": 100.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "无"
+    },
+    {
+      "id": "FIN-059",
+      "status": "ok",
+      "overall": 20.0,
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.1,
+        "completeness": 0.2,
+        "format": 0.3,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "全篇以'需以原文为准'等免责话术回避所有关键数值披露，citations中company=N/A模糊无法追溯，且无任何计算推导依据。"
+    },
+    {
+      "id": "FIN-049",
+      "status": "parse_fail",
+      "overall": null
+    },
+    {
+      "id": "FIN-084",
+      "status": "ok",
+      "overall": 64.3,
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "以'需以原文为准'免责话术回避提供所要求的市盈率具体数值，缺失关键指标且无实质数据支撑"
+    },
+    {
+      "id": "FIN-008",
+      "status": "ok",
+      "overall": 95.7,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 1.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.7
+      },
+      "failure_mode": "单位不确定性未严格指向年报原文，且附加无实质数据支撑的免责话术略显回避责任"
+    },
+    {
+      "id": "FIN-136",
+      "status": "ok",
+      "overall": 92.9,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用可验证性不足，未给出具体公司-年份-字段的citations，仅模糊提及创业板上市规则而无法精确追溯"
+    },
+    {
+      "id": "FIN-167",
+      "status": "ok",
+      "overall": 91.4,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.9,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅标注模糊来源未精确追溯至公司-年份-字段，违反审计追溯要求"
+    },
+    {
+      "id": "FIN-105",
+      "status": "ok",
+      "overall": 90.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement而未精确追溯至公司-年份-具体字段，可验证性不达标"
+    },
+    {
+      "id": "FIN-106",
+      "status": "parse_fail",
+      "overall": null
+    },
+    {
+      "id": "FIN-135",
+      "status": "ok",
+      "overall": 92.86,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至公司-年份-具体字段，违反可验证性满分要求"
+    },
+    {
+      "id": "FIN-110",
+      "status": "ok",
+      "overall": 85.7,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "无任何引用声明导致来源不可追溯，违反审计硬维度要求"
+    },
+    {
+      "id": "FIN-168",
+      "status": "parse_fail",
+      "overall": null
+    },
+    {
+      "id": "FIN-116",
+      "status": "ok",
+      "overall": 90.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "未提供精确至公司-年份-字段的引用，仅模糊指向公告原文导致可追溯性不足"
+    },
+    {
+      "id": "FIN-118",
+      "status": "ok",
+      "overall": 78.57,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 0.5,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "无任何结构化引用与来源追溯，导致引用可验证性硬维度零分"
+    },
+    {
+      "id": "FIN-108",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "未提供可精确追溯至公司-年份-字段的引用，仅模糊提及法规且自陈citations无，违反硬维度可追溯要求"
+    },
+    {
+      "id": "FIN-120",
+      "status": "ok",
+      "overall": 86.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "完全缺失可追溯至具体公司-年份-字段的引用，违反A+B硬维度零分标准"
+    },
+    {
+      "id": "FIN-122",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "未提供精确至公司-年份-字段的结构化引用，仅泛述规则来源导致可验证性扣分"
+    },
+    {
+      "id": "FIN-121",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至五粮液-2024-具体公告字段，违反可追溯要求"
+    },
+    {
+      "id": "FIN-112",
+      "status": "ok",
+      "overall": 64.3,
+      "dimensions": {
+        "factual_accuracy": 0.5,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 0.5,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.5
+      },
+      "failure_mode": "通篇免责话术无实质数据支撑且零引用，回避披露责任与溯源要求"
+    },
+    {
+      "id": "FIN-111",
+      "status": "ok",
+      "overall": 91.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.9,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "Citations are generic 'source=announcement' without precise company-year-field traceability, otherwise output is accurate and complete."
+    },
+    {
+      "id": "FIN-114",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "缺失精确结构化引用(citations)，仅泛引法规无法追溯至具体公司-年份-字段"
+    },
+    {
+      "id": "FIN-124",
+      "status": "ok",
+      "overall": 77.0,
+      "dimensions": {
+        "factual_accuracy": 0.9,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.5
+      },
+      "failure_mode": "无结构化引用且依赖免责话术回避实质数据责任，违反可追溯与审慎披露要求"
+    },
+    {
+      "id": "FIN-119",
+      "status": "ok",
+      "overall": 90.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至五粮液-2024-具体字段，且推导未逐条展示取数依据"
+    },
+    {
+      "id": "FIN-130",
+      "status": "ok",
+      "overall": 85.7,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "模型未提供任何精确至公司-年份-字段的引用，citation_verifiability零分，其余维度完美合规。"
+    },
+    {
+      "id": "FIN-109",
+      "status": "ok",
+      "overall": 91.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.4,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "Citations vaguely labeled as 'source=announcement' lacking company-year-field precision, violating strict traceability audit standard."
+    },
+    {
+      "id": "FIN-134",
+      "status": "ok",
+      "overall": 92.9,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "未提供可精确追溯至公司-年份-字段的结构化引用，仅模糊提及法规导致可验证性扣分"
+    },
+    {
+      "id": "FIN-128",
+      "status": "ok",
+      "overall": 78.6,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 0.5,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "完全缺失结构化引用字段与可追溯来源，违反citation_verifiability硬维度零分规则，导致披露无法定位至公司-年份-指标"
+    },
+    {
+      "id": "FIN-126",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊指向公告原文而未精确到公司-年份-字段，核心硬维度未达满分"
+    },
+    {
+      "id": "FIN-115",
+      "status": "ok",
+      "overall": 92.86,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅泛标source=announcement未精确到公司-年份-字段，导致可追溯性扣分"
+    },
+    {
+      "id": "FIN-127",
+      "status": "ok",
+      "overall": 91.4,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.9,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅泛化标注source=announcement，未精确追溯至宁德时代-2024-具体字段，不满足硬维度可追溯要求"
+    },
+    {
+      "id": "FIN-137",
+      "status": "ok",
+      "overall": 92.9,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用模糊未精确追溯公司-年份-字段，仅标注source=announcement无法定位真实指标"
+    },
+    {
+      "id": "FIN-107",
+      "status": "ok",
+      "overall": 88.6,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.7,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement未精确追溯至公司-年份-字段且未展示数值推导依据"
+    },
+    {
+      "id": "FIN-140",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "提及监管规则但无精确公司-年份-字段级引用，citation_verifiability仅达一般水平"
+    },
+    {
+      "id": "FIN-132",
+      "status": "ok",
+      "overall": 85.7,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "未提供任何精确citations，无法追溯公司-年份-字段，违反硬维度可验证性要求"
+    },
+    {
+      "id": "FIN-138",
+      "status": "ok",
+      "overall": 77.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.2,
+        "completeness": 1.0,
+        "format": 0.9,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.3
+      },
+      "failure_mode": "依赖模糊免责话术且缺失公司-年份-字段级引用，违背审计溯源与审慎性要求"
+    },
+    {
+      "id": "FIN-148",
+      "status": "ok",
+      "overall": 84.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 0.9,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "citation_verifiability零分：无任何可追溯至公司-年份-字段的精确引用，仅泛述规则且明示citations无，违反硬维度要求"
+    },
+    {
+      "id": "FIN-133",
+      "status": "ok",
+      "overall": 86.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.3,
+        "completeness": 1.0,
+        "format": 0.7,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement未精确追溯至公司-年份-字段，违反可验证性硬标准且格式推导依据缺失"
+    },
+    {
+      "id": "FIN-142",
+      "status": "parse_fail",
+      "overall": null
+    },
+    {
+      "id": "FIN-146",
+      "status": "ok",
+      "overall": 85.7,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.5,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "缺失精确citations且要素来源仅模糊引用法规，未定位至公司-年份-字段"
+    },
+    {
+      "id": "FIN-144",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅提及法规未追溯公司-年份-字段，可验证性不足"
+    },
+    {
+      "id": "FIN-117",
+      "status": "ok",
+      "overall": 92.9,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注 source=announcement，未精确追溯至具体公司-年份-字段，违反硬维度可追溯要求"
+    },
+    {
+      "id": "FIN-129",
+      "status": "ok",
+      "overall": 85.7,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.5,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement未能精确追溯公司-年份-字段，且格式缺乏明确推导链，违反审计级溯源规范"
+    },
+    {
+      "id": "FIN-156",
+      "status": "ok",
+      "overall": 85.7,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "无任何结构化引用导致引用可验证性零分，违反A+B核心硬维度追溯要求"
+    },
+    {
+      "id": "FIN-147",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "Citations only state generic source=announcement without field-level traceability, violating precise citation requirement."
+    },
+    {
+      "id": "FIN-123",
+      "status": "ok",
+      "overall": 90.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.4,
+        "completeness": 1.0,
+        "format": 0.9,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至宁德时代-2024-特别提示等具体字段"
+    },
+    {
+      "id": "FIN-150",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用可验证性不足，仅模糊提及披露法规而未精确追溯至公司-年份-字段且自标citations无"
+    },
+    {
+      "id": "FIN-145",
+      "status": "ok",
+      "overall": 90.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至具体公司-年份-字段，可验证性不达标"
+    },
+    {
+      "id": "FIN-154",
+      "status": "ok",
+      "overall": 77.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.2,
+        "completeness": 1.0,
+        "format": 0.9,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.3
+      },
+      "failure_mode": "模糊提及来源无法精确追溯，且免责话术无实质数据支撑，违背审计引用与校准规范"
+    },
+    {
+      "id": "FIN-113",
+      "status": "ok",
+      "overall": 92.9,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用模糊仅标注source=announcement，未精确追溯至公司-年份-字段，可验证性不达标"
+    },
+    {
+      "id": "FIN-152",
+      "status": "ok",
+      "overall": 64.3,
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 0.5,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "零引用与无实质数据，以免责话术回避关键数值披露义务"
+    },
+    {
+      "id": "FIN-160",
+      "status": "ok",
+      "overall": 85.7,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "完全缺失结构化引用与来源追溯，citation_verifiability零分，其余维度均满足要求"
+    },
+    {
+      "id": "FIN-158",
+      "status": "ok",
+      "overall": 81.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 0.7,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "完全缺失结构化引用与字段级溯源，违反核心硬维度可追溯性零分要求"
+    },
+    {
+      "id": "FIN-159",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至公司-年份-字段"
+    },
+    {
+      "id": "FIN-143",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至公司-年份-具体字段，不满足可验证性满分要求"
+    },
+    {
+      "id": "FIN-164",
+      "status": "ok",
+      "overall": 86.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "完全无引用溯源，未标注具体公司-年份-字段，导致核心硬维度得零分"
+    },
+    {
+      "id": "FIN-172",
+      "status": "ok",
+      "overall": 85.7,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "无任何结构化引用(citations)，无法追溯公司-年份-字段，硬维度不可验证零分"
+    },
+    {
+      "id": "FIN-157",
+      "status": "parse_fail",
+      "overall": null
+    },
+    {
+      "id": "FIN-162",
+      "status": "ok",
+      "overall": 78.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.5
+      },
+      "failure_mode": "无任何字段级引用且滥用'以原文为准'免责话术回避实质数据支撑，违反审计可追溯与责任原则"
+    },
+    {
+      "id": "FIN-165",
+      "status": "ok",
+      "overall": 87.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.6,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至中国平安-2023-具体字段，违反可追溯性要求"
+    },
+    {
+      "id": "FIN-170",
+      "status": "ok",
+      "overall": 85.7,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "无任何引用或来源声明，无法追溯至公司-年份-字段，违反核心硬维度要求"
+    },
+    {
+      "id": "FIN-166",
+      "status": "ok",
+      "overall": 85.7,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "完全缺失公司-年份-字段级引用，citation_verifiability零分"
+    },
+    {
+      "id": "FIN-169",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用标注仅泛称source=announcement未精确追溯公司-年份-字段，可验证性维度扣分"
+    },
+    {
+      "id": "FIN-149",
+      "status": "parse_fail",
+      "overall": null
+    },
+    {
+      "id": "FIN-171",
+      "status": "ok",
+      "overall": 85.7,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.5,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement未精确追溯至公司-年份-字段，且缺乏取数推导链，致可验证性与格式维度失分"
+    },
+    {
+      "id": "FIN-173",
+      "status": "ok",
+      "overall": 91.4,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.9,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用标注模糊仅写source=announcement，未精确追溯公司-年份-字段导致可验证性扣分"
+    },
+    {
+      "id": "FIN-184",
+      "status": "ok",
+      "overall": 78.6,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 0.5,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "无任何结构化引用追溯至具体公司-年份-字段，违反引用可验证性硬标准且格式依据不足"
+    },
+    {
+      "id": "FIN-182",
+      "status": "ok",
+      "overall": 85.7,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "缺失结构化citations致引用不可验证零分，虽内容完整且审慎但硬维度失败"
+    },
+    {
+      "id": "FIN-176",
+      "status": "ok",
+      "overall": 89.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.3,
+        "completeness": 1.0,
+        "format": 0.9,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "模型未提供精确可追溯至公司-年份-字段的引用，仅模糊提及交易所规则且自陈citations无，违反引用硬维度要求"
+    },
+    {
+      "id": "FIN-178",
+      "status": "ok",
+      "overall": 90.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.3,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "缺失针对隆基绿能2023具体公司-年份-字段的精确引用，仅泛引法规导致可追溯性不足"
+    },
+    {
+      "id": "FIN-174",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "citation_verifiability未满分因仅模糊提及规则未精确追溯至具体公司-年份-字段"
+    },
+    {
+      "id": "FIN-131",
+      "status": "ok",
+      "overall": 78.6,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 0.5,
+        "format": 0.5,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.5
+      },
+      "failure_mode": "无引用标注且遗漏'对投资者而言的要点'要求，完整性不足"
+    },
+    {
+      "id": "FIN-181",
+      "status": "ok",
+      "overall": 86.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.3,
+        "completeness": 1.0,
+        "format": 0.7,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至公司-年份-字段，不符合严格引用标准"
+    },
+    {
+      "id": "FIN-180",
+      "status": "ok",
+      "overall": 91.4,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.9,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅提及公告标题未精确追溯至公司-年份-字段，可验证性不足"
+    },
+    {
+      "id": "FIN-175",
+      "status": "ok",
+      "overall": 87.1,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.6,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅标注模糊的source=announcement，未精确追溯至隆基绿能-2023-具体字段，违反可验证性硬维度要求"
+    },
+    {
+      "id": "FIN-179",
+      "status": "ok",
+      "overall": 86.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.3,
+        "completeness": 1.0,
+        "format": 0.7,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至隆基绿能-2024-具体字段，违反可追溯硬标准"
+    },
+    {
+      "id": "FIN-183",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至公司-年份-具体字段，可验证性不足"
+    },
+    {
+      "id": "FIN-188",
+      "status": "ok",
+      "overall": 92.9,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "未提供精确可追溯的引用字段，仅泛引法规导致可验证性扣分"
+    },
+    {
+      "id": "FIN-186",
+      "status": "ok",
+      "overall": 92.86,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "无精确字段级citations，仅模糊指向公告原文导致引用不可验证"
+    },
+    {
+      "id": "FIN-190",
+      "status": "ok",
+      "overall": 85.7,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.5,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "缺乏字段级可追溯引用与明确推导链，仅泛述监管规定导致可验证性与规范性未达满分"
+    },
+    {
+      "id": "FIN-194",
+      "status": "ok",
+      "overall": 85.7,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "无任何结构化引用与字段级溯源，违反硬维度citation_verifiability零分"
+    },
+    {
+      "id": "FIN-192",
+      "status": "ok",
+      "overall": 86.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.4,
+        "completeness": 1.0,
+        "format": 0.6,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "未提供精确公司-年份-字段级引用，仅模糊指向公告原文规避责任，且关键要素推导缺乏具体依据链。"
+    },
+    {
+      "id": "FIN-196",
+      "status": "ok",
+      "overall": 71.4,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 0.5,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.5
+      },
+      "failure_mode": "缺失精确引用且以免责话术回避数据责任，不符合审计追溯规范"
+    },
+    {
+      "id": "FIN-187",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement而未精确追溯至公司-年份-具体字段，违反可验证性硬性要求"
+    },
+    {
+      "id": "FIN-202",
+      "status": "ok",
+      "overall": 85.7,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "无任何citations与精确公司-年份-字段追溯，违反引用可验证性硬维度零分"
+    },
+    {
+      "id": "FIN-163",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注 source=announcement 未精确追溯至公司-年份-具体字段，违反可验证性硬维度要求"
+    },
+    {
+      "id": "FIN-185",
+      "status": "parse_fail",
+      "overall": null
+    },
+    {
+      "id": "FIN-200",
+      "status": "ok",
+      "overall": 79.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 0.5,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "无结构化引用且依赖免责话术回避精确溯源，违反引用可验证性零分硬标准"
+    },
+    {
+      "id": "FIN-155",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至具体公司-年份-字段，违反可验证性要求"
+    },
+    {
+      "id": "FIN-191",
+      "status": "ok",
+      "overall": 87.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.3,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅泛化标注source=announcement，缺乏公司-年份-字段级精确追溯，且未展示数值推导链。"
+    },
+    {
+      "id": "FIN-206",
+      "status": "ok",
+      "overall": 85.7,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "完全缺失结构化引用与字段级来源追溯，核心硬维度citation_verifiability零分"
+    },
+    {
+      "id": "FIN-161",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至公司-年份-具体字段，不符合审计级溯源要求"
+    },
+    {
+      "id": "FIN-210",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊提及监管规则未精确追溯至公司-年份-字段，来源不可验证"
+    },
+    {
+      "id": "FIN-208",
+      "status": "ok",
+      "overall": 83.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "完全缺失公司-年份-字段级引用致可验证性零分，且免责话术无实质数据支撑违反审计严格标准"
+    },
+    {
+      "id": "FIN-204",
+      "status": "parse_fail",
+      "overall": null
+    },
+    {
+      "id": "FIN-212",
+      "status": "ok",
+      "overall": 86.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "未提供任何精确citations字段，引用可验证性零分，违反硬维度追溯要求"
+    },
+    {
+      "id": "FIN-214",
+      "status": "ok",
+      "overall": 92.86,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "未提供可追溯至具体公司-年份-字段的引用，仅模糊提及规则与公告原文导致来源不可验证"
+    },
+    {
+      "id": "FIN-201",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅标注source=announcement而未精确追溯公司-年份-字段，导致可验证性不达满分"
+    },
+    {
+      "id": "FIN-195",
+      "status": "ok",
+      "overall": 93.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至公司-年份-具体字段，可验证性不达标"
+    },
+    {
+      "id": "FIN-205",
+      "status": "parse_fail",
+      "overall": null
+    },
+    {
+      "id": "FIN-189",
+      "status": "ok",
+      "overall": 70.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 0.5,
+        "format": 0.6,
+        "safety_no_hallucination": 0.5,
+        "computation": 1.0,
+        "calibration": 0.8
+      },
+      "failure_mode": "错误将已披露的送转安排标注为原文未披露，且引用未精确到字段、citations列表残缺"
+    },
+    {
+      "id": "FIN-220",
+      "status": "ok",
+      "overall": 85.7,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "完全缺失结构化引用与来源追溯，违反可验证性硬标准（无公司-年份-字段级citations）"
+    },
+    {
+      "id": "FIN-153",
+      "status": "ok",
+      "overall": 92.9,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至招商银行-2023-具体字段"
+    },
+    {
+      "id": "FIN-177",
+      "status": "ok",
+      "overall": 87.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.4,
+        "completeness": 1.0,
+        "format": 0.7,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用未精确标注公司-年份-字段且未内联覆盖全部数值，可追溯性与格式推导依据不足"
+    },
+    {
+      "id": "FIN-218",
+      "status": "parse_fail",
+      "overall": null
+    },
+    {
+      "id": "FIN-193",
+      "status": "ok",
+      "overall": 57.0,
+      "dimensions": {
+        "factual_accuracy": 0.0,
+        "citation_verifiability": 0.1,
+        "completeness": 0.5,
+        "format": 0.4,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用模糊无法追溯且未提取原文历史具体数值，要素覆盖不全"
+    },
+    {
+      "id": "FIN-216",
+      "status": "ok",
+      "overall": 86.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "citation_verifiability零分：未提供任何可追溯至公司-年份-字段的引用，违反硬维度溯源要求"
+    },
+    {
+      "id": "FIN-223",
+      "status": "ok",
+      "overall": 92.9,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至美的集团-2023-具体字段，违反可验证性硬维度要求"
+    },
+    {
+      "id": "FIN-228",
+      "status": "ok",
+      "overall": 92.9,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用未精确追溯至公司-年份-字段，仅泛化提及公告原文"
+    },
+    {
+      "id": "FIN-225",
+      "status": "ok",
+      "overall": 87.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.3,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至美的集团-2024-具体字段，违反可验证性硬维度要求"
+    },
+    {
+      "id": "FIN-224",
+      "status": "ok",
+      "overall": 71.4,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 0.5,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.5
+      },
+      "failure_mode": "完全缺失结构化引用，依赖免责话术规避实质数据支撑，违反可追溯硬标准"
+    },
+    {
+      "id": "FIN-226",
+      "status": "ok",
+      "overall": 85.7,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "模型未提供任何可追溯至公司-年份-字段的引用，核心硬维度 citation_verifiability 得零分，审计链条断裂。"
+    },
+    {
+      "id": "FIN-222",
+      "status": "ok",
+      "overall": 78.6,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 1.0,
+        "format": 0.5,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "未提供任何citations溯源，且格式推导依据不足，仅以惯例描述支撑结论。"
+    },
+    {
+      "id": "FIN-151",
+      "status": "ok",
+      "overall": 91.4,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.9,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至招商银行-2022-具体字段，违反可验证性硬维度要求"
+    },
+    {
+      "id": "FIN-217",
+      "status": "ok",
+      "overall": 82.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.45,
+        "completeness": 1.0,
+        "format": 0.85,
+        "safety_no_hallucination": 0.5,
+        "computation": 1.0,
+        "calibration": 0.95
+      },
+      "failure_mode": "引用仅标source=announcement无法追溯公司-年份-字段，且投资者要点掺入原文未提及的稀释效应等外部推断违反仅限原文指令"
+    },
+    {
+      "id": "FIN-207",
+      "status": "ok",
+      "overall": 87.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.4,
+        "completeness": 1.0,
+        "format": 0.7,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至公司-年份-字段，不符合审计级引用标准"
+    },
+    {
+      "id": "FIN-199",
+      "status": "ok",
+      "overall": 91.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.9,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至公司-年份-字段，违反可验证性硬性要求"
+    },
+    {
+      "id": "FIN-141",
+      "status": "ok",
+      "overall": 91.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.9,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅标注模糊来源source=announcement，未精确追溯至公司-年份-字段，违反可验证性要求"
+    },
+    {
+      "id": "FIN-209",
+      "status": "ok",
+      "overall": 92.9,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至具体公司-年份-字段，违反可验证性硬性要求"
+    },
+    {
+      "id": "FIN-213",
+      "status": "ok",
+      "overall": 90.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅泛化标注source=announcement，未精确追溯公司-年份-具体字段，可验证性不达标"
+    },
+    {
+      "id": "FIN-227",
+      "status": "ok",
+      "overall": 91.4,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.9,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至美的集团-2024-具体字段，违反可验证性硬维度要求"
+    },
+    {
+      "id": "FIN-139",
+      "status": "ok",
+      "overall": 84.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.3,
+        "completeness": 1.0,
+        "format": 0.6,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至比亚迪-2022-具体字段，且推导依据展示不足"
+    },
+    {
+      "id": "FIN-219",
+      "status": "ok",
+      "overall": 88.6,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.7,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement未精确追溯公司-年份-字段，且取数依据展示不充分"
+    },
+    {
+      "id": "FIN-215",
+      "status": "ok",
+      "overall": 57.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.0,
+        "completeness": 0.0,
+        "format": 0.5,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 0.5
+      },
+      "failure_mode": "模型输出截断且未提供任何引用与投资者要点，完整性与可验证性零分"
+    },
+    {
+      "id": "FIN-221",
+      "status": "ok",
+      "overall": 90.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "模糊引用未精确到公司-年份-字段且未展示计算推导链"
+    },
+    {
+      "id": "FIN-211",
+      "status": "ok",
+      "overall": 90.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至海康威视-2023-具体字段，违反可验证性硬维度要求"
+    },
+    {
+      "id": "FIN-203",
+      "status": "ok",
+      "overall": 97.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.8,
+        "completeness": 1.0,
+        "format": 1.0,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用未显式标注公司-年份-字段三元组但摘录可定位，无实质数据错误。"
+    },
+    {
+      "id": "FIN-125",
+      "status": "ok",
+      "overall": 90.0,
+      "dimensions": {
+        "factual_accuracy": 1.0,
+        "citation_verifiability": 0.5,
+        "completeness": 1.0,
+        "format": 0.8,
+        "safety_no_hallucination": 1.0,
+        "computation": 1.0,
+        "calibration": 1.0
+      },
+      "failure_mode": "引用仅模糊标注source=announcement，未精确追溯至宁德时代-2024-具体字段，违反可验证性要求"
+    }
+  ]
+}

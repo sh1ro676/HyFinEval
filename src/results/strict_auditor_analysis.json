@@ -1,0 +1,38 @@
+{
+  "label_pool_28": {
+    "n": 25,
+    "kappa": 0.696,
+    "spearman": 0.45,
+    "mae": 22.07,
+    "strict_agree": 0.48,
+    "adjacent_agree": 0.92
+  },
+  "announcement_122": {
+    "n": 113,
+    "spearman_vs_fact_coverage": 0.29,
+    "pearson_vs_fact_coverage": 0.266,
+    "mae_vs_coverage_x100": 60.91,
+    "high_coverage_n": 41,
+    "high_coverage_mean_judge": 89.8,
+    "low_coverage_n": 72,
+    "low_coverage_mean_judge": 85.4
+  },
+  "overall": {
+    "n_total": 150,
+    "n_ok": 138,
+    "parse_fail_ids": [
+      "FIN-032",
+      "FIN-019",
+      "FIN-049",
+      "FIN-106",
+      "FIN-168",
+      "FIN-142",
+      "FIN-157",
+      "FIN-149",
+      "FIN-185",
+      "FIN-204",
+      "FIN-205",
+      "FIN-218"
+    ]
+  }
+}
